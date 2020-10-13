@@ -5,6 +5,7 @@ using TMPro;
 
 public class Shooting : MonoBehaviour
 {
+    public TImeManager timeManager;
     public TMP_Text AmmoCount;
     public float Ammo = 12;
     public Camera cam;
@@ -33,6 +34,11 @@ public class Shooting : MonoBehaviour
         {
             Gun_Anim.SetTrigger("Reload");
             Ammo = 12;
+        }
+
+        if(Input.GetButtonDown("Jump"))
+        {
+            timeManager.DoSlowmotion();
         }
     }
 
