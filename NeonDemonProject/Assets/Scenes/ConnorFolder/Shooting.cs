@@ -33,7 +33,7 @@ public class Shooting : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit,Mathf.Infinity))
         {
-            GameObject impactEffectGO = Instantiate(impactEffect, hit.point, Quaternion.identity) as GameObject;
+            GameObject impactEffectGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(Vector3.forward, Vector3.up)) as GameObject;
             Destroy(impactEffectGO, 5);
             Debug.Log( hit.collider.gameObject.name);
         }
