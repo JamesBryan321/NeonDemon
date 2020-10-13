@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Shooting : MonoBehaviour
 {
     public Camera cam;
     public List<ParticleSystem> ShootingSFX;
     public GameObject impactEffect;
-
+    Animator Gun_Anim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Gun_Anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,6 +25,10 @@ public class Shooting : MonoBehaviour
             int randomNum = Random.Range(0, 2);
             Shoot();
             ShootingSFX[randomNum].Emit(1);
+        }
+        else if(Input.GetMouseButtonDown(1))
+        {
+            Gun_Anim.SetTrigger("Reload");
         }
     }
 
@@ -38,4 +43,7 @@ public class Shooting : MonoBehaviour
             Debug.Log( hit.collider.gameObject.name);
         }
     }
+
+ 
+
 }
