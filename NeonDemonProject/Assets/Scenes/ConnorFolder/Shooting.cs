@@ -12,9 +12,11 @@ public class Shooting : MonoBehaviour
     public List<ParticleSystem> ShootingSFX;
     public GameObject impactEffect;
     public Animator Gun_Anim;
+
     // Start is called before the first frame update
     void Start()
     {
+ 
        // Gun_Anim = GetComponent<Animator>();
     }
 
@@ -25,6 +27,7 @@ public class Shooting : MonoBehaviour
         //////
         if (Input.GetMouseButtonDown(0) && Ammo > 0)
         {
+            Gun_Anim.SetTrigger("Shoot");
             Ammo -= 1;
             int randomNum = Random.Range(0, 2);
             Shoot();
