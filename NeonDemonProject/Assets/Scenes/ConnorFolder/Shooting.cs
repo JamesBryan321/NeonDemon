@@ -10,11 +10,16 @@ public class Shooting : MonoBehaviour
     public float Ammo = 12;
     public Camera cam;
     public List<ParticleSystem> ShootingSFX;
+
+    public ParticleSystem Muzzleflash;
     public GameObject impactEffect;
     public Animator Gun_Anim;
+    public Animator Cam_Anim;
+    public Camera cam1;
     // Start is called before the first frame update
     void Start()
     {
+ 
        // Gun_Anim = GetComponent<Animator>();
     }
 
@@ -25,6 +30,8 @@ public class Shooting : MonoBehaviour
         //////
         if (Input.GetMouseButtonDown(0) && Ammo > 0)
         {
+            Muzzleflash.Play();
+            Gun_Anim.SetTrigger("Shoot");
             Ammo -= 1;
             int randomNum = Random.Range(0, 2);
             Shoot();
@@ -35,10 +42,11 @@ public class Shooting : MonoBehaviour
             Gun_Anim.SetTrigger("Reload");
             Ammo = 12;
         }
-
-        if(Input.GetButtonDown("Jump"))
+        Cam_Anim.SetBool("Slow", timeManager.IsSlow);
+        if (Input.GetButtonDown("Jump"))
         {
             timeManager.DoSlowmotion();
+           
         }
     }
 
