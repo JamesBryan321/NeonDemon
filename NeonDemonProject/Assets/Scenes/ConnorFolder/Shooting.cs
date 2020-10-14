@@ -12,7 +12,8 @@ public class Shooting : MonoBehaviour
     public List<ParticleSystem> ShootingSFX;
     public GameObject impactEffect;
     public Animator Gun_Anim;
-
+    public Animator Cam_Anim;
+    public Camera cam1;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +39,11 @@ public class Shooting : MonoBehaviour
             Gun_Anim.SetTrigger("Reload");
             Ammo = 12;
         }
-
-        if(Input.GetButtonDown("Jump"))
+        Cam_Anim.SetBool("Slow", timeManager.IsSlow);
+        if (Input.GetButtonDown("Jump"))
         {
             timeManager.DoSlowmotion();
+           
         }
     }
 
