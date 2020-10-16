@@ -45,7 +45,7 @@ public class PlayerInput : MonoBehaviour
 
     public bool crouching
     {
-        get { return Input.GetKey(KeyCode.C); }
+        get { return Input.GetKey(KeyCode.LeftControl); }
     }
 
     private Vector2 previous;
