@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 moveDirection = Vector3.zero;
     [HideInInspector]
     public Vector3 contactPoint;
-    [HideInInspector]
+    //[HideInInspector]
     public CharacterController controller;
     [HideInInspector]
     public bool playerControl = false;
@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void UpdateJump()
     {
-        if (jump != Vector3.zero)
+       if (jump != Vector3.zero)
         {
             Vector3 dir = (jump * jumpSpeed);
             if (dir.x != 0) moveDirection.x = dir.x;
