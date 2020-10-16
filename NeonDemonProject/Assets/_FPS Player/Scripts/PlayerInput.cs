@@ -40,7 +40,7 @@ public class PlayerInput : MonoBehaviour
 
     public bool crouch
     {
-        get { return Input.GetKeyDown(KeyCode.C); }
+        get { return Input.GetKeyDown(KeyCode.LeftControl); }
     }
 
     public bool crouching
