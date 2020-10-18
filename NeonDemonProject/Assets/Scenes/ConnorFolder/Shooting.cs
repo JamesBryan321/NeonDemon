@@ -15,12 +15,12 @@ public class Shooting : MonoBehaviour
     public GameObject impactEffect;
     public Animator Gun_Anim;
     public Animator Cam_Anim;
-    public Camera cam1;
+    
     // Start is called before the first frame update
     void Start()
     {
  
-       // Gun_Anim = GetComponent<Animator>();
+       Cam_Anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,8 +42,9 @@ public class Shooting : MonoBehaviour
             Gun_Anim.SetTrigger("Reload");
             Ammo = 12;
         }
-        Cam_Anim.SetBool("Slow", timeManager.IsSlow);
-        if (Input.GetButtonDown("Jump"))
+        //Cam_Anim.SetBool("Slow", timeManager.IsSlow);
+        Cam_Anim.SetBool("SlowMot", timeManager.IsSlow);
+        if (Input.GetKeyDown(KeyCode.E))
         {
             timeManager.DoSlowmotion();
            
