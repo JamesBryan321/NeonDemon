@@ -7,6 +7,7 @@ public class Shooting : MonoBehaviour
 {
     public TImeManager timeManager;
     public TMP_Text AmmoCount;
+    public float damage = 25;
     public float Ammo = 12;
     public Camera cam;
     public List<ParticleSystem> ShootingSFX;
@@ -61,6 +62,10 @@ public class Shooting : MonoBehaviour
             Destroy(impactEffectGO, 5);
            
             Debug.Log( hit.collider.gameObject.name);
+            if(hit.transform.CompareTag("Enemy"))
+            {
+                hit.transform.GetComponent<TakeDamage>().Damage(damage);
+            }
         }
     }
 
