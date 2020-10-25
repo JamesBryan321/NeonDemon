@@ -44,7 +44,7 @@ public class Shooting : MonoBehaviour
             Ammo = 12;
         }
         //Cam_Anim.SetBool("Slow", timeManager.IsSlow);
-        Cam_Anim.SetBool("SlowMot", timeManager.IsSlow);
+       // Cam_Anim.SetBool("SlowMot", timeManager.IsSlow);
         if (Input.GetKeyDown(KeyCode.E))
         {
             timeManager.DoSlowmotion();
