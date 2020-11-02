@@ -16,7 +16,10 @@ public class Shooting : MonoBehaviour
     public GameObject impactEffect;
     public Animator Gun_Anim;
     public Animator Cam_Anim;
-    
+    public GameObject ADSCamera;
+    public GameObject Camera;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,8 +43,14 @@ public class Shooting : MonoBehaviour
         }
         else if(Input.GetMouseButtonDown(1))
         {
-            Gun_Anim.SetTrigger("Reload");
+             Gun_Anim.SetTrigger("Reload");
+            //ADSCamera.SetActive (true);
+           // Camera.SetActive (false);
             Ammo = 12;
+        }
+        else
+        {
+           // Camera.SetActive (true);
         }
         //Cam_Anim.SetBool("Slow", timeManager.IsSlow);
        // Cam_Anim.SetBool("SlowMot", timeManager.IsSlow);
