@@ -40,12 +40,12 @@ public class PlayerInput : MonoBehaviour
 
     public bool crouch
     {
-        get { return Input.GetKeyDown(KeyCode.LeftControl); }
+        get { return Input.GetKeyDown(KeyCode.C); }
     }
 
     public bool crouching
     {
-        get { return Input.GetKey(KeyCode.LeftControl); }
+        get { return Input.GetKey(KeyCode.C); }
     }
 
     private Vector2 previous;
