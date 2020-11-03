@@ -5,19 +5,26 @@ using TMPro;
 
 public class Shooting : MonoBehaviour
 {
-    public TImeManager timeManager;
+    [Header("Gun Stats")]
     public TMP_Text AmmoCount;
     public float damage = 25;
-    public float Ammo = 12;
-    public Camera cam;
-    public List<ParticleSystem> ShootingSFX;
+    public float Ammo;
+    public float ReloadAmmo;
+    public float Firerate = 1f;
+    public float nextFire = 0f;
 
+
+    [Header("Particle Effects")]
+    public List<ParticleSystem> ShootingSFX;
     public ParticleSystem Muzzleflash;
     public GameObject impactEffect;
+
+    [Header("Extras")]
+    public TImeManager timeManager;
+    public Camera cam;
     public Animator Gun_Anim;
     public Animator Cam_Anim;
-    public GameObject ADSCamera;
-    public GameObject Camera;
+   
 
 
     // Start is called before the first frame update
@@ -32,8 +39,9 @@ public class Shooting : MonoBehaviour
     {
         AmmoCount.text = "" + Ammo;
         //////
-        if (Input.GetMouseButton(0) && Ammo > 0)
+        if (Input.GetMouseButton(0) && Ammo > 0 && Time.time > nextFire)
         {
+            nextFire = Time.time + Firerate;
             Muzzleflash.Play();
             Gun_Anim.SetTrigger("Shoot");
             Ammo -= 1;
@@ -44,21 +52,13 @@ public class Shooting : MonoBehaviour
         else if(Input.GetMouseButtonDown(1))
         {
              Gun_Anim.SetTrigger("Reload");
-            //ADSCamera.SetActive (true);
-           // Camera.SetActive (false);
-            Ammo = 60;
+       
+            Ammo = ReloadAmmo;
         }
         else
         {
-           // Camera.SetActive (true);
-        }
-        //Cam_Anim.SetBool("Slow", timeManager.IsSlow);
-       // Cam_Anim.SetBool("SlowMot", timeManager.IsSlow);
-       /* if (Input.GetKeyDown(KeyCode.E))
-        {
-            timeManager.DoSlowmotion();
            
-        }*/
+        }
     }
 
     void Shoot()
