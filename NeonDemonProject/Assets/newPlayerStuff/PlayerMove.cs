@@ -67,17 +67,17 @@ public class PlayerMove : MonoBehaviour
             Jump();
         }
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             isCrouching = true;
         }
         
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             Slide();
         }
 
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             isCrouching = false;
             StopSliding();

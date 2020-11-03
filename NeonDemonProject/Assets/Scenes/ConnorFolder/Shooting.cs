@@ -32,7 +32,7 @@ public class Shooting : MonoBehaviour
     {
         AmmoCount.text = "" + Ammo;
         //////
-        if (Input.GetMouseButtonDown(0) && Ammo > 0)
+        if (Input.GetMouseButton(0) && Ammo > 0)
         {
             Muzzleflash.Play();
             Gun_Anim.SetTrigger("Shoot");
@@ -46,7 +46,7 @@ public class Shooting : MonoBehaviour
              Gun_Anim.SetTrigger("Reload");
             //ADSCamera.SetActive (true);
            // Camera.SetActive (false);
-            Ammo = 12;
+            Ammo = 60;
         }
         else
         {
@@ -54,11 +54,11 @@ public class Shooting : MonoBehaviour
         }
         //Cam_Anim.SetBool("Slow", timeManager.IsSlow);
        // Cam_Anim.SetBool("SlowMot", timeManager.IsSlow);
-        if (Input.GetKeyDown(KeyCode.E))
+       /* if (Input.GetKeyDown(KeyCode.E))
         {
             timeManager.DoSlowmotion();
            
-        }
+        }*/
     }
 
     void Shoot()
