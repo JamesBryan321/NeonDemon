@@ -68,12 +68,17 @@ public class Shooting : MonoBehaviour
         if(Physics.Raycast(ray, out hit,Mathf.Infinity))
         {
             GameObject impactEffectGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(Vector3.forward, Vector3.up)) as GameObject;
-            Destroy(impactEffectGO, 5);
+            Destroy(impactEffectGO, 2);
            
             Debug.Log( hit.collider.gameObject.name);
-            if(hit.transform.CompareTag("Enemy"))
+            if (hit.transform.CompareTag("Enemy"))
             {
                 hit.transform.GetComponent<TakeDamage>().Damage(damage);
+            }
+            if (hit.transform.CompareTag("bottle"))
+            {
+               var destructableScript = hit.transform.GetComponent<Destructable>();
+                destructableScript.Break();
             }
         }
     }

@@ -16,16 +16,18 @@ public class Destructable : MonoBehaviour
     {
         audioData = GetComponent<AudioSource>();
 
-        Break();
+       // Break();
 
     }
 
     public void Break()
     {
         Instantiate(Destroyedversion, transform.position, transform.rotation);
+        audioData.Play(0);
+
         Destroy(gameObject);
 
-        audioData.Play(0);
+      
 
     }
 }
