@@ -12,9 +12,11 @@ public class Shooting : MonoBehaviour
     public float ReloadAmmo;
     public float Firerate = 1f;
     public float nextFire = 0f;
-
+    public Transform FirePoint;
+    public float BulletSpeed;
 
     [Header("Particle Effects")]
+    public GameObject projectile;
     public List<ParticleSystem> ShootingSFX;
     public ParticleSystem Muzzleflash;
     public GameObject impactEffect;
@@ -65,6 +67,8 @@ public class Shooting : MonoBehaviour
     {
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
+        GameObject bullet = Instantiate(projectile, FirePoint.position, FirePoint.rotation) as GameObject;
+        bullet.GetComponent<Rigidbody>().AddForce(transform.right * BulletSpeed);
         if(Physics.Raycast(ray, out hit,Mathf.Infinity))
         {
             GameObject impactEffectGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(Vector3.forward, Vector3.up)) as GameObject;
