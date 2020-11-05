@@ -1,11 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMove : MonoBehaviour
 {
+    [SerializeField] public LayerMask whatIsWall;
+    public float wallrunForce, maxWallrunTime, maxWallSpeed;
+   public  bool isWallRight, isWallLeft;
+    bool isWallRunning;
+    public float maxWallRunCameraTilt, wallRunCameraTilt;
+    public Transform orientation;
+
     public float speed;
     private Rigidbody playerRigidbody;
 
@@ -38,6 +46,10 @@ public class PlayerMove : MonoBehaviour
     private bool isSliding;
 
     private Vector2 velocity;
+
+
+
+    
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -83,6 +95,9 @@ public class PlayerMove : MonoBehaviour
             StopSliding();
             transform.localScale = defaultSize;
         }
+        WallRunInput();
+        CheckForWall();
+     
     }
 
     void Move()
@@ -130,7 +145,18 @@ public class PlayerMove : MonoBehaviour
         cameraEulerAnglesX = playerCamera.transform.localEulerAngles.x;
         cameraEulerAnglesX -= xRotation;
 
-        playerCamera.transform.localEulerAngles = new Vector3(cameraEulerAnglesX, 0, 0);
+        playerCamera.transform.localEulerAngles = new Vector3(cameraEulerAnglesX, 0, wallRunCameraTilt);
+        //Tilts camera in .5 second
+        if (Math.Abs(wallRunCameraTilt) < maxWallRunCameraTilt && isWallRunning && isWallRight)
+            wallRunCameraTilt += Time.deltaTime * maxWallRunCameraTilt * 2;
+        if (Math.Abs(wallRunCameraTilt) < maxWallRunCameraTilt && isWallRunning && isWallLeft)
+            wallRunCameraTilt -= Time.deltaTime * maxWallRunCameraTilt * 2;
+
+        //Tilts camera back again
+        if (wallRunCameraTilt > 0 && !isWallRight && !isWallLeft)
+            wallRunCameraTilt -= Time.deltaTime * maxWallRunCameraTilt * 2;
+        if (wallRunCameraTilt < 0 && !isWallRight && !isWallLeft)
+            wallRunCameraTilt += Time.deltaTime * maxWallRunCameraTilt * 2;
     }
 
     void Jump()
@@ -168,4 +194,47 @@ public class PlayerMove : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         StopSliding();
     }
+    private void StartWallrun()
+    {
+        playerRigidbody.useGravity = false;
+        isWallRunning = true;
+        // Debug.Log("wallRun");
+        // allowDashForceCounter = false;
+        playerRigidbody.AddForce(new Vector3(5, 0));
+        playerRigidbody.AddForce(orientation.forward * wallrunForce * Time.deltaTime);
+        if (playerRigidbody.velocity.magnitude <= maxWallSpeed)
+        {
+            playerRigidbody.AddForce(orientation.forward * wallrunForce * Time.deltaTime);
+
+            //Make sure char sticks to wall
+            if (isWallRight)
+                playerRigidbody.AddForce(orientation.right * wallrunForce / 5 * Time.deltaTime);
+            else
+                playerRigidbody.AddForce(-orientation.right * wallrunForce / 5 * Time.deltaTime);
+        }
+    }
+    private void StopWallRun()
+    {
+        isWallRunning = false;
+        playerRigidbody.useGravity = true;
+    }
+    private void CheckForWall() //make sure to call in void Update
+    {
+        isWallRight = Physics.Raycast(transform.position, orientation.right, 1f, whatIsWall);
+        isWallLeft = Physics.Raycast(transform.position, -orientation.right, 1f, whatIsWall);
+
+        //leave wall run
+        if (!isWallLeft && !isWallRight) StopWallRun();
+        //reset double jump (if you have one :D)
+        // if (isWallLeft || isWallRight) doubleJumpsLeft = startDoubleJumps;
+        if (isWallLeft || isWallRight)  secondJumpAvailable = true;
+    }
+
+    private void WallRunInput() //make sure to call in void Update
+    {
+        //Wallrun
+        if (Input.GetKey(KeyCode.D) && isWallRight) StartWallrun();
+        if (Input.GetKey(KeyCode.A) && isWallLeft) StartWallrun();
+    }
+
 }

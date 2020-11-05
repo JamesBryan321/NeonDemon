@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+//using System.Diagnostics;
+//using System.Diagnostics;
 
 public class Shooting : MonoBehaviour
 {
@@ -26,13 +28,14 @@ public class Shooting : MonoBehaviour
     public Camera cam;
     public Animator Gun_Anim;
     public Animator Cam_Anim;
+    public Animator Ads_anim;
    
 
 
     // Start is called before the first frame update
     void Start()
     {
- 
+        Ads_anim = GetComponent<Animator>();
        Cam_Anim = GetComponent<Animator>();
     }
 
@@ -45,24 +48,35 @@ public class Shooting : MonoBehaviour
         {
             nextFire = Time.time + Firerate;
             Muzzleflash.Play();
-            Gun_Anim.SetTrigger("Shoot");
+            //Gun_Anim.SetTrigger("Shoot");
             Ammo -= 1;
             int randomNum = Random.Range(0, 2);
             Shoot();
             ShootingSFX[randomNum].Emit(1);
         }
-        else if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
+        {
+            Ads_anim.SetBool("Ads", true);
+
+
+        } else {
+            Ads_anim.SetBool("Ads", false);
+        }
+        if (Input./*GetMouseButtonDown*/ GetKeyDown(KeyCode.R))
         {
              Gun_Anim.SetTrigger("Reload");
+            
        
             Ammo = ReloadAmmo;
         }
+      
+
         else
         {
            
         }
-    }
 
+    }
     void Shoot()
     {
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
