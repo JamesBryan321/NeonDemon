@@ -198,15 +198,14 @@ public class PlayerMove : MonoBehaviour
     {
         playerRigidbody.useGravity = false;
         isWallRunning = true;
-        // Debug.Log("wallRun");
-        // allowDashForceCounter = false;
+     
         playerRigidbody.AddForce(new Vector3(5, 0));
         playerRigidbody.AddForce(orientation.forward * wallrunForce * Time.deltaTime);
         if (playerRigidbody.velocity.magnitude <= maxWallSpeed)
         {
             playerRigidbody.AddForce(orientation.forward * wallrunForce * Time.deltaTime);
 
-            //Make sure char sticks to wall
+            
             if (isWallRight)
                 playerRigidbody.AddForce(orientation.right * wallrunForce / 5 * Time.deltaTime);
             else
@@ -218,19 +217,19 @@ public class PlayerMove : MonoBehaviour
         isWallRunning = false;
         playerRigidbody.useGravity = true;
     }
-    private void CheckForWall() //make sure to call in void Update
+    private void CheckForWall() 
     {
         isWallRight = Physics.Raycast(transform.position, orientation.right, 1f, whatIsWall);
         isWallLeft = Physics.Raycast(transform.position, -orientation.right, 1f, whatIsWall);
 
         //leave wall run
         if (!isWallLeft && !isWallRight) StopWallRun();
-        //reset double jump (if you have one :D)
-        // if (isWallLeft || isWallRight) doubleJumpsLeft = startDoubleJumps;
+    
+    //rset jump
         if (isWallLeft || isWallRight)  secondJumpAvailable = true;
     }
 
-    private void WallRunInput() //make sure to call in void Update
+    private void WallRunInput() 
     {
         //Wallrun
         if (Input.GetKey(KeyCode.D) && isWallRight) StartWallrun();
