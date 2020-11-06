@@ -39,7 +39,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 defaultSize;
     [SerializeField] private Vector3 crouchSize;
     
-    [SerializeField] private bool isJumping;
+    [SerializeField] public bool isJumping;
     [SerializeField] private bool secondJumpAvailable;
 
     private bool isCrouching;
@@ -71,6 +71,11 @@ public class PlayerMove : MonoBehaviour
         if (isGrounded)
         {
             isJumping = false;
+        }
+
+        if (!isGrounded)
+        {
+            isJumping = true;
         }
 
         //Check for jump input and, if grounded, jump
