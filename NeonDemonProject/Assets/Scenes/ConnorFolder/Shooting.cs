@@ -29,7 +29,8 @@ public class Shooting : MonoBehaviour
     public Animator Gun_Anim;
     public Animator Cam_Anim;
     public Animator Ads_anim;
-   
+
+    //private IEnumerator WaitForReload;
 
 
     // Start is called before the first frame update
@@ -64,10 +65,10 @@ public class Shooting : MonoBehaviour
         }
         if (Input./*GetMouseButtonDown*/ GetKeyDown(KeyCode.R))
         {
-             Gun_Anim.SetTrigger("Reload");
-            
-       
-            Ammo = ReloadAmmo;
+            Ads_anim.SetBool("Reload", true);
+
+         StartCoroutine(WaitForReload());
+           // Ammo = ReloadAmmo;
         }
       
 
@@ -98,7 +99,19 @@ public class Shooting : MonoBehaviour
                var destructableScript = hit.transform.GetComponent<Destructable>();
                 destructableScript.Break();
             }
+            if (hit.transform.CompareTag("barrel"))
+            {
+                var barrelScript = hit.transform.GetComponent<Explodingbarrel>();
+                barrelScript.explode();
+            }
         }
+    }
+
+    public IEnumerator WaitForReload()
+    {
+        yield return new WaitForSeconds(1);
+        Ammo = ReloadAmmo;
+        Ads_anim.SetBool("Reload", false);
     }
 
  

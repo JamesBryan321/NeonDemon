@@ -214,7 +214,7 @@ public class PlayerMove : MonoBehaviour
             if (isWallRight)
             {
                 playerRigidbody.AddForce(orientation.right * wallrunForce / 5 * Time.deltaTime);
-                playerRigidbody.AddForce(orientation.forward * 25 * Time.deltaTime);
+                playerRigidbody.AddForce(orientation.forward * 50 * Time.deltaTime);
             }
 
             else 
@@ -243,6 +243,7 @@ public class PlayerMove : MonoBehaviour
         //Wallrun
         if (Input.GetKey(KeyCode.D) && isWallRight) StartWallrun();
         if (Input.GetKey(KeyCode.A) && isWallLeft) StartWallrun();
+        if (Input.GetKey(KeyCode.W) && isWallLeft) StartWallrun();
     }
 
 }
