@@ -100,6 +100,14 @@ public class PlayerMove : MonoBehaviour
             StopSliding();
             transform.localScale = defaultSize;
         }
+
+        if(isWallLeft)
+            StartWallrun();
+
+
+        if (isWallRight)
+            StartWallrun();
+
         WallRunInput();
         CheckForWall();
      
@@ -209,16 +217,21 @@ public class PlayerMove : MonoBehaviour
         if (playerRigidbody.velocity.magnitude <= maxWallSpeed)
         {
             // playerRigidbody.AddForce(orientation.forward * wallrunForce * Time.deltaTime);
-
+          
 
             if (isWallRight)
             {
                 playerRigidbody.AddForce(orientation.right * wallrunForce / 5 * Time.deltaTime);
-                playerRigidbody.AddForce(orientation.forward * 50 * Time.deltaTime);
+                playerRigidbody.AddForce(orientation.forward * 70 * Time.deltaTime);
             }
 
             else 
                 playerRigidbody.AddForce(-orientation.right * wallrunForce / 5 * Time.deltaTime);
+        }
+
+        if(playerRigidbody.velocity.magnitude <= 1)
+        {
+            playerRigidbody.useGravity = true;
         }
     }
     private void StopWallRun()
@@ -233,6 +246,7 @@ public class PlayerMove : MonoBehaviour
 
         //leave wall run
         if (!isWallLeft && !isWallRight) StopWallRun();
+        
     
     //rset jump
         if (isWallLeft || isWallRight)  secondJumpAvailable = true;
@@ -241,9 +255,9 @@ public class PlayerMove : MonoBehaviour
     private void WallRunInput() 
     {
         //Wallrun
-        if (Input.GetKey(KeyCode.D) && isWallRight) StartWallrun();
-        if (Input.GetKey(KeyCode.A) && isWallLeft) StartWallrun();
-        if (Input.GetKey(KeyCode.W) && isWallLeft) StartWallrun();
+        //if (Input.GetKey(KeyCode.D) && isWallRight) StartWallrun();
+       // if (Input.GetKey(KeyCode.A) && isWallLeft) StartWallrun();
+       // if (Input.GetKey(KeyCode.W) && isWallLeft) StartWallrun();
     }
 
 }
