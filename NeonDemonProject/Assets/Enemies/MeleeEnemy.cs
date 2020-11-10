@@ -11,10 +11,11 @@ public class MeleeEnemy : MonoBehaviour
     public GameObject Player;
     public float speed = 2f;
     private NavMeshAgent z_navMeshAgent;
-    public float DetectionRadius = 10f;
+    public float DetectionRadius = 30f;
     public List<Transform> Waypoints;
     private int CurrentWaypoint;
-    
+
+    public bool dodge;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,8 +47,17 @@ public class MeleeEnemy : MonoBehaviour
                 break;
         }
 
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            z_MeleeState = MeleeState.DODGE;
+        }
 
         Detection();
+
+        if (Vector3.Distance(Player.transform.position, this.transform.position) < 2)
+        {
+            z_MeleeState = MeleeState.ATTACK;
+        }
     }
 
 
@@ -66,7 +76,7 @@ public class MeleeEnemy : MonoBehaviour
                 {
                     if (hit.collider.gameObject.tag == "Player")
                     {
-                        //Debug.DrawLine(this.gameObject.transform.position, hit.collider.gameObject.transform.position, Color.red);
+                        Debug.DrawLine(this.gameObject.transform.position, hit.collider.gameObject.transform.position, Color.red);
 
                         z_MeleeState = MeleeState.CHASE;
                         //LastPlayerSighting = hit.collider.gameObject.transform.position;
@@ -80,6 +90,7 @@ public class MeleeEnemy : MonoBehaviour
 
     void Idle()
     {
+        Debug.Log("Idle");
         StartCoroutine("WaitIdle");
     }
 
@@ -91,12 +102,14 @@ public class MeleeEnemy : MonoBehaviour
 
     void Chase()
     {
+        Debug.Log("Chase");
         z_navMeshAgent.SetDestination(Player.transform.position);
     }
 
     void Patrol()
     {
-        transform.rotation = Quaternion.Lerp(transform.rotation, Waypoints[CurrentWaypoint].rotation, Time.deltaTime * 0.2f);
+        Debug.Log("Patrol");
+        transform.rotation = Quaternion.Lerp(transform.rotation, Waypoints[CurrentWaypoint].rotation, Time.deltaTime * 0.8f);
         //transform.LookAt(Waypoints[CurrentWaypoint].position);
         z_navMeshAgent.SetDestination(Waypoints[CurrentWaypoint].position);
 
@@ -110,12 +123,15 @@ public class MeleeEnemy : MonoBehaviour
 
     void Attack()
     {
-
+        Debug.Log("Attack");
+        z_MeleeState = MeleeState.CHASE;
     }
 
     void Dodge()
     {
-
+        Debug.Log("Dodge");
+        transform.Translate(Vector3.right * Time.deltaTime, transform);
+        z_MeleeState = MeleeState.CHASE;
     }
 
     
