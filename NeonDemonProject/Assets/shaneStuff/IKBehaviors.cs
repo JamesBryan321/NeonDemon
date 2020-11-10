@@ -34,7 +34,7 @@ public class IKBehaviors : MonoBehaviour
     [Obsolete]
     private void Update()
     {
-        OnAnimatorIK();
+        //OnAnimatorIK();
 
         if (machinegun.active == true)
         {
