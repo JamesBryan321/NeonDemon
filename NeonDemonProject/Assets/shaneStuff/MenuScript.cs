@@ -14,4 +14,9 @@ public class MenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void OpenTwitter()
+    {
+        Application.OpenURL("https://twitter.com/NeonDemonGame");
+    }
 }
