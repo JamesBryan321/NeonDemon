@@ -7,6 +7,7 @@ public class RealityChange : MonoBehaviour
 {
     public GameObject CP_asset;
     public GameObject Hell_asset;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,17 @@ public class RealityChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) changeToHell();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            StartCoroutine(WaitForAnimation());
+     
+        }
+
+     
+        
+
+            // Ammo = ReloadAmmo;
+        
     }
 
 
@@ -32,5 +43,16 @@ public class RealityChange : MonoBehaviour
             Hell_asset.SetActive(false);
             CP_asset.SetActive(true);
         }
+        
     }
+
+
+
+    public IEnumerator WaitForAnimation()
+    {
+        yield return new WaitForSeconds(1);
+        changeToHell();
+    }
+
+
 }
