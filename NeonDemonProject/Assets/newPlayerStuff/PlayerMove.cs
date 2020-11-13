@@ -27,9 +27,7 @@ public class PlayerMove : MonoBehaviour
     public Vector3 groundCheckBoxSize;
 
     public float jumpForce;
-    private float slideForce;
-    private float minSlideForce = 1;
-    [SerializeField] private float maxSlideForce;
+    [SerializeField] private float slideForce;
 
     private float cameraEulerAnglesX;
 
@@ -53,7 +51,6 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-        slideForce = minSlideForce;
         defaultSize = transform.localScale;
     }
     
@@ -91,6 +88,8 @@ public class PlayerMove : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            
+            isCrouching = true;
             Slide();
         }
 
@@ -124,23 +123,14 @@ public class PlayerMove : MonoBehaviour
         //Apply inputs to movement velocity
         if (!isCrouching)
         {
-            velocity = (xMovement + zMovement).normalized * speed * Time.deltaTime * slideForce;
+            velocity = (xMovement + zMovement).normalized * speed * Time.deltaTime;
             playerRigidbody.velocity = new Vector3(velocity.x, playerRigidbody.velocity.y, velocity.y);
         }
 
-        if (isCrouching)
+        if (isCrouching && !isSliding)
         {
-            if (!isSliding)
-            {
-                velocity = (xMovement + zMovement).normalized * speed * Time.deltaTime * slideForce / 4;
-                playerRigidbody.velocity = new Vector3(velocity.x, playerRigidbody.velocity.y, velocity.y);
-            }
-
-            if (isSliding)
-            {
-                velocity = (xMovement + zMovement).normalized * speed * Time.deltaTime * slideForce;
-                playerRigidbody.velocity = new Vector3(velocity.x, playerRigidbody.velocity.y, velocity.y);
-            }
+            //velocity = (xMovement + zMovement).normalized * speed * Time.deltaTime / 4;
+            //playerRigidbody.velocity = new Vector3(velocity.x, playerRigidbody.velocity.y, velocity.y);
         }
     }
 
@@ -190,23 +180,20 @@ public class PlayerMove : MonoBehaviour
 
     void Slide()
     {
-        isSliding = true;
-        transform.localScale = crouchSize;
-        slideForce = maxSlideForce;
-        StartCoroutine(SlideTimer());
+        if (isGrounded)
+        {
+            isSliding = true;
+            transform.localScale = crouchSize;
+            //playerRigidbody.AddRelativeForce((xMovement + zMovement).normalized * slideForce, ForceMode.VelocityChange);
+            playerRigidbody.AddForce(new Vector3(velocity.x * slideForce, playerRigidbody.velocity.y, velocity.y * slideForce), ForceMode.VelocityChange);
+        }
     }
 
     void StopSliding()
     {
         isSliding = false;
-        slideForce = minSlideForce;
     }
 
-    IEnumerator SlideTimer()
-    {
-        yield return new WaitForSeconds(0.5f);
-        StopSliding();
-    }
     private void StartWallrun()
     {
         playerRigidbody.useGravity = false;

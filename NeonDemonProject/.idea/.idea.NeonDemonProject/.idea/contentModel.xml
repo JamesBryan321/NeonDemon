@@ -23,6 +23,30 @@
             <e p="PlayerMovement.cs" t="Include" />
           </e>
         </e>
+        <e p="Archanor" t="Include">
+          <e p="Sci-Fi Arsenal" t="Include">
+            <e p="InteractiveDemo" t="Include">
+              <e p="Demo Scripts" t="Include">
+                <e p="SciFiBeamScript.cs" t="Include" />
+                <e p="SciFiButtonScript.cs" t="Include" />
+                <e p="SciFiDragMouseOrbit.cs" t="Include" />
+                <e p="SciFiFireProjectile.cs" t="Include" />
+                <e p="SciFiLoadSceneOnClick.cs" t="Include" />
+                <e p="SciFiLoopScript.cs" t="Include" />
+                <e p="SciFiProjectileScript.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Sci-Fi Effects" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="SciFiBeamStatic.cs" t="Include" />
+                <e p="SciFiLightFade.cs" t="Include" />
+                <e p="SciFiLightFlicker.cs" t="Include" />
+                <e p="SciFiPitchRandomizer.cs" t="Include" />
+                <e p="SciFiRotation.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Destructable.cs" t="Include" />
         <e p="EffectExamples" t="Include">
           <e p="Shared" t="Include">
@@ -40,8 +64,21 @@
             </e>
           </e>
         </e>
+        <e p="Enemies" t="Include">
+          <e p="MeleeEnemy.cs" t="Include" />
+        </e>
+        <e p="mousestater.cs" t="Include" />
         <e p="newPlayerStuff" t="Include">
           <e p="PlayerMove.cs" t="Include" />
+        </e>
+        <e p="Outline by The Developer" t="Include">
+          <e p="Outline" t="Include">
+            <e p="O_CustomImageEffect.cs" t="Include" />
+            <e p="SS All-in-One Outline.shader" t="Include" />
+            <e p="SS Depth Based Outline.shader" t="Include" />
+            <e p="SS Linear 01 Depth Outline.shader" t="Include" />
+            <e p="SS Texture Based Outline.shader" t="Include" />
+          </e>
         </e>
         <e p="PostProcessing" t="Include">
           <e p="Editor" t="Include">
@@ -213,10 +250,13 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="bouncepad.cs" t="Include" />
+          <e p="Explodingbarrel.cs" t="Include" />
           <e p="HeadBob.cs" t="Include" />
+          <e p="RealityChange.cs" t="Include" />
         </e>
         <e p="shaneStuff" t="Include">
           <e p="IKBehaviors.cs" t="Include" />
+          <e p="StepClimber.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
