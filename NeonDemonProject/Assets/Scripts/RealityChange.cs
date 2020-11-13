@@ -50,7 +50,7 @@ public class RealityChange : MonoBehaviour
 
     public IEnumerator WaitForAnimation()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         changeToHell();
     }
 

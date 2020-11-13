@@ -104,6 +104,12 @@ public class Shooting : MonoBehaviour
                 var barrelScript = hit.transform.GetComponent<Explodingbarrel>();
                 barrelScript.explode();
             }
+            if (hit.transform.CompareTag("Twitter"))
+            {
+                OpenTwitter();
+            }
+
+
         }
     }
 
@@ -113,7 +119,10 @@ public class Shooting : MonoBehaviour
         Ammo = ReloadAmmo;
         Ads_anim.SetBool("Reload", false);
     }
+    public void OpenTwitter()
+    {
+        Application.OpenURL("https://twitter.com/NeonDemonGame");
+    }
 
- 
 
 }
