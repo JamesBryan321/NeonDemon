@@ -9,7 +9,7 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] public LayerMask whatIsWall;
     public float wallrunForce, maxWallrunTime, maxWallSpeed;
-   public  bool isWallRight, isWallLeft;
+    public  bool isWallRight, isWallLeft;
     bool isWallRunning;
     public float maxWallRunCameraTilt, wallRunCameraTilt;
     public Transform orientation;
@@ -45,7 +45,7 @@ public class PlayerMove : MonoBehaviour
 
     private Vector2 velocity;
 
-
+    public MenuScript menuScript;
 
     
     void Start()
@@ -98,6 +98,18 @@ public class PlayerMove : MonoBehaviour
             isCrouching = false;
             StopSliding();
             transform.localScale = defaultSize;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (menuScript.pauseMenu.GetComponent<Canvas>().enabled == false)
+            {
+                menuScript.OpenPauseMenu();
+            }
+            else if (menuScript.pauseMenu.GetComponent<Canvas>().enabled == true)
+            {
+                menuScript.ClosePauseMenu();
+            }
         }
 
         if(isWallLeft)
