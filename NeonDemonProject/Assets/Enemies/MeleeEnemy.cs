@@ -16,6 +16,8 @@ public class MeleeEnemy : MonoBehaviour
     private int CurrentWaypoint;
 
     public bool dodge;
+
+    public Animator MeleeAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -124,6 +126,7 @@ public class MeleeEnemy : MonoBehaviour
     void Attack()
     {
         Debug.Log("Attack");
+        MeleeAnim.SetTrigger("Attack");
         z_MeleeState = MeleeState.CHASE;
     }
 
