@@ -40,6 +40,7 @@ public class MenuScript : MonoBehaviour
         controlsMenu.sortingOrder = 9;
         ClosePauseMenu();
         controlsMenu.GetComponent<Canvas>().enabled = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     
     public void CloseControlsMenu()
