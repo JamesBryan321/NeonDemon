@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
     public Canvas pauseMenu;
     public Canvas controlsMenu;
+
+    public GameObject pauseMenuObject;
+
+    public bool gamePaused;
 
     void Start()
     {
@@ -22,6 +27,9 @@ public class MenuScript : MonoBehaviour
 
     public void OpenPauseMenu()
     {
+        gamePaused = true;
+        Time.timeScale = 0;
+        pauseMenuObject.SetActive(true);
         pauseMenu.sortingOrder = 10;
         controlsMenu.sortingOrder = 9;
         Cursor.lockState = CursorLockMode.None;
@@ -30,15 +38,17 @@ public class MenuScript : MonoBehaviour
     
     public void ClosePauseMenu()
     {
+        gamePaused = false;
+        Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         pauseMenu.GetComponent<Canvas>().enabled = false;
+        pauseMenuObject.SetActive(false);
     }
 
     public void OpenControlsMenu()
     {
         pauseMenu.sortingOrder = 10;
         controlsMenu.sortingOrder = 9;
-        ClosePauseMenu();
         controlsMenu.GetComponent<Canvas>().enabled = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -46,7 +56,6 @@ public class MenuScript : MonoBehaviour
     public void CloseControlsMenu()
     {
         controlsMenu.GetComponent<Canvas>().enabled = false;
-        OpenPauseMenu();
     }
     
     public void QuitGame()

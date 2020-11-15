@@ -46,6 +46,7 @@ public class PlayerMove : MonoBehaviour
     private Vector2 velocity;
 
     public MenuScript menuScript;
+    
 
     
     void Start()
@@ -57,12 +58,20 @@ public class PlayerMove : MonoBehaviour
     
     void FixedUpdate()
     {
-        Move();
-        Rotate();
+        if(!menuScript.gamePaused)
+        {
+            Move();
+            Rotate();
+        }
     }
 
     private void Update()
     {
+        if (menuScript.gamePaused)
+        {
+            return;
+        }
+        
         //Check if player is on the ground or not
         isGrounded = Physics.OverlapBox(groundCheck.transform.position, groundCheckBoxSize).Length > 2;
 
@@ -103,13 +112,16 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (menuScript.pauseMenu.GetComponent<Canvas>().enabled == false)
+            if (menuScript.pauseMenu.GetComponent<Canvas>().enabled == false
+                && menuScript.controlsMenu.GetComponent<Canvas>().enabled == false)
             {
                 menuScript.OpenPauseMenu();
             }
-            else if (menuScript.pauseMenu.GetComponent<Canvas>().enabled == true)
+            else if (menuScript.pauseMenu.GetComponent<Canvas>().enabled == true 
+                     || menuScript.controlsMenu.GetComponent<Canvas>().enabled == true)
             {
                 menuScript.ClosePauseMenu();
+                menuScript.CloseControlsMenu();
             }
         }
 

@@ -7,6 +7,8 @@ using TMPro;
 
 public class Shooting : MonoBehaviour
 {
+    public MenuScript menuScript;
+    
     [Header("Gun Stats")]
     public TMP_Text AmmoCount;
     public float damage = 25;
@@ -44,6 +46,12 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         AmmoCount.text = "" + Ammo;
+
+        if (menuScript.gamePaused)
+        {
+            return;
+        }
+        
         //////
         if (Input.GetMouseButton(0) && Ammo > 0 && Time.time > nextFire)
         {
