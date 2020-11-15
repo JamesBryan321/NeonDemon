@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class ChangeRealityAnimation : MonoBehaviour
 {
 
     public Animator Belial_Anim;
+    public GameObject postProccesing;
+   
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,6 +25,7 @@ public class ChangeRealityAnimation : MonoBehaviour
         
             Belial_Anim.SetBool("RealityChange", true);
             StartCoroutine(WaitForChange());
+         
         }
 
     }

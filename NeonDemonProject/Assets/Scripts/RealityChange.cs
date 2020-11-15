@@ -7,6 +7,7 @@ public class RealityChange : MonoBehaviour
 {
     public GameObject CP_asset;
     public GameObject Hell_asset;
+
  
     // Start is called before the first frame update
     void Start()
