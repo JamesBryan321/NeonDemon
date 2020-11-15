@@ -18,6 +18,9 @@ public class MeleeEnemy : MonoBehaviour
     public bool dodge;
 
     public Animator MeleeAnim;
+
+    public Transform LineEnemy;
+    public LineRenderer PlayerDet;
     // Start is called before the first frame update
     void Start()
     {
@@ -105,11 +108,15 @@ public class MeleeEnemy : MonoBehaviour
     void Chase()
     {
         Debug.Log("Chase");
+        PlayerDet.SetPosition(0, LineEnemy.position);
+        PlayerDet.SetPosition(1, Player.transform.position);
         z_navMeshAgent.SetDestination(Player.transform.position);
     }
 
     void Patrol()
     {
+        PlayerDet.SetPosition(0, this.transform.position);
+        PlayerDet.SetPosition(1, this.transform.position);
         Debug.Log("Patrol");
         transform.rotation = Quaternion.Lerp(transform.rotation, Waypoints[CurrentWaypoint].rotation, Time.deltaTime * 0.8f);
         //transform.LookAt(Waypoints[CurrentWaypoint].position);
