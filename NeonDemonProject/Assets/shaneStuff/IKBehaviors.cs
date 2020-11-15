@@ -97,11 +97,11 @@ public class IKBehaviors : MonoBehaviour
             }
             
             //if the IK is not active, set the position and rotation of the hand and head back to the original position
-            else {          
+            /*else {          
                 playerAnimator.SetIKPositionWeight(AvatarIKGoal.RightHand,0);
                 playerAnimator.SetIKRotationWeight(AvatarIKGoal.RightHand,0); 
                 playerAnimator.SetLookAtWeight(0);
-            }
+            }*/
         }
     } 
     void checkGuns()
