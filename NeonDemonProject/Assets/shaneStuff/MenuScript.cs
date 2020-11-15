@@ -10,6 +10,8 @@ public class MenuScript : MonoBehaviour
 
     void Start()
     {
+        pauseMenu.sortingOrder = 10;
+        controlsMenu.sortingOrder = 9;
         pauseMenu.GetComponent<Canvas>().enabled = false;
         controlsMenu.GetComponent<Canvas>().enabled = false;
     }
@@ -20,16 +22,22 @@ public class MenuScript : MonoBehaviour
 
     public void OpenPauseMenu()
     {
+        pauseMenu.sortingOrder = 10;
+        controlsMenu.sortingOrder = 9;
+        Cursor.lockState = CursorLockMode.None;
         pauseMenu.GetComponent<Canvas>().enabled = true;
     }
     
     public void ClosePauseMenu()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         pauseMenu.GetComponent<Canvas>().enabled = false;
     }
 
     public void OpenControlsMenu()
     {
+        pauseMenu.sortingOrder = 10;
+        controlsMenu.sortingOrder = 9;
         ClosePauseMenu();
         controlsMenu.GetComponent<Canvas>().enabled = true;
     }

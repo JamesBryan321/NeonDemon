@@ -50,6 +50,7 @@ public class PlayerMove : MonoBehaviour
     
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         playerRigidbody = GetComponent<Rigidbody>();
         defaultSize = transform.localScale;
     }
