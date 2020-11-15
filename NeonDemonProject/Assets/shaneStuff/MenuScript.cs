@@ -38,6 +38,7 @@ public class MenuScript : MonoBehaviour
     
     public void ClosePauseMenu()
     {
+       
         gamePaused = false;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
@@ -47,6 +48,7 @@ public class MenuScript : MonoBehaviour
 
     public void OpenControlsMenu()
     {
+        gamePaused = true;
         pauseMenu.sortingOrder = 10;
         controlsMenu.sortingOrder = 9;
         controlsMenu.GetComponent<Canvas>().enabled = true;

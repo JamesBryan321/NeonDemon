@@ -4687,7 +4687,7 @@ GameObject:
   - component: {fileID: 4577753674388735577}
   - component: {fileID: 4577753674380362307}
   - component: {fileID: -3888942012018998658}
-  - component: {fileID: -5728319119921458857}
+  - component: {fileID: 2631686038454915366}
   m_Layer: 0
   m_Name: BulletRed
   m_TagString: Untagged
@@ -4703,8 +4703,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4577753674369090025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.26187}
+  m_LocalScale: {x: 0.19424, y: 0.19424, z: 0.19424}
   m_Children:
   - {fileID: 4577753674369445893}
   m_Father: {fileID: 0}
@@ -4722,7 +4722,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e9c249c9d073d2647b12578e32521b62, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.613
   m_Pitch: 2
   Loop: 0
   Mute: 0
@@ -5042,7 +5042,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9483,7 +9483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpactEffect: {fileID: 4901462263865095177, guid: 60518e8b99af6304c8c275b46dadb71b,
     type: 3}
---- !u!54 &-5728319119921458857
+--- !u!54 &2631686038454915366
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9494,7 +9494,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0

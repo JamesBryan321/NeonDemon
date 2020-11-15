@@ -318,7 +318,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -371,7 +371,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -4686,6 +4686,7 @@ GameObject:
   - component: {fileID: 19910066}
   - component: {fileID: 19854330}
   - component: {fileID: 11450336}
+  - component: {fileID: 1459610809003814450}
   m_Layer: 0
   m_Name: BulletRed
   m_TagString: Untagged
@@ -9466,4 +9467,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63370acbe4b11f24280fe48a7c5e7dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomPercent: 10
+  randomPercent: 8.98
+--- !u!114 &1459610809003814450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d20f1edeece4de47a214abc411c0a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ImpactEffect: {fileID: 0}
