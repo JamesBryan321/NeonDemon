@@ -31,6 +31,7 @@ public class Shooting : MonoBehaviour
     public Animator Gun_Anim;
     public Animator Cam_Anim;
     public Animator Ads_anim;
+    public Animator EnemeyTest;
 
     //private IEnumerator WaitForReload;
 
@@ -40,6 +41,7 @@ public class Shooting : MonoBehaviour
     {
         Ads_anim = GetComponent<Animator>();
        Cam_Anim = GetComponent<Animator>();
+        EnemeyTest = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -116,7 +118,10 @@ public class Shooting : MonoBehaviour
             {
                 OpenTwitter();
             }
-
+            if (hit.transform.CompareTag("Enemy"))
+            {
+                EnemeyTest.enabled = false;
+            }
 
         }
     }

@@ -225,20 +225,21 @@ public class PlayerMove : MonoBehaviour
         isWallRunning = true;
      
         playerRigidbody.AddForce(new Vector3(5, 0));
-        //playerRigidbody.AddForce(orientation.forward * 5 * Time.deltaTime);
+       // playerRigidbody.AddForce(orientation.forward * 50 * Time.deltaTime);
         if (playerRigidbody.velocity.magnitude <= maxWallSpeed)
         {
-            // playerRigidbody.AddForce(orientation.forward * wallrunForce * Time.deltaTime);
+             playerRigidbody.AddForce(orientation.forward * wallrunForce * Time.deltaTime);
           
 
             if (isWallRight)
             {
                 playerRigidbody.AddForce(orientation.right * wallrunForce / 5 * Time.deltaTime);
-                playerRigidbody.AddForce(orientation.forward * 70 * Time.deltaTime);
+                playerRigidbody.AddForce(orientation.forward * 20000 * Time.deltaTime);
             }
 
             else 
                 playerRigidbody.AddForce(-orientation.right * wallrunForce / 5 * Time.deltaTime);
+            playerRigidbody.AddForce(orientation.forward * 20000 * Time.deltaTime);
         }
 
         if(playerRigidbody.velocity.magnitude <= 1)
