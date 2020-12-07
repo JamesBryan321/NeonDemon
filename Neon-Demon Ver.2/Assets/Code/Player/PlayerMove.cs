@@ -108,6 +108,8 @@ public class PlayerMove : MonoBehaviour
             
             isCrouching = true;
             Slide();
+
+            //Local check for how long button is pressed down for
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
