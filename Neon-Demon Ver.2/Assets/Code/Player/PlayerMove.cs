@@ -108,8 +108,6 @@ public class PlayerMove : MonoBehaviour
             
             isCrouching = true;
             Slide();
-
-            //Local check for how long button is pressed down for
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -177,7 +175,7 @@ public class PlayerMove : MonoBehaviour
         
         //Get rotation to tilt camera
         float xRotation = Input.GetAxisRaw("Mouse Y") * sensitivity;
-        float xCameraRotation = playerCamera.transform.eulerAngles.x;
+        float xCameraRotation = playerCamera.transform.eulerAngles.x * Time.deltaTime;
         xCameraRotation -= xRotation;
 
         cameraEulerAnglesX = playerCamera.transform.localEulerAngles.x;
