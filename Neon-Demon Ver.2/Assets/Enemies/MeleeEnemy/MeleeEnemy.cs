@@ -8,7 +8,7 @@ public class MeleeEnemy : MonoBehaviour
     private enum MeleeState { PATROL,CHASE,IDLE,ATTACK,DODGE}
     private MeleeState z_MeleeState;
 
-    public GameObject Player;
+    private GameObject Player;
     public float speed = 2f;
     private NavMeshAgent z_navMeshAgent;
     public float DetectionRadius = 30f;
@@ -19,13 +19,17 @@ public class MeleeEnemy : MonoBehaviour
     public int EnemyDamage = 10;
     public Animator MeleeAnim;
 
+    UnityEngine.AI.NavMeshAgent agent;
     //public Transform LineEnemy;
     //public LineRenderer PlayerDet;
     // Start is called before the first frame update
     void Start()
     {
-        z_MeleeState = MeleeState.IDLE;
+        Player = GameObject.Find("Player");
+        z_MeleeState = MeleeState.CHASE;
         z_navMeshAgent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
     }
 
     // Update is called once per frame
@@ -102,7 +106,7 @@ public class MeleeEnemy : MonoBehaviour
 
     IEnumerator WaitIdle()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         z_MeleeState = MeleeState.CHASE;
     }
 
@@ -110,8 +114,9 @@ public class MeleeEnemy : MonoBehaviour
     {
         //Debug.Log("Chase");
         //PlayerDet.SetPosition(0, LineEnemy.position);
-       // PlayerDet.SetPosition(1, Player.transform.position);
+        // PlayerDet.SetPosition(1, Player.transform.position);
         z_navMeshAgent.SetDestination(Player.transform.position);
+        agent.destination = Player.transform.position;
     }
 
     void Patrol()
