@@ -120,9 +120,12 @@ public class Shooting : MonoBehaviour
             }
             if (hit.transform.CompareTag("Enemy"))
             {
-                EnemeyTest.enabled = false;
+                var RagdollScript = hit.transform.GetComponent<Ragdoll>();
+                RagdollScript.TurnOnRagdoll();
+                Debug.Log("hIT Enemt");
+              
             }
-
+         
         }
     }
 
