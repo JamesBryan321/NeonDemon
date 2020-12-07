@@ -16,11 +16,11 @@ public class MeleeEnemy : MonoBehaviour
     private int CurrentWaypoint;
 
     public bool dodge;
-
+    public int EnemyDamage = 10;
     public Animator MeleeAnim;
 
-    public Transform LineEnemy;
-    public LineRenderer PlayerDet;
+    //public Transform LineEnemy;
+    //public LineRenderer PlayerDet;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +62,7 @@ public class MeleeEnemy : MonoBehaviour
         if (Vector3.Distance(Player.transform.position, this.transform.position) < 2)
         {
             z_MeleeState = MeleeState.ATTACK;
+            //StartCoroutine("Damage");
         }
     }
 
@@ -95,29 +96,29 @@ public class MeleeEnemy : MonoBehaviour
 
     void Idle()
     {
-        Debug.Log("Idle");
+        //Debug.Log("Idle");
         StartCoroutine("WaitIdle");
     }
 
     IEnumerator WaitIdle()
     {
         yield return new WaitForSeconds(3f);
-        z_MeleeState = MeleeState.PATROL;
+        z_MeleeState = MeleeState.CHASE;
     }
 
     void Chase()
     {
-        Debug.Log("Chase");
-        PlayerDet.SetPosition(0, LineEnemy.position);
-        PlayerDet.SetPosition(1, Player.transform.position);
+        //Debug.Log("Chase");
+        //PlayerDet.SetPosition(0, LineEnemy.position);
+       // PlayerDet.SetPosition(1, Player.transform.position);
         z_navMeshAgent.SetDestination(Player.transform.position);
     }
 
     void Patrol()
     {
-        PlayerDet.SetPosition(0, this.transform.position);
-        PlayerDet.SetPosition(1, this.transform.position);
-        Debug.Log("Patrol");
+        //PlayerDet.SetPosition(0, this.transform.position);
+        //PlayerDet.SetPosition(1, this.transform.position);
+        //Debug.Log("Patrol");
         transform.rotation = Quaternion.Lerp(transform.rotation, Waypoints[CurrentWaypoint].rotation, Time.deltaTime * 0.8f);
         //transform.LookAt(Waypoints[CurrentWaypoint].position);
         z_navMeshAgent.SetDestination(Waypoints[CurrentWaypoint].position);
@@ -132,14 +133,22 @@ public class MeleeEnemy : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attack");
+        //Debug.Log("Attack");
         MeleeAnim.SetTrigger("Attack");
+        //StartCoroutine("Damage");
         z_MeleeState = MeleeState.CHASE;
+    }
+
+
+    public void Damage()
+    {
+        Player.GetComponent<PlayerHP>().PlayerHealth -= EnemyDamage;
+
     }
 
     void Dodge()
     {
-        Debug.Log("Dodge");
+        //Debug.Log("Dodge");
         transform.Translate(Vector3.right * Time.deltaTime, transform);
         z_MeleeState = MeleeState.CHASE;
     }
