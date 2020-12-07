@@ -10,8 +10,12 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(PortalVFX, SpawnPoints[0].transform);
-        Instantiate(MeleeEnemy, SpawnPoints[0].transform);
+        for (int i = 0; i < SpawnPoints.Count; i++)
+        {
+
+            Instantiate(PortalVFX, SpawnPoints[i].transform);
+            Instantiate(MeleeEnemy, SpawnPoints[i].transform);
+        }
     }
 
     // Update is called once per frame
