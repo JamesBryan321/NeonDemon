@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 265301615}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 297709986}
   - component: {fileID: 297709988}
   - component: {fileID: 297709987}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BLAMSFX (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5099,10 +5099,10 @@ MonoBehaviour:
   playerCamera: {fileID: 1768016323}
   groundCheck: {fileID: 349599981}
   isGrounded: 0
-  groundCheckBoxSize: {x: 0.3, y: 0.4, z: 0.3}
+  groundCheckBoxSize: {x: 1, y: 1, z: 1}
   jumpForce: 10
   slideForce: 0.5
-  crouchSize: {x: 0.6, y: 0.6, z: 0.6}
+  crouchSize: {x: 0.4, y: 0.4, z: 0.4}
   isJumping: 0
   secondJumpAvailable: 0
   gravityScale: 0.05
@@ -5248,7 +5248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 331749478}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MachineGunMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6000,7 +6000,7 @@ Transform:
   m_GameObject: {fileID: 681741053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.7, y: 0.22340965, z: 19.44}
-  m_LocalScale: {x: 1, y: 50.68776, z: 138.44904}
+  m_LocalScale: {x: 1, y: 20, z: 138.44904}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -6220,7 +6220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1054991501}
   - component: {fileID: 1054991502}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WeaponManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6241,7 +6241,7 @@ Transform:
   - {fileID: 1737024143}
   - {fileID: 331749478}
   m_Father: {fileID: 1768016326}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1054991502
 MonoBehaviour:
@@ -6277,7 +6277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1124039238}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6435,7 +6435,7 @@ GameObject:
   - component: {fileID: 1198426408}
   - component: {fileID: 1198426410}
   - component: {fileID: 1198426409}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BLAMSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11266,6 +11266,212 @@ Transform:
   m_Father: {fileID: 313597012}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1337548738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1337548739}
+  - component: {fileID: 1337548740}
+  - component: {fileID: 1337548741}
+  m_Layer: 0
+  m_Name: Gun and PP Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1337548739
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337548738}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1768016326}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.019999504}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!20 &1337548740
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337548738}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 512
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!114 &1337548741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337548738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1768016326}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 2
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 0
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles:
+  - assemblyQualifiedName: SCPE.CloudShadows, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.EdgeDetection, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Fog, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.LensFlares, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.LightStreaks, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Pixelize, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Posterize, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Sketch, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_AfterStackBundles:
+  - assemblyQualifiedName: SCPE.AmbientOcclusion2D, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.BlackBars, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Blur, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.ColorSplit, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Colorize, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Danger, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Dithering, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.DoubleVision, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Gradient, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.HueShift3D, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Kaleidoscope, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Kuwahara, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.LUT, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Mosaic, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Overlay, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.RadialBlur, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Refraction, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Ripples, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Scanlines, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Sharpen, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.SpeedLines, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Sunshafts, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.TiltShift, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.Transition, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: SCPE.TubeDistortion, sc.posteffects.runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1493479337
 GameObject:
   m_ObjectHideFlags: 0
@@ -11421,7 +11627,7 @@ GameObject:
   - component: {fileID: 1737024146}
   - component: {fileID: 1737024147}
   - component: {fileID: 1737024148}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RevolverMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11783,6 +11989,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 5.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1337548739}
   - {fileID: 1054991501}
   m_Father: {fileID: 313597012}
   m_RootOrder: 0
@@ -11810,7 +12017,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768016323}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -12358,10 +12565,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6972353982210251518, guid: 1d378d0913416db4f8ed3b0a2706507f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6972353982210272264, guid: 1d378d0913416db4f8ed3b0a2706507f,
         type: 3}
       propertyPath: m_Name
       value: RedFireMuzzleFlash Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972353982210272264, guid: 1d378d0913416db4f8ed3b0a2706507f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972353982210459764, guid: 1d378d0913416db4f8ed3b0a2706507f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972353982210478092, guid: 1d378d0913416db4f8ed3b0a2706507f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d378d0913416db4f8ed3b0a2706507f, type: 3}
@@ -12374,6 +12601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1990641562}
+  - component: {fileID: 1990641563}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -12396,6 +12624,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1990641563
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990641561}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8d9438d3992ba044b88e0997622f86d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2079218649
 GameObject:
   m_ObjectHideFlags: 0
@@ -12579,7 +12826,7 @@ Transform:
   m_GameObject: {fileID: 919132148489656655}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16.57364, y: 16.57364, z: 16.57364}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8879528567927837547}
   - {fileID: 9032654911969421081}
@@ -12737,7 +12984,7 @@ GameObject:
   - component: {fileID: 2711721957280104725}
   - component: {fileID: 6247787903395737449}
   - component: {fileID: 9131171183879300668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12945,7 +13192,7 @@ GameObject:
   - component: {fileID: 1565022296635235263}
   - component: {fileID: 3575949222838096055}
   - component: {fileID: 6255546105906496236}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12984,7 +13231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4068371531200613449}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Revolver_segmented
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13343,7 +13590,7 @@ GameObject:
   - component: {fileID: 6949223305045124}
   - component: {fileID: 1076180334280479910}
   - component: {fileID: 5150195426232279187}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13462,7 +13709,7 @@ GameObject:
   - component: {fileID: 27691602581124956}
   - component: {fileID: 7249137471334411924}
   - component: {fileID: 5299230972795318272}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13494,7 +13741,7 @@ GameObject:
   - component: {fileID: 6859968055036045571}
   - component: {fileID: 8360408562489815224}
   - component: {fileID: 5300059494089109090}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13647,7 +13894,7 @@ GameObject:
   - component: {fileID: 4395768615386255377}
   - component: {fileID: 4040604787981929899}
   - component: {fileID: 5590720714561963950}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13725,7 +13972,7 @@ GameObject:
   - component: {fileID: 8201219678114193128}
   - component: {fileID: 828341720389110567}
   - component: {fileID: 6340585874434545167}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13979,7 +14226,7 @@ GameObject:
   - component: {fileID: 7404906917739902011}
   - component: {fileID: 8000682360282472692}
   - component: {fileID: 1193548319300993874}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
