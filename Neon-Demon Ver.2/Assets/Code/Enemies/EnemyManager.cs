@@ -7,6 +7,7 @@ public class EnemyManager : MonoBehaviour
     public List<GameObject> SpawnPoints;
     public GameObject MeleeEnemy;
     public GameObject PortalVFX;
+    GameObject theObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,9 @@ public class EnemyManager : MonoBehaviour
         {
 
             Instantiate(PortalVFX, SpawnPoints[i].transform);
-            Instantiate(MeleeEnemy, SpawnPoints[i].transform);
+            theObject = Instantiate(MeleeEnemy, SpawnPoints[i].transform);
+            theObject.transform.parent = SpawnPoints[i].transform;
+            theObject.transform.localPosition = SpawnPoints[i].transform.localPosition;
         }
     }
 
