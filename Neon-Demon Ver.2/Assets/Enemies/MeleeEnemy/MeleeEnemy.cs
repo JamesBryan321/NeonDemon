@@ -10,7 +10,7 @@ public class MeleeEnemy : MonoBehaviour
 
     private GameObject Player;
     public float speed = 2f;
-    private NavMeshAgent z_navMeshAgent;
+    public NavMeshAgent z_navMeshAgent;
     public float DetectionRadius = 30f;
     public List<Transform> Waypoints;
     private int CurrentWaypoint;
@@ -29,8 +29,11 @@ public class MeleeEnemy : MonoBehaviour
         z_MeleeState = MeleeState.CHASE;
         z_navMeshAgent = GetComponent<NavMeshAgent>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        z_navMeshAgent.enabled = false;
 
     }
+
+    
 
     // Update is called once per frame
     void Update()

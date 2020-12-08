@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  z_navMeshAgent: {fileID: 0}
   DetectionRadius: 50
   Waypoints: []
   dodge: 0
@@ -182,7 +183,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359145311712612841}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 2.15
   m_Speed: 12
@@ -484,6 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cce43750764c14f9b8cea124dd7c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 1359145311712612843}
   EnemyDmg: 10
 --- !u!1 &2424009974316138496
 GameObject:

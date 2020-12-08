@@ -16,8 +16,8 @@ public class EnemyManager : MonoBehaviour
 
             Instantiate(PortalVFX, SpawnPoints[i].transform);
             theObject = Instantiate(MeleeEnemy, SpawnPoints[i].transform);
-            theObject.transform.parent = SpawnPoints[i].transform;
-            theObject.transform.localPosition = SpawnPoints[i].transform.localPosition;
+            //theObject.transform.parent = SpawnPoints[i].transform;
+            //theObject.transform.localPosition = new Vector3(0, 0, 0);
         }
     }
 
