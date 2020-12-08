@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: Light
+  m_Name: BlackBarIntro
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 6195245394940295441}
---- !u!114 &6195245394940295441
+  - {fileID: 7366063078031543948}
+--- !u!114 &7366063078031543948
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23,43 +23,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e1b3a3f18dad1429c9ecc7e1db2274, type: 3}
-  m_Name: Sunshafts
+  m_Script: {fileID: 11500000, guid: 9088dd6886f40464899c14cceff9fb5d, type: 3}
+  m_Name: BlackBars
   m_EditorClassIdentifier: 
   active: 1
   enabled:
     overrideState: 1
     value: 1
-  useCasterColor:
+  mode:
     overrideState: 1
     value: 0
-  useCasterIntensity:
-    overrideState: 0
-    value: 0
-  sunShaftIntensity:
-    overrideState: 1
-    value: 0.01
-  blendMode:
-    overrideState: 0
-    value: 1
-  resolution:
-    overrideState: 0
-    value: 2
-  highQuality:
+  size:
     overrideState: 1
     value: 1
-  sunThreshold:
-    overrideState: 0
-    value: {r: 0, g: 0, b: 0, a: 1}
-  sunColor:
+  maxSize:
     overrideState: 1
-    value: {r: 0.3443396, g: 1, b: 0.97649515, a: 1}
-  falloff:
-    overrideState: 1
-    value: 1
-  length:
-    overrideState: 1
-    value: 10
-  noiseStrength:
-    overrideState: 0
-    value: 0
+    value: 0.349
