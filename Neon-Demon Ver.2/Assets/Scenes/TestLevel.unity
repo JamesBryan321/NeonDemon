@@ -32275,6 +32275,21 @@ PrefabInstance:
       propertyPath: speed
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 1475690249460470502, guid: 7cc100c2ade0fd3408fe2faa70f698cc,
+        type: 3}
+      propertyPath: globalGravity
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475690249460470502, guid: 7cc100c2ade0fd3408fe2faa70f698cc,
+        type: 3}
+      propertyPath: ySensitivity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475690249460470502, guid: 7cc100c2ade0fd3408fe2faa70f698cc,
+        type: 3}
+      propertyPath: sensitivity
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1475690249460470503, guid: 7cc100c2ade0fd3408fe2faa70f698cc,
         type: 3}
       propertyPath: m_Enabled

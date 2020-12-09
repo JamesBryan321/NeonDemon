@@ -48,7 +48,7 @@ public class PlayerMove : MonoBehaviour
     //public MenuScript menuScript;
 
     public float gravityScale = 0.5f;
-    public float globalGravity = -9.81f;
+    public float globalGravity = -20f;
     public GameObject SpeedLineOBJ;
     void Start()
     {
