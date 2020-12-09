@@ -78,7 +78,12 @@ ModelImporter:
   - first:
       74: 1671460377021222584
     second: BelialRealityBlink
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 04 - Default.002
+    second: {fileID: 2100000, guid: 36ba5b33f5e03ae429283550567065b6, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
