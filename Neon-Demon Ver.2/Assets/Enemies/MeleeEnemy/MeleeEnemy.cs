@@ -66,7 +66,7 @@ public class MeleeEnemy : MonoBehaviour
 
         Detection();
 
-        if (Vector3.Distance(Player.transform.position, this.transform.position) < 2)
+        if (Vector3.Distance(Player.transform.position, this.transform.position) < 5)
         {
             z_MeleeState = MeleeState.ATTACK;
             //StartCoroutine("Damage");
@@ -127,7 +127,7 @@ public class MeleeEnemy : MonoBehaviour
         //PlayerDet.SetPosition(0, this.transform.position);
         //PlayerDet.SetPosition(1, this.transform.position);
         //Debug.Log("Patrol");
-        transform.rotation = Quaternion.Lerp(transform.rotation, Waypoints[CurrentWaypoint].rotation, Time.deltaTime * 0.8f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Waypoints[CurrentWaypoint].rotation, Time.deltaTime * 1.6f);
         //transform.LookAt(Waypoints[CurrentWaypoint].position);
         z_navMeshAgent.SetDestination(Waypoints[CurrentWaypoint].position);
 
