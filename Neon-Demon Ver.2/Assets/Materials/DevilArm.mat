@@ -110,7 +110,7 @@ Material:
     m_Floats:
     - _AlphaBaseCutout: 1
     - _BumpScale: 1
-    - _Compa: 4
+    - _Compa: 7
     - _CustomLightDirectionFollowObjectRotation: 0
     - _CustomLightDirectionIntensity: 0
     - _Cutoff: 0.5
@@ -174,9 +174,9 @@ Material:
     - _NoisyOutlineIntensity: 0
     - _NormalMapIntensity: 1
     - _OcclusionStrength: 1
-    - _Oper: 0
+    - _Oper: 2
     - _OutlineExtrudeMethod: 0
-    - _OutlineWidth: 0.5
+    - _OutlineWidth: 0.02
     - _OutlineWidthAffectedByViewDistance: 0
     - _OutlineZPostionInCamera: 0
     - _OverallShadowColorPower: 1
@@ -189,7 +189,7 @@ Material:
     - _ReduceShadowPointLight: 0
     - _ReduceShadowSpotDirectionalLight: 10
     - _RefMetallic: 0
-    - _RefVal: 0
+    - _RefVal: 0.91
     - _ReflectionIntensity: 0
     - _ReflectionRoughtness: 0
     - _RimLightColorPower: 10
@@ -237,8 +237,8 @@ Material:
     - _CustomLightDirection: {r: 0, g: 0, b: 10, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GlossColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
+    - _HighlightColor: {r: 0.5188679, g: 0, b: 0, a: 0}
+    - _MainColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineOffset: {r: 0, g: 0, b: 0, a: 1}
     - _OverallShadowColor: {r: 0, g: 0, b: 0, a: 1}

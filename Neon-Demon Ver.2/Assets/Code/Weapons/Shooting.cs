@@ -129,6 +129,11 @@ public class Shooting : MonoBehaviour
                 var barrelScript = hit.transform.GetComponent<Explodingbarrel>();
                 barrelScript.explode();
             }
+            if (hit.transform.CompareTag("Enemy"))
+            {
+                var ragDollscript = hit.transform.GetComponent<RagDoll>();
+                ragDollscript.TurnOnRagdoll();
+            }
             /*if (hit.transform.CompareTag("Twitter"))
             {
                 OpenTwitter();
