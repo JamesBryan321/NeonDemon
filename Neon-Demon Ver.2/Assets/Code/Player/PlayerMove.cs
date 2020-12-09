@@ -232,37 +232,34 @@ public class PlayerMove : MonoBehaviour
         isSliding = false;
     }
 
-    
+
     private void StartWallrun()
     {
         playerRigidbody.useGravity = false;
         isWallRunning = true;
 
-        //Custom gravity so you slowly fall down the wall
-        Vector3 NewGravity = globalGravity * gravityScale * Vector3.up;
-        playerRigidbody.AddForce(NewGravity, ForceMode.Acceleration);
-     
         playerRigidbody.AddForce(new Vector3(5, 0));
-        //playerRigidbody.AddForce(orientation.forward * 5 * Time.deltaTime);
+        // playerRigidbody.AddForce(orientation.forward * 50 * Time.deltaTime);
         if (playerRigidbody.velocity.magnitude <= maxWallSpeed)
         {
-            // playerRigidbody.AddForce(orientation.forward * wallrunForce * Time.deltaTime);
-          
+            playerRigidbody.AddForce(orientation.forward * wallrunForce * Time.deltaTime);
+
 
             if (isWallRight)
             {
                 playerRigidbody.AddForce(orientation.right * wallrunForce / 5 * Time.deltaTime);
-                playerRigidbody.AddForce(orientation.forward * 70 * Time.deltaTime);
+                playerRigidbody.AddForce(orientation.forward * 30000 * Time.deltaTime);
             }
 
-            else 
+            else
                 playerRigidbody.AddForce(-orientation.right * wallrunForce / 5 * Time.deltaTime);
+            playerRigidbody.AddForce(orientation.forward * 20000 * Time.deltaTime);
         }
 
-        /*if(playerRigidbody.velocity.magnitude <= 1)
+        if (playerRigidbody.velocity.magnitude <= 1)
         {
             playerRigidbody.useGravity = true;
-        }*/
+        }
     }
     private void StopWallRun()
     {

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestObjects
+  m_Name: walls
   m_Shader: {fileID: 4800000, guid: d12428961551799408aa97256fd770c3, type: 3}
   m_ShaderKeywords: NOKEWO N_F_O_ON N_F_RELGI_ON N_F_SS_ON
   m_LightmapFlags: 4
@@ -85,7 +85,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _OutlineWidthControl:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.6, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PTexture:
         m_Texture: {fileID: 0}
@@ -137,7 +137,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HighlightColorPower: 1
-    - _LightAffectOutlineColor: 1
+    - _LightAffectOutlineColor: 0
     - _LightAffectRimLightColor: 0
     - _LightAffectShadow: 0
     - _LightFalloffAffectShadowT: 0
@@ -175,10 +175,10 @@ Material:
     - _NormalMapIntensity: 1
     - _OcclusionStrength: 1
     - _Oper: 0
-    - _OutlineExtrudeMethod: 1
-    - _OutlineWidth: 10.77
-    - _OutlineWidthAffectedByViewDistance: 0
-    - _OutlineZPostionInCamera: 0.4
+    - _OutlineExtrudeMethod: 0
+    - _OutlineWidth: 63.3
+    - _OutlineWidthAffectedByViewDistance: 1
+    - _OutlineZPostionInCamera: 0.3
     - _OverallShadowColorPower: 1
     - _PSGLOTEX: 0
     - _PTexturePower: 1
@@ -192,10 +192,10 @@ Material:
     - _RefVal: 0
     - _ReflectionIntensity: 0
     - _ReflectionRoughtness: 0
-    - _RimLightColorPower: 5.99
+    - _RimLightColorPower: 10
     - _RimLightInLight: 1
-    - _RimLightSoftness: 0.703
-    - _RimLightUnfill: 2.52
+    - _RimLightSoftness: 1
+    - _RimLightUnfill: 1.5
     - _SPECIN: 1
     - _SPECMODE: 0
     - _STIL: 0
@@ -238,11 +238,11 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GlossColor: {r: 1, g: 1, b: 1, a: 1}
     - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainColor: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
+    - _MainColor: {r: 0, g: 0.13085175, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineOffset: {r: 0, g: 0, b: -1.15, a: 1}
+    - _OutlineOffset: {r: 0, g: 0, b: 0, a: 1.02}
     - _OverallShadowColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimLightColor: {r: 0, g: 0.99020815, b: 1, a: 1}
+    - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _SelfLitColor: {r: 1, g: 1, b: 1, a: 1}
     - _SelfShadowRealTimeShadowColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowTColor: {r: 1, g: 1, b: 1, a: 1}
