@@ -15,5 +15,6 @@ public class Thruster : MonoBehaviour
     void FixedUpdate()
     {
         rb.AddForce(transform.forward * thrust);
+        rb.AddExplosionForce(10f, transform.position, 10f);
     }
 }
