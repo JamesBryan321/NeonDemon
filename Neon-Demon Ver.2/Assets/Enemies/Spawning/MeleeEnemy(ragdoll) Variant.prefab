@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2019973425}
   - component: {fileID: 2019973427}
   - component: {fileID: 2019973426}
+  - component: {fileID: 2069898931781245803}
   m_Layer: 0
   m_Name: Humerous.r.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +159,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &2069898931781245803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301193783721420915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armature: {fileID: 7777379223636112427}
+  Anim: {fileID: 471191989736027205}
+  enemy: {fileID: 1107723412331187646}
+  NavMesh: {fileID: 741804553023875731}
 --- !u!1 &390143177643125372
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +287,7 @@ MeshCollider:
   m_GameObject: {fileID: 390143177643125372}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: -1
@@ -295,7 +312,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390143177643125372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
   m_Name: 
@@ -497,7 +514,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741804553023875731}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
   m_Name: 
@@ -676,9 +693,10 @@ GameObject:
   - component: {fileID: 1947113211}
   - component: {fileID: 1947113213}
   - component: {fileID: 1947113212}
+  - component: {fileID: 1533452917916752031}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -822,6 +840,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1533452917916752031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995338913842965383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armature: {fileID: 7777379223636112427}
+  Anim: {fileID: 471191989736027205}
+  enemy: {fileID: 1107723412331187646}
+  NavMesh: {fileID: 741804553023875731}
 --- !u!1 &1463006608821145616
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,9 +868,10 @@ GameObject:
   - component: {fileID: 1400567480}
   - component: {fileID: 1400567482}
   - component: {fileID: 1400567481}
+  - component: {fileID: 926168089691169546}
   m_Layer: 0
   m_Name: Jaw
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -980,6 +1015,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &926168089691169546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463006608821145616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armature: {fileID: 7777379223636112427}
+  Anim: {fileID: 471191989736027205}
+  enemy: {fileID: 1107723412331187646}
+  NavMesh: {fileID: 741804553023875731}
 --- !u!1 &1782573483428714824
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,9 +1043,10 @@ GameObject:
   - component: {fileID: 375164497}
   - component: {fileID: 375164499}
   - component: {fileID: 375164498}
+  - component: {fileID: 12161807959583314}
   m_Layer: 0
   m_Name: Shoulder.r.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1138,6 +1190,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &12161807959583314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782573483428714824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armature: {fileID: 7777379223636112427}
+  Anim: {fileID: 471191989736027205}
+  enemy: {fileID: 1107723412331187646}
+  NavMesh: {fileID: 741804553023875731}
 --- !u!1 &2228393068378453013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,9 +1218,10 @@ GameObject:
   - component: {fileID: 728401672}
   - component: {fileID: 728401673}
   - component: {fileID: 728401671}
+  - component: {fileID: 466997267999393549}
   m_Layer: 0
   m_Name: Spike.r.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1296,6 +1365,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &466997267999393549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2228393068378453013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armature: {fileID: 7777379223636112427}
+  Anim: {fileID: 471191989736027205}
+  enemy: {fileID: 1107723412331187646}
+  NavMesh: {fileID: 741804553023875731}
 --- !u!1 &3369827731723316965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,9 +1709,10 @@ GameObject:
   - component: {fileID: 1257455844}
   - component: {fileID: 1257455846}
   - component: {fileID: 1257455845}
+  - component: {fileID: 2424009974877685860}
   m_Layer: 0
   m_Name: Forearm.r.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1770,6 +1856,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &2424009974877685860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4121950348465929082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armature: {fileID: 7777379223636112427}
+  Anim: {fileID: 471191989736027205}
+  enemy: {fileID: 1107723412331187646}
+  NavMesh: {fileID: 741804553023875731}
 --- !u!1 &5493081049487874431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,9 +1884,10 @@ GameObject:
   - component: {fileID: 1180252027}
   - component: {fileID: 1180252029}
   - component: {fileID: 1180252028}
+  - component: {fileID: 6101414488117537383}
   m_Layer: 0
   m_Name: NeckTop
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1928,6 +2031,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &6101414488117537383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5493081049487874431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armature: {fileID: 7777379223636112427}
+  Anim: {fileID: 471191989736027205}
+  enemy: {fileID: 1107723412331187646}
+  NavMesh: {fileID: 741804553023875731}
 --- !u!1 &6354742494490172444
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,12 +2372,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6479943580923923806}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0114c2b1cfcfa745b4e4d98fc8c0f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 750
+  thrust: 2000
   rb: {fileID: 154926563}
 --- !u!1 &6863285350979940991
 GameObject:
@@ -2272,9 +2391,10 @@ GameObject:
   - component: {fileID: 1499967976}
   - component: {fileID: 1499967978}
   - component: {fileID: 1499967977}
+  - component: {fileID: 5163523842605334887}
   m_Layer: 0
   m_Name: Humerous.r.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2418,6 +2538,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &5163523842605334887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6863285350979940991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armature: {fileID: 7777379223636112427}
+  Anim: {fileID: 471191989736027205}
+  enemy: {fileID: 1107723412331187646}
+  NavMesh: {fileID: 741804553023875731}
 --- !u!1 &7735485780018115128
 GameObject:
   m_ObjectHideFlags: 0
@@ -2587,6 +2723,8 @@ GameObject:
   - component: {fileID: 8174322908309634657}
   - component: {fileID: 102972523}
   - component: {fileID: 102972524}
+  - component: {fileID: 8320682922677372724}
+  - component: {fileID: 8320682922677372723}
   m_Layer: 0
   m_Name: Armature
   m_TagString: Enemy
@@ -2617,14 +2755,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7777379223636112427}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
 --- !u!65 &102972524
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2638,6 +2776,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.009166097, y: 0.0051574325, z: 0.0034138104}
   m_Center: {x: -0.00005130629, y: -0.0018366658, z: 0.0070390757}
+--- !u!64 &8320682922677372724
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777379223636112427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!114 &8320682922677372723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777379223636112427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armature: {fileID: 7777379223636112427}
+  Anim: {fileID: 471191989736027205}
+  enemy: {fileID: 1107723412331187646}
+  NavMesh: {fileID: 741804553023875731}
 --- !u!1 &7785329772953444132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2649,7 +2817,7 @@ GameObject:
   - component: {fileID: 7575594897732407508}
   m_Layer: 0
   m_Name: Torso
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2714,9 +2882,10 @@ GameObject:
   - component: {fileID: 1564392887}
   - component: {fileID: 1564392888}
   - component: {fileID: 1564392886}
+  - component: {fileID: 8512964749025122050}
   m_Layer: 0
   m_Name: Spike.r.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2860,6 +3029,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &8512964749025122050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7976979330676679704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armature: {fileID: 7777379223636112427}
+  Anim: {fileID: 471191989736027205}
+  enemy: {fileID: 1107723412331187646}
+  NavMesh: {fileID: 741804553023875731}
 --- !u!1 &8314315315057629175
 GameObject:
   m_ObjectHideFlags: 0
@@ -2902,9 +3087,10 @@ GameObject:
   - component: {fileID: 444193235}
   - component: {fileID: 444193237}
   - component: {fileID: 444193236}
+  - component: {fileID: 8045284487167381182}
   m_Layer: 0
   m_Name: Forearm.r.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3048,6 +3234,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &8045284487167381182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588746739675037092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armature: {fileID: 7777379223636112427}
+  Anim: {fileID: 471191989736027205}
+  enemy: {fileID: 1107723412331187646}
+  NavMesh: {fileID: 741804553023875731}
 --- !u!1 &8691918849692193357
 GameObject:
   m_ObjectHideFlags: 0
@@ -3090,9 +3292,10 @@ GameObject:
   - component: {fileID: 853055758}
   - component: {fileID: 853055760}
   - component: {fileID: 853055759}
+  - component: {fileID: 7384038219320386278}
   m_Layer: 0
   m_Name: NeckBottom
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3236,6 +3439,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7384038219320386278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9146410179866300924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cec7b875ed73d46a583ed843fd79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armature: {fileID: 7777379223636112427}
+  Anim: {fileID: 471191989736027205}
+  enemy: {fileID: 1107723412331187646}
+  NavMesh: {fileID: 741804553023875731}
 --- !u!1001 &1772109528763333498
 PrefabInstance:
   m_ObjectHideFlags: 0

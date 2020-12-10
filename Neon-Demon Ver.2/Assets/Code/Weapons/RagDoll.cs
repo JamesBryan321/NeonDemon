@@ -23,7 +23,7 @@ public class RagDoll : MonoBehaviour
     }
     public void TurnOnRagdoll()
     {
-        Armature.SetActive(true);
+        //Armature.SetActive(true);
         Anim.GetComponent<Animator>().enabled = false;
         enemy.enabled = false;
         NavMesh.GetComponent<NavMeshAgent>().enabled = false;
