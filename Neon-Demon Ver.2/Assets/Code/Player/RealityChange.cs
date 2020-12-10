@@ -23,17 +23,7 @@ public class RealityChange : MonoBehaviour
         {
 
 
-            if (realityNormal == true)
-            {
-                changeToHell();
-                realityNormal = false;
-            }
-            else if (realityNormal == false)
-            {
-                changeToNormal();
-                realityNormal = true;
-            }
-
+            StartCoroutine(WaitForChange());
         }
 
      
@@ -98,12 +88,29 @@ public class RealityChange : MonoBehaviour
     }
 
 
-
-   /* public IEnumerator WaitForAnimation()
+    private IEnumerator WaitForChange()
     {
-        yield return new WaitForSeconds(1.5f);
-        changeToHell();
-    }*/
+        yield return new WaitForSeconds(0.7f);
+
+        if (realityNormal == true)
+        {
+            changeToHell();
+            realityNormal = false;
+        }
+        else if (realityNormal == false)
+        {
+            changeToNormal();
+            realityNormal = true;
+        }
+
+    }
+
+
+    /* public IEnumerator WaitForAnimation()
+     {
+         yield return new WaitForSeconds(1.5f);
+         changeToHell();
+     }*/
 
 
 }
