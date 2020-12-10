@@ -11,9 +11,9 @@ public class Shooting : MonoBehaviour
     
     [Header("Gun Stats")]
     public TMP_Text AmmoCount;
-    public float damage = 25;
-    public float Ammo;
-    public float ReloadAmmo;
+    public int damage = 25;
+    public int Ammo;
+    public int ReloadAmmo;
     public float Firerate = 1f;
     public float nextFire = 0f;
     public Transform FirePoint;
@@ -118,8 +118,8 @@ public class Shooting : MonoBehaviour
                 settings.FreezeDecalDisappearance = true;
                 settings.LightIntensityMultiplier = DirLight.intensity;
                 hit.transform.GetComponent<TakeDamage>().Damage(damage);
-                var ragDollscript = hit.transform.GetComponent<RagDoll>();
-                ragDollscript.TurnOnRagdoll();
+                //var ragDollscript = hit.transform.GetComponent<RagDoll>();
+                //ragDollscript.TurnOnRagdoll();
             }
             if (hit.transform.CompareTag("bottle"))
             {

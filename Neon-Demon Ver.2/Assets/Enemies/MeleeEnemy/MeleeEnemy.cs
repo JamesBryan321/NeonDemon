@@ -17,6 +17,7 @@ public class MeleeEnemy : MonoBehaviour
 
     public bool dodge;
     public int EnemyDamage = 10;
+    public int EnemyHealth = 100;
     public Animator MeleeAnim;
 
     UnityEngine.AI.NavMeshAgent agent;

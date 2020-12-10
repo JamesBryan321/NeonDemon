@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class TakeDamage : MonoBehaviour
 {
-    public float HP = 100;
+    public MeleeEnemy EnemyRef;
+    public int HP = 100;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //HP = EnemyRef.EnemyHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(HP<=0)
+        HP = EnemyRef.EnemyHealth;
+
+        if (EnemyRef.EnemyHealth<=0)
         {
-            Destroy(gameObject);
+            var ragDollscript = gameObject.GetComponent<RagDoll>();
+            ragDollscript.TurnOnRagdoll();
         }
     }
 
-    public void Damage(float damage)
+    public void Damage(int damage)
     {
         HP = HP - damage;
+        EnemyRef.EnemyHealth = HP;
+       
     }
 }
