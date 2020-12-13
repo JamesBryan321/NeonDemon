@@ -7,6 +7,7 @@ public class EnemyManager : MonoBehaviour
     public List<GameObject> SpawnPoints;
     public GameObject MeleeEnemy;
     public GameObject PortalVFX;
+    public GameObject DoorObject;
     GameObject theObject;
     // Start is called before the first frame update
     void Start()
@@ -32,11 +33,12 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("Player"))
         {
             Spawn();
+            DoorObject.SetActive(true);
         }
     }
 }

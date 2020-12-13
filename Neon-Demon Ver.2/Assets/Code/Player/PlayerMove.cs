@@ -235,6 +235,7 @@ public class PlayerMove : MonoBehaviour
 
     private void StartWallrun()
     {
+        SpeedLineOBJ.SetActive(true);
         playerRigidbody.useGravity = false;
         isWallRunning = true;
 
@@ -263,6 +264,7 @@ public class PlayerMove : MonoBehaviour
     }
     private void StopWallRun()
     {
+        SpeedLineOBJ.SetActive(false);
         isWallRunning = false;
         playerRigidbody.useGravity = true;
     }
