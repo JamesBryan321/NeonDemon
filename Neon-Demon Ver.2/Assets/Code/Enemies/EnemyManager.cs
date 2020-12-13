@@ -11,6 +11,17 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void Spawn()
+    {
         for (int i = 0; i < SpawnPoints.Count; i++)
         {
 
@@ -21,9 +32,11 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.CompareTag("Player"))
+        {
+            Spawn();
+        }
     }
 }

@@ -90,7 +90,7 @@ public class RealityChange : MonoBehaviour
 
     private IEnumerator WaitForChange()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.01f);
 
         if (realityNormal == true)
         {

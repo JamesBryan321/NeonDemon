@@ -22,8 +22,9 @@ public class ChangeRealityAnimation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-        
-            Belial_Anim.SetBool("RealityChange", true);
+
+            //Belial_Anim.SetBool("RealityChange", true);
+            Belial_Anim.SetTrigger("RealityChange");
             StartCoroutine(WaitForChange());
          
         }
@@ -32,8 +33,8 @@ public class ChangeRealityAnimation : MonoBehaviour
 
     public IEnumerator WaitForChange()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.01f);
 
-        Belial_Anim.SetBool("RealityChange", false);
+        //Belial_Anim.SetBool("RealityChange", false);
     }
 }
