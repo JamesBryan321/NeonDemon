@@ -16,6 +16,7 @@ public class MeleeEnemy : MonoBehaviour
     private int CurrentWaypoint;
 
     public bool dodge;
+    public bool Dead;
     public int EnemyDamage = 10;
     public int EnemyHealth = 100;
     public Animator MeleeAnim;
@@ -71,6 +72,13 @@ public class MeleeEnemy : MonoBehaviour
         {
             z_MeleeState = MeleeState.ATTACK;
             //StartCoroutine("Damage");
+        }
+
+        if(EnemyHealth <= 0)
+        {
+            z_navMeshAgent.enabled = false;
+            Dead = true;
+            transform.GetComponent<MeleeEnemy>().enabled = false;
         }
     }
 

@@ -23433,7 +23433,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313597004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.988674, y: 10.370105, z: -157.26138}
+  m_LocalPosition: {x: 5.988674, y: 1.7, z: -25.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1768016326}
@@ -44986,6 +44986,11 @@ MonoBehaviour:
   PortalVFX: {fileID: 2060347696764643463, guid: 771e87d937f6f0148bfda8b47866d8e7,
     type: 3}
   DoorObject: {fileID: 1852350745}
+  NumberOfWaves: 2
+  NumberOfMeleeEnemies: 0100000004000000
+  CurrentWave: 2
+  CurrentEnemies: []
+  EnemiesDead: 0
 --- !u!65 &933639420
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -74950,7 +74955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuScript: {fileID: 0}
   AmmoCount: {fileID: 588711120}
-  damage: 25
+  damage: 100
   Ammo: 12
   ReloadAmmo: 12
   Firerate: 0.8
