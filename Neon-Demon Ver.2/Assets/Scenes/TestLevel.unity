@@ -110777,6 +110777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3855610990923967193}
   - component: {fileID: 7161230352028053667}
+  - component: {fileID: 4524483099075883109}
   - component: {fileID: 4524483099075883108}
   m_Layer: 9
   m_Name: fullbody_rigv2
@@ -110805,6 +110806,20 @@ MonoBehaviour:
   leftHandObj: {fileID: 1470603228}
   revolver: {fileID: 1737024142}
   machinegun: {fileID: 331749477}
+--- !u!114 &4524483099075883109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524483099075883107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b57e5ed6bdd58646bcf873bae118256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 0.92
+  maxAmount: 0.51
 --- !u!1 &4527326165439328128
 GameObject:
   m_ObjectHideFlags: 0
