@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class MeleeEnemy : MonoBehaviour
 {
-    private enum MeleeState { PATROL,CHASE,IDLE,ATTACK,DODGE}
+    private enum MeleeState { CHASE,IDLE,ATTACK,DODGE,RANGED}
     private MeleeState z_MeleeState;
 
     private GameObject Player;
@@ -21,10 +21,15 @@ public class MeleeEnemy : MonoBehaviour
     public int EnemyHealth = 100;
     public Animator MeleeAnim;
 
+    public GameObject Thruster;
+
+    public float Firerate = 1f;
+    public float nextFire = 0f;
+ 
     UnityEngine.AI.NavMeshAgent agent;
     //public Transform LineEnemy;
     //public LineRenderer PlayerDet;
-    // Start is called before the first frame update
+
     void Start()
     {
         Player = GameObject.Find("Player");
@@ -33,6 +38,7 @@ public class MeleeEnemy : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         z_navMeshAgent.enabled = false;
 
+        Firerate = Random.Range(4f, 8f);
     }
 
     
@@ -48,8 +54,8 @@ public class MeleeEnemy : MonoBehaviour
             case MeleeState.CHASE:
                 Chase();
                 break;
-            case MeleeState.PATROL:
-                Patrol();
+            case MeleeState.RANGED:
+                Ranged();
                 break;
             case MeleeState.ATTACK:
                 Attack();
@@ -66,20 +72,33 @@ public class MeleeEnemy : MonoBehaviour
             z_MeleeState = MeleeState.DODGE;
         }
 
-        Detection();
+        //Detection();
+
+        if(Time.time > nextFire && z_MeleeState != MeleeState.ATTACK)
+        {
+            nextFire = Time.time + Firerate;
+            z_MeleeState = MeleeState.RANGED;
+        }
+        else
+        {
+            Detection();
+        }
+
 
         if (Vector3.Distance(Player.transform.position, this.transform.position) < 5)
         {
             z_MeleeState = MeleeState.ATTACK;
-            //StartCoroutine("Damage");
         }
 
         if(EnemyHealth <= 0)
         {
+            Thruster.SetActive(false);
             z_navMeshAgent.enabled = false;
             Dead = true;
             transform.GetComponent<MeleeEnemy>().enabled = false;
         }
+
+
     }
 
 
@@ -101,8 +120,7 @@ public class MeleeEnemy : MonoBehaviour
                         Debug.DrawLine(this.gameObject.transform.position, hit.collider.gameObject.transform.position, Color.red);
 
                         z_MeleeState = MeleeState.CHASE;
-                        //LastPlayerSighting = hit.collider.gameObject.transform.position;
-                        //Searching = false;
+                     
                     }
                 }
             }
@@ -112,7 +130,6 @@ public class MeleeEnemy : MonoBehaviour
 
     void Idle()
     {
-        //Debug.Log("Idle");
         StartCoroutine("WaitIdle");
     }
 
@@ -124,48 +141,34 @@ public class MeleeEnemy : MonoBehaviour
 
     void Chase()
     {
-        //Debug.Log("Chase");
-        //PlayerDet.SetPosition(0, LineEnemy.position);
-        // PlayerDet.SetPosition(1, Player.transform.position);
+        //z_navMeshAgent.speed = 15;
         z_navMeshAgent.SetDestination(Player.transform.position);
         agent.destination = Player.transform.position;
     }
 
-    void Patrol()
-    {
-        //PlayerDet.SetPosition(0, this.transform.position);
-        //PlayerDet.SetPosition(1, this.transform.position);
-        //Debug.Log("Patrol");
-        transform.rotation = Quaternion.Lerp(transform.rotation, Waypoints[CurrentWaypoint].rotation, Time.deltaTime * 1.6f);
-        //transform.LookAt(Waypoints[CurrentWaypoint].position);
-        z_navMeshAgent.SetDestination(Waypoints[CurrentWaypoint].position);
 
-        if (Vector3.Distance(Waypoints[CurrentWaypoint].position, this.transform.position) < 2)
-        {
-            CurrentWaypoint = (CurrentWaypoint + 1) % Waypoints.Count;
-            z_MeleeState = MeleeState.IDLE;
-
-        }
-    }
 
     void Attack()
     {
-        //Debug.Log("Attack");
         MeleeAnim.SetTrigger("Attack");
-        //StartCoroutine("Damage");
         z_MeleeState = MeleeState.CHASE;
+    }
+
+    void Ranged()
+    {
+        MeleeAnim.SetTrigger("Ranged");
+        //z_navMeshAgent.speed = 0;
+       
     }
 
 
     public void Damage()
     {
         Player.GetComponent<PlayerHP>().PlayerHealth -= EnemyDamage;
-
     }
 
     void Dodge()
     {
-        //Debug.Log("Dodge");
         transform.Translate(Vector3.right * Time.deltaTime, transform);
         z_MeleeState = MeleeState.CHASE;
     }
