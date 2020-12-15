@@ -12,9 +12,12 @@ public class EnemyDamage : MonoBehaviour
     public Transform ShootPoint;
 
     public BoxCollider AttackZone;
+
+    [SerializeField] private int CheckReality = 1;
     // Start is called before the first frame update
     void Start()
     {
+        CheckReality = 1;
         Player = GameObject.Find("Player");
         Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.enabled = false;
         AttackZone.enabled = false;
@@ -23,10 +26,21 @@ public class EnemyDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            CheckReality = CheckReality * -1;
+            if (CheckReality < 0)
+            {
+                Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 20;
+            }
+            else
+            {
+                Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 15;
+            }
+        }
     }
 
-    public void StartNavMesh()
+        public void StartNavMesh()
     {
         Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.enabled = true;
     }
@@ -45,7 +59,15 @@ public class EnemyDamage : MonoBehaviour
 
     public void StartEnemy()
     {
-        Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 15;
+
+        if (CheckReality < 0)
+        {
+            Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 20;
+        }
+        else
+        {
+            Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 15;
+        }
     }
 
     private void OnTriggerStay(Collider other)
