@@ -81,7 +81,6 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        
         //Check if player is on the ground or not
         isGrounded = Physics.OverlapBox(groundCheck.transform.position, groundCheckBoxSize).Length > 2;
 
@@ -166,11 +165,13 @@ public class PlayerMove : MonoBehaviour
             playerRigidbody.velocity = new Vector3(velocity.x, playerRigidbody.velocity.y, velocity.y);
         }
 
+        /*
         if (isCrouching && !isSliding)
         {
             //velocity = (xMovement + zMovement).normalized * speed * Time.deltaTime / 4;
             //playerRigidbody.velocity = new Vector3(velocity.x, playerRigidbody.velocity.y, velocity.y);
         }
+        */
     }
 
     void Rotate()
