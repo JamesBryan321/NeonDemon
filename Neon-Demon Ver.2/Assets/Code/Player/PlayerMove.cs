@@ -86,6 +86,10 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (gamePaused)
+        {
+            return;
+        }
         //Check if player is on the ground or not
         isGrounded = Physics.OverlapBox(groundCheck.transform.position, groundCheckBoxSize).Length > 2;
 

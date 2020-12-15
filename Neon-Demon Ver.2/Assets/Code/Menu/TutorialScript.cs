@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class TutorialScript : MonoBehaviour
 {
     public TMP_Text welcomeMessage;
     public  TMP_Text continueText;
+    
+    public Image welcomeBackground;
 
     public PlayerMove pMScript;
     
@@ -15,6 +19,7 @@ public class TutorialScript : MonoBehaviour
     {
         pMScript.gamePaused = true;
         welcomeMessage.enabled = true;
+        welcomeBackground.enabled = true;
         EnableContinueButton();
     }
 
@@ -24,6 +29,7 @@ public class TutorialScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab) && welcomeMessage.enabled)
         {
             welcomeMessage.enabled = false;
+            welcomeBackground.enabled = false;
             DisableContinueButton();
             pMScript.gamePaused = false;
         }
