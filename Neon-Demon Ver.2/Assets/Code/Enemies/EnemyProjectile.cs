@@ -29,8 +29,10 @@ public class EnemyProjectile : MonoBehaviour
         }
         else
         {
-            Instantiate(ImpactEffect, transform.position, transform.rotation);
+            var test = Instantiate(ImpactEffect, transform.position, transform.rotation);
+            //test.transform.parent = transform;
             Destroy(gameObject);
+            
         }            
     }
 }

@@ -8,7 +8,7 @@ public class RealityChange : MonoBehaviour
     public GameObject[] CP_asset;
     public GameObject[] Hell_asset;
     public bool realityNormal;
-    public MeleeEnemy Enemy;
+    public GameObject HellVolume;
 
 
     // Start is called before the first frame update
@@ -37,8 +37,8 @@ public class RealityChange : MonoBehaviour
 
     private void changeToHell()
     {
-        
 
+        HellVolume.SetActive(true);
         foreach (var asset in Hell_asset)
         {
            
@@ -69,7 +69,7 @@ public class RealityChange : MonoBehaviour
     }
     private void changeToNormal()
     {
-      
+        HellVolume.SetActive(false);
         foreach (var name in CP_asset)
         {
 
