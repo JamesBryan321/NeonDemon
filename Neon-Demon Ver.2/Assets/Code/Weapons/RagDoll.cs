@@ -10,17 +10,7 @@ public class RagDoll : MonoBehaviour
     public GameObject Anim;
     public Animator enemy;
     public GameObject NavMesh;
-    // Start is called before the first frame update
-    void Start()
-    {
- 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
     public void TurnOnRagdoll()
     {
         //Armature.SetActive(true);

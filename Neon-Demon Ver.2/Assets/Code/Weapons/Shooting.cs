@@ -40,14 +40,12 @@ public class Shooting : MonoBehaviour
     //private IEnumerator WaitForReload;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         //Ads_anim = GetComponent<Animator>();
        //Cam_Anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         AmmoCount.text = "" + Ammo;
@@ -101,14 +99,10 @@ public class Shooting : MonoBehaviour
         FIRESFX.Play();
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
-        //GameObject bullet = Instantiate(projectile, FirePoint.position, FirePoint.rotation) as GameObject;
-       // bullet.GetComponent<Rigidbody>().AddForce(transform.forward * BulletSpeed);
         if(Physics.Raycast(ray, out hit,Mathf.Infinity))
         {
             GameObject impactEffectGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(Vector3.forward, Vector3.up)) as GameObject;
-            Destroy(impactEffectGO, 2);
-           
-            //Debug.Log( hit.collider.gameObject.name);
+            Destroy(impactEffectGO, 2);        
             if (hit.transform.CompareTag("Enemy"))
             {
                 float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
@@ -118,8 +112,6 @@ public class Shooting : MonoBehaviour
                 settings.FreezeDecalDisappearance = true;
                 settings.LightIntensityMultiplier = DirLight.intensity;
                 hit.transform.GetComponent<TakeDamage>().Damage(damage);
-                //var ragDollscript = hit.transform.GetComponent<RagDoll>();
-                //ragDollscript.TurnOnRagdoll();
             }
             if (hit.transform.CompareTag("bottle"))
             {
@@ -131,17 +123,6 @@ public class Shooting : MonoBehaviour
                 var barrelScript = hit.transform.GetComponent<Explodingbarrel>();
                 barrelScript.explode();
             }
-           /* if (hit.transform.CompareTag("Enemy"))
-            {
-                var ragDollscript = hit.transform.GetComponent<RagDoll>();
-                ragDollscript.TurnOnRagdoll();
-            }*/
-            /*if (hit.transform.CompareTag("Twitter"))
-            {
-                OpenTwitter();
-            }*/
-
-
         }
     }
 
