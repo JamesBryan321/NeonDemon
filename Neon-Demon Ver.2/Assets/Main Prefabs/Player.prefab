@@ -9861,6 +9861,68 @@ Transform:
   m_Father: {fileID: 6305694235119530601}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &693688726071883420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3723454452587566899}
+  - component: {fileID: 4985420240492010148}
+  - component: {fileID: 3142482779696967871}
+  m_Layer: 0
+  m_Name: SpeedLines Dash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3723454452587566899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693688726071883420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2778767375177370573}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4985420240492010148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693688726071883420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 21bcf8cff786608458bde492bd061188, type: 2}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 2
+--- !u!65 &3142482779696967871
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693688726071883420}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.32, y: 16.99, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &713459625914175232
 GameObject:
   m_ObjectHideFlags: 0
@@ -36099,6 +36161,7 @@ GameObject:
   - component: {fileID: 2778767375177370572}
   - component: {fileID: 2778767375177370577}
   - component: {fileID: 2778767375177370570}
+  - component: {fileID: -7095076927234542786}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -36121,6 +36184,7 @@ Transform:
   - {fileID: 2778767376658233926}
   - {fileID: 2778767375070343024}
   - {fileID: 2778767376430119788}
+  - {fileID: 3723454452587566899}
   - {fileID: 2778767376936275011}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -36244,6 +36308,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Belial_Anim: {fileID: 2008631511410320532}
   postProccesing: {fileID: 0}
+  switchAvailable: 0
+--- !u!114 &-7095076927234542786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2778767375177370578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43bdc50c8c2066a439c5909a0f238bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedLineOBJ: {fileID: 693688726071883420}
+  dashForce: 50
+  dashDuration: 0.2
+  jumpRate: 2
+  jumpTime: 0
 --- !u!1 &2778767375188840443
 GameObject:
   m_ObjectHideFlags: 0
@@ -51936,7 +52018,7 @@ RectTransform:
   - {fileID: 2778767375988839249}
   - {fileID: 4601398396849063373}
   m_Father: {fileID: 2778767375177370573}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -45,11 +45,7 @@ public class PlayerMove : MonoBehaviour
 
     private Vector2 velocity;
 
-    [Header("Dash Values")]
-    [SerializeField] private float dashForce;
-    [SerializeField] private float dashDuration;
-    [SerializeField] private float jumpRate = 1f;
-    [SerializeField] private float jumpTime = 0f;
+   
 
     //public MenuScript menuScript;
 
@@ -85,7 +81,6 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        jumpTime += Time.deltaTime;
         
         //Check if player is on the ground or not
         isGrounded = Physics.OverlapBox(groundCheck.transform.position, groundCheckBoxSize).Length > 2;
@@ -106,27 +101,7 @@ public class PlayerMove : MonoBehaviour
             Jump();
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && jumpTime > jumpRate)
-        {
-            
-            StartCoroutine(DashForward());
-            //nextJump = Time.time + jumpRate;
-        }
-        else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.S) && jumpTime > jumpRate)
-        {
-            //nextJump = Time.time + jumpRate;
-            StartCoroutine(DashBack());
-        }
-        else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.A) && jumpTime > jumpRate)
-        {
-            //nextJump = Time.time + jumpRate;
-            StartCoroutine(DashLeft());
-        }
-        else if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.D) && jumpTime > jumpRate)
-        {
-            //nextJump = Time.time + jumpRate;
-            StartCoroutine(DashRight());
-        }
+      
         
         /*
         if (Input.GetKey(KeyCode.LeftShift))
@@ -244,42 +219,7 @@ public class PlayerMove : MonoBehaviour
         }
 
     }
-    private IEnumerator DashForward()
-    {
-        playerRigidbody.AddForce(transform.forward * dashForce, ForceMode.VelocityChange);
-
-        yield return new WaitForSeconds(dashDuration);
-
-        jumpTime = 0;
-        playerRigidbody.velocity = Vector3.zero;
-    }
-    private IEnumerator DashBack()
-    {
-        playerRigidbody.AddForce(transform.forward * dashForce * -1, ForceMode.VelocityChange);
-
-        yield return new WaitForSeconds(dashDuration);
-
-        jumpTime = 0;
-        playerRigidbody.velocity = Vector3.zero;
-    }
-    private IEnumerator DashRight()
-    {
-        playerRigidbody.AddForce(transform.right * dashForce, ForceMode.VelocityChange);
-
-        yield return new WaitForSeconds(dashDuration);
-
-        jumpTime = 0;
-        playerRigidbody.velocity = Vector3.zero;
-    }
-    private IEnumerator DashLeft()
-    {
-        playerRigidbody.AddForce(transform.right * dashForce * - 1, ForceMode.VelocityChange);
-
-        yield return new WaitForSeconds(dashDuration);
-
-        jumpTime = 0;
-        playerRigidbody.velocity = Vector3.zero;
-    }
+   
 
     void Slide()
     {
