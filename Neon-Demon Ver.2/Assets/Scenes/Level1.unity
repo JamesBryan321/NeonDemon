@@ -3302,6 +3302,7 @@ MonoBehaviour:
   Hell_asset: []
   realityNormal: 0
   HellVolume: {fileID: 0}
+  Vignette: {fileID: 0}
 --- !u!1 &101632221
 GameObject:
   m_ObjectHideFlags: 0
@@ -4354,6 +4355,7 @@ MonoBehaviour:
   Hell_asset: []
   realityNormal: 0
   HellVolume: {fileID: 0}
+  Vignette: {fileID: 0}
 --- !u!1 &114978075
 GameObject:
   m_ObjectHideFlags: 0
@@ -7275,6 +7277,7 @@ MonoBehaviour:
   Hell_asset: []
   realityNormal: 0
   HellVolume: {fileID: 0}
+  Vignette: {fileID: 0}
 --- !u!43 &156537654
 Mesh:
   m_ObjectHideFlags: 0
@@ -8620,6 +8623,7 @@ MonoBehaviour:
   Hell_asset: []
   realityNormal: 0
   HellVolume: {fileID: 0}
+  Vignette: {fileID: 0}
 --- !u!64 &192622313
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9465,6 +9469,7 @@ MonoBehaviour:
   Hell_asset: []
   realityNormal: 0
   HellVolume: {fileID: 0}
+  Vignette: {fileID: 0}
 --- !u!1 &199214960
 GameObject:
   m_ObjectHideFlags: 0
@@ -22178,6 +22183,74 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &420102324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 420102328}
+  - component: {fileID: 420102327}
+  - component: {fileID: 420102325}
+  m_Layer: 0
+  m_Name: RealitySwap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &420102325
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420102324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cec284b880074b4f82dde38b4aef1e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &420102327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420102324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 791ca1ed8c9fe3d4581abb089a50d31b, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 0
+  priority: 4
+--- !u!4 &420102328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420102324}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1771166326}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &433129830
 GameObject:
   m_ObjectHideFlags: 0
@@ -30050,6 +30123,7 @@ MonoBehaviour:
   Hell_asset: []
   realityNormal: 0
   HellVolume: {fileID: 0}
+  Vignette: {fileID: 0}
 --- !u!64 &714336674
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44444,6 +44518,7 @@ MonoBehaviour:
   - {fileID: 1178547188}
   realityNormal: 0
   HellVolume: {fileID: 1442150942}
+  Vignette: {fileID: 420102325}
 --- !u!4 &1213538838
 Transform:
   m_ObjectHideFlags: 0
@@ -50894,6 +50969,7 @@ MonoBehaviour:
   Hell_asset: []
   realityNormal: 0
   HellVolume: {fileID: 0}
+  Vignette: {fileID: 0}
 --- !u!64 &1579351911
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55306,6 +55382,12 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!4 &1771166326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2778767375177370573, guid: 1306643cd4ac3af45a6d07b49536ea54,
+    type: 3}
+  m_PrefabInstance: {fileID: 2778767375402882974}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1778022163
 GameObject:
   m_ObjectHideFlags: 0
@@ -55639,6 +55721,7 @@ MonoBehaviour:
   Hell_asset: []
   realityNormal: 0
   HellVolume: {fileID: 0}
+  Vignette: {fileID: 0}
 --- !u!64 &1812915417
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66487,7 +66570,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sharedProfile
       value: 
-      objectReference: {fileID: 11400000, guid: 791ca1ed8c9fe3d4581abb089a50d31b,
+      objectReference: {fileID: 11400000, guid: c709d28152de45843b4e56a5867f5d44,
         type: 2}
     - target: {fileID: 2752061680916099099, guid: 1306643cd4ac3af45a6d07b49536ea54,
         type: 3}

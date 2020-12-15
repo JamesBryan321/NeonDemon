@@ -9,7 +9,7 @@ public class RealityChange : MonoBehaviour
     public GameObject[] Hell_asset;
     public bool realityNormal;
     public GameObject HellVolume;
-
+    public Animator Vignette;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class RealityChange : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
 
-
+            Vignette.SetTrigger("vigstart");
             StartCoroutine(WaitForChange());
         }
 
@@ -37,7 +37,7 @@ public class RealityChange : MonoBehaviour
 
     private void changeToHell()
     {
-
+        
         HellVolume.SetActive(true);
         foreach (var asset in Hell_asset)
         {
