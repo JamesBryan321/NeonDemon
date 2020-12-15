@@ -14,7 +14,7 @@ public class RealityChange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    //    realityNormal = true;
+      realityNormal = true;
     }
 
     // Update is called once per frame
