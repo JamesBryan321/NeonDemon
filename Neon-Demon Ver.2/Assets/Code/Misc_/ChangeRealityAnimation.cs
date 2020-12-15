@@ -9,18 +9,20 @@ public class ChangeRealityAnimation : MonoBehaviour
 
     public Animator Belial_Anim;
     public GameObject postProccesing;
+
+    public bool switchAvailable;
    
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && switchAvailable)
         {
 
             //Belial_Anim.SetBool("RealityChange", true);

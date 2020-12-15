@@ -5,11 +5,12 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour
 {
     public GameObject WeaponManager;
+    public Canvas playerCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerCanvas.enabled = false;
     }
 
     // Update is called once per frame
@@ -23,6 +24,7 @@ public class WeaponPickup : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             WeaponManager.SetActive(true);
+            playerCanvas.enabled = true;
         }
     }
 }
