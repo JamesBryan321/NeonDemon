@@ -7,10 +7,13 @@ public class TutorialScript : MonoBehaviour
 {
     public TMP_Text welcomeMessage;
     public  TMP_Text continueText;
+
+    public PlayerMove pMScript;
     
     // Start is called before the first frame update
     void Start()
     {
+        pMScript.gamePaused = true;
         welcomeMessage.enabled = true;
         EnableContinueButton();
     }
@@ -18,10 +21,11 @@ public class TutorialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && welcomeMessage.enabled == true)
+        if (Input.GetKeyDown(KeyCode.Tab) && welcomeMessage.enabled)
         {
             welcomeMessage.enabled = false;
             DisableContinueButton();
+            pMScript.gamePaused = false;
         }
     }
 

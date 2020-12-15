@@ -12685,6 +12685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   welcomeMessage: {fileID: 1764870435}
   continueText: {fileID: 524199314}
+  pMScript: {fileID: 2778767375202167638}
 --- !u!4 &1028909307
 Transform:
   m_ObjectHideFlags: 0
@@ -40934,6 +40935,7 @@ MonoBehaviour:
   gravityScale: 0.05
   globalGravity: -20
   SpeedLineOBJ: {fileID: 2778767376659078134}
+  gamePaused: 0
 --- !u!114 &2778767375202167639
 MonoBehaviour:
   m_ObjectHideFlags: 0

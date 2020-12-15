@@ -52,6 +52,7 @@ public class PlayerMove : MonoBehaviour
     public float gravityScale = 0.5f;
     public float globalGravity = -20f;
     public GameObject SpeedLineOBJ;
+    public bool gamePaused;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -61,6 +62,10 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (gamePaused)
+        {
+            return;
+        }
         Move();
         Rotate();
         /*
