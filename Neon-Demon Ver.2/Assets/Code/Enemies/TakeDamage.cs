@@ -19,4 +19,8 @@ public class TakeDamage : MonoBehaviour
     {
         EnemyRef.EnemyHealth = EnemyRef.EnemyHealth - damage;
     }
+    public void Thrusterdamage()
+    {
+        EnemyRef.EnemyHealth = EnemyRef.EnemyHealth - 100;
+    }
 }

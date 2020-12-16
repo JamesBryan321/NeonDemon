@@ -18,6 +18,10 @@ public class Shooting : MonoBehaviour
     public float nextFire = 0f;
     public Transform FirePoint;
     public float BulletSpeed;
+    public GameObject armsway;
+    public GameObject gunsway;
+
+
 
     [Header("SFX")]
     public AudioSource FIRESFX;
@@ -35,7 +39,7 @@ public class Shooting : MonoBehaviour
     public Camera cam;
     //public Animator Gun_Anim;
    // public Animator Cam_Anim;
-   // public Animator Ads_anim;
+    public Animator Ads_anim;
 
     //private IEnumerator WaitForReload;
 
@@ -68,9 +72,9 @@ public class Shooting : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Ammo = ReloadAmmo;
+           // Ammo = ReloadAmmo;
         }
-       /* if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1))
         {
             Ads_anim.SetBool("Ads", true);
 
@@ -78,20 +82,20 @@ public class Shooting : MonoBehaviour
         } else {
             Ads_anim.SetBool("Ads", false);
         }
-        if (Input./*GetMouseButtonDown GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
+            Ads_anim.enabled = true;
             Ads_anim.SetBool("Reload", true);
 
-         StartCoroutine(WaitForReload());
-           // Ammo = ReloadAmmo;
+            StartCoroutine(WaitForReload());
+         
+       
+            //Ammo = ReloadAmmo;
         }
       
 
-        else
-        {
-           
-        }
-      */
+ 
+      
 
     }
     void Shoot()
@@ -113,6 +117,17 @@ public class Shooting : MonoBehaviour
                 settings.LightIntensityMultiplier = DirLight.intensity;
                 hit.transform.GetComponent<TakeDamage>().Damage(damage);
             }
+            if (hit.transform.CompareTag("Thruster"))
+            {
+                float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
+                int randomblood = Random.Range(0, BloodFX.Count);
+                var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
+                var settings = instance.GetComponent<BFX_BloodSettings>();
+                settings.FreezeDecalDisappearance = true;
+                settings.LightIntensityMultiplier = DirLight.intensity;
+                hit.transform.GetComponent<TakeDamage>().Thrusterdamage();
+                hit.transform.GetComponent<Thruster>().enabled = true;
+            }
             if (hit.transform.CompareTag("bottle"))
             {
                var destructableScript = hit.transform.GetComponent<Destructable>();
@@ -128,16 +143,26 @@ public class Shooting : MonoBehaviour
 
     public IEnumerator WaitForReload()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         Ammo = ReloadAmmo;
-        //Ads_anim.SetBool("Reload", false);
+        Ads_anim.SetBool("Reload", false);
+
+       
     }
-    /*
-    public void OpenTwitter()
+    public IEnumerator wait()
     {
-        Application.OpenURL("https://twitter.com/NeonDemonGame");
+        yield return new WaitForSeconds(0.15f);
+        Ads_anim.SetBool("Reload", true);
+        armsway.GetComponent<Sway>().enabled = false;
+        gunsway.GetComponent<Sway>().enabled = false;
+
+        StartCoroutine(WaitForReload());
     }
-    */
+        //public void OpenTwitter()
+        //   {
+        //    Application.OpenURL("https://twitter.com/NeonDemonGame");
+        // }
 
 
-}
+
+    }

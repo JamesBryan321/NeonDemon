@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Thruster : MonoBehaviour
 {
-    public float thrust = 1.0f;
+    public float thrust = 10.0f;
     public Rigidbody rb;
 
     void Start()

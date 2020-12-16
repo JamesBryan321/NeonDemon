@@ -124,7 +124,7 @@ Material:
     - _DynamicNoisyOutline: 0
     - _EnableTextureTransparent: 0
     - _EnvironmentalLightingIntensity: 1
-    - _FarDistanceMaxWidth: -0.02
+    - _FarDistanceMaxWidth: 0.001
     - _GIFlatShade: 0
     - _GIShadeThreshold: 0
     - _GlossColorPower: 10
@@ -177,9 +177,9 @@ Material:
     - _OcclusionStrength: 1
     - _Oper: 0
     - _OutlineExtrudeMethod: 0
-    - _OutlineWidth: 0.001
+    - _OutlineWidth: 2.19
     - _OutlineWidthAffectedByViewDistance: 1
-    - _OutlineZPostionInCamera: 8.08
+    - _OutlineZPostionInCamera: 0.2
     - _OverallShadowColorPower: 1
     - _PSGLOTEX: 0
     - _PTexturePower: 1
@@ -241,7 +241,7 @@ Material:
     - _HighlightColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
     - _MainColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineOffset: {r: 0, g: 0, b: 0, a: -1.55}
+    - _OutlineOffset: {r: 0, g: 0, b: 0, a: 1.81}
     - _OverallShadowColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
     - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _SelfLitColor: {r: 1, g: 1, b: 1, a: 1}
