@@ -146,6 +146,7 @@ public class Shooting : MonoBehaviour
             {
                var destructableScript = hit.transform.GetComponent<Destructable>();
                 destructableScript.Break();
+                hit.transform.GetComponent<BoxCollider>().enabled = false;
             }
             if (hit.transform.CompareTag("barrel"))
             {

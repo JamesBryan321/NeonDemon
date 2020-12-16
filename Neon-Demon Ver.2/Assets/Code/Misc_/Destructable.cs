@@ -5,6 +5,7 @@ using UnityEngine;
 public class Destructable : MonoBehaviour
 {
     public GameObject Destroyedversion;
+    public GameObject Rock;
     public GameObject Canvas;
     public GameObject scorePrefab;
     public GameObject comboScore;
@@ -23,9 +24,10 @@ public class Destructable : MonoBehaviour
     public void Break()
     {
         Instantiate(Destroyedversion, transform.position, transform.rotation);
-        audioData.Play(0);
+       // audioData.Play(0);
 
-        Destroy(gameObject);
+        Rock.SetActive(false);
+        Destroy(Rock);
 
       
 
