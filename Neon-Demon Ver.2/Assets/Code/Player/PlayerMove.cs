@@ -45,7 +45,9 @@ public class PlayerMove : MonoBehaviour
 
     private Vector2 velocity;
 
-   
+    public GameObject spawn1;
+    public GameObject spawn2;
+
 
     //public MenuScript menuScript;
 
@@ -305,6 +307,18 @@ public class PlayerMove : MonoBehaviour
         //if (Input.GetKey(KeyCode.D) && isWallRight) StartWallrun();
        // if (Input.GetKey(KeyCode.A) && isWallLeft) StartWallrun();
        // if (Input.GetKey(KeyCode.W) && isWallLeft) StartWallrun();
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("tutorial1"))
+        {
+            this.transform.position = spawn1.transform.position;
+        }
+        if (collision.gameObject.CompareTag("tutorial2"))
+        {
+            this.transform.position = spawn2.transform.position;
+        }
     }
 
 }
