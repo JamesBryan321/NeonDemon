@@ -288,8 +288,8 @@ public class PlayerMove : MonoBehaviour
     }
     private void CheckForWall() 
     {
-        isWallRight = Physics.Raycast(transform.position, orientation.right, 1f, whatIsWall);
-        isWallLeft = Physics.Raycast(transform.position, -orientation.right, 1f, whatIsWall);
+        isWallRight = Physics.Raycast(transform.position, orientation.right, 2f, whatIsWall);
+        isWallLeft = Physics.Raycast(transform.position, -orientation.right, 2f, whatIsWall);
 
         //leave wall run
         if (!isWallLeft && !isWallRight) StopWallRun();

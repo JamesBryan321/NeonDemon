@@ -8,7 +8,9 @@ using TMPro;
 public class Shooting : MonoBehaviour
 {
     public MenuScript menuScript;
-    
+    public Vector3 upRecoil;
+    Vector3 originalRot;
+
     [Header("Gun Stats")]
     public TMP_Text AmmoCount;
     public int damage = 25;
@@ -60,7 +62,7 @@ public class Shooting : MonoBehaviour
         }*/
         
         //////
-        if (Input.GetMouseButton(0) && Ammo > 0 && Time.time > nextFire)
+        if (Input.GetMouseButtonDown(0) && Ammo > 0 && Time.time > nextFire)
         {
             nextFire = Time.time + Firerate;
             Muzzleflash.Play();
@@ -69,18 +71,21 @@ public class Shooting : MonoBehaviour
             int randomNum = Random.Range(0, 2);
             Shoot();
             ShootingSFX[randomNum].Emit(1);
-        }
+          //  Ads_anim.SetBool("Fire", true);
+
+
+        }  
         if (Input.GetKeyDown(KeyCode.R))
         {
            // Ammo = ReloadAmmo;
         }
         if (Input.GetMouseButton(1))
         {
-            Ads_anim.SetBool("Ads", true);
+           // Ads_anim.SetBool("Ads", true);
 
 
         } else {
-            Ads_anim.SetBool("Ads", false);
+           // Ads_anim.SetBool("Ads", false);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -92,12 +97,21 @@ public class Shooting : MonoBehaviour
        
             //Ammo = ReloadAmmo;
         }
+
+        if(Ammo == 0)
+        {
+            Ads_anim.enabled = true;
+            Ads_anim.SetBool("Reload", true);
+
+            StartCoroutine(WaitForReload());
+        }
       
 
  
       
 
     }
+  
     void Shoot()
     {
         FIRESFX.Play();
