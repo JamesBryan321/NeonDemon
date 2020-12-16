@@ -66653,6 +66653,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 803196781724764040, guid: 7cc100c2ade0fd3408fe2faa70f698cc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1475690249460470500, guid: 7cc100c2ade0fd3408fe2faa70f698cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66738,6 +66743,11 @@ PrefabInstance:
       propertyPath: DirLight
       value: 
       objectReference: {fileID: 1938063736}
+    - target: {fileID: 3000176484514328090, guid: 7cc100c2ade0fd3408fe2faa70f698cc,
+        type: 3}
+      propertyPath: priority
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3479310465798390107, guid: 7cc100c2ade0fd3408fe2faa70f698cc,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -66746,6 +66756,11 @@ PrefabInstance:
     - target: {fileID: 3479310465798390107, guid: 7cc100c2ade0fd3408fe2faa70f698cc,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6098132866507848079, guid: 7cc100c2ade0fd3408fe2faa70f698cc,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
