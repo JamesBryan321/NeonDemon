@@ -17,6 +17,7 @@ public class SceneLoading : MonoBehaviour
 
    public void Transistion()
     {
+        CamRef.transform.parent = this.transform;
         Cam.SetTrigger("start");
         CamRef.GetComponent<MainMenuCamera>().enabled = false;
     }

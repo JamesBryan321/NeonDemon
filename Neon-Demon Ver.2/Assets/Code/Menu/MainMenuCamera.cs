@@ -19,7 +19,7 @@ public class MainMenuCamera : MonoBehaviour
     {
         transform.position = Vector3.Lerp(transform.position, CameraPositions[CurrentCamera].position, 4.0f * Time.deltaTime);
         //transform.rotation = CameraPositions[CurrentCamera].rotation;
-        transform.rotation = Quaternion.RotateTowards(Temp.rotation, CameraPositions[CurrentCamera].rotation, 50f * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(Temp.rotation, CameraPositions[CurrentCamera].rotation, 80f * Time.deltaTime);
     }
 
     public void Move0()
