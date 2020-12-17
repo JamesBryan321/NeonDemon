@@ -26,6 +26,7 @@ public class Recoil : MonoBehaviour
     public void recoil()
     {
         transform.localEulerAngles += upRecoil;
+        // transform.rotation = Quaternion.RotateTowards(Temp.rotation, RecoilPos.rotation, 80f * Time.deltaTime);
         return;
 
     }
