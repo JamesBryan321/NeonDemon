@@ -24,6 +24,7 @@ public class MainMenuCamera : MonoBehaviour
 
     public void Move0()
     {
+        Debug.Log("Click");
         Temp = this.transform;
         CurrentCamera = 0;
     }
@@ -31,12 +32,14 @@ public class MainMenuCamera : MonoBehaviour
 
     public void Move1()
     {
+        Debug.Log("Click");
         Temp = this.transform;
         CurrentCamera = 1;
     }
 
     public void Move2()
     {
+        Debug.Log("Click");
         Temp = this.transform;
         CurrentCamera = 2;
     }
