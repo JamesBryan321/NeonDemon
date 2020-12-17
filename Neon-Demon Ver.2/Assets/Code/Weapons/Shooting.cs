@@ -117,6 +117,7 @@ public class Shooting : MonoBehaviour
         FIRESFX.Play();
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
+
         if(Physics.Raycast(ray, out hit,Mathf.Infinity))
         {
             GameObject impactEffectGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(Vector3.forward, Vector3.up)) as GameObject;
@@ -133,14 +134,32 @@ public class Shooting : MonoBehaviour
             }
             if (hit.transform.CompareTag("Thruster"))
             {
+                Collider[] colliders = Physics.OverlapSphere(hit.transform.position, 5f);
                 float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
                 int randomblood = Random.Range(0, BloodFX.Count);
                 var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
                 var settings = instance.GetComponent<BFX_BloodSettings>();
                 settings.FreezeDecalDisappearance = true;
+                
                 settings.LightIntensityMultiplier = DirLight.intensity;
+
+
+
+                hit.transform.GetComponent<EnemyTornApart>().TurnEnemyOn();
+
+             
+
                 hit.transform.GetComponent<TakeDamage>().Thrusterdamage();
                 hit.transform.GetComponent<Thruster>().enabled = true;
+                 foreach(Collider hit1 in colliders)
+                {
+                    Rigidbody rib = hit1.GetComponent<Rigidbody>();
+                    if (rib != null)
+                    {
+                        rib.AddExplosionForce(1000f, hit.transform.GetComponent<EnemyTornApart>().EnemyAnimated.transform.position, 100f, 1f, ForceMode.Impulse);
+                    }
+                }
+                hit.transform.GetComponent<EnemyTornApart>().TurnEnemyoff();
             }
             if (hit.transform.CompareTag("bottle"))
             {
