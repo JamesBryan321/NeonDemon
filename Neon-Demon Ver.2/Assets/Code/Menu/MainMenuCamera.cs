@@ -43,4 +43,9 @@ public class MainMenuCamera : MonoBehaviour
         Temp = this.transform;
         CurrentCamera = 2;
     }
+
+    public void Twitter()
+    {
+        Application.OpenURL("https://twitter.com/NeonDemonGame");
+    }
 }
