@@ -7,6 +7,7 @@ public class SceneLoading : MonoBehaviour
 {
     [Header("CameraTransition")]
     public Animator Cam;
+    public GameObject CamRef;
     [SerializeField] private GameObject Fade;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class SceneLoading : MonoBehaviour
    public void Transistion()
     {
         Cam.SetTrigger("start");
+        CamRef.GetComponent<MainMenuCamera>().enabled = false;
     }
 
     public void StartFade()

@@ -1116,6 +1116,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 499606515}
+  - component: {fileID: 499606517}
+  - component: {fileID: 499606516}
   m_Layer: 0
   m_Name: CameraAnim
   m_TagString: Untagged
@@ -1137,7 +1139,41 @@ Transform:
   - {fileID: 2099423869}
   m_Father: {fileID: 0}
   m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -120.00001, z: 0}
+--- !u!114 &499606516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499606514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef3088fecb07f24eac4967973c938d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cam: {fileID: 499606517}
+  CamRef: {fileID: 2099423866}
+  Fade: {fileID: 1038281645}
+--- !u!95 &499606517
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499606514}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ddafed284905c34a86ba62bc8cf7a4c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &548693546
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,7 +2118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1189924845
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3652,7 +3688,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 88058576}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 499606516}
+        m_MethodName: Transistion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1775989795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4124,9 +4171,7 @@ GameObject:
   - component: {fileID: 2099423868}
   - component: {fileID: 2099423867}
   - component: {fileID: 2099423870}
-  - component: {fileID: 2099423871}
   - component: {fileID: 2099423872}
-  - component: {fileID: 2099423873}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4215,25 +4260,6 @@ MonoBehaviour:
   - {fileID: 1488952172}
   - {fileID: 1390626992}
   - {fileID: 791991538}
---- !u!95 &2099423871
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2099423866}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5ddafed284905c34a86ba62bc8cf7a4c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2099423872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4360,20 +4386,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   - assemblyQualifiedName: SCPE.TubeDistortion, sc.posteffects.runtime, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2099423873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2099423866}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ef3088fecb07f24eac4967973c938d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Cam: {fileID: 2099423871}
-  Fade: {fileID: 1038281645}
 --- !u!1 &2119393321
 GameObject:
   m_ObjectHideFlags: 0
