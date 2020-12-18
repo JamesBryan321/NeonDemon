@@ -35,17 +35,27 @@
             </e>
           </e>
         </e>
+        <e p="Assets" t="Include">
+          <e p="Comic" t="Include">
+            <e p="Intro" t="Include">
+              <e p="ChangePanelScript.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Code" t="Include">
           <e p="Enemies" t="Include">
             <e p="EnemyDamage.cs" t="Include" />
             <e p="EnemyManager.cs" t="Include" />
             <e p="EnemyProjectile.cs" t="Include" />
+            <e p="EnemyTornApart.cs" t="Include" />
             <e p="TakeDamage.cs" t="Include" />
           </e>
+          <e p="enemyRemainIdle.cs" t="Include" />
           <e p="Menu" t="Include">
             <e p="MainMenuCamera.cs" t="Include" />
             <e p="MenuScript.cs" t="Include" />
             <e p="RestartScene.cs" t="Include" />
+            <e p="SceneChange.cs" t="Include" />
             <e p="SceneLoading.cs" t="Include" />
             <e p="TutorialScript.cs" t="Include" />
           </e>
@@ -66,17 +76,49 @@
             <e p="PlayerHP.cs" t="Include" />
             <e p="PlayerMove.cs" t="Include" />
             <e p="RealityChange.cs" t="Include" />
+            <e p="SlowDownTime.cs" t="Include" />
             <e p="StepClimber.cs" t="Include" />
             <e p="TImeManager.cs" t="Include" />
           </e>
           <e p="Weapons" t="Include">
             <e p="Aiming.cs" t="Include" />
             <e p="Bullet.cs" t="Include" />
+            <e p="NewBehaviourScript.cs" t="Include" />
             <e p="RagDoll.cs" t="Include" />
+            <e p="Recoil.cs" t="Include" />
             <e p="Shooting.cs" t="Include" />
             <e p="Sway.cs" t="Include" />
             <e p="WeaponPickup.cs" t="Include" />
             <e p="WeaponSwapping.cs" t="Include" />
+          </e>
+        </e>
+        <e p="EffectExamples" t="Include">
+          <e p="Editor" t="Include">
+            <e p="PackageManagerAssembly" t="Include">
+              <e p="PackageImportList.txt" t="Include" />
+            </e>
+          </e>
+          <e p="Shared" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="DecalDestroyer.cs" t="Include" />
+              <e p="ExtinguishableFire.cs" t="Include" />
+              <e p="GunAim.cs" t="Include" />
+              <e p="GunShoot.cs" t="Include" />
+              <e p="ParticleCollision.cs" t="Include" />
+              <e p="ParticleExamples.cs" t="Include" />
+              <e p="ParticleMenu.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="SurfaceShader_VC.shader" t="Include" />
+            </e>
+          </e>
+          <e p="TutorialInfo" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Editor" t="Include">
+                <e p="ReadmeEditor.cs" t="Include" />
+              </e>
+              <e p="Readme.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Enemies" t="Include">
@@ -84,7 +126,6 @@
             <e p="MeleeEnemy.cs" t="Include" />
           </e>
         </e>
-        <e p="enemyRemainIdle.cs" t="Include" />
         <e p="KriptoFX" t="Include">
           <e p="VolumetricBloodFX" t="Include">
             <e p="DemoScene" t="Include">
@@ -137,6 +178,18 @@
             <e p="Shader" t="Include">
               <e p="pg_GridShader.shader" t="Include" />
             </e>
+          </e>
+        </e>
+        <e p="QuickOutline" t="Include">
+          <e p="Readme.txt" t="Include" />
+          <e p="Resources" t="Include">
+            <e p="Shaders" t="Include">
+              <e p="OutlineFill.shader" t="Include" />
+              <e p="OutlineMask.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="Outline.cs" t="Include" />
           </e>
         </e>
         <e p="RealToon" t="Include">
