@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dash : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Dash : MonoBehaviour
     [SerializeField] private float dashDuration;
     [SerializeField] private float jumpRate = 1f;
     [SerializeField] private float jumpTime = 0f;
+
+    public Image DashCDR;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +24,10 @@ public class Dash : MonoBehaviour
     void Update()
     {
         jumpTime += Time.deltaTime;
+        if(DashCDR.fillAmount <  jumpRate)
+        {
+            DashCDR.fillAmount += Time.deltaTime;
+        }
 
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && jumpTime > jumpRate)
         {
@@ -46,8 +53,8 @@ public class Dash : MonoBehaviour
         playerRigidbody.AddForce(transform.forward * dashForce, ForceMode.VelocityChange);
 
         yield return new WaitForSeconds(dashDuration);
-
         jumpTime = 0;
+        DashCDR.fillAmount = jumpTime;
         playerRigidbody.velocity = Vector3.zero;
         SpeedLineOBJ.SetActive(false);
     }
