@@ -197,11 +197,11 @@ public class PlayerMove : MonoBehaviour
     void Rotate()
     {   
         //Get rotation information and apply to turn the player
-        float yRotation = Input.GetAxisRaw("Mouse X") * sensitivity * ySensitivity;
+        float yRotation = Input.GetAxis("Mouse X") * sensitivity * ySensitivity;
         playerRigidbody.rotation *= Quaternion.Euler(0, yRotation * Time.deltaTime, 0);
         
         //Get rotation to tilt camera
-        float xRotation = Input.GetAxisRaw("Mouse Y") * sensitivity;
+        float xRotation = Input.GetAxis("Mouse Y") * sensitivity;
         float xCameraRotation = playerCamera.transform.eulerAngles.x * Time.deltaTime;
         xCameraRotation -= xRotation;
 
