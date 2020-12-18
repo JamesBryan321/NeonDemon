@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
+
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMove : MonoBehaviour
 {
@@ -55,6 +56,13 @@ public class PlayerMove : MonoBehaviour
     public float globalGravity = -20f;
     public GameObject SpeedLineOBJ;
     public bool gamePaused;
+    public TImeManager TimeRef;
+
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -111,8 +119,9 @@ public class PlayerMove : MonoBehaviour
             Jump();
         }
 
-      
-        
+     
+
+
         /*
         if (Input.GetKey(KeyCode.LeftShift))
         {

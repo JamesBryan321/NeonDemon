@@ -25,13 +25,15 @@ public class MeleeEnemy : MonoBehaviour
 
     public float Firerate = 1f;
     public float nextFire = 0f;
- 
+
+    private GameObject SlowDown;
     UnityEngine.AI.NavMeshAgent agent;
     //public Transform LineEnemy;
     //public LineRenderer PlayerDet;
 
     void Start()
     {
+        SlowDown = GameObject.Find("SlowdownMeter");
         Player = GameObject.Find("Player");
         z_MeleeState = MeleeState.CHASE;
         z_navMeshAgent = GetComponent<NavMeshAgent>();
@@ -92,9 +94,11 @@ public class MeleeEnemy : MonoBehaviour
 
         if(EnemyHealth <= 0)
         {
+            
             Thruster.SetActive(false);
             z_navMeshAgent.enabled = false;
             Dead = true;
+            SlowDown.GetComponent<SlowDownTime>().AddMeter();
             transform.GetComponent<MeleeEnemy>().enabled = false;
         }
 
