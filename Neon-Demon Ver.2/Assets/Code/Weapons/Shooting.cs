@@ -145,13 +145,13 @@ public class Shooting : MonoBehaviour
 
 
 
-                hit.transform.GetComponent<EnemyTornApart>().TurnEnemyOn();
+                //hit.transform.GetComponent<EnemyTornApart>().TurnEnemyOn();
 
              
 
                 hit.transform.GetComponent<TakeDamage>().Thrusterdamage();
                 hit.transform.GetComponent<Thruster>().enabled = true;
-                 foreach(Collider hit1 in colliders)
+                /* foreach(Collider hit1 in colliders)
                 {
                     Rigidbody rib = hit1.GetComponent<Rigidbody>();
                     if (rib != null)
@@ -159,7 +159,7 @@ public class Shooting : MonoBehaviour
                         rib.AddExplosionForce(1000f, hit.transform.GetComponent<EnemyTornApart>().EnemyAnimated.transform.position, 100f, 1f, ForceMode.Impulse);
                     }
                 }
-                hit.transform.GetComponent<EnemyTornApart>().TurnEnemyoff();
+                hit.transform.GetComponent<EnemyTornApart>().TurnEnemyoff();*/
             }
             if (hit.transform.CompareTag("bottle"))
             {
