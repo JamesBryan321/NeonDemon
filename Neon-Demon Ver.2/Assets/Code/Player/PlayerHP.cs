@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHP : MonoBehaviour
 {
@@ -40,6 +41,11 @@ public class PlayerHP : MonoBehaviour
             DamageObjects[0].SetActive(false);
             DamageObjects[1].SetActive(false);
             DamageObjects[2].SetActive(true);
+        }
+
+        if(PlayerHealth <= 0)
+        {
+            SceneManager.LoadScene(2);
         }
     }
 }
