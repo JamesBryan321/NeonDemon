@@ -31,11 +31,11 @@ public class EnemyDamage : MonoBehaviour
             CheckReality = CheckReality * -1;
             if (CheckReality < 0)
             {
-                Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 20;
+                Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 30;
             }
             else
             {
-                Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 15;
+                Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 20;
             }
         }
     }
@@ -62,11 +62,11 @@ public class EnemyDamage : MonoBehaviour
 
         if (CheckReality < 0)
         {
-            Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 20;
+            Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 30;
         }
         else
         {
-            Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 15;
+            Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 20;
         }
     }
 
