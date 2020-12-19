@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject MeleeEnemy;
     public GameObject PortalVFX;
     public GameObject DoorObject;
+    public GameObject OpenDoor;
     GameObject theObject;
 
     [Header("Arena Settings")]
@@ -50,15 +51,12 @@ public class EnemyManager : MonoBehaviour
 
     void Spawn()
     {
-        /*
-        if(CurrentWave > 0)
+        
+        if(CurrentWave > NumberOfWaves)
         {
-            for (int i = 0; i < NumberOfMeleeEnemies[CurrentWave]; i++)
-            {
-                CurrentEnemies.Remove(CurrentEnemies[i]);
-            }
+            OpenDoor.SetActive(false);
         }
-        */
+        
         if (CurrentWave > NumberOfWaves)
         {
             EnemiesDead = false;
