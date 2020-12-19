@@ -17,7 +17,7 @@ public class SlowDownTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q) && Meter.GetComponent<Image>().fillAmount > 0)
+        if (Input.GetMouseButton(1) && Meter.GetComponent<Image>().fillAmount > 0)
         {
             Meter.GetComponent<Image>().fillAmount -= 0.005f;
             //TimeRef.DoSlowmotion();
