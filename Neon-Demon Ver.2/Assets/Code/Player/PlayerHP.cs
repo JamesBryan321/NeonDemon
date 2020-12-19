@@ -7,6 +7,7 @@ public class PlayerHP : MonoBehaviour
 {
     public GameObject HPUI;
     public int PlayerHealth = 100;
+    public List<GameObject> DamageObjects;
     void Start()
     {
         HPUI.GetComponent<Slider>().value = PlayerHealth;
@@ -15,5 +16,30 @@ public class PlayerHP : MonoBehaviour
     void Update()
     {
         HPUI.GetComponent<Slider>().value = PlayerHealth;
+
+        if(PlayerHealth<100 && PlayerHealth > 80)
+        {
+            DamageObjects[0].SetActive(false);
+            DamageObjects[1].SetActive(false);
+            DamageObjects[2].SetActive(false);
+        }
+        else if(PlayerHealth< 80 && PlayerHealth > 40)
+        {
+            DamageObjects[0].SetActive(true);
+            DamageObjects[1].SetActive(false);
+            DamageObjects[2].SetActive(false);
+        }
+        else if (PlayerHealth < 40 && PlayerHealth > 20)
+        {
+            DamageObjects[0].SetActive(false);
+            DamageObjects[1].SetActive(true);
+            DamageObjects[2].SetActive(false);
+        }
+        else if (PlayerHealth < 20)
+        {
+            DamageObjects[0].SetActive(false);
+            DamageObjects[1].SetActive(false);
+            DamageObjects[2].SetActive(true);
+        }
     }
 }
