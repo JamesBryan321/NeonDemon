@@ -66,6 +66,7 @@ public class Dash : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
 
         jumpTime = 0;
+        DashCDR.fillAmount = jumpTime;
         playerRigidbody.velocity = Vector3.zero;
         SpeedLineOBJ.SetActive(false);
     }
@@ -77,6 +78,7 @@ public class Dash : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
 
         jumpTime = 0;
+        DashCDR.fillAmount = jumpTime;
         playerRigidbody.velocity = Vector3.zero;
         SpeedLineOBJ.SetActive(false);
     }
@@ -88,6 +90,7 @@ public class Dash : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
 
         jumpTime = 0;
+        DashCDR.fillAmount = jumpTime;
         playerRigidbody.velocity = Vector3.zero;
         SpeedLineOBJ.SetActive(false);
     }
