@@ -12,7 +12,7 @@ public class WeaponPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerCanvas.enabled = false;
+        //playerCanvas.enabled = false;
         
     }
 
@@ -28,7 +28,7 @@ public class WeaponPickup : MonoBehaviour
         {
             weaponManager.SetActive(true);
             arms.SetActive(true);
-            playerCanvas.enabled = true;
+            //playerCanvas.enabled = true;
         }
     }
 }
