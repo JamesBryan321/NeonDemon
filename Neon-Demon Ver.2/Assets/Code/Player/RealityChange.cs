@@ -23,7 +23,7 @@ public class RealityChange : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
 
-            Vignette.SetTrigger("vigstart");
+            //Vignette.SetTrigger("vigstart");
             StartCoroutine(WaitForChange());
         }
 
