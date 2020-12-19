@@ -5,7 +5,11 @@ using UnityEngine;
 public class realityBlinkIntro : MonoBehaviour
 {
     public GameObject BelialText;
-    //public GameObject Trigger_RealityBlinkIntro;
+    
+    private void Start()
+    {
+        BelialText.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider Player)
     {
@@ -15,6 +19,5 @@ public class realityBlinkIntro : MonoBehaviour
     private void OnTriggerExit(Collider Player)
     {
         BelialText.SetActive(false);
-        //Trigger_RealityBlinkIntro.SetActive(false);
     }
 }
