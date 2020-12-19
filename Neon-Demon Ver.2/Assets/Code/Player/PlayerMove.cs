@@ -46,8 +46,8 @@ public class PlayerMove : MonoBehaviour
 
     private Vector2 velocity;
 
-    public GameObject spawn1;
-    public GameObject spawn2;
+    public List<GameObject> spawns;
+    
 
     public float distToGround;
     //public MenuScript menuScript;
@@ -322,11 +322,15 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("tutorial1"))
         {
-            this.transform.position = spawn1.transform.position;
+            this.transform.position = spawns[0].transform.position;
         }
-        if (collision.gameObject.CompareTag("tutorial2"))
+        else if (collision.gameObject.CompareTag("tutorial2"))
         {
-            this.transform.position = spawn2.transform.position;
+            this.transform.position = spawns[1].transform.position;
+        }
+        else if (collision.gameObject.CompareTag("tutorial3"))
+        {
+            this.transform.position = spawns[2].transform.position;
         }
     }
 
