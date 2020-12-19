@@ -9,7 +9,8 @@ public class StartLevelCutscene : MonoBehaviour
 
     public GameObject Trigger;
 
-    // Start is called before the first frame update
+    public GameObject player;
+
     void Start()
     {
         CutsceneCamera.SetActive(false);
@@ -20,10 +21,25 @@ public class StartLevelCutscene : MonoBehaviour
     {
         CutsceneCamera.SetActive(true);
         Timeline.SetActive(true);
+
+        player.SetActive(false);
+
+        StartCoroutine(EnablePlayer());
     }
 
     private void OnTriggerExit(Collider Player)
     {
+        CutsceneCamera.SetActive(false);
+        Timeline.SetActive(false);
+
+        Trigger.SetActive(false);
+    }
+
+    IEnumerator EnablePlayer()
+    {
+        yield return new WaitForSeconds(3.5f);
+
+        player.SetActive(true);
         CutsceneCamera.SetActive(false);
         Timeline.SetActive(false);
 
