@@ -49,7 +49,7 @@ public class PlayerMove : MonoBehaviour
     public GameObject spawn1;
     public GameObject spawn2;
 
-
+    public float distToGround;
     //public MenuScript menuScript;
 
     public float gravityScale = 0.5f;
@@ -101,8 +101,8 @@ public class PlayerMove : MonoBehaviour
             return;
         }
         //Check if player is on the ground or not
-        isGrounded = Physics.OverlapBox(groundCheck.transform.position, groundCheckBoxSize).Length > 2;
-
+        //isGrounded = Physics.OverlapBox(groundCheck.transform.position, groundCheckBoxSize).Length > 2;
+       /* isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
         if (isGrounded)
         {
             isJumping = false;
@@ -112,7 +112,7 @@ public class PlayerMove : MonoBehaviour
         {
             isJumping = true;
         }
-
+       */
         //Check for jump input and, if grounded, jump
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -227,9 +227,9 @@ public class PlayerMove : MonoBehaviour
         if (!isJumping && isGrounded)
         {
             //playerRigidbody.AddForce(new Vector3(0, jumpForce));
-            playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             isJumping = true;
             secondJumpAvailable = true;
+            playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
         else if (secondJumpAvailable)
         {
@@ -330,4 +330,20 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
+            isJumping = false;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGrounded = false;
+        }
+    }
 }
