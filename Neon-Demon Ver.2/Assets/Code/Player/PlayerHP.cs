@@ -17,13 +17,13 @@ public class PlayerHP : MonoBehaviour
     {
         HPUI.GetComponent<Slider>().value = PlayerHealth;
 
-        if(PlayerHealth<100 && PlayerHealth > 80)
+        if(PlayerHealth<=100 && PlayerHealth > 60)
         {
             DamageObjects[0].SetActive(false);
             DamageObjects[1].SetActive(false);
             DamageObjects[2].SetActive(false);
         }
-        else if(PlayerHealth< 80 && PlayerHealth > 40)
+        else if(PlayerHealth< 60 && PlayerHealth > 40)
         {
             DamageObjects[0].SetActive(true);
             DamageObjects[1].SetActive(false);
