@@ -24503,6 +24503,7 @@ MonoBehaviour:
   Thruster: {fileID: 7263725510009763490}
   Firerate: 5
   nextFire: 0
+  extraRotationSpeed: 20
   DeathSFX: {fileID: 5531196083336098024}
 --- !u!195 &8507661058748240152
 NavMeshAgent:
@@ -24580,7 +24581,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b73ae7cd05c981849b9f213eb90823ad, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.737
   m_Pitch: 1
   Loop: 0

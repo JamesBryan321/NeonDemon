@@ -25,7 +25,7 @@ public class MeleeEnemy : MonoBehaviour
 
     public float Firerate = 1f;
     public float nextFire = 0f;
-
+    public float extraRotationSpeed;
     public AudioSource DeathSFX;
     private GameObject SlowDown;
     UnityEngine.AI.NavMeshAgent agent;
@@ -148,6 +148,9 @@ public class MeleeEnemy : MonoBehaviour
     void Chase()
     {
         //z_navMeshAgent.speed = 15;
+        Vector3 lookrotation = agent.steeringTarget - transform.position;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookrotation), extraRotationSpeed * Time.deltaTime);
+
         z_navMeshAgent.SetDestination(Player.transform.position);
         agent.destination = Player.transform.position;
     }
