@@ -42292,6 +42292,7 @@ GameObject:
   - component: {fileID: 933639418}
   - component: {fileID: 933639419}
   - component: {fileID: 933639420}
+  - component: {fileID: 933639421}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -42356,6 +42357,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 11.44, y: 14.43, z: -0.21}
   m_Center: {x: 0, y: 0, z: 2.45}
+--- !u!114 &933639421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933639417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5554ae96a93b2fc459f075fd06b08f25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DashRef: {fileID: 1914514874}
 --- !u!1 &934908519
 GameObject:
   m_ObjectHideFlags: 0
@@ -71322,6 +71336,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1914514874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5180980902944941355, guid: c163fb0675cc9b148b3acf603ccc1e56,
+    type: 3}
+  m_PrefabInstance: {fileID: 9007086806899196299}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914514871}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43bdc50c8c2066a439c5909a0f238bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1916748633
 GameObject:
   m_ObjectHideFlags: 0
@@ -106479,6 +106505,11 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpRate
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180980902944941355, guid: c163fb0675cc9b148b3acf603ccc1e56,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7328694666687514958, guid: c163fb0675cc9b148b3acf603ccc1e56,
         type: 3}
