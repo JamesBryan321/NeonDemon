@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour
     public int CurrentWave;
     public List<GameObject> CurrentEnemies = new List<GameObject>();
     public bool EnemiesDead;
-
+    public GameObject DoorText;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +55,7 @@ public class EnemyManager : MonoBehaviour
         if(CurrentWave > NumberOfWaves)
         {
             OpenDoor.SetActive(false);
+            DoorText.SetActive(true);
         }
         
         if (CurrentWave > NumberOfWaves)
