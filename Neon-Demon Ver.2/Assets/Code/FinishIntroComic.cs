@@ -13,7 +13,7 @@ public class FinishIntroComic : MonoBehaviour
     }
     IEnumerator Function()
     {
-        yield return new WaitForSeconds(65);
+        yield return new WaitForSeconds(58);
 
         sceneScript.LoadTutorial();
     }
