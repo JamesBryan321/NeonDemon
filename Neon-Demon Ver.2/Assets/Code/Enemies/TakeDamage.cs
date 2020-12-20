@@ -5,7 +5,7 @@ using UnityEngine;
 public class TakeDamage : MonoBehaviour
 {
     public MeleeEnemy EnemyRef;
-
+    public AudioSource Pain;
     void Update()
     {
         if (EnemyRef.EnemyHealth <=0)
@@ -17,6 +17,7 @@ public class TakeDamage : MonoBehaviour
 
     public void Damage(int damage)
     {
+        Pain.Play();
         EnemyRef.EnemyHealth = EnemyRef.EnemyHealth - damage;
     }
     public void Thrusterdamage()
