@@ -12,7 +12,7 @@ public class EnemyDamage : MonoBehaviour
     public Transform ShootPoint;
 
     public BoxCollider AttackZone;
-
+    public AudioSource MeleeSFX;
     [SerializeField] private int CheckReality = 1;
     // Start is called before the first frame update
     void Start()
@@ -74,8 +74,14 @@ public class EnemyDamage : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            //MeleeSFX.Play();
             Player.GetComponent<PlayerHP>().PlayerHealth -= EnemyDmg;
         }
+    }
+
+    public void AttackSFX()
+    {
+        MeleeSFX.Play();
     }
 
 

@@ -26,6 +26,7 @@ public class MeleeEnemy : MonoBehaviour
     public float Firerate = 1f;
     public float nextFire = 0f;
 
+    public AudioSource DeathSFX;
     private GameObject SlowDown;
     UnityEngine.AI.NavMeshAgent agent;
     //public Transform LineEnemy;
@@ -99,6 +100,7 @@ public class MeleeEnemy : MonoBehaviour
             z_navMeshAgent.enabled = false;
             Dead = true;
             SlowDown.GetComponent<SlowDownTime>().AddMeter();
+            DeathSFX.Play();
             transform.GetComponent<MeleeEnemy>().enabled = false;
         }
 
