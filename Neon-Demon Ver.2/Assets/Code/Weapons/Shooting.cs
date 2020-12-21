@@ -62,7 +62,7 @@ public class Shooting : MonoBehaviour
         }*/
         
         //////
-        if (Input.GetMouseButtonDown(0) && Ammo > 0 && Time.time > nextFire)
+        if (Input.GetMouseButton(0) && Ammo > 0 && Time.time > nextFire)
         {
             nextFire = Time.time + Firerate;
             Muzzleflash.Play();
@@ -89,6 +89,7 @@ public class Shooting : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
+            StartCoroutine(WaitForReload());
             Ads_anim.enabled = true;
             Ads_anim.SetBool("Reload", true);
 
