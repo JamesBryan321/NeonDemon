@@ -16,11 +16,11 @@ public class Recoil : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             recoil();
             StartCoroutine(resetrec());
-        }
+        }*/
     }
 
     public void recoil()
@@ -37,6 +37,10 @@ public class Recoil : MonoBehaviour
         
     }
 
-
+    public void OnShootInput()
+    {
+        recoil();
+        StartCoroutine(resetrec());
+    }
 
 }

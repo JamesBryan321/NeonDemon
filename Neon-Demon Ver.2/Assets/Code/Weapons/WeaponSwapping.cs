@@ -15,7 +15,7 @@ public class WeaponSwapping : MonoBehaviour
     void Update()
     {
         int previousSlecetedWeapon = selectedWeapon;
-
+        /*
         if(Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             if(selectedWeapon >= transform.childCount - 1)
@@ -38,6 +38,7 @@ public class WeaponSwapping : MonoBehaviour
                 selectedWeapon--;
             }
         }
+        */
 
         if(previousSlecetedWeapon != selectedWeapon)
         {
@@ -60,6 +61,19 @@ public class WeaponSwapping : MonoBehaviour
             }
 
             i++;
+        }
+    }
+
+    public void WeaponSwitchInput()
+    {
+        Debug.Log("Weapon Swapped :-)");
+        if(selectedWeapon >= transform.childCount - 1)
+        {
+            selectedWeapon = 0;
+        }
+        else
+        {
+            selectedWeapon++;
         }
     }
 }

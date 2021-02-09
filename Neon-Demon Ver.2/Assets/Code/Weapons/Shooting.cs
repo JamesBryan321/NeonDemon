@@ -62,6 +62,8 @@ public class Shooting : MonoBehaviour
         }*/
         
         //////
+        //
+        /*
         if (Input.GetMouseButton(0) && Ammo > 0 && Time.time > nextFire)
         {
             nextFire = Time.time + Firerate;
@@ -75,6 +77,8 @@ public class Shooting : MonoBehaviour
 
 
         }  
+        */
+        /*
         if (Input.GetKeyDown(KeyCode.R))
         {
            // Ammo = ReloadAmmo;
@@ -84,9 +88,13 @@ public class Shooting : MonoBehaviour
            // Ads_anim.SetBool("Ads", true);
 
 
-        } else {
+        } 
+        
+        else {
            // Ads_anim.SetBool("Ads", false);
         }
+        */
+        /*
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(WaitForReload());
@@ -98,6 +106,7 @@ public class Shooting : MonoBehaviour
        
             //Ammo = ReloadAmmo;
         }
+        */
 
         if(Ammo == 0)
         {
@@ -199,5 +208,33 @@ public class Shooting : MonoBehaviour
         // }
 
 
+        public void OnShootInput()
+        {
+            if (Ammo > 0 && Time.time > nextFire)
+            {
+                nextFire = Time.time + Firerate;
+                Muzzleflash.Play();
+                //Gun_Anim.SetTrigger("Shoot");
+                Ammo -= 1;
+                int randomNum = Random.Range(0, 2);
+                Shoot();
+                ShootingSFX[randomNum].Emit(1);
+                //  Ads_anim.SetBool("Fire", true);
+            }
+        }
 
+        public void OnReloadInput()
+        {
+            StartCoroutine(WaitForReload());
+            Ads_anim.enabled = true;
+            Ads_anim.SetBool("Reload", true);
+
+            StartCoroutine(WaitForReload());
+        }
+
+        public void OnADSInput()
+        {
+            Debug.Log("ADS");
+        }
+        
     }

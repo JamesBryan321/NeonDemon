@@ -12,6 +12,8 @@ public class Sway : MonoBehaviour
     Vector3 euler;
     
     GameObject ath;
+
+    public NewPlayerMoveScript playerMoveScript;
     
     // Start is called before the first frame update
     void Start()
@@ -30,8 +32,8 @@ public class Sway : MonoBehaviour
     void UpdateSway()
     {
         _smooth = smooth;
-        float factorX = Input.GetAxis("Mouse X") * amount;
-        float factorY = Input.GetAxis("Mouse Y") * amount;
+        float factorX = playerMoveScript.lookX * amount;
+        float factorY = playerMoveScript.lookY * amount;
 
         if(factorX > maxAmount)
         {

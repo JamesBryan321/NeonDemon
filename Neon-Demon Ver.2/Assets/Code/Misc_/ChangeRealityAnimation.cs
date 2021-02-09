@@ -22,12 +22,12 @@ public class ChangeRealityAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && switchAvailable)
+        //if (Input.GetKeyDown(KeyCode.E) && switchAvailable)
         {
 
             //Belial_Anim.SetBool("RealityChange", true);
-            Belial_Anim.SetTrigger("RealityChange");
-            StartCoroutine(WaitForChange());
+            //Belial_Anim.SetTrigger("RealityChange");
+            //StartCoroutine(WaitForChange());
          
         }
 
@@ -38,5 +38,15 @@ public class ChangeRealityAnimation : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
 
         //Belial_Anim.SetBool("RealityChange", false);
+    }
+
+    public void OnRealitySwitchPerformed()
+    {
+        if (switchAvailable)
+        {
+            Debug.Log("Reality Swaaaaap, EPIC!!!");
+            Belial_Anim.SetTrigger("RealityChange");
+            StartCoroutine(WaitForChange());
+        }
     }
 }
