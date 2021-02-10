@@ -54,14 +54,12 @@ public class NewPlayerMoveScript : MonoBehaviour
     private float horizontal;
     private float vertical;
 
-    private float cameraRotation;
-    private float cameraTilt;
+
 
     public float lookX;
     public float lookY;
 
-    public float sensitivityX;
-    public float sensitivityY;
+
     
     public float minCameraTilt = -60f;
     public float maxCameraTilt = 60f;
@@ -119,12 +117,7 @@ public class NewPlayerMoveScript : MonoBehaviour
     }
 
     
-    public void OnRotateInput(float cameraRotation, float cameraTilt)
-    {
-        this.cameraRotation = cameraRotation;
-        this.cameraTilt = cameraTilt;
-        //Debug.Log($"Player Controller: Right Stick Input: {vertical}, {horizontal}");
-    }
+  
     void FixedUpdate()
     {
         if (gamePaused)
@@ -132,34 +125,7 @@ public class NewPlayerMoveScript : MonoBehaviour
             return;
         }
         
-        lookX += cameraRotation * sensitivityX * Time.deltaTime;
-        transform.localEulerAngles = new Vector3(0, lookX, 0);
         
-        //movement
-        /*charController.Move(transform.right * horizontal * moveSpeed * Time.deltaTime
-                            + transform.forward * vertical * moveSpeed * Time.deltaTime
-                            + gravity * transform.up * Time.deltaTime);
-        */
-
-        lookY -= cameraTilt * sensitivityY * Time.deltaTime;
-        lookY = Mathf.Clamp(lookY/* - rotate.y*/, minCameraTilt, maxCameraTilt);
-        playerCamera.transform.localEulerAngles = new Vector3(lookY, 0, 0);
-        //Move();
-        //Rotate();
-        /*
-        if(!menuScript.gamePaused)
-        {
-            Move();
-            Rotate();
-        }
-        */
-
-        /*
-        if (menuScript.gamePaused)
-        {
-            return;
-        }
-        */
     }
 
     public void OnJumpInput()
