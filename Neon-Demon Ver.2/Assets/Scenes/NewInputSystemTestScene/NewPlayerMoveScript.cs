@@ -46,7 +46,7 @@ public class NewPlayerMoveScript : MonoBehaviour
     public float globalGravity = -20f;
     public GameObject SpeedLineOBJ;
     public bool gamePaused;
-    public TImeManager TimeRef;
+   
     
     //New Stuff
     public float moveSpeed = 5.0f;
@@ -134,7 +134,7 @@ public class NewPlayerMoveScript : MonoBehaviour
         if (!isJumping && isGrounded)
         {
             //Debug.Log("Jump 2");
-            playerRigidbody.AddForce(new Vector3(0, jumpForce));
+            //playerRigidbody.AddForce(new Vector3(0, jumpForce));
             isJumping = true;
             secondJumpAvailable = true;
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
@@ -142,6 +142,7 @@ public class NewPlayerMoveScript : MonoBehaviour
         }
         else if (secondJumpAvailable)
         {
+            playerRigidbody.velocity = Vector3.zero;
             //charController.velocity = Vector3.zero;
             //playerRigidbody.AddForce(new Vector3(0, jumpForce));
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
@@ -151,83 +152,6 @@ public class NewPlayerMoveScript : MonoBehaviour
     }
     
    
-
-    void Slide()
-    {
-        if (isGrounded)
-        {
-            SpeedLineOBJ.SetActive(true);
-            isSliding = true;
-            //transform.localScale = crouchSize;
-            //playerRigidbody.AddRelativeForce((xMovement + zMovement).normalized * slideForce, ForceMode.VelocityChange);
-            //playerRigidbody.AddForce(new Vector3(velocity.x * slideForce, playerRigidbody.velocity.y, velocity.y * slideForce), ForceMode.VelocityChange);
-        }
-    }
-
-    void StopSliding()
-    {
-        SpeedLineOBJ.SetActive(false);
-
-        isSliding = false;
-    }
-
-    /*
-    private void StartWallrun()
-    {
-        SpeedLineOBJ.SetActive(true);
-        playerRigidbody.useGravity = false;
-        isWallRunning = true;
-
-        playerRigidbody.AddForce(new Vector3(5, 0));
-        // playerRigidbody.AddForce(orientation.forward * 50 * Time.deltaTime);
-        if (playerRigidbody.velocity.magnitude <= maxWallSpeed)
-        {
-            playerRigidbody.AddForce(orientation.forward * wallrunForce * Time.deltaTime);
-
-
-            if (isWallRight)
-            {
-                playerRigidbody.AddForce(orientation.right * wallrunForce / 5 * Time.deltaTime);
-                playerRigidbody.AddForce(orientation.forward * 30000 * Time.deltaTime);
-            }
-
-            else
-                playerRigidbody.AddForce(-orientation.right * wallrunForce / 5 * Time.deltaTime);
-            playerRigidbody.AddForce(orientation.forward * 20000 * Time.deltaTime);
-        }
-
-        if (playerRigidbody.velocity.magnitude <= 1)
-        {
-            playerRigidbody.useGravity = true;
-        }
-    }
-    private void StopWallRun()
-    {
-        SpeedLineOBJ.SetActive(false);
-        isWallRunning = false;
-        playerRigidbody.useGravity = true;
-    }
-    private void CheckForWall() 
-    {
-        isWallRight = Physics.Raycast(transform.position, orientation.right, 2f, whatIsWall);
-        isWallLeft = Physics.Raycast(transform.position, -orientation.right, 2f, whatIsWall);
-
-        //leave wall run
-        if (!isWallLeft && !isWallRight) StopWallRun();
-        
-    
-    //rset jump
-        if (isWallLeft || isWallRight)  secondJumpAvailable = true;
-    }
-
-    private void WallRunInput() 
-    {
-        //Wallrun
-        //if (Input.GetKey(KeyCode.D) && isWallRight) StartWallrun();
-       // if (Input.GetKey(KeyCode.A) && isWallLeft) StartWallrun();
-       // if (Input.GetKey(KeyCode.W) && isWallLeft) StartWallrun();
-    }
-    */
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("tutorial1"))
