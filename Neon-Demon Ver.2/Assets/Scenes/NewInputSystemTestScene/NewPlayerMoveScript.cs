@@ -9,20 +9,13 @@ using Debug = UnityEngine.Debug;
 //[RequireComponent(typeof(Rigidbody))]
 public class NewPlayerMoveScript : MonoBehaviour
 {
-    /*[SerializeField] public LayerMask whatIsWall;
-    public float wallrunForce, maxWallrunTime, maxWallSpeed;
-    public  bool isWallRight, isWallLeft;
-    bool isWallRunning;
-    public float maxWallRunCameraTilt, wallRunCameraTilt;
-    public Transform orientation;
-    */
+    
     public float speed;
     private Rigidbody playerRigidbody;
 
     public float sensitivity;
     public float ySensitivity;
     
-    //public GameObject playerCamera;
     public GameObject groundCheck;
     [SerializeField] private bool isGrounded;
 
@@ -31,14 +24,10 @@ public class NewPlayerMoveScript : MonoBehaviour
     public float jumpForce;
     [SerializeField] private float slideForce;
     
-    //private float cameraEulerAnglesX;
 
     private Vector2 xMovement;
     private Vector2 zMovement;
-    /*
-    private Vector3 defaultSize;
-    [SerializeField] private Vector3 crouchSize;
-    */
+
     [SerializeField] public bool isJumping;
     [SerializeField] private bool secondJumpAvailable;
 
@@ -51,7 +40,7 @@ public class NewPlayerMoveScript : MonoBehaviour
     
 
     public float distToGround;
-    //public MenuScript menuScript;
+ 
 
     public float gravityScale = 0.5f;
     public float globalGravity = -20f;
@@ -88,7 +77,6 @@ public class NewPlayerMoveScript : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        //charController = GetComponent<CharacterController>();
     }
 
     void Start()
@@ -96,7 +84,6 @@ public class NewPlayerMoveScript : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         playerRigidbody = GetComponent<Rigidbody>();
-        //defaultSize = transform.localScale;
     }
 
     private void Update()
@@ -111,12 +98,8 @@ public class NewPlayerMoveScript : MonoBehaviour
         {
             isJumping = true;
         }
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-           // Jump();
-        //}
-        
-        //Get Input from both axis to determine movement input direction
+     
+
         xMovement = new Vector2(horizontal * transform.right.x, 
             horizontal * transform.right.z);
         zMovement = new Vector2(vertical * transform.forward.x, 
@@ -178,137 +161,6 @@ public class NewPlayerMoveScript : MonoBehaviour
         */
     }
 
-   // void Update()
-   // {
-        //if (gamePaused)
-       // {
-        //    return;
-      //  }
-        //Check if player is on the ground or not
-        //isGrounded = Physics.OverlapBox(groundCheck.transform.position, groundCheckBoxSize).Length > 2;
-       /* isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
-        if (isGrounded)
-        {
-            isJumping = false;
-        }
-
-        if (!isGrounded)
-        {
-            isJumping = true;
-        }
-       */
-        //Check for jump input and, if grounded, jump
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-          //  Jump();
-        //}
-
-     
-
-
-        /*
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isCrouching = true;
-        }
-        
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            
-            isCrouching = true;
-            Slide();
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            isCrouching = false;
-            StopSliding();
-            transform.localScale = defaultSize;
-        }
-
-       /* if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (menuScript.pauseMenu.GetComponent<Canvas>().enabled == false
-                && menuScript.controlsMenu.GetComponent<Canvas>().enabled == false)
-            {
-                menuScript.OpenPauseMenu();
-            }
-            else if (menuScript.pauseMenu.GetComponent<Canvas>().enabled == true 
-                     || menuScript.controlsMenu.GetComponent<Canvas>().enabled == true)
-            {
-                menuScript.ClosePauseMenu();
-                menuScript.CloseControlsMenu();
-            }
-        }
-       */
-        /*
-        if (isWallLeft)
-            StartWallrun();
-
-
-        if (isWallRight)
-            StartWallrun();
-
-        WallRunInput();
-        CheckForWall();
-        */
-   // }
-
-    /*
-    void Move()
-    {
-        
-        //Get Input from both axis to determine movement input direction
-        xMovement = new Vector2(Input.GetAxisRaw("Horizontal") * transform.right.x, 
-            Input.GetAxisRaw("Horizontal") * transform.right.z);
-        zMovement = new Vector2(Input.GetAxisRaw("Vertical") * transform.forward.x, 
-            Input.GetAxisRaw("Vertical") * transform.forward.z);
-
-        //Apply inputs to movement velocity
-        if (!isCrouching)
-        {
-            velocity = (xMovement + zMovement).normalized * speed * Time.deltaTime;
-            playerRigidbody.velocity = new Vector3(velocity.x, playerRigidbody.velocity.y, velocity.y);
-        }
-        
-        /*
-        if (isCrouching && !isSliding)
-        {
-            //velocity = (xMovement + zMovement).normalized * speed * Time.deltaTime / 4;
-            //playerRigidbody.velocity = new Vector3(velocity.x, playerRigidbody.velocity.y, velocity.y);
-        }
-        
-    }
-    */
-    /*
-    void Rotate()
-    {   
-        //Get rotation information and apply to turn the player
-        float yRotation = Input.GetAxis("Mouse X") * sensitivity * ySensitivity;
-        playerRigidbody.rotation *= Quaternion.Euler(0, yRotation * Time.deltaTime, 0);
-        
-        //Get rotation to tilt camera
-        float xRotation = Input.GetAxis("Mouse Y") * sensitivity;
-        float xCameraRotation = playerCamera.transform.eulerAngles.x * Time.deltaTime;
-        xCameraRotation -= xRotation;
-
-        cameraEulerAnglesX = playerCamera.transform.localEulerAngles.x;
-        cameraEulerAnglesX -= xRotation;
-        
-        playerCamera.transform.localEulerAngles = new Vector3(cameraEulerAnglesX, 0, wallRunCameraTilt);
-        //Tilts camera in .5 second
-        if (Math.Abs(wallRunCameraTilt) < maxWallRunCameraTilt && isWallRunning && isWallRight)
-            wallRunCameraTilt += Time.deltaTime * maxWallRunCameraTilt * 4;
-        if (Math.Abs(wallRunCameraTilt) < maxWallRunCameraTilt && isWallRunning && isWallLeft)
-            wallRunCameraTilt -= Time.deltaTime * maxWallRunCameraTilt * 4;
-
-        //Tilts camera back again
-        if (wallRunCameraTilt > 0 && !isWallRight && !isWallLeft)
-            wallRunCameraTilt -= Time.deltaTime * maxWallRunCameraTilt * 4;
-        if (wallRunCameraTilt < 0 && !isWallRight && !isWallLeft)
-            wallRunCameraTilt += Time.deltaTime * maxWallRunCameraTilt * 4;
-    }
-    */
     public void OnJumpInput()
     {
         //Debug.Log("Jump 1");
