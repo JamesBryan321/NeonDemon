@@ -86,6 +86,7 @@ public class NewPlayerMoveScript : MonoBehaviour
 
     private void Update()
     {
+        isGrounded = groundCheck.GetComponent<GroundCheck>().isGrounded;
         //isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);
         if (isGrounded)
         {
@@ -120,70 +121,24 @@ public class NewPlayerMoveScript : MonoBehaviour
   
     void FixedUpdate()
     {
-        if (gamePaused)
-        {
-            return;
-        }
-        
-        
+
     }
 
     public void OnJumpInput()
     {
-        //Debug.Log("Jump 1");
         if (!isJumping && isGrounded)
         {
-            //Debug.Log("Jump 2");
-            //playerRigidbody.AddForce(new Vector3(0, jumpForce));
             isJumping = true;
             secondJumpAvailable = true;
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
-            //playerVelocity.y += Mathf.Sqrt(jumpHeight * gravity);
         }
         else if (secondJumpAvailable)
         {
             playerRigidbody.velocity = Vector3.zero;
-            //charController.velocity = Vector3.zero;
-            //playerRigidbody.AddForce(new Vector3(0, jumpForce));
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             secondJumpAvailable = false;
         }
 
-    }
-    
-   
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("tutorial1"))
-        {
-            this.transform.position = spawns[0].transform.position;
-        }
-        else if (collision.gameObject.CompareTag("tutorial2"))
-        {
-            this.transform.position = spawns[1].transform.position;
-        }
-        else if (collision.gameObject.CompareTag("tutorial3"))
-        {
-            this.transform.position = spawns[2].transform.position;
-        }
-    }
-
-    
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isGrounded = true;
-            isJumping = false;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isGrounded = false;
-        }
     }
     
 }
