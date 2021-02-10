@@ -50,18 +50,19 @@ public class NewDash : MonoBehaviour
 
     public void OnDashInput()
     {
-        StartCoroutine(DashForward());
+        StartCoroutine(DashTest());
 
     }
     
     private IEnumerator DashTest()
     {
         Debug.Log("Dash");
-        dashVelocity = playerMoveScript.velocity * dashForce;
+        //dashVelocity = playerMoveScript.velocity * dashForce;
         //playerRigidbody.velocity = new Vector3(dashVelocity.x, 0, dashVelocity.y);
         
         SpeedLineOBJ.SetActive(true);
-        playerRigidbody.AddForce(dashVelocity, ForceMode.VelocityChange);
+        playerRigidbody.AddForce(new Vector3(playerMoveScript.velocity.x, 0, 
+                                playerMoveScript.velocity.y) * dashForce, ForceMode.VelocityChange);
 
         yield return new WaitForSeconds(dashDuration);
 
