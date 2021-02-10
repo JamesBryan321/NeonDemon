@@ -118,6 +118,7 @@ public class NewPlayerMoveScript : MonoBehaviour
         //Debug.Log($"Player Controller: Left Stick Input: {vertical}, {horizontal}");
     }
 
+    
     public void OnRotateInput(float cameraRotation, float cameraTilt)
     {
         this.cameraRotation = cameraRotation;
