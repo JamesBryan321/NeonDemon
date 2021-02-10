@@ -9,69 +9,46 @@ using Debug = UnityEngine.Debug;
 //[RequireComponent(typeof(Rigidbody))]
 public class NewPlayerMoveScript : MonoBehaviour
 {
+    #region Variables
+
     
-    public float speed;
     private Rigidbody playerRigidbody;
 
-    public float sensitivity;
-    public float ySensitivity;
-    
+    [Header("GroundCheck")]
     public GameObject groundCheck;
     [SerializeField] private bool isGrounded;
-
     public Vector3 groundCheckBoxSize;
 
-    public float jumpForce;
-    [SerializeField] private float slideForce;
-    
-
-    private Vector2 xMovement;
-    private Vector2 zMovement;
-
+    [Header("Jump")]
     [SerializeField] public bool isJumping;
     [SerializeField] private bool secondJumpAvailable;
+    public float jumpForce;
 
-    private bool isCrouching;
-    private bool isSliding;
-
-    public Vector2 velocity;
-
-    public List<GameObject> spawns;
-    
-
-    public float distToGround;
- 
-
-    public float gravityScale = 0.5f;
-    public float globalGravity = -20f;
-    public GameObject SpeedLineOBJ;
-    public bool gamePaused;
-   
-    
-    //New Stuff
+    [Header("Movement")]
+    private Vector2 xMovement;
+    private Vector2 zMovement;
     public float moveSpeed = 5.0f;
-    
     private float horizontal;
     private float vertical;
+    public Vector2 velocity;
+
+   
+
+ 
+
+    public GameObject SpeedLineOBJ;
 
 
 
-    public float lookX;
-    public float lookY;
-
-
-    
-    public float minCameraTilt = -60f;
-    public float maxCameraTilt = 60f;
-
-    private CharacterController charController;
-
+    public float lookX,lookY;
     private float gravity = -20.0f;
     private Vector3 playerVelocity;
     public float jumpHeight = 2.0f;
     
     public GameObject playerCamera;
+    #endregion
 
+    #region StartAwake
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -83,7 +60,9 @@ public class NewPlayerMoveScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         playerRigidbody = GetComponent<Rigidbody>();
     }
-
+    #endregion
+    
+    #region Movement
     private void Update()
     {
         isGrounded = groundCheck.GetComponent<GroundCheck>().isGrounded;
@@ -117,13 +96,9 @@ public class NewPlayerMoveScript : MonoBehaviour
         //Debug.Log($"Player Controller: Left Stick Input: {vertical}, {horizontal}");
     }
 
-    
-  
-    void FixedUpdate()
-    {
+    #endregion
 
-    }
-
+    #region Jump
     public void OnJumpInput()
     {
         if (!isJumping && isGrounded)
@@ -140,5 +115,5 @@ public class NewPlayerMoveScript : MonoBehaviour
         }
 
     }
-    
+    #endregion
 }

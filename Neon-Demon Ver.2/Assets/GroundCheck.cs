@@ -7,6 +7,7 @@ public class GroundCheck : MonoBehaviour
     public bool isGrounded;
     public bool isJumping;
 
+    #region CheckGround
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
@@ -40,4 +41,5 @@ public class GroundCheck : MonoBehaviour
             isGrounded = false;
         }
     }
+    #endregion
 }
