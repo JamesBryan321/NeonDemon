@@ -61,7 +61,7 @@ public class NewDash : MonoBehaviour
         //playerRigidbody.velocity = new Vector3(dashVelocity.x, 0, dashVelocity.y);
         
         SpeedLineOBJ.SetActive(true);
-        playerRigidbody.AddForce(new Vector3(playerMoveScript.velocity.x, playerRigidbody.velocity.y, 
+        playerRigidbody.AddForce(new Vector3(playerMoveScript.velocity.x, 0, 
                                 playerMoveScript.velocity.y) * dashForce, ForceMode.VelocityChange);
 
         yield return new WaitForSeconds(dashDuration);
