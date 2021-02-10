@@ -86,7 +86,7 @@ public class NewPlayerMoveScript : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+        //isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);
         if (isGrounded)
         {
             isJumping = false;
@@ -168,6 +168,7 @@ public class NewPlayerMoveScript : MonoBehaviour
         }
     }
 
+    
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
@@ -184,4 +185,5 @@ public class NewPlayerMoveScript : MonoBehaviour
             isGrounded = false;
         }
     }
+    
 }
