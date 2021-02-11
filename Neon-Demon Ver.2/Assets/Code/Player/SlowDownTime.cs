@@ -7,6 +7,8 @@ public class SlowDownTime : MonoBehaviour
 {
     public GameObject Meter;
     public int MeterAmount = 100;
+
+    private int TimeStop = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +16,17 @@ public class SlowDownTime : MonoBehaviour
         Meter.GetComponent<Image>().fillAmount = 100;
     }
 
+    public void OnRealityInput()
+    {
+        TimeStop = TimeStop * -1;
+   
+    }
+
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(1) && Meter.GetComponent<Image>().fillAmount > 0)
+        if (Meter.GetComponent<Image>().fillAmount > 0 && TimeStop < 0)
         {
             Meter.GetComponent<Image>().fillAmount -= 0.005f;
             //TimeRef.DoSlowmotion();
