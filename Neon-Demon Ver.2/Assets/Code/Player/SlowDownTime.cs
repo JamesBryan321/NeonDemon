@@ -9,17 +9,15 @@ public class SlowDownTime : MonoBehaviour
     public int MeterAmount = 100;
     public bool devtest;
     private int TimeStop = 1;
-    // Start is called before the first frame update
+
     void Start()
     {
-        //Meter.GetComponent<Slider>().value = MeterAmount;
         Meter.GetComponent<Image>().fillAmount = 100;
     }
 
     public void OnRealityInput()
     {
         TimeStop = TimeStop * -1;
-   
     }
 
 
@@ -31,7 +29,6 @@ public class SlowDownTime : MonoBehaviour
             if (Meter.GetComponent<Image>().fillAmount > 0 && TimeStop < 0)
             {
                 Meter.GetComponent<Image>().fillAmount -= 0.005f;
-                //TimeRef.DoSlowmotion();
                 Time.timeScale = 0.5f;
             }
             else
@@ -42,8 +39,7 @@ public class SlowDownTime : MonoBehaviour
         else
         {
             if (TimeStop < 0)
-            {
-               
+            { 
                 Time.timeScale = 0.5f;
             }
             else
