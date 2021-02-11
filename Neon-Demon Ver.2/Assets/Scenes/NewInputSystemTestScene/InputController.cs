@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -47,12 +48,26 @@ public class InputController : MonoBehaviour
 
     //public InputAction jumpAction;
 
+    private PlayerInput playerInput;
+    public Gamepad controller;
+
+    //public InputAction jumpAction;
+
     public bool useController;
     public bool useKeyboard;
 
     private void Awake()
     {
         controls = new Controls();
+        playerInput = GetComponent<PlayerInput>();
+        GetGamepad();
+        controller = Gamepad.current;
+    }
+
+    private Gamepad GetGamepad()
+    {
+        return Gamepad.all.FirstOrDefault(g 
+            => playerInput.devices.Any(d => d.deviceId == g.deviceId));
     }
 
     private void EnableController()
