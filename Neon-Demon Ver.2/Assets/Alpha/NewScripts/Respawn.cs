@@ -14,29 +14,15 @@ public class Respawn : MonoBehaviour
     private int SoftRespawnCount = 0;
     private int HardRespawnCount = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+   
+    #region Debug
     public void RespawnTest()
     {
-        Debug.Log("Respawn");
         RespawnPlayer();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*if ()
-        {
-            Debug.Log("Respawn");
-            RespawnPlayer();
-           
-        }*/
-    }
-
+    #endregion
+  
+    #region Trigger
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("SoftRespawn"))
@@ -46,8 +32,18 @@ public class Respawn : MonoBehaviour
             SoftRespawnCount++;
             other.gameObject.SetActive(false);
         }
+
+        if(other.CompareTag("HardRespawn"))
+        {
+            Transform CurrentRespawn = other.gameObject.transform;
+            HardRespawns.Add(CurrentRespawn);
+            HardRespawnCount++;
+            other.gameObject.SetActive(false);
+        }
+
     }
 
+    #endregion
     public void RespawnPlayer()
     {
         Player.transform.position = SoftRespawns[SoftRespawnCount-1].position;
