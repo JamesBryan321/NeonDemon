@@ -31,6 +31,9 @@ public class WeaponSwitchInputEvent : UnityEvent {}
 [Serializable]
 public class RealitySwitchInputEvent : UnityEvent {}
 
+[Serializable]
+public class RespawnInputEvent : UnityEvent { }
+
 
 public class InputController : MonoBehaviour
 {
@@ -44,7 +47,7 @@ public class InputController : MonoBehaviour
     public ReloadInputEvent reloadInputEvent;
     public WeaponSwitchInputEvent weaponSwitchInputEvent;
     public RealitySwitchInputEvent realitySwitchInputEvent;
-
+    public RespawnInputEvent respawnEvent;
     //public InputAction jumpAction;
 
     public bool useController;
@@ -69,6 +72,7 @@ public class InputController : MonoBehaviour
         controls.Controller.Reload.performed += OnReloadPerformed;
         controls.Controller.SwitchWeapon.performed += OnWeaponSwitchPerformed;
         controls.Controller.SwitchReality.performed += OnRealitySwitchPerformed;
+        controls.Controller.Respawn.performed += OnRespawnPerformed;
         //controls.Controller.Jump.canceled += OnJumpPerformed;
     }
     
@@ -149,5 +153,10 @@ public class InputController : MonoBehaviour
     private void OnRealitySwitchPerformed(InputAction.CallbackContext context)
     {
         realitySwitchInputEvent.Invoke();
+    }
+
+    private void OnRespawnPerformed(InputAction.CallbackContext context)
+    {
+        respawnEvent.Invoke();
     }
 }

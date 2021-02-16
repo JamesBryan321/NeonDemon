@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scenes/NewInputSystemTestScene/Controls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/VerticalSlice/Scenes/NewInputSystemTestScene/Controls.inputactions'
 
 using System;
 using System.Collections;
@@ -201,6 +201,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Respawn"",
+                    ""type"": ""Button"",
+                    ""id"": ""e4b64fc0-494f-4c65-81b6-c6371e114c9c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -300,6 +308,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Switch Reality"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd2e6f99-91b5-48bd-8a6e-c0994843a4f9"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Respawn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -573,6 +592,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Controller_Reload = m_Controller.FindAction("Reload", throwIfNotFound: true);
         m_Controller_SwitchWeapon = m_Controller.FindAction("Switch Weapon", throwIfNotFound: true);
         m_Controller_SwitchReality = m_Controller.FindAction("Switch Reality", throwIfNotFound: true);
+        m_Controller_Respawn = m_Controller.FindAction("Respawn", throwIfNotFound: true);
         // Keyboard & Mouse
         m_KeyboardMouse = asset.FindActionMap("Keyboard & Mouse", throwIfNotFound: true);
         m_KeyboardMouse_Move = m_KeyboardMouse.FindAction("Move", throwIfNotFound: true);
@@ -686,6 +706,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Controller_Reload;
     private readonly InputAction m_Controller_SwitchWeapon;
     private readonly InputAction m_Controller_SwitchReality;
+    private readonly InputAction m_Controller_Respawn;
     public struct ControllerActions
     {
         private @Controls m_Wrapper;
@@ -699,6 +720,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Reload => m_Wrapper.m_Controller_Reload;
         public InputAction @SwitchWeapon => m_Wrapper.m_Controller_SwitchWeapon;
         public InputAction @SwitchReality => m_Wrapper.m_Controller_SwitchReality;
+        public InputAction @Respawn => m_Wrapper.m_Controller_Respawn;
         public InputActionMap Get() { return m_Wrapper.m_Controller; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -735,6 +757,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @SwitchReality.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnSwitchReality;
                 @SwitchReality.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnSwitchReality;
                 @SwitchReality.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnSwitchReality;
+                @Respawn.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnRespawn;
+                @Respawn.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnRespawn;
+                @Respawn.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnRespawn;
             }
             m_Wrapper.m_ControllerActionsCallbackInterface = instance;
             if (instance != null)
@@ -766,6 +791,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @SwitchReality.started += instance.OnSwitchReality;
                 @SwitchReality.performed += instance.OnSwitchReality;
                 @SwitchReality.canceled += instance.OnSwitchReality;
+                @Respawn.started += instance.OnRespawn;
+                @Respawn.performed += instance.OnRespawn;
+                @Respawn.canceled += instance.OnRespawn;
             }
         }
     }
@@ -916,6 +944,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnReload(InputAction.CallbackContext context);
         void OnSwitchWeapon(InputAction.CallbackContext context);
         void OnSwitchReality(InputAction.CallbackContext context);
+        void OnRespawn(InputAction.CallbackContext context);
     }
     public interface IKeyboardMouseActions
     {
