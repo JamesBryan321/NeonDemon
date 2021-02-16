@@ -5,40 +5,37 @@ using UnityEngine;
 public class WeaponSwapping : MonoBehaviour
 {
     public int selectedWeapon = 0;
+
+    
     // Start is called before the first frame update
     void Start()
     {
         SelectWeapon();
     }
 
+    public void WeaponSwitchInput()
+    {
+        int previousSlecetedWeapon = selectedWeapon;
+
+        if (selectedWeapon >= transform.childCount - 1)
+        {
+            selectedWeapon = 0;
+        }
+        else
+        {
+            selectedWeapon++;
+        }
+
+        if (previousSlecetedWeapon != selectedWeapon)
+        {
+            SelectWeapon();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         int previousSlecetedWeapon = selectedWeapon;
-        /*
-        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
-        {
-            if(selectedWeapon >= transform.childCount - 1)
-            {
-                selectedWeapon = 0;
-            }
-            else
-            {
-                selectedWeapon++;
-            }
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            if (selectedWeapon <= 0)
-            {
-                selectedWeapon = transform.childCount - 1;
-            }
-            else
-            {
-                selectedWeapon--;
-            }
-        }
-        */
 
         if(previousSlecetedWeapon != selectedWeapon)
         {
@@ -64,16 +61,4 @@ public class WeaponSwapping : MonoBehaviour
         }
     }
 
-    public void WeaponSwitchInput()
-    {
-        Debug.Log("Weapon Swapped :-)");
-        if(selectedWeapon >= transform.childCount - 1)
-        {
-            selectedWeapon = 0;
-        }
-        else
-        {
-            selectedWeapon++;
-        }
-    }
 }
