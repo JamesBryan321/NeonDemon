@@ -99,20 +99,7 @@ public class InputController : MonoBehaviour
         {
             EnableKeyboardMouse();
         }
-
-        //jumpAction.Enable();
         
-        
-        /*else
-        {
-            controls.Gameplay.Enable();
-            controls.Gameplay.Move.performed += OnMovePerformed;
-            controls.Gameplay.Move.canceled += OnMovePerformed;
-            controls.Gameplay.Rotate.performed += OnRotatePerformed;
-            controls.Gameplay.Rotate.canceled += OnRotatePerformed;
-        }*/
-
-
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)
