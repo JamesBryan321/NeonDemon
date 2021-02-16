@@ -5,6 +5,8 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     public GameObject Player;
+    public Animator Fade;
+
 
     [SerializeField]
     private List<Transform> SoftRespawns;
@@ -41,11 +43,17 @@ public class Respawn : MonoBehaviour
             other.gameObject.SetActive(false);
         }
 
+
+        if(other.CompareTag("SoftRespawnZone"))
+        {
+            RespawnPlayer();
+        }
     }
 
     #endregion
     public void RespawnPlayer()
     {
+        Fade.SetTrigger("_fade");
         Player.transform.position = SoftRespawns[SoftRespawnCount-1].position;
     }
 }
