@@ -27,10 +27,10 @@ public class NewDash : MonoBehaviour
     void Update()
     {
         jumpTime += Time.deltaTime;
-        //if(DashCDR.fillAmount <  jumpRate)
-        //{
-           // DashCDR.fillAmount += Time.deltaTime;
-        //}
+        if(DashCDR.fillAmount <  jumpRate)
+        {
+           DashCDR.fillAmount += Time.deltaTime;
+        }
 
         
     }
@@ -67,7 +67,7 @@ public class NewDash : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
 
         jumpTime = 0;
-        //DashCDR.fillAmount = jumpTime;
+        DashCDR.fillAmount = jumpTime;
         playerRigidbody.velocity = Vector3.zero;
         SpeedLineOBJ.SetActive(false);
         
