@@ -21,7 +21,6 @@ public class SlowDownTime : MonoBehaviour
     }
 
 
-    // Update is called once per frame
     void Update()
     {
         if (devtest == false)
