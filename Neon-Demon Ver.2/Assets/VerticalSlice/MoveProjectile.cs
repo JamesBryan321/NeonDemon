@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveProjectile : MonoBehaviour
 {
     Rigidbody rigidbody;
+    public Transform target;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,6 @@ public class MoveProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rigidbody.velocity = -transform.right * 10f;
+        rigidbody.velocity = transform.forward * 10f ;
     }
 }
