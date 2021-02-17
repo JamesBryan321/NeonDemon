@@ -20,7 +20,9 @@ public class NewDash : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerRigidbody = GetComponent<Rigidbody>();
+       
+            playerRigidbody = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -50,19 +52,20 @@ public class NewDash : MonoBehaviour
 
     public void OnDashInput()
     {
-        StartCoroutine(DashTest());
-
+        if (jumpTime > jumpRate)
+        {
+            StartCoroutine(DashTest());
+        }
     }
     
     private IEnumerator DashTest()
     {
-        Debug.Log("Dash");
         //dashVelocity = playerMoveScript.velocity * dashForce;
         //playerRigidbody.velocity = new Vector3(dashVelocity.x, 0, dashVelocity.y);
         
         SpeedLineOBJ.SetActive(true);
-        playerRigidbody.AddForce(new Vector3(playerMoveScript.velocity.x, 0, 
-                                playerMoveScript.velocity.y) * dashForce, ForceMode.VelocityChange);
+         playerRigidbody.AddForce(new Vector3(playerMoveScript.velocity.x, 0, playerMoveScript.velocity.y) * dashForce, ForceMode.VelocityChange);
+       
 
         yield return new WaitForSeconds(dashDuration);
 
