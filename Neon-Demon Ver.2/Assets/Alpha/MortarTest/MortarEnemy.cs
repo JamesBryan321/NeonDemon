@@ -20,8 +20,11 @@ public class MortarEnemy : MonoBehaviour
 
     public void TestMortar()
     {
-        Debug.Log("Shoot");
-        Instantiate(Mortar, firepoint);
+           GameObject mortar = Instantiate(Mortar, firepoint);
+        mortar.GetComponent<MortarProjectile>().Followpositions = positions;
+        point1.position = new Vector3((point0.position.x + point2.position.x) / 2, ((point0.position.y + point2.position.y) / 2) + 10, ((point0.position.z + point2.position.z) / 2));
+        point2.position = Player.transform.position;
+
     }
 
 
@@ -29,8 +32,8 @@ public class MortarEnemy : MonoBehaviour
         void Update()
     {
         DrawLinearCurve();
-        point1.position = new Vector3((point0.position.x + point2.position.x) / 2 , ((point0.position.y + point2.position.y) / 2) + 10, ((point0.position.z + point2.position.z) / 2) );
-        point2.position = Player.transform.position;
+       // point1.position = new Vector3((point0.position.x + point2.position.x) / 2 , ((point0.position.y + point2.position.y) / 2) + 10, ((point0.position.z + point2.position.z) / 2) );
+       // point2.position = Player.transform.position;
 
 
     }

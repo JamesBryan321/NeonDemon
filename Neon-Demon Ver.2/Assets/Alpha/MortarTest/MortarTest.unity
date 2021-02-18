@@ -932,7 +932,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  Mortar: {fileID: 5878802419996286851, guid: 1962afa62ff56b24095a64a86fd87858, type: 3}
+  Mortar: {fileID: 5774966442877604329, guid: 2db171a9386ca724c832dbac5f693bea, type: 3}
   firepoint: {fileID: 60793980}
 --- !u!1 &60793979
 GameObject:
@@ -1220,6 +1220,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pauseGameEvent:
+    m_PersistentCalls:
+      m_Calls: []
   useController: 1
   useKeyboard: 0
 --- !u!4 &574730903
@@ -1248,6 +1251,7 @@ GameObject:
   - component: {fileID: 658027608}
   - component: {fileID: 658027607}
   - component: {fileID: 658027606}
+  - component: {fileID: 658027610}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -1329,6 +1333,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &658027610
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658027605}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d13295f70c260d9469b8d9dd19cad724, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1122669247
 GameObject:
   m_ObjectHideFlags: 0
