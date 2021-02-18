@@ -56,6 +56,7 @@ public class InputController : MonoBehaviour
 
     public bool useController;
     public bool useKeyboard;
+    public Aiming aimScript;
 
     private void Awake()
     {
@@ -64,10 +65,12 @@ public class InputController : MonoBehaviour
         if (gamePad != null)
         {
             useController = true;
+            aimScript.useController = true;
         }
         else
         {
             useKeyboard = true;
+            aimScript.useKeyboard = true;
         }
     }
 
@@ -119,6 +122,18 @@ public class InputController : MonoBehaviour
             EnableKeyboardMouse();
         }
         
+    }
+
+    public void DisableInputs()
+    {
+        controls.Controller.Disable();
+        controls.KeyboardMouse.Disable();
+    }
+    
+    public void ReEnableInputs()
+    {
+        controls.Controller.Enable();
+        controls.KeyboardMouse.Enable();
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)

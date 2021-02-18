@@ -15,6 +15,10 @@
           </e>
         </e>
         <e p="Alpha" t="Include">
+          <e p="MortarTest" t="Include">
+            <e p="MortarEnemy.cs" t="Include" />
+            <e p="MortarProjectile.cs" t="Include" />
+          </e>
           <e p="NewScripts" t="Include">
             <e p="BelialPathfinding.cs" t="Include" />
             <e p="Respawn.cs" t="Include" />
@@ -638,6 +642,7 @@
               <e p="InputController.cs" t="Include" />
               <e p="NewDash.cs" t="Include" />
               <e p="NewPlayerMoveScript.cs" t="Include" />
+              <e p="PauseMenuScript.cs" t="Include" />
               <e p="PlayerController.cs" t="Include" />
             </e>
           </e>
