@@ -23,7 +23,7 @@ public class SlowDownTime : MonoBehaviour
 
     void Update()
     {
-        if (PauseTest.ispaused == false)
+        if (PauseTest.isPaused == false)
         {
             if (devtest == false)
             {
