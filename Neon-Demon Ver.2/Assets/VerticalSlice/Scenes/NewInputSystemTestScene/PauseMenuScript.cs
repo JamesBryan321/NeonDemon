@@ -11,13 +11,13 @@ public class PauseMenuScript : MonoBehaviour
 
     public InputController inputController;
 
-    public bool ispaused;
+    public bool isPaused;
 
     public void TogglePauseMenu()
     {
         if (!pauseMenu.activeInHierarchy)
         {
-            ispaused = true;
+            isPaused = true;
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
             
@@ -29,7 +29,7 @@ public class PauseMenuScript : MonoBehaviour
         }
         else
         {
-            ispaused = false;
+            isPaused = false;
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
             optionsMenu.SetActive(false);
