@@ -9,7 +9,7 @@ public class SlowDownTime : MonoBehaviour
     public int MeterAmount = 100;
     public bool devtest;
     private int TimeStop = 1;
-
+    public PauseMenuScript PauseTest;
     void Start()
     {
         Meter.GetComponent<Image>().fillAmount = 100;
@@ -23,29 +23,33 @@ public class SlowDownTime : MonoBehaviour
 
     void Update()
     {
-        if (devtest == false)
+        if (PauseTest.ispaused == false)
         {
-            if (Meter.GetComponent<Image>().fillAmount > 0 && TimeStop < 0)
+            if (devtest == false)
             {
-                Meter.GetComponent<Image>().fillAmount -= 0.005f;
-                Time.timeScale = 0.5f;
+                if (Meter.GetComponent<Image>().fillAmount > 0 && TimeStop < 0)
+                {
+                    Meter.GetComponent<Image>().fillAmount -= 0.005f;
+                    Time.timeScale = 0.5f;
+                }
+                else
+                {
+                    Time.timeScale = 1f;
+                }
             }
             else
             {
-                Time.timeScale = 1f;
+                if (TimeStop < 0)
+                {
+                    Time.timeScale = 0.5f;
+                }
+                else
+                {
+                    Time.timeScale = 1f;
+                }
             }
         }
-        else
-        {
-            if (TimeStop < 0)
-            { 
-                Time.timeScale = 0.5f;
-            }
-            else
-            {
-                Time.timeScale = 1f;
-            }
-        }
+
     }
 
     public void AddMeter()

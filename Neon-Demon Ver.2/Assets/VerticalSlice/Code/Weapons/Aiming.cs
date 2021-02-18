@@ -15,16 +15,18 @@ public class Aiming : MonoBehaviour
     public InputController inputScript;
     public float controllerSensitivity;
     public float mouseSensitivity;
+
+    public bool useController, useKeyboard;
     
     void Start()
     {
         Cursor.visible = false;
-        if (inputScript.useController)
+        if (useController)
         {
             sensitivity = controllerSensitivity;
         }
 
-        if (inputScript.useKeyboard)
+        if (useKeyboard)
         {
             sensitivity = mouseSensitivity;
         }
