@@ -34,6 +34,9 @@ public class RealitySwitchInputEvent : UnityEvent {}
 [Serializable]
 public class RespawnInputEvent : UnityEvent { }
 
+[Serializable]
+public class PauseGame : UnityEvent {}
+
 
 public class InputController : MonoBehaviour
 {
@@ -48,6 +51,7 @@ public class InputController : MonoBehaviour
     public WeaponSwitchInputEvent weaponSwitchInputEvent;
     public RealitySwitchInputEvent realitySwitchInputEvent;
     public RespawnInputEvent respawnEvent;
+    public PauseGame pauseGameEvent;
     //public InputAction jumpAction;
 
     public bool useController;
@@ -56,6 +60,15 @@ public class InputController : MonoBehaviour
     private void Awake()
     {
         controls = new Controls();
+        var gamePad = Gamepad.current;
+        if (gamePad != null)
+        {
+            useController = true;
+        }
+        else
+        {
+            useKeyboard = true;
+        }
     }
 
     private void EnableController()
@@ -73,6 +86,7 @@ public class InputController : MonoBehaviour
         controls.Controller.SwitchWeapon.performed += OnWeaponSwitchPerformed;
         controls.Controller.SwitchReality.performed += OnRealitySwitchPerformed;
         controls.Controller.Respawn.performed += OnRespawnPerformed;
+        controls.Controller.PauseGame.performed += OnPauseGamePerformed;
         //controls.Controller.Jump.canceled += OnJumpPerformed;
     }
     
@@ -90,6 +104,7 @@ public class InputController : MonoBehaviour
         controls.KeyboardMouse.Reload.performed += OnReloadPerformed;
         controls.KeyboardMouse.SwitchWeapon.performed += OnWeaponSwitchPerformed;
         controls.KeyboardMouse.SwitchReality.performed += OnRealitySwitchPerformed;
+        controls.KeyboardMouse.PauseGame.performed += OnPauseGamePerformed;
     }
 
     private void OnEnable()
@@ -158,5 +173,10 @@ public class InputController : MonoBehaviour
     private void OnRespawnPerformed(InputAction.CallbackContext context)
     {
         respawnEvent.Invoke();
+    }
+    
+    private void OnPauseGamePerformed(InputAction.CallbackContext context)
+    {
+        pauseGameEvent.Invoke();
     }
 }

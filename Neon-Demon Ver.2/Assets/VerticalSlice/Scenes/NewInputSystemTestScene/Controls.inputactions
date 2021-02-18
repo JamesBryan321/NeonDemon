@@ -196,6 +196,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Pause Game",
+                    "type": "Button",
+                    "id": "e4e55af6-0dab-4bf8-8f93-8bc686133c14",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -308,6 +316,17 @@
                     "action": "Respawn",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d5eef09-010a-47a2-9c8f-439fe89fe0fd",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause Game",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -383,6 +402,14 @@
                     "name": "Switch Reality",
                     "type": "Button",
                     "id": "21edaeff-6cb8-4ddd-871f-5b95a280524e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pause Game",
+                    "type": "Button",
+                    "id": "facc8308-40d7-42fc-9147-bd5879291b42",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -529,6 +556,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Switch Reality",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0886e418-6ddb-44eb-a43d-7fb4e47086ef",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause Game",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
