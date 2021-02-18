@@ -631,6 +631,7 @@ MonoBehaviour:
   point0: {fileID: 1798563977}
   point1: {fileID: 1122669248}
   point2: {fileID: 2086684490}
+  CurveHeight: 10
   positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
@@ -1458,13 +1459,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705392680}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0, y: 0.32996324, z: -0, w: 0.9439938}
+  m_LocalPosition: {x: -5.97, y: 1, z: -6.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 38.533, z: 0}
 --- !u!1 &1798563976
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,10 +7,13 @@ public class MortarEnemy : MonoBehaviour
     public GameObject Player;
     public LineRenderer linerenderer;
     public Transform point0, point1, point2;
+    public int CurveHeight = 10;
     private int numPoints = 300;
     public Vector3[] positions = new Vector3[300];
     public GameObject Mortar;
     public Transform firepoint;
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +25,7 @@ public class MortarEnemy : MonoBehaviour
     {
            GameObject mortar = Instantiate(Mortar, firepoint);
         mortar.GetComponent<MortarProjectile>().Followpositions = positions;
-        point1.position = new Vector3((point0.position.x + point2.position.x) / 2, ((point0.position.y + point2.position.y) / 2) + 10, ((point0.position.z + point2.position.z) / 2));
+        point1.position = new Vector3((point0.position.x + point2.position.x) / 2 - 6, ((point0.position.y + point2.position.y) / 2) + CurveHeight, ((point0.position.z + point2.position.z) / 2) + 2);
         point2.position = Player.transform.position;
 
     }
