@@ -8,7 +8,7 @@ public class RealityChange : MonoBehaviour
     public GameObject[] CP_asset;
     public GameObject[] Hell_asset;
     public bool realityNormal;
-    public GameObject HellVolume;
+   // public GameObject HellVolume;
     public Animator Vignette;
 
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class RealityChange : MonoBehaviour
         {
 
             //Vignette.SetTrigger("vigstart");
-            StartCoroutine(WaitForChange());
+          //  StartCoroutine(WaitForChange());
         }
 
      
@@ -35,10 +35,10 @@ public class RealityChange : MonoBehaviour
     }
 
 
-    private void changeToHell()
+    public void changeToHell()
     {
         
-        HellVolume.SetActive(true);
+       // HellVolume.SetActive(true);
         foreach (var asset in Hell_asset)
         {
            
@@ -67,9 +67,9 @@ public class RealityChange : MonoBehaviour
          }*/
 
     }
-    private void changeToNormal()
+    public void changeToNormal1()
     {
-        HellVolume.SetActive(false);
+        //HellVolume.SetActive(false);
         foreach (var name in CP_asset)
         {
 
@@ -89,9 +89,9 @@ public class RealityChange : MonoBehaviour
     }
 
 
-    private IEnumerator WaitForChange()
+   /* private IEnumerator WaitForChange()
     {
-        yield return new WaitForSeconds(0.01f);
+      //  yield return new WaitForSeconds(0.01f);
 
         if (realityNormal == true)
         {
@@ -100,11 +100,11 @@ public class RealityChange : MonoBehaviour
         }
         else if (realityNormal == false)
         {
-            changeToNormal();
+            changeToNormal1();
             realityNormal = true;
         }
 
-    }
+    }*/
 
 
     /* public IEnumerator WaitForAnimation()
