@@ -11,8 +11,9 @@ public class MortarProjectile : MonoBehaviour
     Vector3 last_position;
     Vector3 current_position;
     public GameObject LineRef;
+    public GameObject Explosion;
 
-    public Vector3[] Followpositions = new Vector3[300];
+    public Vector3[] Followpositions = new Vector3[100];
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +24,10 @@ public class MortarProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.LookAt(Followpositions[CurrentWaypointID]);
         //transform.position = LineRef.positions[CurrentWaypointID];
         //Debug.Log(CurrentWaypointID);
-        if (CurrentWaypointID < 299)
+        if (CurrentWaypointID < 99)
         {
             Debug.Log("TEst");
             transform.position = Followpositions[CurrentWaypointID];
@@ -34,8 +36,10 @@ public class MortarProjectile : MonoBehaviour
                 CurrentWaypointID = (CurrentWaypointID + 1);//% LineRef.positions.Length+1;
             }
         }
-        else if (CurrentWaypointID >= 299)
+        else if (CurrentWaypointID >= 99)
         {
+            GameObject Bomb = Instantiate(Explosion, this.transform);
+            Bomb.transform.parent = null;
             Destroy(gameObject);
         }
     }

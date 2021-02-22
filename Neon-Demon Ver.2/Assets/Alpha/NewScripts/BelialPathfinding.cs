@@ -21,10 +21,23 @@ public class BelialPathfinding : MonoBehaviour
         
     }
 
+   public void testbelial()
+    {
+        CurrentWaypoint++;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        Seek();
+        
+        if(Vector3.Distance(target[CurrentWaypoint].position, this.transform.position) < 1)
+        {
+            this.transform.position = target[CurrentWaypoint].position;
+        }
+        else
+        {
+            Seek();
+        }
     }
 
     void Seek()
