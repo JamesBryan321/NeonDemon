@@ -23,6 +23,7 @@ public class MortarEnemy : MonoBehaviour
         DrawLinearCurve();
     }
 
+    /*
     public void TestMortar()
     {
         
@@ -33,7 +34,7 @@ public class MortarEnemy : MonoBehaviour
         Instantiate(AimLocation, point2);
 
     }
-
+    */
 
         // Update is called once per frame
         void Update()
