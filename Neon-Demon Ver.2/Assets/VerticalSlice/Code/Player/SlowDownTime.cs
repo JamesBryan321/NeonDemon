@@ -11,7 +11,7 @@ public class SlowDownTime : MonoBehaviour
     public bool devtest;
     private int TimeStop = 1;
     public PauseMenuScript PauseTest;
-
+    public NewPlayerMoveScript PlayerRef;
 
     /// <summary>
     /// Everything for the reality change 
@@ -50,10 +50,12 @@ public class SlowDownTime : MonoBehaviour
                 {
                     Meter.GetComponent<Image>().fillAmount -= 0.005f;
                     Time.timeScale = 0.5f;
+                    PlayerRef.moveSpeed = 30f;
                 }
                 else
                 {
                     Time.timeScale = 1f;
+                    PlayerRef.moveSpeed = 15f;
                 }
             }
             else
@@ -61,10 +63,12 @@ public class SlowDownTime : MonoBehaviour
                 if (TimeStop < 0)
                 {
                     Time.timeScale = 0.5f;
+                    PlayerRef.moveSpeed = 25f;
                 }
                 else
                 {
                     Time.timeScale = 1f;
+                    PlayerRef.moveSpeed = 15f;
                 }
             }
         }

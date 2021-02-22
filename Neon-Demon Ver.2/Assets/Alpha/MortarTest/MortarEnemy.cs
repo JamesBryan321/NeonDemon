@@ -8,8 +8,8 @@ public class MortarEnemy : MonoBehaviour
     public LineRenderer linerenderer;
     public Transform point0, point1, point2;
     public int CurveHeight = 10;
-    private int numPoints = 100;
-    public Vector3[] positions = new Vector3[100];
+    private int numPoints = 80;
+    public Vector3[] positions = new Vector3[80];
     public GameObject Mortar;
     public GameObject AimLocation;
     public Transform firepoint;

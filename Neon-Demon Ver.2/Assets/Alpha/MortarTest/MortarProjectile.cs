@@ -13,7 +13,14 @@ public class MortarProjectile : MonoBehaviour
     public GameObject LineRef;
     public GameObject Explosion;
 
-    public Vector3[] Followpositions = new Vector3[100];
+    public float Mass = 15;
+    public float MaxVelocity = 6;
+    public float MaxForce = 20;
+
+    public Vector3 velocity;
+    public Vector3 force;
+
+    public Vector3[] Followpositions = new Vector3[80];
     // Start is called before the first frame update
     void Start()
     {
@@ -27,20 +34,36 @@ public class MortarProjectile : MonoBehaviour
         transform.LookAt(Followpositions[CurrentWaypointID]);
         //transform.position = LineRef.positions[CurrentWaypointID];
         //Debug.Log(CurrentWaypointID);
-        if (CurrentWaypointID < 99)
+        if (CurrentWaypointID < 79)
         {
             Debug.Log("TEst");
-            transform.position = Followpositions[CurrentWaypointID];
+            //transform.position = Followpositions[CurrentWaypointID];
+            Seek();
             if (Vector3.Distance(Followpositions[CurrentWaypointID], this.transform.position) < 1)
             {
                 CurrentWaypointID = (CurrentWaypointID + 1);//% LineRef.positions.Length+1;
             }
         }
-        else if (CurrentWaypointID >= 99)
+        else if (CurrentWaypointID >= 79)
         {
             GameObject Bomb = Instantiate(Explosion, this.transform);
             Bomb.transform.parent = null;
             Destroy(gameObject);
         }
+    }
+
+    void Seek()
+    {
+
+        var desiredVelocity = Followpositions[CurrentWaypointID] - transform.position;
+        desiredVelocity = desiredVelocity.normalized * MaxVelocity;
+
+        var steering = desiredVelocity - velocity;
+        steering = Vector3.ClampMagnitude(steering, MaxForce);
+        steering /= Mass;
+
+        velocity = Vector3.ClampMagnitude(velocity + steering, MaxVelocity);
+        transform.position += velocity * Time.deltaTime;
+        transform.forward = velocity.normalized;
     }
 }
