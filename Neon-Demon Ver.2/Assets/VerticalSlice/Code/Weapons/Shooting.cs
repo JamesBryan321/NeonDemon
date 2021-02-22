@@ -110,10 +110,10 @@ public class Shooting : MonoBehaviour
 
         if(Ammo == 0)
         {
-            Ads_anim.enabled = true;
-            Ads_anim.SetBool("Reload", true);
+           // Ads_anim.enabled = true;
+           // Ads_anim.SetBool("Reload", true);
 
-            StartCoroutine(WaitForReload());
+          //  StartCoroutine(WaitForReload());
         }
       
 
@@ -127,11 +127,14 @@ public class Shooting : MonoBehaviour
         FIRESFX.Play();
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
+        Ads_anim.SetBool("Shoot", true);
 
-        if(Physics.Raycast(ray, out hit,Mathf.Infinity))
+        if (Physics.Raycast(ray, out hit,Mathf.Infinity))
         {
             GameObject impactEffectGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(Vector3.forward, Vector3.up)) as GameObject;
-            Destroy(impactEffectGO, 2);        
+            Destroy(impactEffectGO, 2);
+
+            StartCoroutine(wait());
             if (hit.transform.CompareTag("Enemy"))
             {
                 float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
@@ -141,6 +144,7 @@ public class Shooting : MonoBehaviour
                 settings.FreezeDecalDisappearance = true;
                 settings.LightIntensityMultiplier = DirLight.intensity;
                 hit.transform.GetComponent<TakeDamage>().Damage(damage);
+                StartCoroutine(wait());
             }
             if (hit.transform.CompareTag("Thruster"))
             {
@@ -151,13 +155,14 @@ public class Shooting : MonoBehaviour
                 var settings = instance.GetComponent<BFX_BloodSettings>();
                 settings.FreezeDecalDisappearance = true;
                 
-                settings.LightIntensityMultiplier = DirLight.intensity;
+               // settings.LightIntensityMultiplier = DirLight.intensity;
+                StartCoroutine(wait());
 
 
 
                 //hit.transform.GetComponent<EnemyTornApart>().TurnEnemyOn();
 
-             
+
 
                 hit.transform.GetComponent<TakeDamage>().Thrusterdamage();
                 hit.transform.GetComponent<Thruster>().enabled = true;
@@ -176,13 +181,17 @@ public class Shooting : MonoBehaviour
                var destructableScript = hit.transform.GetComponent<Destructable>();
                 destructableScript.Break();
                 hit.transform.GetComponent<BoxCollider>().enabled = false;
+                StartCoroutine(wait());
             }
             if (hit.transform.CompareTag("barrel"))
             {
                 var barrelScript = hit.transform.GetComponent<Explodingbarrel>();
                 barrelScript.explode();
+                StartCoroutine(wait());
             }
         }
+        StartCoroutine(wait());
+
     }
 
     public IEnumerator WaitForReload()
@@ -195,12 +204,14 @@ public class Shooting : MonoBehaviour
     }
     public IEnumerator wait()
     {
-        yield return new WaitForSeconds(0.15f);
-        Ads_anim.SetBool("Reload", true);
-        armsway.GetComponent<Sway>().enabled = false;
-        gunsway.GetComponent<Sway>().enabled = false;
+        
+        yield return new WaitForSeconds(0.25f);
+        Ads_anim.SetBool("Shoot", false);
+      //  Ads_anim.SetBool("Reload", true);
+       // armsway.GetComponent<Sway>().enabled = false;
+      //  gunsway.GetComponent<Sway>().enabled = false;
 
-        StartCoroutine(WaitForReload());
+       // StartCoroutine(WaitForReload());
     }
         //public void OpenTwitter()
         //   {
