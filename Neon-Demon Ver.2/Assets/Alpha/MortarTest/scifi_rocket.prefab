@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3909257713784222427}
   - component: {fileID: -6420373069844238665}
   - component: {fileID: -5158815748432920172}
+  - component: {fileID: 7858835587918060325}
   m_Layer: 0
   m_Name: scifi_rocket
   m_TagString: Untagged
@@ -115,6 +116,11 @@ MonoBehaviour:
   LineRef: {fileID: 0}
   Explosion: {fileID: 8247698257913367099, guid: 9b144845df002124080cbf206fc8fd5e,
     type: 3}
+  Mass: 1
+  MaxVelocity: 30
+  MaxForce: 30
+  velocity: {x: 0, y: 0, z: 0}
+  force: {x: 0, y: 0, z: 0}
   Followpositions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
@@ -416,6 +422,19 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+--- !u!135 &7858835587918060325
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349744779125736967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.8
+  m_Center: {x: 0, y: 2.2749877e-14, z: 1.6008806}
 --- !u!1001 &1333030905198830067
 PrefabInstance:
   m_ObjectHideFlags: 0
