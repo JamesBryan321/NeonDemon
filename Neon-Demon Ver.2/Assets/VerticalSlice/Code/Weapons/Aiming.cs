@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Aiming : MonoBehaviour
 {
     public Transform playerBody;
-    private float sensitivity = 100f;
+    [SerializeField] private float sensitivity = 100f;
     public float xRot = 0f;
     public float yRot = 0f;
 
@@ -16,6 +17,8 @@ public class Aiming : MonoBehaviour
     public float controllerSensitivity;
     public float mouseSensitivity;
 
+    public Slider sensitivitySlider;
+
     public bool useController, useKeyboard;
     
     void Start()
@@ -24,11 +27,17 @@ public class Aiming : MonoBehaviour
         if (useController)
         {
             sensitivity = controllerSensitivity;
+            sensitivitySlider.value = controllerSensitivity / 20;
+            sensitivitySlider.maxValue = 20;
+            sensitivitySlider.minValue = 1;
         }
 
         if (useKeyboard)
         {
             sensitivity = mouseSensitivity;
+            sensitivitySlider.value = mouseSensitivity / 20;
+            sensitivitySlider.maxValue = 0.5f;
+            sensitivitySlider.minValue = .05f;
         }
         //Debug.Log("Camera sensitivity is set to: " + sensitivity);
     }
@@ -51,5 +60,9 @@ public class Aiming : MonoBehaviour
         playerBody.localRotation = Quaternion.Euler(0f, yRot, 0f);
     }
 
- 
+    public void ChangeSensitivity()
+    {
+        sensitivity = sensitivitySlider.value * 20;
+    }
+
 }
