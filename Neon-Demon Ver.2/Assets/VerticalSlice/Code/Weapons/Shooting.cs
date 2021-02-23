@@ -228,6 +228,7 @@ public class Shooting : MonoBehaviour
                 //Gun_Anim.SetTrigger("Shoot");
                 Ammo -= 1;
                 int randomNum = Random.Range(0, 2);
+            Ads_anim.SetTrigger("Shooting");
                 Shoot();
                 ShootingSFX[randomNum].Emit(1);
                 //  Ads_anim.SetBool("Fire", true);

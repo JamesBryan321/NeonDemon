@@ -11,14 +11,15 @@ public class BelialPathfinding : MonoBehaviour
 
     public Vector3 velocity;
     public Vector3 force;
-
-
+    private GameObject Player;
+    public int FinalPosition;
     public List<Transform> target;
     public int CurrentWaypoint;
+    public float speed = 10f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player = GameObject.Find("Player");
     }
 
    public void testbelial()
@@ -30,13 +31,24 @@ public class BelialPathfinding : MonoBehaviour
     void Update()
     {
         
-        if(Vector3.Distance(target[CurrentWaypoint].position, this.transform.position) < 1)
+        if (CurrentWaypoint < FinalPosition)
         {
-            this.transform.position = target[CurrentWaypoint].position;
+            transform.LookAt(target[CurrentWaypoint]);
+            if (Vector3.Distance(target[CurrentWaypoint].position, this.transform.position) < 1)
+            {
+                //this.transform.position = target[CurrentWaypoint].position;
+                CurrentWaypoint = (CurrentWaypoint + 1);
+            }
+            else
+            {
+                Seek();
+            }
         }
         else
         {
-            Seek();
+            this.transform.position = target[CurrentWaypoint - 1].position;
+            //transform.LookAt(Player.transform);
+            //transform.rotation = Quaternion.Lerp(this.transform.rotation, Player.transform.rotation, Time.deltaTime * speed);
         }
     }
 
