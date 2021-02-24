@@ -39,7 +39,7 @@ public class EnemyDamage : MonoBehaviour
             }
         }*/
     }
-
+    /*
         public void StartNavMesh()
     {
         Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.enabled = true;
@@ -69,7 +69,7 @@ public class EnemyDamage : MonoBehaviour
             Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 20;
         }
     }
-
+    */
     private void OnTriggerStay(Collider other)
     {
         if(other.CompareTag("Player"))

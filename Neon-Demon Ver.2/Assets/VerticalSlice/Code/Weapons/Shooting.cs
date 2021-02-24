@@ -12,7 +12,7 @@ public class Shooting : MonoBehaviour
     Vector3 originalRot;
 
     [Header("Gun Stats")]
-    public TMP_Text AmmoCount;
+   // public TMP_Text AmmoCount;
     public int damage = 25;
     public int Ammo;
     public int ReloadAmmo;
@@ -54,7 +54,7 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        AmmoCount.text = "" + Ammo;
+        //AmmoCount.text = "" + Ammo;
         /*
         if (menuScript.gamePaused)
         {
