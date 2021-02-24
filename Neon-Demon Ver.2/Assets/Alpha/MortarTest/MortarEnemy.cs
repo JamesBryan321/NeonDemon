@@ -21,7 +21,7 @@ public class MortarEnemy : MonoBehaviour
     {
         linerenderer.positionCount = numPoints;
         DrawLinearCurve();
-        Firerate = Random.Range(3f, 4.5f);
+        Firerate = Random.Range(2f, 4.5f);
     }
 
     /*
