@@ -18,7 +18,7 @@ public class SceneChange : MonoBehaviour
     
     public void LoadTutorial()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("NewTutorial");
     }
     
     public void LoadMainLevel()
