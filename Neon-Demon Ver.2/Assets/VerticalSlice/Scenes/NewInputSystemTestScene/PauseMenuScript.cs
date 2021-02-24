@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PauseMenuScript : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PauseMenuScript : MonoBehaviour
     public InputController inputController;
 
     public bool isPaused;
+
+    public Image playerAimReticle;
+    public Slider reticleColourSlider;
+    public Renderer reticleRenderer;
 
     public void TogglePauseMenu()
     {
@@ -50,6 +55,12 @@ public class PauseMenuScript : MonoBehaviour
         optionsMenu.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(optionsClosedButton);
+    }
+
+    public void ChangeReticleColour()
+    {
+        //reticleRenderer.material.color = Color.HSVToRGB(reticleColourSlider.value * 10, 100, 100);
+        playerAimReticle.color = Color.HSVToRGB(reticleColourSlider.value / 10, 100, 100);
     }
 }
 
