@@ -189,6 +189,12 @@ public class Shooting : MonoBehaviour
                 barrelScript.explode();
                 StartCoroutine(wait());
             }
+            if (hit.transform.CompareTag("Mortar"))
+            {
+            
+                hit.transform.GetComponent<MortarReference>().DestroyRobot();
+               
+            }
         }
         StartCoroutine(wait());
 

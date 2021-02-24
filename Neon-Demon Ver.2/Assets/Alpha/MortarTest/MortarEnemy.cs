@@ -14,13 +14,14 @@ public class MortarEnemy : MonoBehaviour
     public GameObject AimLocation;
     public Transform firepoint;
     public float detection = 70;
-    public float Firerate = 1f;
+    public float Firerate;
     public float nextFire = 0f;
     // Start is called before the first frame update
     void Start()
     {
         linerenderer.positionCount = numPoints;
         DrawLinearCurve();
+        Firerate = Random.Range(3f, 4.5f);
     }
 
     /*

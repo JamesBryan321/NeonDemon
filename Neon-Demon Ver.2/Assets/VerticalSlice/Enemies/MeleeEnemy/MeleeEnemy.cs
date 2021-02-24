@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -20,6 +21,7 @@ public class MeleeEnemy : MonoBehaviour
     public int EnemyDamage = 10;
     public int EnemyHealth = 100;
     public Animator MeleeAnim;
+    public GameObject warningeffect;
 
     public GameObject Thruster;
 
@@ -116,6 +118,7 @@ public class MeleeEnemy : MonoBehaviour
 
     void Attack()
     {
+        StartCoroutine(Warning());
         MeleeAnim.SetTrigger("Attack");
         z_MeleeState = MeleeState.CHASE;
     }
@@ -139,5 +142,16 @@ public class MeleeEnemy : MonoBehaviour
             z_MeleeState = MeleeState.CHASE;
         }
     }
-    
+    private IEnumerator Warning()
+    {
+        warningeffect.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        warningeffect.SetActive(false);
+
+    }
+
+    private void WaitForSeconds(float v)
+    {
+        throw new NotImplementedException();
+    }
 }
