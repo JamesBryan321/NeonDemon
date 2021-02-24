@@ -19,14 +19,14 @@ public class EnemyDamage : MonoBehaviour
     {
         CheckReality = 1;
         Player = GameObject.Find("Player");
-        Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.enabled = false;
+        Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.enabled = true;
         AttackZone.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+      /*  if (Input.GetKeyDown(KeyCode.E))
         {
             CheckReality = CheckReality * -1;
             if (CheckReality < 0)
@@ -37,7 +37,7 @@ public class EnemyDamage : MonoBehaviour
             {
                 Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.speed = 20;
             }
-        }
+        }*/
     }
 
         public void StartNavMesh()
