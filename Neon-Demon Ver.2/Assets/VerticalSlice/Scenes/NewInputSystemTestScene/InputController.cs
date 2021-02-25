@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -58,10 +59,12 @@ public class InputController : MonoBehaviour
     public bool useKeyboard;
     public Aiming aimScript;
 
+    public Gamepad gamePad;
+
     private void Awake()
     {
         controls = new Controls();
-        var gamePad = Gamepad.current;
+        gamePad = Gamepad.current;
         if (gamePad != null)
         {
             useController = true;
@@ -140,6 +143,7 @@ public class InputController : MonoBehaviour
     {
         Vector2 moveInput = context.ReadValue<Vector2>();
         moveInputEvent.Invoke(moveInput.x, moveInput.y);
+        //gamePad.SetMotorSpeeds(0.5f, 0.5f);
         //Debug.Log($"Move Input: {moveInput}");
     }
 
@@ -194,4 +198,9 @@ public class InputController : MonoBehaviour
     {
         pauseGameEvent.Invoke();
     }
+
+    /*private Gamepad GetGamepad()
+    {
+        return Gamepad.all.FirstOrDefault(g => devices.Any(d => d.deviceId == g.deviceId));
+    } */
 }
