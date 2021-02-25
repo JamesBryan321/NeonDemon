@@ -264,8 +264,8 @@ public class Shooting : MonoBehaviour
 
         public IEnumerator GunFireVibration()
         {
-            inputScript.gamePad.SetMotorSpeeds(1f, 1f);
-            yield return new WaitForSeconds(0.1f);
+            inputScript.gamePad.SetMotorSpeeds(2f, 2f);
+            yield return new WaitForSeconds(0.3f);
             inputScript.gamePad.SetMotorSpeeds(0, 0);
         }
         

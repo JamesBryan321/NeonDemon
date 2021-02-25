@@ -16,7 +16,7 @@ public class Respawn : MonoBehaviour
     private int SoftRespawnCount = 0;
     private int HardRespawnCount = 0;
 
-   
+    public InputController inputScript;
     #region Debug
     public void RespawnTest()
     {
@@ -54,6 +54,19 @@ public class Respawn : MonoBehaviour
     public void RespawnPlayer()
     {
         //Fade.SetTrigger("_fade");
+        Rumble();
         Player.transform.position = SoftRespawns[SoftRespawnCount-1].position;
+    }
+
+    public void Rumble()
+    {
+        StartCoroutine(Vibration());
+    }
+
+    public IEnumerator Vibration()
+    {
+        inputScript.gamePad.SetMotorSpeeds(0.5f, 0.5f);
+        yield return new WaitForSeconds(0.1f);
+        inputScript.gamePad.SetMotorSpeeds(0, 0);
     }
 }
