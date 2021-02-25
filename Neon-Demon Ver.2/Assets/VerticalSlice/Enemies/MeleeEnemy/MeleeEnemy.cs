@@ -35,7 +35,7 @@ public class MeleeEnemy : MonoBehaviour
         z_MeleeState = MeleeState.CHASE;
         z_navMeshAgent = GetComponent<NavMeshAgent>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        z_navMeshAgent.enabled = false;
+      //  z_navMeshAgent.enabled = false;
     }
 
     // Update is called once per frame
