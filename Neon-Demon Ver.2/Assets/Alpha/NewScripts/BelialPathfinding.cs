@@ -16,6 +16,7 @@ public class BelialPathfinding : MonoBehaviour
     public List<Transform> target;
     public int CurrentWaypoint;
     public float speed = 10f;
+    public GameObject BelialLook;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +48,7 @@ public class BelialPathfinding : MonoBehaviour
         else
         {
             this.transform.position = target[CurrentWaypoint - 1].position;
+            BelialLook.transform.LookAt(Player.transform);
             //transform.LookAt(Player.transform);
             //transform.rotation = Quaternion.Lerp(this.transform.rotation, Player.transform.rotation, Time.deltaTime * speed);
         }

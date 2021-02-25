@@ -9,7 +9,7 @@ public class MeleeEnemy : MonoBehaviour
     private enum MeleeState { CHASE,IDLE,ATTACK,}
     private MeleeState z_MeleeState;
 
-    private GameObject Player;
+    [SerializeField] private GameObject Player;
     public float speed = 2f;
     public NavMeshAgent z_navMeshAgent;
     public float DetectionRadius = 50f;
@@ -31,7 +31,7 @@ public class MeleeEnemy : MonoBehaviour
 
     void Start()
     {
-        Player = GameObject.Find("Player");
+        //Player = GameObject.Find("Player");
         z_MeleeState = MeleeState.CHASE;
         z_navMeshAgent = GetComponent<NavMeshAgent>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();

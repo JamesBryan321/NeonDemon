@@ -17,6 +17,9 @@ public class NewDash : MonoBehaviour
     private Vector2 dashVelocity;
 
     public NewPlayerMoveScript playerMoveScript;
+
+    public InputController inputScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +57,7 @@ public class NewDash : MonoBehaviour
     {
         if (jumpTime > jumpRate)
         {
+            Rumble();
             StartCoroutine(DashTest());
         }
     }
@@ -75,5 +79,17 @@ public class NewDash : MonoBehaviour
         SpeedLineOBJ.SetActive(false);
         
         
+    }
+
+    public void Rumble()
+    {
+        StartCoroutine(Vibration());
+    }
+
+    public IEnumerator Vibration()
+    {
+        inputScript.gamePad.SetMotorSpeeds(0.8f, 0.8f);
+        yield return new WaitForSeconds(0.15f);
+        inputScript.gamePad.SetMotorSpeeds(0, 0);
     }
 }

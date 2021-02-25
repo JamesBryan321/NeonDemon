@@ -42,6 +42,7 @@ public class Shooting : MonoBehaviour
     //public Animator Gun_Anim;
    // public Animator Cam_Anim;
     public Animator Ads_anim;
+    public InputController inputScript;
 
     //private IEnumerator WaitForReload;
 
@@ -125,6 +126,7 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         FIRESFX.Play();
+        Rumble();
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
         Ads_anim.SetBool("Shoot", true);
@@ -259,6 +261,18 @@ public class Shooting : MonoBehaviour
         public void OnADSInput()
         {
             Debug.Log("ADS");
+        }
+
+        public void Rumble()
+        {
+            StartCoroutine(GunFireVibration());
+        }
+
+        public IEnumerator GunFireVibration()
+        {
+            inputScript.gamePad.SetMotorSpeeds(2f, 2f);
+            yield return new WaitForSeconds(0.3f);
+            inputScript.gamePad.SetMotorSpeeds(0, 0);
         }
         
     }
