@@ -146,6 +146,12 @@ public class Shooting : MonoBehaviour
                 hit.transform.GetComponent<TakeDamage>().Damage(damage);
                 StartCoroutine(wait());
             }
+            if (hit.transform.CompareTag("BossCollider"))
+            {
+
+                hit.transform.GetComponent<BossHealth>().Damage();
+            
+            }
             if (hit.transform.CompareTag("Thruster"))
             {
                 Collider[] colliders = Physics.OverlapSphere(hit.transform.position, 5f);
