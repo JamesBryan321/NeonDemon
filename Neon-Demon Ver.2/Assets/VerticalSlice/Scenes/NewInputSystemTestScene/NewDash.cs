@@ -89,7 +89,7 @@ public class NewDash : MonoBehaviour
     public IEnumerator Vibration()
     {
         inputScript.gamePad.SetMotorSpeeds(0.8f, 0.8f);
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.3f);
         inputScript.gamePad.SetMotorSpeeds(0, 0);
     }
 }

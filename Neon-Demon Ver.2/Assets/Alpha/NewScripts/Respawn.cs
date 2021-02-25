@@ -66,7 +66,7 @@ public class Respawn : MonoBehaviour
     public IEnumerator Vibration()
     {
         inputScript.gamePad.SetMotorSpeeds(0.5f, 0.5f);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.4f);
         inputScript.gamePad.SetMotorSpeeds(0, 0);
     }
 }
