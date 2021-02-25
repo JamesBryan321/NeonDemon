@@ -22,6 +22,8 @@
           </e>
           <e p="NewScripts" t="Include">
             <e p="BelialPathfinding.cs" t="Include" />
+            <e p="MortarLookAt.cs" t="Include" />
+            <e p="MortarReference.cs" t="Include" />
             <e p="PickUps.cs" t="Include" />
             <e p="Respawn.cs" t="Include" />
           </e>
@@ -190,7 +192,6 @@
             <e p="Player" t="Include">
               <e p="Dash.cs" t="Include" />
               <e p="EnableDash.cs" t="Include" />
-              <e p="HeadBob.cs" t="Include" />
               <e p="HealthScript.cs" t="Include" />
               <e p="IKBehaviors.cs" t="Include" />
               <e p="mousestater.cs" t="Include" />
@@ -205,11 +206,11 @@
             <e p="Weapons" t="Include">
               <e p="Aiming.cs" t="Include" />
               <e p="Bullet.cs" t="Include" />
+              <e p="HeadBob.cs" t="Include" />
               <e p="NewBehaviourScript.cs" t="Include" />
               <e p="RagDoll.cs" t="Include" />
               <e p="Recoil.cs" t="Include" />
               <e p="Shooting.cs" t="Include" />
-              <e p="Sway.cs" t="Include" />
               <e p="WeaponPickup.cs" t="Include" />
               <e p="WeaponSwapping.cs" t="Include" />
             </e>
