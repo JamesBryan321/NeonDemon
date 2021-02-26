@@ -17,6 +17,7 @@ public class BelialPathfinding : MonoBehaviour
     public int CurrentWaypoint;
     public float speed = 10f;
     public GameObject BelialLook;
+    public GameObject Questionmark;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,11 +43,13 @@ public class BelialPathfinding : MonoBehaviour
             }
             else
             {
+                Questionmark.SetActive(false);
                 Seek();
             }
         }
         else
         {
+            Questionmark.SetActive(true);
             this.transform.position = target[CurrentWaypoint - 1].position;
             BelialLook.transform.LookAt(Player.transform);
             //transform.LookAt(Player.transform);
