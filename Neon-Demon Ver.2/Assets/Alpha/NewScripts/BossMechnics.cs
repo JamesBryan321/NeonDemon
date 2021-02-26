@@ -14,7 +14,7 @@ public class BossMechnics : MonoBehaviour
     public bool attack;
     public Animator boss;
     public GameObject bossCollider;
-    private float distance = 15;
+    private float distance = 5;
 
 
     public GameObject Ring;

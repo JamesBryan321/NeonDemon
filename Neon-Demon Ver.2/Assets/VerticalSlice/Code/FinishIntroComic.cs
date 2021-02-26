@@ -15,6 +15,6 @@ public class FinishIntroComic : MonoBehaviour
     {
         yield return new WaitForSeconds(58);
 
-        sceneScript.LoadTutorial();
+        sceneScript.LoadMainLevel();
     }
 }

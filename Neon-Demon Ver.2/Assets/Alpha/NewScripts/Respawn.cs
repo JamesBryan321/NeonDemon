@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Respawn : MonoBehaviour
 {
@@ -68,5 +69,12 @@ public class Respawn : MonoBehaviour
         inputScript.gamePad.SetMotorSpeeds(0.5f, 0.5f);
         yield return new WaitForSeconds(0.4f);
         inputScript.gamePad.SetMotorSpeeds(0, 0);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("bottle"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }
