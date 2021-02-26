@@ -59,6 +59,7 @@ public class NewPlayerMoveScript : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         playerRigidbody = GetComponent<Rigidbody>();
+        moveSpeed = 0;
     }
     #endregion
     
@@ -94,6 +95,11 @@ public class NewPlayerMoveScript : MonoBehaviour
         this.vertical = vertical;
         this.horizontal = horizontal;
         //Debug.Log($"Player Controller: Left Stick Input: {vertical}, {horizontal}");
+    }
+
+    public void AllowMovement()
+    {
+        moveSpeed = 18;
     }
 
     #endregion
