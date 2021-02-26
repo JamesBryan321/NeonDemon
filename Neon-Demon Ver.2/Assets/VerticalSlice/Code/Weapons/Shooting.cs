@@ -148,6 +148,17 @@ public class Shooting : MonoBehaviour
                 hit.transform.GetComponent<TakeDamage>().Damage(damage);
                 StartCoroutine(wait());
             }
+            if (hit.transform.CompareTag("BigEnemy"))
+            {
+                float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
+                int randomblood = Random.Range(0, BloodFX.Count);
+                var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
+                var settings = instance.GetComponent<BFX_BloodSettings>();
+                settings.FreezeDecalDisappearance = true;
+                //  settings.LightIntensityMultiplier = DirLight.intensity;
+                hit.transform.GetComponent<TakeDamage>().bigGuyDamage(damage);
+                StartCoroutine(wait());
+            }
             if (hit.transform.CompareTag("BossCollider"))
             {
 
