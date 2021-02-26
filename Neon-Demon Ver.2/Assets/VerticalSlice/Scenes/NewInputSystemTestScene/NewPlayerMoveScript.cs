@@ -46,6 +46,8 @@ public class NewPlayerMoveScript : MonoBehaviour
     public float jumpHeight = 2.0f;
     
     public GameObject playerCamera;
+
+    public bool disablePlayerMovement;
     #endregion
 
     #region StartAwake
@@ -59,7 +61,10 @@ public class NewPlayerMoveScript : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         playerRigidbody = GetComponent<Rigidbody>();
-        moveSpeed = 0;
+        if (disablePlayerMovement == true)
+        {
+            moveSpeed = 0;
+        }
     }
     #endregion
     

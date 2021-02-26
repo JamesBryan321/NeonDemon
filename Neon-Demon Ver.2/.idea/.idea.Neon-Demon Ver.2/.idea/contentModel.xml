@@ -22,6 +22,8 @@
           </e>
           <e p="NewScripts" t="Include">
             <e p="BelialPathfinding.cs" t="Include" />
+            <e p="BossHealth.cs" t="Include" />
+            <e p="BossMechnics.cs" t="Include" />
             <e p="MortarLookAt.cs" t="Include" />
             <e p="MortarReference.cs" t="Include" />
             <e p="PickUps.cs" t="Include" />
@@ -30,6 +32,9 @@
           <e p="TutorialScripts" t="Include">
             <e p="TriggerTutorialText.cs" t="Include" />
           </e>
+        </e>
+        <e p="Editor" t="Include">
+          <e p="ExportTerrain.cs" t="Include" />
         </e>
         <e p="KriptoFX" t="Include">
           <e p="Realistic Effects Pack v4" t="Include">
@@ -115,7 +120,123 @@
             </e>
           </e>
         </e>
+        <e p="Lux 2.02 Personal" t="Include">
+          <e p="_Lux 2.02 Notes.txt" t="Include" />
+          <e p="Lux Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="FloatToggleDrawer.cs" t="Include" />
+              <e p="HelpDrawer.cs" t="Include" />
+              <e p="RangeCustomLabelDrawer.cs" t="Include" />
+              <e p="ReadOnlyRangeAttributeDrawer.cs" t="Include" />
+              <e p="SnowAccumulationDrawer.cs" t="Include" />
+              <e p="TextureTilingDrawer.cs" t="Include" />
+              <e p="Vector3DDrawer.cs" t="Include" />
+              <e p="VectorSliderDrawer.cs" t="Include" />
+              <e p="WaterAccumulationDrawer.cs" t="Include" />
+            </e>
+            <e p="Lux TexturePostprocessor" t="Include">
+              <e p="_Lux TexturePostprocessor Readme.txt" t="Include" />
+              <e p="LuxTexturePostprocessor.cs" t="Include" />
+            </e>
+            <e p="LuxAreaLight.cs" t="Include" />
+            <e p="LuxAttributes.cs" t="Include" />
+            <e p="LuxDynamicWeather.cs" t="Include" />
+            <e p="LuxSetup.cs" t="Include" />
+            <e p="Resources" t="Include">
+              <e p="RainRipplesComposite.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Lux Shaders" t="Include">
+            <e p="Lux Core" t="Include">
+              <e p="_Lux ShaderProperties.txt" t="Include" />
+              <e p="Lux BRDFs" t="Include">
+                <e p="LuxAnisoBRDF.cginc" t="Include" />
+                <e p="LuxSkinBRDF.cginc" t="Include" />
+                <e p="LuxStandardBRDF.cginc" t="Include" />
+              </e>
+              <e p="Lux Config.cginc" t="Include" />
+              <e p="Lux Features" t="Include">
+                <e p="LuxDiffuseScattering.cginc" t="Include" />
+                <e p="LuxDitherCrossfade.cginc" t="Include" />
+                <e p="LuxDynamicWeather.cginc" t="Include" />
+                <e p="LuxMixMapping.cginc" t="Include" />
+                <e p="LuxParallax.cginc" t="Include" />
+                <e p="LuxSpecularAntiAliasing.cginc" t="Include" />
+                <e p="LuxTessellation.cginc" t="Include" />
+              </e>
+              <e p="Lux Lighting" t="Include">
+                <e p="LuxAnisoMetallicPBSLighting.cginc" t="Include" />
+                <e p="LuxAreaLights.cginc" t="Include" />
+                <e p="LuxSkinPBSLighting.cginc" t="Include" />
+                <e p="LuxStandardPBSLighting.cginc" t="Include" />
+                <e p="LuxTranslucentPBSLighting.cginc" t="Include" />
+              </e>
+              <e p="Lux Setup" t="Include">
+                <e p="LuxInputs.cginc" t="Include" />
+                <e p="LuxStructs.cginc" t="Include" />
+              </e>
+              <e p="Lux Utils" t="Include">
+                <e p="LuxStandardUtils.cginc" t="Include" />
+                <e p="LuxUtils.cginc" t="Include" />
+              </e>
+              <e p="Resources" t="Include">
+                <e p="Lux Deferred Library.cginc" t="Include" />
+                <e p="Lux Personal Internal-DeferredReflections.shader" t="Include" />
+                <e p="Lux Personal Internal-DeferredShading.shader" t="Include" />
+              </e>
+            </e>
+            <e p="Lux custom Anisotropic Shaders" t="Include">
+              <e p="Anisotropic Base.shader" t="Include" />
+              <e p="Anisotropic Hair.shader" t="Include" />
+              <e p="AutoLight.cginc" t="Include" />
+            </e>
+            <e p="Lux custom Skin Shaders" t="Include">
+              <e p="AutoLight.cginc" t="Include" />
+              <e p="Lux Skin Standard Lighting.shader" t="Include" />
+              <e p="Lux Skin.shader" t="Include" />
+            </e>
+            <e p="Lux custom Standard Shaders" t="Include">
+              <e p="AutoLight.cginc" t="Include" />
+              <e p="Includes" t="Include">
+                <e p="Lux TerrainSplatmapCommon.cginc" t="Include" />
+              </e>
+              <e p="Standard DeferredDecal FullFeatures.shader" t="Include" />
+              <e p="Standard DeferredDecal Parallax.shader" t="Include" />
+              <e p="Standard FullFeatures CustomSnowMask.shader" t="Include" />
+              <e p="Standard FullFeatures DoubleSided Cutout.shader" t="Include" />
+              <e p="Standard FullFeatures LOD Dither.shader" t="Include" />
+              <e p="Standard FullFeatures.shader" t="Include" />
+              <e p="Standard Refraction Geometry.shader" t="Include" />
+              <e p="Standard SimpleMetallic.shader" t="Include" />
+              <e p="Standard Terrain AddPass.shader" t="Include" />
+              <e p="Standard Terrain Base.shader" t="Include" />
+              <e p="Standard Terrain FirstPass.shader" t="Include" />
+              <e p="Standard Tessellation DynamicWeather MixMapping.shader" t="Include" />
+              <e p="Standard Tessellation DynamicWeather.shader" t="Include" />
+              <e p="Standard WavingGrass.shader" t="Include" />
+            </e>
+            <e p="Lux custom Translucent Shaders" t="Include">
+              <e p="AutoLight.cginc" t="Include" />
+              <e p="Translucent Base.shader" t="Include" />
+              <e p="Translucent DoubleSided.shader" t="Include" />
+            </e>
+            <e p="Lux Standard Shader" t="Include">
+              <e p="AutoLight.cginc" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="LuxStandardShaderGUI.cs" t="Include" />
+              </e>
+              <e p="Lux_StandardCore.cginc" t="Include" />
+              <e p="Lux_StandardMetallic.shader" t="Include" />
+              <e p="Lux_StandardSpecular.shader" t="Include" />
+              <e p="Lux_TranslucentSpecular.shader" t="Include" />
+              <e p="LuxStandardMeta.cginc" t="Include" />
+              <e p="LuxStandardShadow.cginc" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="PerlinMeshAnimation.cs" t="Include" />
+        <e p="RevolverSFX.cs" t="Include" />
+        <e p="scaleObject.cs" t="Include" />
         <e p="StartCinematic.cs" t="Include" />
         <e p="VerticalSlice" t="Include">
           <e p="8K Skybox Pack Free" t="Include">
@@ -734,6 +855,7 @@
               <e p="NewPlayerMoveScript.cs" t="Include" />
               <e p="PauseMenuScript.cs" t="Include" />
               <e p="PlayerController.cs" t="Include" />
+              <e p="PlayerMoveSpeedReEnabler.cs" t="Include" />
             </e>
           </e>
           <e p="SimpleLUT" t="Include">
