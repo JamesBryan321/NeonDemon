@@ -22,6 +22,7 @@ public class MeleeEnemy : MonoBehaviour
     public int EnemyHealth = 100;
     public Animator MeleeAnim;
     public GameObject warningeffect;
+    public GameObject key;
 
     public GameObject Thruster;
 
@@ -70,6 +71,7 @@ public class MeleeEnemy : MonoBehaviour
             Dead = true;
             DeathSFX.Play();
             transform.GetComponent<MeleeEnemy>().enabled = false;
+            key.SetActive(true);
         }
     }
 

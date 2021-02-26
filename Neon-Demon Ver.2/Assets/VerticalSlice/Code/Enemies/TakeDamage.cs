@@ -6,6 +6,7 @@ public class TakeDamage : MonoBehaviour
 {
     public MeleeEnemy EnemyRef;
     public AudioSource Pain;
+    public GameObject key;
     void Update()
     {
         if (EnemyRef.EnemyHealth <=0)
@@ -19,6 +20,14 @@ public class TakeDamage : MonoBehaviour
     {
         Pain.Play();
         EnemyRef.EnemyHealth = EnemyRef.EnemyHealth - damage;
+    }
+
+    public void bigGuyDamage(int damage)
+    {
+        Pain.Play();
+        EnemyRef.EnemyHealth = EnemyRef.EnemyHealth - damage;
+        key.SetActive(true);
+
     }
     public void Thrusterdamage()
     {
