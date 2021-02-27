@@ -107,7 +107,7 @@ public class MeleeEnemy : MonoBehaviour
     IEnumerator WaitIdle()
     {
         yield return new WaitForSeconds(1f);
-        z_MeleeState = MeleeState.CHASE;
+        //z_MeleeState = MeleeState.CHASE;
     }
 
     void Chase()
