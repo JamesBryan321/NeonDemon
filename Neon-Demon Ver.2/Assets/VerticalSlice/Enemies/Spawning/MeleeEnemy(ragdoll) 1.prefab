@@ -77,7 +77,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000010396897, y: 0.0016983823, z: 0.000000027357594}
+  m_ConnectedAnchor: {x: 0.0000000019221211, y: 0.0016983823, z: 0.000000027357594}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 4213996172688343521}
+  key: {fileID: 0}
 --- !u!82 &4213996172688343521
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23688,7 +23689,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000009241969, y: 0.00069067325, z: 0.00047779447}
+  m_ConnectedAnchor: {x: -7.6716766e-10, y: 0.0006907383, z: 0.00047780093}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -23802,6 +23803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 1808351367777566976}
+  key: {fileID: 0}
 --- !u!82 &1808351367777566976
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23975,7 +23977,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000025844198, y: 0.0075796656, z: 0.00000008195639}
+  m_ConnectedAnchor: {x: 0.000000006519257, y: 0.007579655, z: 0.000000017695129}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -24089,6 +24091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 7851834208718855363}
+  key: {fileID: 0}
 --- !u!82 &7851834208718855363
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24262,7 +24265,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000010813038, y: -0.0003378723, z: 0.0015726703}
+  m_ConnectedAnchor: {x: 0.0000000023382898, y: -0.00033787126, z: 0.0015727375}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -24376,6 +24379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 5670532735571115078}
+  key: {fileID: 0}
 --- !u!82 &5670532735571115078
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29253,6 +29257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 0}
   Pain: {fileID: 0}
+  key: {fileID: 0}
 --- !u!114 &3135760190922160068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29346,7 +29351,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0024282034, y: -0.0011826439, z: 0.010733479}
+  m_ConnectedAnchor: {x: -0.0024281947, y: -0.0011825961, z: 0.010733431}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -29460,6 +29465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 2723760453785640987}
+  key: {fileID: 0}
 --- !u!82 &2723760453785640987
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29663,7 +29669,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.011342013, z: 0.000000045867637}
+  m_ConnectedAnchor: {x: -0.0000000020954758, y: 0.011342049, z: -0.000000014784746}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -29777,6 +29783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 8021227060936034774}
+  key: {fileID: 0}
 --- !u!82 &8021227060936034774
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29982,7 +29989,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000010193695, y: 0.002604779, z: 0.0000000033760443}
+  m_ConnectedAnchor: {x: 0.000000001718918, y: 0.002604779, z: 0.0000000033760443}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -30096,6 +30103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 3349983475685528403}
+  key: {fileID: 0}
 --- !u!82 &3349983475685528403
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30269,7 +30277,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000055064454, y: 0.0036902842, z: -0.000000065017964}
+  m_ConnectedAnchor: {x: 0.000000016996639, y: 0.0036902446, z: -0.000000019615984}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -30383,6 +30391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 7721064214540058400}
+  key: {fileID: 0}
 --- !u!82 &7721064214540058400
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30556,7 +30565,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000010090717, y: 0.0034641305, z: -0.000000010186341}
+  m_ConnectedAnchor: {x: 0.0000000016159409, y: 0.0034641305, z: -0.000000010186341}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -30670,6 +30679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 2555191421923410562}
+  key: {fileID: 0}
 --- !u!82 &2555191421923410562
 AudioSource:
   m_ObjectHideFlags: 0
@@ -35498,7 +35508,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000010169732, y: -0.0029456203, z: 0.010591955}
+  m_ConnectedAnchor: {x: -0.0000000016949553, y: -0.0029456203, z: 0.010591955}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -35612,6 +35622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 9082768457863123229}
+  key: {fileID: 0}
 --- !u!82 &9082768457863123229
 AudioSource:
   m_ObjectHideFlags: 0
@@ -35785,7 +35796,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000005413313, y: 0.0036902765, z: -0.00000006146729}
+  m_ConnectedAnchor: {x: -0.000000014319086, y: 0.0036902442, z: -0.000000016647391}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -35899,6 +35910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 5443192176218409591}
+  key: {fileID: 0}
 --- !u!82 &5443192176218409591
 AudioSource:
   m_ObjectHideFlags: 0
@@ -40679,7 +40691,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000011184532, y: 0.0010785871, z: -0.000000049825758}
+  m_ConnectedAnchor: {x: -0.0000000015277442, y: 0.0010785526, z: 0.0000000071595423}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -45486,7 +45498,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000003620516, y: 0.011342003, z: 0.00000004930189}
+  m_ConnectedAnchor: {x: -0.0000000069849184, y: 0.01134205, z: 0.0000000062282197}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -45600,6 +45612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 5828983728834977667}
+  key: {fileID: 0}
 --- !u!82 &5828983728834977667
 AudioSource:
   m_ObjectHideFlags: 0
@@ -45957,7 +45970,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000108533165, y: 0.0017495314, z: 0.000000087486114}
+  m_ConnectedAnchor: {x: -0.0000000018588595, y: 0.0017495407, z: 0.000000021362212}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -46118,7 +46131,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000003445894, y: 0.0075796423, z: -0.000000094063594}
+  m_ConnectedAnchor: {x: 0.000000015366824, y: 0.0075796493, z: -0.000000029336665}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -46232,6 +46245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 6071576835464446679}
+  key: {fileID: 0}
 --- !u!82 &6071576835464446679
 AudioSource:
   m_ObjectHideFlags: 0
@@ -46749,16 +46763,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713b0fe60c136a54697d77330c70abba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   speed: 4.99
   z_navMeshAgent: {fileID: 4132283770660069197}
   DetectionRadius: 27.96
   Waypoints: []
   dodge: 0
   Dead: 0
-  EnemyDamage: 10
+  EnemyDamage: 0.1
   EnemyHealth: 1
+  BigEnemyHealth: 100
   MeleeAnim: {fileID: 4345082961032198244}
   warningeffect: {fileID: 1259580532209949829}
+  key: {fileID: 0}
   Thruster: {fileID: 3135760190696192247}
   extraRotationSpeed: 20
   DeathSFX: {fileID: 255397937198497469}
@@ -47265,6 +47282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 2121551767233387245}
+  key: {fileID: 0}
 --- !u!82 &2121551767233387245
 AudioSource:
   m_ObjectHideFlags: 0
@@ -47438,7 +47456,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0024281829, y: -0.0011826439, z: 0.010733479}
+  m_ConnectedAnchor: {x: 0.0024281912, y: -0.0011825961, z: 0.010733431}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -47552,6 +47570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 2513003992459263955}
+  key: {fileID: 0}
 --- !u!82 &2513003992459263955
 AudioSource:
   m_ObjectHideFlags: 0
@@ -47758,6 +47777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 1990151630554478976}
+  key: {fileID: 0}
 --- !u!82 &1990151630554478976
 AudioSource:
   m_ObjectHideFlags: 0
@@ -47936,7 +47956,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000010169732, y: 0.00011750156, z: 0.004500352}
+  m_ConnectedAnchor: {x: -0.0000000016949553, y: 0.00011750156, z: 0.004500352}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -48064,6 +48084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 3957545052295360563}
+  key: {fileID: 0}
 --- !u!82 &3957545052295360563
 AudioSource:
   m_ObjectHideFlags: 0
@@ -48220,6 +48241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyRef: {fileID: 4132283770660069196}
   Pain: {fileID: 3197298168877888422}
+  key: {fileID: 0}
 --- !u!82 &3197298168877888422
 AudioSource:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class MeleeEnemy : MonoBehaviour
 
     public bool dodge;
     public bool Dead;
-    public int EnemyDamage = 10;
+    public float EnemyDamage = 0.001f;
     public int EnemyHealth = 100;
     public int BigEnemyHealth = 100;
     public Animator MeleeAnim;

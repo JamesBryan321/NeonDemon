@@ -7,17 +7,18 @@ using UnityEngine.SceneManagement;
 public class PlayerHP : MonoBehaviour
 {
     public GameObject HPUI;
-    public int PlayerHealth = 100;
+    public float PlayerHealth = 1;
     public List<GameObject> DamageObjects;
     void Start()
     {
-        HPUI.GetComponent<Slider>().value = PlayerHealth;
+        //HPUI.GetComponent<Image>().fillAmount = PlayerHealth;
     }
 
     void Update()
     {
-        HPUI.GetComponent<Slider>().value = PlayerHealth;
+        HPUI.GetComponent<Image>().fillAmount = PlayerHealth;
 
+        /*
         if(PlayerHealth<=100 && PlayerHealth > 60)
         {
             DamageObjects[0].SetActive(false);
@@ -47,5 +48,6 @@ public class PlayerHP : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }
+        */
     }
 }

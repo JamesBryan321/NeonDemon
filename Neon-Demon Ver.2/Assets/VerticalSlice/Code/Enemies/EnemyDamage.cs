@@ -6,7 +6,7 @@ public class EnemyDamage : MonoBehaviour
 {
     private GameObject Player;
     public MeleeEnemy Enemy;
-    public int EnemyDmg = 10;
+    public float EnemyDmg = 0.1f;
 
     public GameObject Projectile;
     public Transform ShootPoint;
