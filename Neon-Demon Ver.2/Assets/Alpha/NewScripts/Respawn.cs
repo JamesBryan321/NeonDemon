@@ -81,7 +81,7 @@ public class Respawn : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("bottle"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("MainLevel");
         }
     }
 }
