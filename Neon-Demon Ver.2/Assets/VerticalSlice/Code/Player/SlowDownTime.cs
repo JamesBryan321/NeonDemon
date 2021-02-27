@@ -30,7 +30,7 @@ public class SlowDownTime : MonoBehaviour
     void Start()
     {
         Meter.GetComponent<Image>().fillAmount = 100;
-        realityNormal = false;
+       // realityNormal = false;
     }
 
     public void OnRealityInput()
