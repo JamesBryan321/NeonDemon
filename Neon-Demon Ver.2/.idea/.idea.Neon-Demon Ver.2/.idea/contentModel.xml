@@ -19,6 +19,7 @@
           <e p="MortarTest" t="Include">
             <e p="MortarEnemy.cs" t="Include" />
             <e p="MortarProjectile.cs" t="Include" />
+            <e p="RealityPickup.cs" t="Include" />
           </e>
           <e p="NewScripts" t="Include">
             <e p="BelialPathfinding.cs" t="Include" />
@@ -29,6 +30,7 @@
             <e p="PickUps.cs" t="Include" />
             <e p="Respawn.cs" t="Include" />
           </e>
+          <e p="SceneLoadInBG.cs" t="Include" />
           <e p="TutorialScripts" t="Include">
             <e p="TriggerTutorialText.cs" t="Include" />
           </e>
@@ -36,6 +38,7 @@
         <e p="Editor" t="Include">
           <e p="ExportTerrain.cs" t="Include" />
         </e>
+        <e p="FogTrigger.cs" t="Include" />
         <e p="KriptoFX" t="Include">
           <e p="Realistic Effects Pack v4" t="Include">
             <e p="Effects" t="Include">
@@ -234,6 +237,7 @@
             </e>
           </e>
         </e>
+        <e p="ObjectDelete.cs" t="Include" />
         <e p="PerlinMeshAnimation.cs" t="Include" />
         <e p="RevolverSFX.cs" t="Include" />
         <e p="scaleObject.cs" t="Include" />
