@@ -6,6 +6,8 @@ public class PickUps : MonoBehaviour
 {
     public GameObject Revolver;
     public Animator Gun_Anim;
+
+    public AudioSource groovyGunPickup;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class PickUps : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Revolver.SetActive(true);
+            groovyGunPickup.Play();
             Gun_Anim.SetTrigger("Pickup");
             Destroy(gameObject);
         }
