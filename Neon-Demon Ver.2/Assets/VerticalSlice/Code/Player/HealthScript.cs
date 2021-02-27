@@ -21,9 +21,9 @@ public class HealthScript : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            if(HealthRef.PlayerHealth < 100)
+            if(HealthRef.PlayerHealth < 1)
             {
-                HealthRef.PlayerHealth += 50;
+                HealthRef.PlayerHealth += 0.5f;
                 Destroy(gameObject);
 
             }
