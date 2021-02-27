@@ -74,7 +74,7 @@ public class MeleeEnemy : MonoBehaviour
             transform.GetComponent<MeleeEnemy>().enabled = false;
 
         }
-        if (BigEnemyHealth <= 0)
+        else if (BigEnemyHealth <= 0)
         {
             Thruster.SetActive(false);
             z_navMeshAgent.enabled = false;

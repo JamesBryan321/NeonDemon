@@ -25,7 +25,7 @@ public class TakeDamage : MonoBehaviour
     public void bigGuyDamage(int damage)
     {
         Pain.Play();
-        EnemyRef.EnemyHealth = EnemyRef.BigEnemyHealth - damage;
+        EnemyRef.BigEnemyHealth = EnemyRef.BigEnemyHealth - damage;
       // key.SetActive(true);
 
     }
