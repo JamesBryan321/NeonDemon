@@ -19,6 +19,8 @@ public class MortarProjectile : MonoBehaviour
 
     public Vector3 velocity;
     public Vector3 force;
+    public bool shot = false;
+
 
     public Vector3[] Followpositions = new Vector3[80];
     // Start is called before the first frame update
@@ -26,6 +28,7 @@ public class MortarProjectile : MonoBehaviour
     {
         //LineRef = GameObject.Find("MortarEnemy").GetComponent<MortarEnemy>();
         transform.position =Followpositions[CurrentWaypointID];
+        
     }
 
     // Update is called once per frame
@@ -39,9 +42,13 @@ public class MortarProjectile : MonoBehaviour
             Debug.Log("TEst");
             //transform.position = Followpositions[CurrentWaypointID];
             Seek();
-            if (Vector3.Distance(Followpositions[CurrentWaypointID], this.transform.position) < 1)
+            if (Vector3.Distance(Followpositions[CurrentWaypointID], this.transform.position) < 1 && shot == false)
             {
                 CurrentWaypointID = (CurrentWaypointID + 1);//% LineRef.positions.Length+1;
+            }
+            if (shot == true)
+            {
+                CurrentWaypointID = 0;
             }
         }
         else if (CurrentWaypointID >= 79)
@@ -50,6 +57,7 @@ public class MortarProjectile : MonoBehaviour
             Bomb.transform.parent = null;
             Destroy(gameObject);
         }
+      
     }
 
     void Seek()
@@ -65,5 +73,29 @@ public class MortarProjectile : MonoBehaviour
         velocity = Vector3.ClampMagnitude(velocity + steering, MaxVelocity);
         transform.position += velocity * Time.deltaTime;
         transform.forward = velocity.normalized;
+    }
+   public void reverse()
+    {
+        CurrentWaypointID = (CurrentWaypointID - 1);
+        var desiredVelocity = Followpositions[CurrentWaypointID] + transform.position;
+        desiredVelocity = desiredVelocity.normalized * MaxVelocity;
+
+        var steering = desiredVelocity - velocity;
+        steering = Vector3.ClampMagnitude(steering, -MaxForce);
+        steering /= Mass;
+
+        velocity = Vector3.ClampMagnitude(velocity + steering, MaxVelocity);
+        transform.position -= velocity * Time.deltaTime;
+        transform.forward = velocity.normalized;
+        shot = true;
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Mortar")&& shot == true)
+        {
+            GameObject Bomb = Instantiate(Explosion, this.transform);
+            Bomb.transform.parent = null;
+            Destroy(gameObject);
+        }
     }
 }

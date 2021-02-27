@@ -74,13 +74,14 @@ public class MeleeEnemy : MonoBehaviour
             transform.GetComponent<MeleeEnemy>().enabled = false;
 
         }
-        else if (BigEnemyHealth <= 0)
+         if (BigEnemyHealth <= 5)
         {
             Thruster.SetActive(false);
             z_navMeshAgent.enabled = false;
+            MeleeAnim.enabled = false;
             Dead = true;
             DeathSFX.Play();
-            transform.GetComponent<MeleeEnemy>().enabled = false;
+            this.transform.GetComponent<MeleeEnemy>().enabled = false;
             key.SetActive(true);
         }
     }

@@ -159,6 +159,12 @@ public class Shooting : MonoBehaviour
                 hit.transform.GetComponent<TakeDamage>().bigGuyDamage(damage);
                 StartCoroutine(wait());
             }
+            if (hit.transform.CompareTag("Rocket"))
+            {
+      
+                hit.transform.GetComponent<MortarProjectile>().reverse();
+            
+            }
             if (hit.transform.CompareTag("BossCollider"))
             {
 
