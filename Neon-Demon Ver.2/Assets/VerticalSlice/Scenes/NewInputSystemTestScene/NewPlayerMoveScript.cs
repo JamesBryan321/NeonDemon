@@ -48,6 +48,7 @@ public class NewPlayerMoveScript : MonoBehaviour
     public GameObject playerCamera;
 
     public bool disablePlayerMovement;
+    public bool setPlayerRotation;
     #endregion
 
     #region StartAwake
@@ -64,6 +65,11 @@ public class NewPlayerMoveScript : MonoBehaviour
         if (disablePlayerMovement == true)
         {
             moveSpeed = 0;
+        }
+
+        if (setPlayerRotation == true)
+        {
+            
         }
     }
     #endregion

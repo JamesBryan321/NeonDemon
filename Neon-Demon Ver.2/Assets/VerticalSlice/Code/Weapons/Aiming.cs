@@ -20,6 +20,7 @@ public class Aiming : MonoBehaviour
     public Slider sensitivitySlider;
 
     public bool useController, useKeyboard;
+    public bool lockPlayerRotation;
     
     void Start()
     {
@@ -57,12 +58,17 @@ public class Aiming : MonoBehaviour
         yRot += cameraRotation * sensitivity * Time.deltaTime;
         transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
         playerBody.Rotate(Vector3.up * cameraRotation);
-        playerBody.localRotation = Quaternion.Euler(0f, yRot, 0f);
+        if (lockPlayerRotation == false)
+        {
+            playerBody.localRotation = Quaternion.Euler(0f, yRot, 0f);
+        }
     }
 
     public void ChangeSensitivity()
     {
         sensitivity = sensitivitySlider.value * 20;
     }
+    
+    
 
 }
