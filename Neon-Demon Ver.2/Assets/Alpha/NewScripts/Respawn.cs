@@ -59,6 +59,13 @@ public class Respawn : MonoBehaviour
         Player.transform.position = SoftRespawns[SoftRespawnCount-1].position;
     }
 
+    public void HardRespawnPlayer()
+    {
+        Rumble();
+        Player.transform.position = HardRespawns[HardRespawnCount - 1].position;
+    }
+
+
     public void Rumble()
     {
         StartCoroutine(Vibration());
