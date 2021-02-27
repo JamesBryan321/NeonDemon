@@ -26,7 +26,7 @@ public class RealityPickup : MonoBehaviour
             if (TimeRef.GetComponent<Image>().fillAmount < 100)
             {
                 TimeRef.GetComponent<Image>().fillAmount += 50;
-                Destroy(gameObject);
+                Destroy(this.gameObject);
             }
         }
     }
