@@ -20,6 +20,7 @@ public class MeleeEnemy : MonoBehaviour
     public bool Dead;
     public int EnemyDamage = 10;
     public int EnemyHealth = 100;
+    public int BigEnemyHealth = 100;
     public Animator MeleeAnim;
     public GameObject warningeffect;
     public GameObject key;
@@ -66,6 +67,15 @@ public class MeleeEnemy : MonoBehaviour
 
         if(EnemyHealth <= 0)
         { 
+            Thruster.SetActive(false);
+            z_navMeshAgent.enabled = false;
+            Dead = true;
+            DeathSFX.Play();
+            transform.GetComponent<MeleeEnemy>().enabled = false;
+
+        }
+        if (BigEnemyHealth <= 0)
+        {
             Thruster.SetActive(false);
             z_navMeshAgent.enabled = false;
             Dead = true;
