@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenuScript : MonoBehaviour
@@ -61,6 +62,11 @@ public class PauseMenuScript : MonoBehaviour
     {
         //reticleRenderer.material.color = Color.HSVToRGB(reticleColourSlider.value * 10, 100, 100);
         playerAimReticle.color = Color.HSVToRGB(reticleColourSlider.value / 10, 100, 100);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
 

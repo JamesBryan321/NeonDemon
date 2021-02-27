@@ -31,6 +31,7 @@
             <e p="Respawn.cs" t="Include" />
           </e>
           <e p="SceneLoadInBG.cs" t="Include" />
+          <e p="TestVHs.shader" t="Include" />
           <e p="TutorialScripts" t="Include">
             <e p="TriggerTutorialText.cs" t="Include" />
           </e>
@@ -119,6 +120,33 @@
                 <e p="RFX4_UberDecal.shader" t="Include" />
                 <e p="RFX4_UberDistortion.shader" t="Include" />
                 <e p="RFX4_UberParticleShader.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Lune Interactive" t="Include">
+          <e p="QUICK START.txt" t="Include" />
+          <e p="VHS Effects" t="Include">
+            <e p="DemoAssets" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="Lerper.cs" t="Include" />
+                <e p="Note.cs" t="Include" />
+                <e p="Rotate.cs" t="Include" />
+                <e p="RotatePingPong.cs" t="Include" />
+                <e p="TVScreen.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="PixelationEffect.cs" t="Include" />
+              <e p="TapeFlake.cs" t="Include" />
+              <e p="VHSEffect.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="Circular Fade.shader" t="Include" />
+              <e p="Effects" t="Include">
+                <e p="Pixelation.shader" t="Include" />
+                <e p="TapeFlakeEffect.shader" t="Include" />
+                <e p="VHS.shader" t="Include" />
               </e>
             </e>
           </e>
@@ -242,6 +270,7 @@
         <e p="RevolverSFX.cs" t="Include" />
         <e p="scaleObject.cs" t="Include" />
         <e p="StartCinematic.cs" t="Include" />
+        <e p="TriggerAudioScript.cs" t="Include" />
         <e p="VerticalSlice" t="Include">
           <e p="8K Skybox Pack Free" t="Include">
             <e p="Example Scenes" t="Include">
