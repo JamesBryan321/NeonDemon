@@ -9,11 +9,13 @@ public class PlayerHP : MonoBehaviour
     public GameObject HPUI;
     public float PlayerHealth = 1;
     public List<GameObject> DamageObjects;
+    public Respawn spawnref;
     void Start()
     {
         //HPUI.GetComponent<Image>().fillAmount = PlayerHealth;
     }
 
+    [System.Obsolete]
     void Update()
     {
         HPUI.GetComponent<Image>().fillAmount = PlayerHealth;
@@ -43,11 +45,13 @@ public class PlayerHP : MonoBehaviour
             DamageObjects[1].SetActive(false);
             DamageObjects[2].SetActive(true);
         }
-
+        */
         if(PlayerHealth <= 0)
         {
-            SceneManager.LoadScene(2);
+            //Application.LoadLevel(Application.loadedLevel);
+            spawnref.HardRespawnPlayer();
+            PlayerHealth = 1;
         }
-        */
+        
     }
 }
