@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MainMenuCamera : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class MainMenuCamera : MonoBehaviour
 
     private Transform Temp;
     int CurrentCamera;
+    
+    public GameObject mainMenuFirstButton, settingsFirstButton, creditsFirstButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,7 @@ public class MainMenuCamera : MonoBehaviour
         Debug.Log("Click");
         Temp = this.transform;
         CurrentCamera = 0;
+        SelectMainMenu();
     }
 
 
@@ -37,6 +41,7 @@ public class MainMenuCamera : MonoBehaviour
         Debug.Log("Click");
         Temp = this.transform;
         CurrentCamera = 1;
+        SelectSettingsMenu();
     }
 
     public void Move2()
@@ -44,10 +49,29 @@ public class MainMenuCamera : MonoBehaviour
         Debug.Log("Click");
         Temp = this.transform;
         CurrentCamera = 2;
+        SelectCreditsMenu();
     }
 
     public void Twitter()
     {
         Application.OpenURL("https://twitter.com/NeonDemonGame");
+    }
+
+    public void SelectMainMenu()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(mainMenuFirstButton);
+    }
+    
+    public void SelectSettingsMenu()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(settingsFirstButton);
+    }
+    
+    public void SelectCreditsMenu()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(creditsFirstButton);
     }
 }
