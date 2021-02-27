@@ -34,23 +34,16 @@ public class BossMechnics : MonoBehaviour
     {
 
 
-        if ((transform.position - Player.transform.position).sqrMagnitude > distance * distance) 
-        {
-            Charge();
-        } else
-        {
-            ringAttacking1();
-        }
-
+       
 
         transform.LookAt(Player.transform);
         if(attack == true)
         {
-           // Charge();
+            Charge();
         }
         if (ringAttack == true)
         {
-          //  ringAttacking1();
+           ringAttacking1();
         }
     
         
