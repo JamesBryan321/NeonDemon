@@ -9520,6 +9520,7 @@ GameObject:
   - component: {fileID: 6667204378306469895}
   - component: {fileID: 6667204378288095939}
   - component: {fileID: 6667204378288802903}
+  - component: {fileID: 8053080426785019519}
   m_Layer: 0
   m_Name: LootShortRed
   m_TagString: Untagged
@@ -14268,6 +14269,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &8053080426785019519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667204378306713737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593ea471be653a04e85a48c4813e472e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyTime: 15
 --- !u!1 &6667204378306719049
 GameObject:
   m_ObjectHideFlags: 0
