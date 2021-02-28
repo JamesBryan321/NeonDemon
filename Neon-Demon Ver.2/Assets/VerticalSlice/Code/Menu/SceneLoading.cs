@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoading : MonoBehaviour
 {
-    [Header("CameraTransition")]
-    public Animator Cam;
-    public GameObject CamRef;
-    [SerializeField] private GameObject Fade;
+    //[Header("CameraTransition")]
+    //public Animator Cam;
+    //public GameObject CamRef;
+    //[SerializeField] private GameObject Fade;
     // Start is called before the first frame update
     void Start()
     {
       
     }
-
+    /*
    public void Transistion()
     {
         CamRef.transform.parent = this.transform;
@@ -26,7 +26,7 @@ public class SceneLoading : MonoBehaviour
     {
         Fade.SetActive(true);
     }
-
+    */
     public void LoadComicLevel()
     {
        SceneManager.LoadScene("ComicScene");
