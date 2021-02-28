@@ -55,7 +55,8 @@ public class PlayerHP : MonoBehaviour
         }
         if(keyCount >= 2)
         {
-            SceneManager.LoadScene("BossLevel");
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("MainMenu");
         }
         
     }
