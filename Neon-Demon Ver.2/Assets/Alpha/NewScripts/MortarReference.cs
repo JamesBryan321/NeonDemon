@@ -9,6 +9,8 @@ public class MortarReference : MonoBehaviour
     public GameObject robotNormal;
     public GameObject robotDestroyed;
 
+    public FirstMortarDestroyedCounter mortarDestructionScript;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,6 @@ public class MortarReference : MonoBehaviour
         
         robotDestroyed.SetActive(true);
         robotNormal.SetActive(false);
-
+        mortarDestructionScript.AddToMortarCount();
     }
 }

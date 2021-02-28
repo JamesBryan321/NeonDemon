@@ -36,4 +36,9 @@ public class SceneLoading : MonoBehaviour
     {
         SceneManager.LoadScene("ComicScene");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
