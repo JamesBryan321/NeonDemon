@@ -27,14 +27,24 @@ public class SceneLoading : MonoBehaviour
         Fade.SetActive(true);
     }
 
-    public void LoadLevel()
+    public void LoadComicLevel()
     {
-       // SceneManager.LoadScene(3);
+       SceneManager.LoadScene("ComicScene");
     }
 
     public void LoadLevel1()
     {
-        SceneManager.LoadScene("ComicScene");
+        SceneManager.LoadScene("NewTutorial");
+    }
+    
+    public void LoadLevel2()
+    {
+        SceneManager.LoadScene("MainLevel");
+    }
+    
+    public void LoadLevel3()
+    {
+        SceneManager.LoadScene("BossLevel");
     }
 
     public void QuitGame()
