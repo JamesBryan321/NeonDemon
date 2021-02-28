@@ -55,6 +55,7 @@ public class NewPlayerMoveScript : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
+        Time.timeScale = 1f;
     }
 
     void Start()
