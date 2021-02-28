@@ -10,6 +10,7 @@ public class TriggerAudioScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             audioToTrigger.Play();
+            Destroy(this.gameObject);
         }
     }
 }
