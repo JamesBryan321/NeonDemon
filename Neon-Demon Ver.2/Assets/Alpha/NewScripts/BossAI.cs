@@ -11,6 +11,9 @@ public class BossAI : MonoBehaviour
     public Transform player;
 
     public LayerMask whatIsGround, whatIsPlayer;
+    private bool charging;
+    private bool ringattacking;
+    public GameObject ring;
 
     //patrolling
     public Vector3 walkPoint;
@@ -54,9 +57,17 @@ public class BossAI : MonoBehaviour
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
+
+
+   
+        if (!charging)
+        {
+            if (playerInSightRange && playerInAttackRange) attacking();
+        }
+
         if (!playerInSightRange && !playerInAttackRange) patroling();
         if (playerInSightRange && !playerInAttackRange) charge();
-        if (playerInSightRange && playerInAttackRange) attacking();
+ 
     }
 
     private void patroling()
@@ -96,8 +107,11 @@ public class BossAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
+                Instantiate(ring, this.transform.position, Quaternion.Euler(90, 0, 0));
+                bossCollider.SetActive(true);
+      
 
-            //Attack code
+           
 
 
             alreadyAttacked = true;
@@ -113,28 +127,45 @@ public class BossAI : MonoBehaviour
 
     private void charge()
     {
+        charging = true;
         ChargeEffect.SetActive(true);
+        bossAgent.SetDestination(transform.position);
         StartCoroutine(waitToCharge());
+      
     
-        bossAgent.SetDestination(player.transform.position);
-        boss.SetTrigger("Run");
+  
 
     }
 
     private IEnumerator waitToCharge()
     {
         yield return new WaitForSeconds(2f);
+        ChargeEffect.SetActive(false);
+        bossAgent.speed = 15f;
+        bossAgent.acceleration = 15f;
+        bossAgent.SetDestination(player.transform.position);
+        boss.SetTrigger("Run");
+        StartCoroutine(waitToBeDizzy());
     }
     private IEnumerator waitToBeDizzy()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
+        Dizzy();
         bossAgent.SetDestination(transform.position);
+        
+
+        
+
+        
     }
     private void Dizzy()
     {
      
         boss.SetTrigger("Dizzy");
+        DizzyEffect.SetActive(true);
         bossCollider.SetActive(true);
+        StartCoroutine(resetAnims());
+   
     }
     private void OnDrawGizmosSelected()
     {
@@ -144,5 +175,16 @@ public class BossAI : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
 
+    }
+    private IEnumerator resetAnims()
+    {
+        yield return new WaitForSeconds(3f);
+    
+        boss.SetTrigger("Idle");
+        DizzyEffect.SetActive(false);
+        bossAgent.speed = 6f;
+        bossAgent.acceleration = 3.5f;
+
+        charging = false;
     }
 }
