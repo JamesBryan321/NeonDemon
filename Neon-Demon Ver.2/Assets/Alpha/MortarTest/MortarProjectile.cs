@@ -93,6 +93,7 @@ public class MortarProjectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Mortar")&& shot == true)
         {
+            collision.gameObject.GetComponent<MortarReference>().DestroyRobot();
             GameObject Bomb = Instantiate(Explosion, this.transform);
             Bomb.transform.parent = null;
             Destroy(gameObject);
