@@ -70,20 +70,8 @@ public class BossMechnics : MonoBehaviour
     private IEnumerator RingWait()
     {
         ChargeEffect.SetActive(true);
-       
+        yield return new WaitForSeconds(0.5f);
         bossCollider.SetActive(false);
-
-        yield return new WaitForSeconds(1.5f);
-        ringAttack = false;
-        yield return new WaitForSeconds(1.5f);
-    
-        yield return new WaitForSeconds(1.5f);
-        ringAttack = false;
-
-        yield return new WaitForSeconds(3.5f);
-
-
-
 
 
 
