@@ -35,6 +35,7 @@ public class Shooting : MonoBehaviour
     public GameObject impactEffect;
     public List<GameObject> BloodFX;
     public Light DirLight;
+    public ParticleSystem shotgun;
 
     [Header("Extras")]
    // public TImeManager timeManager;
@@ -126,6 +127,7 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         FIRESFX.Play();
+        shotgun.Play();
         Rumble();
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
