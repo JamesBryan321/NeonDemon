@@ -72,6 +72,7 @@ public class MeleeEnemy : MonoBehaviour
             Dead = true;
             DeathSFX.Play();
             transform.GetComponent<MeleeEnemy>().enabled = false;
+            return;
 
         }
          if (BigEnemyHealth <= 5)

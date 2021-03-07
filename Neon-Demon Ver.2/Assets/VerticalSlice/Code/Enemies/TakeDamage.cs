@@ -13,7 +13,11 @@ public class TakeDamage : MonoBehaviour
         {
             var ragDollscript = gameObject.GetComponent<RagDoll>();
             ragDollscript.TurnOnRagdoll();
+            transform.GetComponent<TakeDamage>().enabled = false;
+            return;
         }
+
+     
     }
 
     public void Damage(int damage)
