@@ -222,6 +222,15 @@ public class Shooting : MonoBehaviour
                 hit.transform.GetComponent<MortarReference>().DestroyRobot();
                
             }
+
+            if(hit.transform.CompareTag("Boss"))
+            {
+                if(hit.transform.GetComponent<Boss>().BossVunerable == true)
+                {
+                    hit.transform.GetComponent<Boss>().BossHealth -= 1;
+                    hit.transform.GetComponent<Boss>().BossVunerable = false;
+                }
+            }
         }
         StartCoroutine(wait());
 
