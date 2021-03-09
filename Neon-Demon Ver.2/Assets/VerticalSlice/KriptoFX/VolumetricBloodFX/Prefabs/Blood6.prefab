@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2266793120009945103}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 2.052, y: -2, z: -0.437}
+  m_LocalPosition: {x: 2.052, y: -1, z: -0.437}
   m_LocalScale: {x: 3.446618, y: 1, z: 2.536083}
   m_Children: []
   m_Father: {fileID: 6122868367958573710}
@@ -367,8 +367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimationSpeed: 3
-  GroundHeight: 0
+  GroundHeight: 4
   LightIntensityMultiplier: 1
   FreezeDecalDisappearance: 0
-  DecalRenderinMode: 0
+  DecalRenderinMode: 1
   ClampDecalSideSurface: 0

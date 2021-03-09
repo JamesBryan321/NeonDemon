@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimationSpeed: 3
-  GroundHeight: 0
+  GroundHeight: 4
   LightIntensityMultiplier: 1
   FreezeDecalDisappearance: 0
-  DecalRenderinMode: 0
+  DecalRenderinMode: 1
   ClampDecalSideSurface: 0
 --- !u!1 &2961394125681903695
 GameObject:
@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7114301080987602718}
   m_LocalRotation: {x: -0, y: 0.99984777, z: -0, w: 0.01745245}
-  m_LocalPosition: {x: -0.61542, y: -1.212, z: -0.0539999}
+  m_LocalPosition: {x: -0.61542, y: 2.212, z: -0.0539999}
   m_LocalScale: {x: -6.088498, y: 1, z: -4.2916703}
   m_Children: []
   m_Father: {fileID: 2969731574136442271}

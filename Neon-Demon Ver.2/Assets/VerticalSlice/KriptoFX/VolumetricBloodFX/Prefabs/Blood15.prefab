@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413240489680493591}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 2.799, y: -2, z: -0.06}
+  m_LocalPosition: {x: 2.799, y: -1, z: -0.06}
   m_LocalScale: {x: 5.695808, y: 1, z: 0.8367716}
   m_Children: []
   m_Father: {fileID: 1413240488213647469}
@@ -400,10 +400,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimationSpeed: 3
-  GroundHeight: 0
+  GroundHeight: 4
   LightIntensityMultiplier: 1
   FreezeDecalDisappearance: 0
-  DecalRenderinMode: 0
+  DecalRenderinMode: 1
   ClampDecalSideSurface: 0
 --- !u!1 &7320868988218991578
 GameObject:
@@ -553,7 +553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7320868988277580336}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 3.55, y: -2, z: -0.15}
+  m_LocalPosition: {x: 3.55, y: -1, z: -0.15}
   m_LocalScale: {x: 7.561573, y: 1, z: 3.8669055}
   m_Children: []
   m_Father: {fileID: 7320868989775851082}
@@ -795,7 +795,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8393664886867255749}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 4.51, y: -2, z: -0.14}
+  m_LocalPosition: {x: 4.51, y: -1, z: -0.14}
   m_LocalScale: {x: 9.716193, y: 1, z: 2.3172183}
   m_Children: []
   m_Father: {fileID: 8393664887562317247}
