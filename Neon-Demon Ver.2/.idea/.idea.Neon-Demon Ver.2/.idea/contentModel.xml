@@ -16,6 +16,9 @@
         </e>
         <e p="Alpha" t="Include">
           <e p="BelialTrigger.cs" t="Include" />
+          <e p="EnemySetActive.cs" t="Include" />
+          <e p="FirstMortarDestroyedCounter.cs" t="Include" />
+          <e p="FogTrigger.cs" t="Include" />
           <e p="MortarTest" t="Include">
             <e p="MortarEnemy.cs" t="Include" />
             <e p="MortarProjectile.cs" t="Include" />
@@ -23,6 +26,7 @@
           </e>
           <e p="NewScripts" t="Include">
             <e p="BelialPathfinding.cs" t="Include" />
+            <e p="BossAI.cs" t="Include" />
             <e p="BossHealth.cs" t="Include" />
             <e p="BossMechnics.cs" t="Include" />
             <e p="MortarLookAt.cs" t="Include" />
@@ -30,17 +34,28 @@
             <e p="PickUps.cs" t="Include" />
             <e p="Respawn.cs" t="Include" />
           </e>
+          <e p="ObjectDelete.cs" t="Include" />
+          <e p="PerlinMeshAnimation.cs" t="Include" />
+          <e p="RevolverSFX.cs" t="Include" />
+          <e p="scaleObject.cs" t="Include" />
           <e p="SceneLoadInBG.cs" t="Include" />
+          <e p="StartCinematic.cs" t="Include" />
+          <e p="testHealthPickup.cs" t="Include" />
           <e p="TestVHs.shader" t="Include" />
+          <e p="TriggerAudioScript.cs" t="Include" />
           <e p="TutorialScripts" t="Include">
             <e p="TriggerTutorialText.cs" t="Include" />
           </e>
         </e>
+        <e p="Boss" t="Include">
+          <e p="AudioPeer.cs" t="Include" />
+          <e p="Boss.cs" t="Include" />
+          <e p="ParamCube.cs" t="Include" />
+          <e p="SpawnCubes.cs" t="Include" />
+        </e>
         <e p="Editor" t="Include">
           <e p="ExportTerrain.cs" t="Include" />
         </e>
-        <e p="FirstMortarDestroyedCounter.cs" t="Include" />
-        <e p="FogTrigger.cs" t="Include" />
         <e p="KriptoFX" t="Include">
           <e p="Realistic Effects Pack v4" t="Include">
             <e p="Effects" t="Include">
@@ -266,12 +281,67 @@
             </e>
           </e>
         </e>
-        <e p="ObjectDelete.cs" t="Include" />
-        <e p="PerlinMeshAnimation.cs" t="Include" />
-        <e p="RevolverSFX.cs" t="Include" />
-        <e p="scaleObject.cs" t="Include" />
-        <e p="StartCinematic.cs" t="Include" />
-        <e p="TriggerAudioScript.cs" t="Include" />
+        <e p="RealToon" t="Include">
+          <e p="Change - Fix Log.txt" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="RealToonShaderGUI.cs" t="Include" />
+            <e p="RealToonShaderGUI_Lite.cs" t="Include" />
+            <e p="RT_Welcome.cs" t="Include" />
+          </e>
+          <e p="For Unity 2019 - Beyond and SRP's users.txt" t="Include" />
+          <e p="For VRoid users please read.txt" t="Include" />
+          <e p="Others" t="Include">
+            <e p="For Unity 2019 and Later" t="Include">
+              <e p="Important (Read Me).txt" t="Include" />
+            </e>
+          </e>
+          <e p="RealToon Shaders" t="Include">
+            <e p="Effects" t="Include">
+              <e p="Sobel Outline" t="Include">
+                <e p="RealToonSobelOutline.cs" t="Include" />
+                <e p="Shader" t="Include">
+                  <e p="RealToon_Sobel_Outline_FX.shader" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Version 5" t="Include">
+              <e p="Default" t="Include">
+                <e p="D_Default.shader" t="Include" />
+                <e p="D_Fade_Transparency.shader" t="Include" />
+                <e p="D_Refraction.shader" t="Include" />
+              </e>
+              <e p="Lite" t="Include">
+                <e p="L_Default.shader" t="Include" />
+                <e p="L_Fade_Transparency.shader" t="Include" />
+              </e>
+              <e p="Tessellation" t="Include">
+                <e p="T_Default.shader" t="Include" />
+                <e p="T_Fade_Transparency.shader" t="Include" />
+                <e p="T_Refraction.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="RealToon SRP" t="Include">
+            <e p="HDRP" t="Include">
+              <e p="Please read before you unpack or import.txt" t="Include" />
+              <e p="RealToon HDRP (Temporary User Guide).txt" t="Include" />
+            </e>
+            <e p="LWRP" t="Include">
+              <e p="Please read before you unpack or import.txt" t="Include" />
+            </e>
+            <e p="URP" t="Include">
+              <e p="Please read before you unpack or import.txt" t="Include" />
+            </e>
+          </e>
+          <e p="RealToon Tools" t="Include">
+            <e p="CustomShadowResolution.cs" t="Include" />
+            <e p="FrameByFrameRendering" t="Include">
+              <e p="FrameByFrameRendering_Default.cs" t="Include" />
+              <e p="FrameByFrameRendering_Manual.cs" t="Include" />
+            </e>
+          </e>
+          <e p="What's New.txt" t="Include" />
+        </e>
         <e p="VerticalSlice" t="Include">
           <e p="8K Skybox Pack Free" t="Include">
             <e p="Example Scenes" t="Include">
@@ -280,10 +350,6 @@
               </e>
             </e>
             <e p="ReadMe.txt" t="Include" />
-          </e>
-          <e p="AllSkyFree" t="Include">
-            <e p="AllSkyFree_Menu.cs" t="Include" />
-            <e p="AllSkyFree_Readme.txt" t="Include" />
           </e>
           <e p="Archanor" t="Include">
             <e p="Sci-Fi Arsenal" t="Include">
@@ -494,82 +560,6 @@
             </e>
           </e>
           <e p="realityBlinkIntro.cs" t="Include" />
-          <e p="RealToon" t="Include">
-            <e p="Change - Fix Log.txt" t="Include" />
-            <e p="Editor" t="Include">
-              <e p="RealToonShaderGUI.cs" t="Include" />
-              <e p="RealToonShaderGUI_Lite.cs" t="Include" />
-              <e p="RT_Welcome.cs" t="Include" />
-            </e>
-            <e p="Examples" t="Include">
-              <e p="Model" t="Include">
-                <e p="Read me.txt" t="Include" />
-                <e p="UnityChan" t="Include">
-                  <e p="Scripts" t="Include">
-                    <e p="CameraController.cs" t="Include" />
-                    <e p="FaceUpdate.cs" t="Include" />
-                    <e p="IdleChanger.cs" t="Include" />
-                    <e p="SceneLoader.cs" t="Include" />
-                    <e p="ThirdPersonCamera.cs" t="Include" />
-                    <e p="UnityChanControlScriptWithRgidBody.cs" t="Include" />
-                  </e>
-                </e>
-              </e>
-            </e>
-            <e p="For Unity 2019 - Beyond and SRP's users.txt" t="Include" />
-            <e p="For VRoid users please read.txt" t="Include" />
-            <e p="Others" t="Include">
-              <e p="For Unity 2019 and Later" t="Include">
-                <e p="Important (Read Me).txt" t="Include" />
-              </e>
-            </e>
-            <e p="RealToon Shaders" t="Include">
-              <e p="Effects" t="Include">
-                <e p="Sobel Outline" t="Include">
-                  <e p="RealToonSobelOutline.cs" t="Include" />
-                  <e p="Shader" t="Include">
-                    <e p="RealToon_Sobel_Outline_FX.shader" t="Include" />
-                  </e>
-                </e>
-              </e>
-              <e p="Version 5" t="Include">
-                <e p="Default" t="Include">
-                  <e p="D_Default.shader" t="Include" />
-                  <e p="D_Fade_Transparency.shader" t="Include" />
-                  <e p="D_Refraction.shader" t="Include" />
-                </e>
-                <e p="Lite" t="Include">
-                  <e p="L_Default.shader" t="Include" />
-                  <e p="L_Fade_Transparency.shader" t="Include" />
-                </e>
-                <e p="Tessellation" t="Include">
-                  <e p="T_Default.shader" t="Include" />
-                  <e p="T_Fade_Transparency.shader" t="Include" />
-                  <e p="T_Refraction.shader" t="Include" />
-                </e>
-              </e>
-            </e>
-            <e p="RealToon SRP" t="Include">
-              <e p="HDRP" t="Include">
-                <e p="Please read before you unpack or import.txt" t="Include" />
-                <e p="RealToon HDRP (Temporary User Guide).txt" t="Include" />
-              </e>
-              <e p="LWRP" t="Include">
-                <e p="Please read before you unpack or import.txt" t="Include" />
-              </e>
-              <e p="URP" t="Include">
-                <e p="Please read before you unpack or import.txt" t="Include" />
-              </e>
-            </e>
-            <e p="RealToon Tools" t="Include">
-              <e p="CustomShadowResolution.cs" t="Include" />
-              <e p="FrameByFrameRendering" t="Include">
-                <e p="FrameByFrameRendering_Default.cs" t="Include" />
-                <e p="FrameByFrameRendering_Manual.cs" t="Include" />
-              </e>
-            </e>
-            <e p="What's New.txt" t="Include" />
-          </e>
           <e p="SC Post Effects" t="Include">
             <e p="_Demo" t="Include">
               <e p="Scripts" t="Include">
@@ -887,6 +877,7 @@
               <e p="InputController.cs" t="Include" />
               <e p="NewDash.cs" t="Include" />
               <e p="NewPlayerMoveScript.cs" t="Include" />
+              <e p="NewSwayScript.cs" t="Include" />
               <e p="PauseMenuScript.cs" t="Include" />
               <e p="PlayerController.cs" t="Include" />
               <e p="PlayerMoveSpeedReEnabler.cs" t="Include" />
