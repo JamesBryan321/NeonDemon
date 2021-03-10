@@ -44,6 +44,7 @@ public class Shooting : MonoBehaviour
    // public Animator Cam_Anim;
     public Animator Ads_anim;
     public InputController inputScript;
+    public Animator Reticle;
 
     //private IEnumerator WaitForReload;
 
@@ -132,6 +133,7 @@ public class Shooting : MonoBehaviour
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
         Ads_anim.SetBool("Shoot", true);
+        Reticle.SetTrigger("Shoot");
 
         if (Physics.Raycast(ray, out hit,Mathf.Infinity))
         {
