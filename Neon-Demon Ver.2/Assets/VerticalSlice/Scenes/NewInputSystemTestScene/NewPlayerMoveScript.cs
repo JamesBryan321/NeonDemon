@@ -116,8 +116,6 @@ public class NewPlayerMoveScript : MonoBehaviour
 
     #endregion
 
-    
-
     #region Jump
     public void OnJumpInput()
     {
