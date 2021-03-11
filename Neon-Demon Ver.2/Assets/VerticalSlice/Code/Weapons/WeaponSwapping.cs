@@ -6,7 +6,9 @@ public class WeaponSwapping : MonoBehaviour
 {
     public int selectedWeapon = 0;
 
-    
+    private Shooting shootingScript;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +39,7 @@ public class WeaponSwapping : MonoBehaviour
     {
         int previousSlecetedWeapon = selectedWeapon;
 
-        if(previousSlecetedWeapon != selectedWeapon)
+        if (previousSlecetedWeapon != selectedWeapon)
         {
             SelectWeapon();
         }
@@ -51,6 +53,8 @@ public class WeaponSwapping : MonoBehaviour
             if (i == selectedWeapon)
             {
                 weapon.gameObject.SetActive(true);
+
+                shootingScript = weapon.gameObject.GetComponent<Shooting>();
             }
             else
             {
@@ -61,4 +65,8 @@ public class WeaponSwapping : MonoBehaviour
         }
     }
 
+    public void ShootCurrentWeapon()
+    {
+        shootingScript.OnShootInput();
+    }
 }
