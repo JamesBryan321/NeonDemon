@@ -206,7 +206,31 @@ public class Shooting : MonoBehaviour
                 }
                 //hit.transform.GetComponent<EnemyTornApart>().TurnEnemyoff();
             }
-            if (hit.transform.CompareTag("bottle"))
+            if (hit.transform.CompareTag("Head"))
+            {
+                Collider[] colliders = Physics.OverlapSphere(hit.transform.position, 5f);
+                float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
+                int randomblood = Random.Range(0, BloodFX.Count);
+                var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
+                var settings = instance.GetComponent<BFX_BloodSettings>();
+                settings.FreezeDecalDisappearance = true;
+
+                hit.transform.GetComponent<Headshot>().BoomHeadshot();
+
+                foreach (Collider hit1 in colliders)
+                {
+                    Rigidbody rib = hit1.GetComponent<Rigidbody>();
+                    if (rib != null)
+                    {
+                        rib.AddExplosionForce(100f, hit.transform.position, 100f, 1f, ForceMode.Impulse);
+
+                    }
+                }
+
+
+                Debug.Log("Boom epic headshot!!!!!!");
+            }
+                if (hit.transform.CompareTag("bottle"))
             {
                var destructableScript = hit.transform.GetComponent<Destructable>();
                 destructableScript.Break();
