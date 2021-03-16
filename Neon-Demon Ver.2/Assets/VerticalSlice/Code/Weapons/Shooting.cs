@@ -186,7 +186,7 @@ public class Shooting : MonoBehaviour
                 
                // settings.LightIntensityMultiplier = DirLight.intensity;
                 StartCoroutine(wait());
-
+                Debug.Log("hit thruster, BOOOM");
 
 
                 //hit.transform.GetComponent<EnemyTornApart>().TurnEnemyOn();
@@ -194,16 +194,17 @@ public class Shooting : MonoBehaviour
 
 
                 hit.transform.GetComponent<TakeDamage>().Thrusterdamage();
-                hit.transform.GetComponent<Thruster>().enabled = true;
-                /* foreach(Collider hit1 in colliders)
+                //hit.transform.GetComponent<Thruster>().enabled = true;
+                 foreach(Collider hit1 in colliders)
                 {
                     Rigidbody rib = hit1.GetComponent<Rigidbody>();
                     if (rib != null)
                     {
-                        rib.AddExplosionForce(1000f, hit.transform.GetComponent<EnemyTornApart>().EnemyAnimated.transform.position, 100f, 1f, ForceMode.Impulse);
+                        rib.AddExplosionForce(100f, hit.transform.position, 100f, 1f, ForceMode.Impulse);
+                      
                     }
                 }
-                hit.transform.GetComponent<EnemyTornApart>().TurnEnemyoff();*/
+                //hit.transform.GetComponent<EnemyTornApart>().TurnEnemyoff();
             }
             if (hit.transform.CompareTag("bottle"))
             {

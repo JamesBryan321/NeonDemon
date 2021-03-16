@@ -12,9 +12,9 @@ public class Thruster : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        rb.AddForce(transform.forward * thrust);
-        rb.AddExplosionForce(10f, transform.position, 10f);
+        rb.AddForce(transform.right * thrust);
+        rb.AddExplosionForce(20f, transform.up, 10f);
     }
 }
