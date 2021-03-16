@@ -76,6 +76,7 @@ public class EnemyDamage : MonoBehaviour
         {
             //MeleeSFX.Play();
             Player.GetComponent<PlayerHP>().PlayerHealth -= EnemyDmg;
+            Player.GetComponent<CamShaker>().shakeIt();
         }
     }
 

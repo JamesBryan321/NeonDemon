@@ -8,6 +8,7 @@ public class MortarReference : MonoBehaviour
     public GameObject explosion;
     public GameObject robotNormal;
     public GameObject robotDestroyed;
+    public GameObject player;
 
     public FirstMortarDestroyedCounter mortarDestructionScript;
 
@@ -31,5 +32,7 @@ public class MortarReference : MonoBehaviour
         robotDestroyed.SetActive(true);
         robotNormal.SetActive(false);
         mortarDestructionScript.AddToMortarCount();
+        player.GetComponent<CamShaker>().shakeIt();
+        
     }
 }
