@@ -47,6 +47,13 @@
             <e p="TriggerTutorialText.cs" t="Include" />
           </e>
         </e>
+        <e p="Beta" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="CameraShake.cs" t="Include" />
+            <e p="CamShaker.cs" t="Include" />
+            <e p="Headshot.cs" t="Include" />
+          </e>
+        </e>
         <e p="Boss" t="Include">
           <e p="AudioPeer.cs" t="Include" />
           <e p="Boss.cs" t="Include" />
@@ -874,6 +881,7 @@
           <e p="Scenes" t="Include">
             <e p="NewInputSystemTestScene" t="Include">
               <e p="Controls.cs" t="Include" />
+              <e p="GaussianDistribution.cs" t="Include" />
               <e p="InputController.cs" t="Include" />
               <e p="NewDash.cs" t="Include" />
               <e p="NewPlayerMoveScript.cs" t="Include" />

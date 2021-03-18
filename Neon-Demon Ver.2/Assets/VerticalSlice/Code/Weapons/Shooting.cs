@@ -47,7 +47,11 @@ public class Shooting : MonoBehaviour
     public Animator Reticle;
 
     //private IEnumerator WaitForReload;
-
+public float bulletSpread, bulletXOffset, bulletYOffset;
+    public GameObject bulletMarker;
+    public bool shotgun;
+    private RaycastHit[] shotgunHitPoints;
+    private Ray[] shotgunRay;
 
     void Start()
     {
@@ -124,19 +128,35 @@ public class Shooting : MonoBehaviour
       
 
     }
-  
+
     void Shoot()
+    {
+        if (shotgun)
+        {
+            //ShootShotgun();
+            ShootPistol();
+        }
+        else if (!shotgun)
+        {
+            ShootPistol();
+        }
+    }
+  
+    void ShootPistol()
     {
         FIRESFX.Play();
         //shotgun.Play();
         Rumble();
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+        bulletXOffset = Random.Range(-bulletSpread, bulletSpread);
+        bulletYOffset = Random.Range(-bulletSpread, bulletSpread);
+        Ray ray = cam.ViewportPointToRay(new Vector3(0.5F + bulletXOffset, 0.5F + bulletYOffset, 0));
         RaycastHit hit;
         Ads_anim.SetBool("Shoot", true);
         Reticle.SetTrigger("Shoot");
 
         if (Physics.Raycast(ray, out hit,Mathf.Infinity))
         {
+            Instantiate(bulletMarker, hit.point, Quaternion.LookRotation(hit.normal));
             GameObject impactEffectGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(Vector3.forward, Vector3.up)) as GameObject;
             Destroy(impactEffectGO, 2);
 
@@ -217,8 +237,6 @@ public class Shooting : MonoBehaviour
 
                 hit.transform.GetComponent<Headshot>().BoomHeadshot();
 
-                hit.transform.GetComponent<TakeDamage>().Thrusterdamage();
-
                 foreach (Collider hit1 in colliders)
                 {
                     Rigidbody rib = hit1.GetComponent<Rigidbody>();
@@ -263,6 +281,166 @@ public class Shooting : MonoBehaviour
         }
         StartCoroutine(wait());
 
+    }
+
+    void ShootShotgun()
+    {
+        FIRESFX.Play();
+        //shotgun.Play();
+        Rumble();
+        bulletXOffset = Random.Range(-bulletSpread, bulletSpread);
+        bulletYOffset = Random.Range(-bulletSpread, bulletSpread);
+        //Ray[] ray;
+        for (int i = 1; i <= 6; i++)
+        {
+            shotgunRay[i] = cam.ViewportPointToRay(new Vector3(0.5F + bulletXOffset, 0.5F + bulletYOffset, 0));
+        }
+
+        //RaycastHit[] hit;
+        Ads_anim.SetBool("Shoot", true);
+        Reticle.SetTrigger("Shoot");
+        for (int i = 1; i <= 6; i++)
+        {
+            
+            if (Physics.Raycast(shotgunRay[i], out shotgunHitPoints[i], Mathf.Infinity))
+            {
+                Instantiate(bulletMarker, shotgunHitPoints[i].point, Quaternion.LookRotation(shotgunHitPoints[i].normal));
+                GameObject impactEffectGO =
+                    Instantiate(impactEffect, shotgunHitPoints[i].point,
+                        Quaternion.LookRotation(Vector3.forward, Vector3.up)) as GameObject;
+                Destroy(impactEffectGO, 2);
+
+                StartCoroutine(wait());
+                if (shotgunHitPoints[i].transform.CompareTag("Enemy"))
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoints[i].normal.x, shotgunHitPoints[i].normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoints[i].point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                    //  settings.LightIntensityMultiplier = DirLight.intensity;
+                    shotgunHitPoints[i].transform.GetComponent<TakeDamage>().Damage(damage);
+                    StartCoroutine(wait());
+                }
+
+                if (shotgunHitPoints[i].transform.CompareTag("BigEnemy"))
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoints[i].normal.x, shotgunHitPoints[i].normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoints[i].point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                    //  settings.LightIntensityMultiplier = DirLight.intensity;
+                    shotgunHitPoints[i].transform.GetComponent<TakeDamage>().bigGuyDamage(damage);
+                    StartCoroutine(wait());
+                }
+
+                if (shotgunHitPoints[i].transform.CompareTag("Rocket"))
+                {
+
+                    shotgunHitPoints[i].transform.GetComponent<MortarProjectile>().reverse();
+
+                }
+
+                if (shotgunHitPoints[i].transform.CompareTag("BossCollider"))
+                {
+
+                    shotgunHitPoints[i].transform.GetComponent<BossHealth>().Damage();
+
+                }
+
+                if (shotgunHitPoints[i].transform.CompareTag("Thruster"))
+                {
+                    Collider[] colliders = Physics.OverlapSphere(shotgunHitPoints[i].transform.position, 5f);
+                    float angle = Mathf.Atan2(shotgunHitPoints[i].normal.x, shotgunHitPoints[i].normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoints[i].point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+
+                    // settings.LightIntensityMultiplier = DirLight.intensity;
+                    StartCoroutine(wait());
+                    Debug.Log("hit thruster, BOOOM");
+
+
+                    //hit.transform.GetComponent<EnemyTornApart>().TurnEnemyOn();
+
+
+
+                    shotgunHitPoints[i].transform.GetComponent<TakeDamage>().Thrusterdamage();
+                    //hit.transform.GetComponent<Thruster>().enabled = true;
+                    foreach (Collider hit1 in colliders)
+                    {
+                        Rigidbody rib = hit1.GetComponent<Rigidbody>();
+                        if (rib != null)
+                        {
+                            rib.AddExplosionForce(100f, shotgunHitPoints[i].transform.position, 100f, 1f, ForceMode.Impulse);
+
+                        }
+                    }
+
+                    //hit.transform.GetComponent<EnemyTornApart>().TurnEnemyoff();
+                }
+
+                if (shotgunHitPoints[i].transform.CompareTag("Head"))
+                {
+                    Collider[] colliders = Physics.OverlapSphere(shotgunHitPoints[i].transform.position, 5f);
+                    float angle = Mathf.Atan2(shotgunHitPoints[i].normal.x, shotgunHitPoints[i].normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoints[i].point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+
+                    shotgunHitPoints[i].transform.GetComponent<Headshot>().BoomHeadshot();
+
+                    foreach (Collider hit1 in colliders)
+                    {
+                        Rigidbody rib = hit1.GetComponent<Rigidbody>();
+                        if (rib != null)
+                        {
+                            rib.AddExplosionForce(100f, shotgunHitPoints[i].transform.position, 100f, 1f, ForceMode.Impulse);
+
+                        }
+                    }
+
+
+                    Debug.Log("Boom epic headshot!!!!!!");
+                }
+
+                if (shotgunHitPoints[i].transform.CompareTag("bottle"))
+                {
+                    var destructableScript = shotgunHitPoints[i].transform.GetComponent<Destructable>();
+                    destructableScript.Break();
+                    shotgunHitPoints[i].transform.GetComponent<BoxCollider>().enabled = false;
+                    StartCoroutine(wait());
+                }
+
+                if (shotgunHitPoints[i].transform.CompareTag("barrel"))
+                {
+                    var barrelScript = shotgunHitPoints[i].transform.GetComponent<Explodingbarrel>();
+                    barrelScript.explode();
+                    StartCoroutine(wait());
+                }
+
+                if (shotgunHitPoints[i].transform.CompareTag("Mortar"))
+                {
+
+                    shotgunHitPoints[i].transform.GetComponent<MortarReference>().DestroyRobot();
+
+                }
+
+                if (shotgunHitPoints[i].transform.CompareTag("Boss"))
+                {
+                    if (shotgunHitPoints[i].transform.GetComponent<Boss>().BossVunerable == true)
+                    {
+                        shotgunHitPoints[i].transform.GetComponent<Boss>().BossHealth -= 1;
+                        shotgunHitPoints[i].transform.GetComponent<Boss>().BossVunerable = false;
+                    }
+                }
+            }
+        }
+
+        StartCoroutine(wait());
     }
 
     public IEnumerator WaitForReload()
