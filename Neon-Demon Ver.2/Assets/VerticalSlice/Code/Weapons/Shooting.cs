@@ -194,8 +194,9 @@ public class Shooting : MonoBehaviour
 
 
                 hit.transform.GetComponent<TakeDamage>().Thrusterdamage();
+                hit.transform.GetComponent<Thruster>().Explode();
                 //hit.transform.GetComponent<Thruster>().enabled = true;
-                 foreach(Collider hit1 in colliders)
+                foreach (Collider hit1 in colliders)
                 {
                     Rigidbody rib = hit1.GetComponent<Rigidbody>();
                     if (rib != null)

@@ -6,6 +6,7 @@ public class Thruster : MonoBehaviour
 {
     public float thrust = 10.0f;
     public Rigidbody rb;
+    public ParticleSystem explodingeffect;
 
     void Start()
     {
@@ -14,7 +15,12 @@ public class Thruster : MonoBehaviour
 
     void Update()
     {
-        rb.AddForce(transform.right * thrust);
-        rb.AddExplosionForce(20f, transform.up, 10f);
+
+    }
+
+
+    public void Explode()
+    {
+        explodingeffect.Play();
     }
 }
