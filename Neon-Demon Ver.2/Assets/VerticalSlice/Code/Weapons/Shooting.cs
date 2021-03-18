@@ -217,6 +217,8 @@ public class Shooting : MonoBehaviour
 
                 hit.transform.GetComponent<Headshot>().BoomHeadshot();
 
+                hit.transform.GetComponent<TakeDamage>().Thrusterdamage();
+
                 foreach (Collider hit1 in colliders)
                 {
                     Rigidbody rib = hit1.GetComponent<Rigidbody>();
