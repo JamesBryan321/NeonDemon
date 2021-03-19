@@ -8,6 +8,7 @@ public class NewDash : MonoBehaviour
     [SerializeField] private GameObject SpeedLineOBJ;
     [Header("Dash Values")]
     [SerializeField] private float dashForce;
+    [SerializeField] private float dashForceGround;
     [SerializeField] private float dashDuration;
     [SerializeField] private float jumpRate = 1f;
     [SerializeField] private float jumpTime = 0f;
@@ -23,6 +24,7 @@ public class NewDash : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
        
             playerRigidbody = GetComponent<Rigidbody>();
         
@@ -66,9 +68,21 @@ public class NewDash : MonoBehaviour
     {
         //dashVelocity = playerMoveScript.velocity * dashForce;
         //playerRigidbody.velocity = new Vector3(dashVelocity.x, 0, dashVelocity.y);
-        
+
+
+
+        if(this.GetComponent<NewPlayerMoveScript>().groundCheck == true)
+        {
+            playerRigidbody.AddForce(new Vector3(playerMoveScript.velocity.x, 0, playerMoveScript.velocity.y) * dashForceGround, ForceMode.VelocityChange);
+        }
+        if (this.GetComponent<NewPlayerMoveScript>().groundCheck == false)
+        {
+            playerRigidbody.AddForce(new Vector3(playerMoveScript.velocity.x, 0, playerMoveScript.velocity.y) * dashForce, ForceMode.VelocityChange);
+        }
+
+
         SpeedLineOBJ.SetActive(true);
-         playerRigidbody.AddForce(new Vector3(playerMoveScript.velocity.x, 0, playerMoveScript.velocity.y) * dashForce, ForceMode.VelocityChange);
+        // playerRigidbody.AddForce(new Vector3(playerMoveScript.velocity.x, 0, playerMoveScript.velocity.y) * dashForce, ForceMode.VelocityChange);
        
 
         yield return new WaitForSeconds(dashDuration);
