@@ -277,6 +277,7 @@ public float bulletSpread, bulletXOffset, bulletYOffset;
                 if(hit.transform.GetComponent<Boss>().BossVunerable == true)
                 {
                     hit.transform.GetComponent<Boss>().BossHealth -= 1;
+                  
                     hit.transform.GetComponent<Boss>().BossVunerable = false;
                 }
             }
