@@ -20,6 +20,7 @@ public class MortarProjectile : MonoBehaviour
     public Vector3 velocity;
     public Vector3 force;
     public bool shot = false;
+    private bool FirstMortarAction = false;
 
 
 
@@ -105,5 +106,6 @@ public class MortarProjectile : MonoBehaviour
             Bomb.transform.parent = null;
             Destroy(gameObject);
         }
+      
     }
 }
