@@ -28,14 +28,15 @@ public class Boss : MonoBehaviour
     private IEnumerator Chargecoroutine;
     private IEnumerator INVUNcoroutine;
 
+    public Animator bossAnim;
     private int TempHP;
 
-    private Renderer MaterialColour;
+    //private Renderer MaterialColour;
     public Color AttackColour, VunerableColour,ChargeColour;
     // Start is called before the first frame update
     void Start()
     {
-        MaterialColour = GetComponent<Renderer>();
+        //MaterialColour = GetComponent<Renderer>();
         b_navMeshAgent = GetComponent<NavMeshAgent>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         BossVunerable = false;
@@ -89,8 +90,8 @@ public class Boss : MonoBehaviour
 
     IEnumerator AttackCharge(float ChargeTime)
     {
-        MaterialColour.material.SetColor("_Color", ChargeColour);
         LastPlayerRef.position = Player.transform.position;
+        transform.LookAt(Player.transform);
         yield return new WaitForSeconds(ChargeTime);
         b_BossState = BossState.ATTACK1;
     }
@@ -98,7 +99,6 @@ public class Boss : MonoBehaviour
     void Attack1()
     {
         BossVunerable = false;
-        MaterialColour.material.SetColor("_Color", AttackColour);
         this.transform.LookAt(Player.transform);
         agent.speed = 200;
         agent.acceleration = 70;
@@ -107,6 +107,7 @@ public class Boss : MonoBehaviour
         if (Vector3.Distance(LastPlayerRef.position, this.transform.position) < 5)
         {
             agent.speed = 0;
+            bossAnim.SetTrigger("vun");
             b_BossState = BossState.VUNERABLE;
         }
         else
@@ -119,9 +120,9 @@ public class Boss : MonoBehaviour
     {
         
         BossVunerable = false;
-        MaterialColour.material.SetColor("_Color", AttackColour);
         if(Vector3.Distance(Attack2Pos.position, this.transform.position)<3)
         {
+            bossAnim.SetTrigger("attack2");
             transform.Rotate(0, 50 * Time.deltaTime, 0);
             foreach (ParticleSystem Fire in Flames)
             {
@@ -139,38 +140,54 @@ public class Boss : MonoBehaviour
     IEnumerator AttackCooldown(float waitTime)
     {
         TempHP = BossHealth;
+       
         yield return new WaitForSeconds(waitTime);
         foreach (ParticleSystem Fire in Flames)
         {
             Fire.Stop();
           
         }
-       
+        bossAnim.SetTrigger("vun");
         b_BossState = BossState.VUNERABLE;
+
     }
 
     void Vunerable()
     {
+        
         StopAllCoroutines();
         BossVunerable = true;
-        MaterialColour.material.SetColor("_Color", VunerableColour);
 
         if (BossHealth < TempHP)
         {
+            bossAnim.SetTrigger("hit");
             agent.speed = 10;
-            if (BossHealth == 4 || BossHealth == 2)
-            {
-                agent.speed = 10;
-                b_BossState = BossState.INVUNERABLE;
-            }
-            else
-            {
-                b_BossState = BossState.CHARGE;
-
-            }
+          
         }
 
        
+    }
+
+    public void hittransistion()
+    {
+        BossVunerable = false;
+        if (BossHealth == 4 || BossHealth == 2)
+        {
+            agent.speed = 10;
+            b_BossState = BossState.INVUNERABLE;
+        }
+        else
+        {
+            b_BossState = BossState.CHARGE;
+
+        }
+    }
+
+    public void chargeaftervun()
+    {
+        BossVunerable = false;
+        b_BossState = BossState.CHARGE;
+
     }
 
     void Invunerable()
