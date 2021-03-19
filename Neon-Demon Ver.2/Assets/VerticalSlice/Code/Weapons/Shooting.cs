@@ -237,6 +237,7 @@ public float bulletSpread, bulletXOffset, bulletYOffset;
                 settings.FreezeDecalDisappearance = true;
 
                 hit.transform.GetComponent<Headshot>().BoomHeadshot();
+                hit.transform.GetComponent<TakeDamage>().Thrusterdamage();
 
                 foreach (Collider hit1 in colliders)
                 {

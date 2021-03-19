@@ -22,6 +22,12 @@ public class MortarProjectile : MonoBehaviour
     public bool shot = false;
 
 
+
+    //SFX
+
+    public AudioSource HitbackRocketSFX;
+
+
     public Vector3[] Followpositions = new Vector3[80];
     // Start is called before the first frame update
     void Start()
@@ -88,6 +94,7 @@ public class MortarProjectile : MonoBehaviour
         transform.position -= velocity * Time.deltaTime;
         transform.forward = velocity.normalized;
         shot = true;
+        HitbackRocketSFX.Play();
     }
     private void OnTriggerEnter(Collider collision)
     {
