@@ -41,7 +41,7 @@ public class Boss : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         BossVunerable = false;
 
-        b_BossState = BossState.ATTACK2;
+        b_BossState = BossState.CHARGE;
     }
 
     // Update is called once per frame
@@ -84,7 +84,8 @@ public class Boss : MonoBehaviour
     {
         BossVunerable = false;
         TempHP = BossHealth;
-        Chargecoroutine = AttackCharge(3.0f);
+        Chargecoroutine = AttackCharge(0.2f);
+        //bossAnim.SetTrigger("attack1");
         StartCoroutine(Chargecoroutine);
     }
 
@@ -92,12 +93,22 @@ public class Boss : MonoBehaviour
     {
         LastPlayerRef.position = Player.transform.position;
         transform.LookAt(Player.transform);
+        //bossAnim.SetBool("chargestart", true);
         yield return new WaitForSeconds(ChargeTime);
+        bossAnim.SetTrigger("attack1");
+    }
+
+    public void Attack1AnimState()
+    {
+        //bossAnim.SetBool("chargestart", false);
         b_BossState = BossState.ATTACK1;
+
     }
 
     void Attack1()
     {
+        bossAnim.SetBool("chargestart", false);
+
         BossVunerable = false;
         this.transform.LookAt(Player.transform);
         agent.speed = 200;
@@ -107,11 +118,12 @@ public class Boss : MonoBehaviour
         if (Vector3.Distance(LastPlayerRef.position, this.transform.position) < 5)
         {
             agent.speed = 0;
-            bossAnim.SetTrigger("vun");
-            b_BossState = BossState.VUNERABLE;
+            bossAnim.SetBool("charge",false);
+            //b_BossState = BossState.VUNERABLE;
         }
         else
         {
+            bossAnim.SetBool("charge", true);
             b_navMeshAgent.SetDestination(LastPlayerRef.position);
         }
     }
@@ -166,6 +178,12 @@ public class Boss : MonoBehaviour
         }
 
        
+    }
+
+    public void GoToVUN()
+    {
+        bossAnim.SetTrigger("vun");
+        b_BossState = BossState.VUNERABLE;
     }
 
     public void hittransistion()
