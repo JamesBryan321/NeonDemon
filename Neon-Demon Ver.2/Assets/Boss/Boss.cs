@@ -132,20 +132,19 @@ public class Boss : MonoBehaviour
         }
     }
 
+    bool aoe;
     void Attack2()
     {
         
         BossVunerable = false;
         if(Vector3.Distance(Attack2Pos.position, this.transform.position)<3)
         {
-            bossAnim.SetTrigger("attack2");
-            transform.Rotate(0, 50 * Time.deltaTime, 0);
-            foreach (ParticleSystem Fire in Flames)
+            bossAnim.SetTrigger("attack2charge");
+            if(aoe == true)
             {
-                Fire.Play();
+                AOEattack();
             }
-            coroutine = AttackCooldown(5.0f);
-            StartCoroutine(coroutine);
+          
         }
         else
         {
@@ -153,11 +152,32 @@ public class Boss : MonoBehaviour
         }
     }
 
+    public void Attack2AnimState()
+    {
+        //AOEattack();
+        aoe = true;
+    }
+
+    void AOEattack()
+    {
+        Debug.Log("spin");
+        transform.Rotate(0, 50 * Time.deltaTime, 0);
+        foreach (ParticleSystem Fire in Flames)
+        {
+            Fire.Play();
+        }
+        bossAnim.SetBool("attack_2", true);
+        coroutine = AttackCooldown(5.0f);
+        StartCoroutine(coroutine);
+    }
+
     IEnumerator AttackCooldown(float waitTime)
     {
         TempHP = BossHealth;
        
         yield return new WaitForSeconds(waitTime);
+        aoe = false;
+        bossAnim.SetBool("attack_2", false);
         foreach (ParticleSystem Fire in Flames)
         {
             Fire.Stop();
