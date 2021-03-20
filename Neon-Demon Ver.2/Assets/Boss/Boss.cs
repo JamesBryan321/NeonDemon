@@ -6,12 +6,13 @@ using UnityEngine.AI;
 public class Boss : MonoBehaviour
 {
    
-    private enum BossState {INVUNERABLE,MOVE, CHARGE, ATTACK1, ATTACK2, VUNERABLE}
+    private enum BossState {INVUNERABLE,MOVE, CHARGE, ATTACK1, ATTACK2, VUNERABLE,DEAD}
     private BossState b_BossState;
 
     [Header("Boss Stats")]
     public int BossHealth = 6;
     public bool BossVunerable;
+    public List<GameObject> HPsquares;
 
     [Header("Boss Attacks")]
     public List<ParticleSystem> Flames;
@@ -41,7 +42,7 @@ public class Boss : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         BossVunerable = false;
 
-        b_BossState = BossState.CHARGE;
+        b_BossState = BossState.ATTACK2;
     }
 
     // Update is called once per frame
@@ -66,6 +67,9 @@ public class Boss : MonoBehaviour
                 break;
             case BossState.INVUNERABLE:
                 Invunerable();
+                break;
+            case BossState.DEAD:
+                Dead();
                 break;
             default:
                 break;
@@ -172,11 +176,12 @@ public class Boss : MonoBehaviour
 
         if (BossHealth < TempHP)
         {
+            HPsquares[BossHealth].SetActive(false);
             bossAnim.SetTrigger("hit");
             agent.speed = 10;
           
         }
-
+       
        
     }
 
@@ -193,6 +198,11 @@ public class Boss : MonoBehaviour
         {
             agent.speed = 10;
             b_BossState = BossState.INVUNERABLE;
+        }
+        else if(BossHealth <= 0)
+        {
+            b_BossState = BossState.DEAD;
+
         }
         else
         {
@@ -228,6 +238,11 @@ public class Boss : MonoBehaviour
     {
         yield return new WaitForSeconds(invuncdr);
         b_BossState = BossState.ATTACK2;
+    }
+
+    void Dead()
+    {
+        bossAnim.SetBool("dead", true);
     }
        
 }
