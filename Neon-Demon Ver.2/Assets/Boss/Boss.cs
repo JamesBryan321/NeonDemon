@@ -102,6 +102,11 @@ public class Boss : MonoBehaviour
         bossAnim.SetTrigger("attack1");
     }
 
+    public void BossSafetyMeasure()
+    {
+        bossAnim.SetBool("charge", true);
+    }
+
     public void Attack1AnimState()
     {
         //bossAnim.SetBool("chargestart", false);
@@ -112,7 +117,7 @@ public class Boss : MonoBehaviour
     void Attack1()
     {
         bossAnim.SetBool("chargestart", false);
-
+        TempHP = BossHealth;
         BossVunerable = false;
         this.transform.LookAt(Player.transform);
         agent.speed = 200;
@@ -135,7 +140,7 @@ public class Boss : MonoBehaviour
     bool aoe;
     void Attack2()
     {
-        
+        TempHP = BossHealth;
         BossVunerable = false;
         if(Vector3.Distance(Attack2Pos.position, this.transform.position)<3)
         {
@@ -160,6 +165,7 @@ public class Boss : MonoBehaviour
 
     void AOEattack()
     {
+
         Debug.Log("spin");
         transform.Rotate(0, 50 * Time.deltaTime, 0);
         foreach (ParticleSystem Fire in Flames)
@@ -178,6 +184,7 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         aoe = false;
         bossAnim.SetBool("attack_2", false);
+
         foreach (ParticleSystem Fire in Flames)
         {
             Fire.Stop();
@@ -193,7 +200,8 @@ public class Boss : MonoBehaviour
         
         StopAllCoroutines();
         BossVunerable = true;
-
+        bossAnim.ResetTrigger("attack1");
+        bossAnim.ResetTrigger("attack2charge");
         if (BossHealth < TempHP)
         {
             HPsquares[BossHealth].SetActive(false);
