@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Boss : MonoBehaviour
 {
    
-    private enum BossState {INVUNERABLE,MOVE, CHARGE, ATTACK1, ATTACK2, VUNERABLE,DEAD}
+    private enum BossState {START,INVUNERABLE,MOVE, CHARGE, ATTACK1, ATTACK2, VUNERABLE,DEAD}
     private BossState b_BossState;
 
     [Header("Boss Stats")]
@@ -31,7 +31,7 @@ public class Boss : MonoBehaviour
 
     public Animator bossAnim;
     private int TempHP;
-
+    public bool BossStartBool;
     //private Renderer MaterialColour;
     public Color AttackColour, VunerableColour,ChargeColour;
     // Start is called before the first frame update
@@ -42,7 +42,7 @@ public class Boss : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         BossVunerable = false;
 
-        b_BossState = BossState.ATTACK2;
+        b_BossState = BossState.START;
     }
 
     // Update is called once per frame
@@ -50,6 +50,9 @@ public class Boss : MonoBehaviour
     {
         switch(b_BossState)
         {
+            case BossState.START:
+                BossStart();
+                break;
             case BossState.MOVE:
 
                 break;
@@ -77,6 +80,19 @@ public class Boss : MonoBehaviour
         }
 
 
+    }
+
+    public void Timelineend()
+    {
+        BossStartBool = true;
+    }
+    void BossStart()
+    {
+        if(BossStartBool == true)
+        {
+            bossAnim.SetBool("bossstart", true);
+            b_BossState = BossState.ATTACK2;
+        }
     }
 
     void Move()
@@ -255,7 +271,9 @@ public class Boss : MonoBehaviour
         }
         else
         {
-           INVUNcoroutine = InvunTime(5.0f);
+            bossAnim.SetBool("invun", true);
+            transform.LookAt(Attack2Pos.transform);
+            INVUNcoroutine = InvunTime(15.0f);
            StartCoroutine(INVUNcoroutine);
 
         }
@@ -265,6 +283,7 @@ public class Boss : MonoBehaviour
     IEnumerator InvunTime(float invuncdr)
     {
         yield return new WaitForSeconds(invuncdr);
+        bossAnim.SetBool("invun", false);
         b_BossState = BossState.ATTACK2;
     }
 
