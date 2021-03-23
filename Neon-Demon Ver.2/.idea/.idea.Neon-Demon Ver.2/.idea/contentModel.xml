@@ -58,6 +58,8 @@
         <e p="Boss" t="Include">
           <e p="AudioPeer.cs" t="Include" />
           <e p="Boss.cs" t="Include" />
+          <e p="BossAttack.cs" t="Include" />
+          <e p="FlameThrowers.cs" t="Include" />
           <e p="ParamCube.cs" t="Include" />
           <e p="SpawnCubes.cs" t="Include" />
         </e>
@@ -349,6 +351,12 @@
             </e>
           </e>
           <e p="What's New.txt" t="Include" />
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="Shader Toy shaders" t="Include">
+            <e p="QuickyThing.shader" t="Include" />
+          </e>
+          <e p="StarFieldStars.shader" t="Include" />
         </e>
         <e p="skyboxRotate.cs" t="Include" />
         <e p="VerticalSlice" t="Include">
