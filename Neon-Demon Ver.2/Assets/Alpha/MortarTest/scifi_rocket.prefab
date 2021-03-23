@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentWaypointID: 0
-  speed: 0.1
+  speed: 0.5
   LineRef: {fileID: 0}
   Explosion: {fileID: 8247698257913367099, guid: 9b144845df002124080cbf206fc8fd5e,
     type: 3}
@@ -123,6 +123,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
   shot: 0
+  mortarDamage: 0.3
   HitbackRocketSFX: {fileID: 7988813691417329142}
   Followpositions:
   - {x: 0, y: 0, z: 0}

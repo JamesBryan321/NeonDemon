@@ -22,6 +22,8 @@ public class MortarProjectile : MonoBehaviour
     public bool shot = false;
     private bool FirstMortarAction = false;
 
+    public float mortarDamage;
+
 
 
     //SFX
@@ -99,9 +101,18 @@ public class MortarProjectile : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Mortar")&& shot == true)
+        if (collision.gameObject.CompareTag("Mortar") && shot == true)
         {
             collision.gameObject.GetComponent<MortarReference>().DestroyRobot();
+            GameObject Bomb = Instantiate(Explosion, this.transform);
+            Bomb.transform.parent = null;
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player hit with mortar.");
+            collision.gameObject.GetComponent<PlayerHP>().PlayerHealth -= mortarDamage;
             GameObject Bomb = Instantiate(Explosion, this.transform);
             Bomb.transform.parent = null;
             Destroy(gameObject);
