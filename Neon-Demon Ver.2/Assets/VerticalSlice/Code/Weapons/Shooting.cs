@@ -117,9 +117,10 @@ public class Shooting : MonoBehaviour
 
         if(Ammo == 0)
         {
-           // Ads_anim.enabled = true;
-           // Ads_anim.SetBool("Reload", true);
-
+            // Ads_anim.enabled = true;
+            // Ads_anim.SetBool("Reload", true);
+            Ads_anim.SetTrigger("reload");
+            Ammo = ReloadAmmo;
           //  StartCoroutine(WaitForReload());
         }
       
@@ -1053,7 +1054,6 @@ public class Shooting : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         Ammo = ReloadAmmo;
-        Ads_anim.SetBool("Reload", false);
 
        
     }
@@ -1092,11 +1092,11 @@ public class Shooting : MonoBehaviour
 
         public void OnReloadInput()
         {
-            StartCoroutine(WaitForReload());
-            Ads_anim.enabled = true;
-            Ads_anim.SetBool("Reload", true);
-
-            StartCoroutine(WaitForReload());
+        //StartCoroutine(WaitForReload());
+        // Ads_anim.enabled = true;
+        //Ads_anim.SetBool("Reload", true);
+        Ads_anim.SetTrigger("reload");
+        StartCoroutine(WaitForReload());
         }
 
         public void OnADSInput()
