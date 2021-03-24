@@ -34,18 +34,21 @@ public class Boss : MonoBehaviour
     private int TempHP;
     public bool BossStartBool;
 
+
+    public Material Green, Yellow, Red;
+    public SkinnedMeshRenderer BossMat;
     public List<Transform> Enemies;
     public GameObject Enemy;
-    //private Renderer MaterialColour;
+    private Renderer MaterialColour;
     public Color AttackColour, VunerableColour,ChargeColour;
     // Start is called before the first frame update
     void Start()
     {
-        //MaterialColour = GetComponent<Renderer>();
+        MaterialColour = GetComponent<Renderer>();
         b_navMeshAgent = GetComponent<NavMeshAgent>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         BossVunerable = false;
-
+        BossMat.material = Green;
         b_BossState = BossState.START;
     }
 
@@ -94,6 +97,7 @@ public class Boss : MonoBehaviour
     {
         if(BossStartBool == true)
         {
+            
             bossAnim.SetBool("bossstart", true);
             b_BossState = BossState.ATTACK2;
         }
@@ -108,6 +112,7 @@ public class Boss : MonoBehaviour
     {
         BossVunerable = false;
         TempHP = BossHealth;
+        BossMat.material = Red;
         Chargecoroutine = AttackCharge(0.2f);
         //bossAnim.SetTrigger("attack1");
         StartCoroutine(Chargecoroutine);
@@ -185,7 +190,7 @@ public class Boss : MonoBehaviour
 
     void AOEattack()
     {
-
+        BossMat.material = Red;
         Debug.Log("spin");
         transform.Rotate(0, 50 * Time.deltaTime, 0);
         foreach (ParticleSystem Fire in Flames)
@@ -232,6 +237,7 @@ public class Boss : MonoBehaviour
         BossVunerable = true;
         bossAnim.ResetTrigger("attack1");
         bossAnim.ResetTrigger("attack2charge");
+        BossMat.material = Yellow;
         if (BossHealth < TempHP)
         {
             HPsquares[BossHealth].SetActive(false);
@@ -282,6 +288,7 @@ public class Boss : MonoBehaviour
 
     void Invunerable()
     {
+        BossMat.material = Green;
         BossVunerable = false;
         if (Vector3.Distance(InvunerablePos.position, this.transform.position) > 3)
         {
