@@ -29,10 +29,13 @@ public class Boss : MonoBehaviour
     private IEnumerator coroutine;
     private IEnumerator Chargecoroutine;
     private IEnumerator INVUNcoroutine;
-
+    private IEnumerator Enemycoroutine;
     public Animator bossAnim;
     private int TempHP;
     public bool BossStartBool;
+
+    public List<Transform> Enemies;
+    public GameObject Enemy;
     //private Renderer MaterialColour;
     public Color AttackColour, VunerableColour,ChargeColour;
     // Start is called before the first frame update
@@ -253,6 +256,7 @@ public class Boss : MonoBehaviour
         if (BossHealth == 4 || BossHealth == 2)
         {
             agent.speed = 20;
+            EnemiesSpawn = true;
             b_BossState = BossState.INVUNERABLE;
         }
         else if(BossHealth <= 0)
@@ -274,22 +278,43 @@ public class Boss : MonoBehaviour
 
     }
 
+    public bool EnemiesSpawn;
+
     void Invunerable()
     {
         BossVunerable = false;
         if (Vector3.Distance(InvunerablePos.position, this.transform.position) > 3)
         {
             b_navMeshAgent.SetDestination(InvunerablePos.position);
+            if (EnemiesSpawn == true)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Instantiate(Enemy, Enemies[i]);
+                }
+            }
+            Enemycoroutine = SpawnEnemies(0.1f);
+            StartCoroutine(Enemycoroutine);
         }
         else
         {
             bossAnim.SetBool("invun", true);
             transform.LookAt(Attack2Pos.transform);
+            // EnemiesSpawn = true;
+         
             INVUNcoroutine = InvunTime(15.0f);
            StartCoroutine(INVUNcoroutine);
 
         }
         
+    }
+
+    IEnumerator SpawnEnemies(float spawntime)
+    {
+        
+       
+        EnemiesSpawn = false;
+        yield return new WaitForSeconds(spawntime);
     }
 
     IEnumerator InvunTime(float invuncdr)
