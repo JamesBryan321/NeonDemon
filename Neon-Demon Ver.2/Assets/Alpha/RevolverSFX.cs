@@ -9,6 +9,8 @@ public class RevolverSFX : MonoBehaviour
     public AudioSource Click;
     public AudioSource ReloadSFX;
 
+    public GameObject Cartridge;
+    public Transform SpawnCartridgePos;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +31,10 @@ public class RevolverSFX : MonoBehaviour
     public void Reload()
     {
         ReloadSFX.Play();
+    }
+
+    public void SpawnCartridge()
+    {
+        Instantiate(Cartridge, SpawnCartridgePos);
     }
 }
