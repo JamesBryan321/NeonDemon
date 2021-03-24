@@ -33,7 +33,7 @@ public class MeleeEnemy : MonoBehaviour
 
     void Start()
     {
-        //Player = GameObject.Find("Player");
+        Player = GameObject.Find("Player");
         z_MeleeState = MeleeState.CHASE;
         z_navMeshAgent = GetComponent<NavMeshAgent>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
