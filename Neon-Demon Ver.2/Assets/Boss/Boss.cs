@@ -16,6 +16,7 @@ public class Boss : MonoBehaviour
 
     [Header("Boss Attacks")]
     public List<ParticleSystem> Flames;
+    public List<GameObject> FlameColliders;
 
     [SerializeField] private GameObject Player;
 
@@ -187,9 +188,14 @@ public class Boss : MonoBehaviour
         foreach (ParticleSystem Fire in Flames)
         {
             Fire.Play();
+            
+        }
+        foreach (GameObject col in FlameColliders)
+        {
+            col.SetActive(true);
         }
         bossAnim.SetBool("attack_2", true);
-        coroutine = AttackCooldown(5.0f);
+        coroutine = AttackCooldown(10.0f);
         StartCoroutine(coroutine);
     }
 
@@ -206,7 +212,12 @@ public class Boss : MonoBehaviour
             Fire.Stop();
           
         }
+        foreach (GameObject col in FlameColliders)
+        {
+            col.SetActive(false);
+        }
         bossAnim.SetTrigger("vun");
+        bossAnim.ResetTrigger("hit");
         b_BossState = BossState.VUNERABLE;
 
     }
@@ -231,6 +242,7 @@ public class Boss : MonoBehaviour
 
     public void GoToVUN()
     {
+        bossAnim.ResetTrigger("hit");
         bossAnim.SetTrigger("vun");
         b_BossState = BossState.VUNERABLE;
     }
@@ -240,7 +252,7 @@ public class Boss : MonoBehaviour
         BossVunerable = false;
         if (BossHealth == 4 || BossHealth == 2)
         {
-            agent.speed = 10;
+            agent.speed = 20;
             b_BossState = BossState.INVUNERABLE;
         }
         else if(BossHealth <= 0)
