@@ -7,6 +7,8 @@ public class ChangePanelScript : MonoBehaviour
     public int PanelMin = 1, PanelMax = 8;
     public int PanelNo;
 
+    [SerializeField] public SceneChange sceneScript;
+
     public GameObject Panel1;
     public GameObject Panel2;
     public GameObject Panel3;
@@ -107,7 +109,10 @@ public class ChangePanelScript : MonoBehaviour
         {
             Panel8.SetActive(false);
         }
+
+
     }
+
 
     public void NextPanel()
     {

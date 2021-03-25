@@ -17,4 +17,5 @@ public class FinishIntroComic : MonoBehaviour
 
         sceneScript.LoadMainLevel();
     }
+
 }
