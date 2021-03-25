@@ -37,6 +37,7 @@ public class Boss : MonoBehaviour
 
     public Material Green, Yellow, Red;
     public SkinnedMeshRenderer BossMat;
+    public SkinnedMeshRenderer KeytarMat;
     public List<Transform> Enemies;
     public GameObject Enemy;
     private Renderer MaterialColour;
@@ -48,6 +49,7 @@ public class Boss : MonoBehaviour
         b_navMeshAgent = GetComponent<NavMeshAgent>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         BossVunerable = false;
+        KeytarMat.material = Green;
         BossMat.material = Green;
         b_BossState = BossState.START;
     }
@@ -113,6 +115,7 @@ public class Boss : MonoBehaviour
         BossVunerable = false;
         TempHP = BossHealth;
         BossMat.material = Red;
+        KeytarMat.material = Red;
         Chargecoroutine = AttackCharge(0.2f);
         //bossAnim.SetTrigger("attack1");
         StartCoroutine(Chargecoroutine);
@@ -191,6 +194,7 @@ public class Boss : MonoBehaviour
     void AOEattack()
     {
         BossMat.material = Red;
+        KeytarMat.material = Red;
         Debug.Log("spin");
         transform.Rotate(0, 50 * Time.deltaTime, 0);
         foreach (ParticleSystem Fire in Flames)
@@ -238,6 +242,7 @@ public class Boss : MonoBehaviour
         bossAnim.ResetTrigger("attack1");
         bossAnim.ResetTrigger("attack2charge");
         BossMat.material = Yellow;
+        KeytarMat.material = Yellow;
         if (BossHealth < TempHP)
         {
             HPsquares[BossHealth].SetActive(false);
@@ -289,6 +294,7 @@ public class Boss : MonoBehaviour
     void Invunerable()
     {
         BossMat.material = Green;
+        KeytarMat.material = Green;
         BossVunerable = false;
         if (Vector3.Distance(InvunerablePos.position, this.transform.position) > 3)
         {
