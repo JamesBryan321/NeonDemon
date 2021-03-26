@@ -8,6 +8,10 @@ public class WeaponSwapping : MonoBehaviour
 
     private Shooting shootingScript;
 
+    public GameObject ReticleRevolver;
+    public GameObject ShotgunReticle;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +46,19 @@ public class WeaponSwapping : MonoBehaviour
         if (previousSlecetedWeapon != selectedWeapon)
         {
             SelectWeapon();
+        }
+
+        if(selectedWeapon == 0)
+        {
+            ReticleRevolver.SetActive(true);
+            ShotgunReticle.SetActive(false);
+
+        }
+        if (selectedWeapon == 1)
+        {
+            ShotgunReticle.SetActive(true);
+            ReticleRevolver.SetActive(false);
+
         }
     }
 
