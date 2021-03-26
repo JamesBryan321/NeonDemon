@@ -34,7 +34,10 @@ public class Boss : MonoBehaviour
     private int TempHP;
     public bool BossStartBool;
 
-
+    public List<Renderer> AudioCubes;
+    public List<ParticleSystem> ThrusterEffects;
+    public ParticleSystem ChargeVFX;
+    public ParticleSystem YellowVFX;
     public Material Green, Yellow, Red;
     public SkinnedMeshRenderer BossMat;
     public SkinnedMeshRenderer KeytarMat;
@@ -51,6 +54,11 @@ public class Boss : MonoBehaviour
         BossVunerable = false;
         KeytarMat.material = Green;
         BossMat.material = Green;
+
+        foreach (Renderer color in AudioCubes)
+        {
+            color.material.SetColor("_EmissionColor", Color.green);
+        }
         b_BossState = BossState.START;
     }
 
@@ -112,10 +120,15 @@ public class Boss : MonoBehaviour
 
     void Charge()
     {
+        YellowVFX.Stop();
         BossVunerable = false;
         TempHP = BossHealth;
         BossMat.material = Red;
         KeytarMat.material = Red;
+        foreach (Renderer color in AudioCubes)
+        {
+            color.material.SetColor("_EmissionColor", Color.red);
+        }
         Chargecoroutine = AttackCharge(0.2f);
         //bossAnim.SetTrigger("attack1");
         StartCoroutine(Chargecoroutine);
@@ -124,6 +137,7 @@ public class Boss : MonoBehaviour
     IEnumerator AttackCharge(float ChargeTime)
     {
         LastPlayerRef.position = Player.transform.position;
+        ChargeVFX.Play();
         transform.LookAt(Player.transform);
         //bossAnim.SetBool("chargestart", true);
         yield return new WaitForSeconds(ChargeTime);
@@ -144,6 +158,7 @@ public class Boss : MonoBehaviour
 
     void Attack1()
     {
+        ChargeVFX.Stop();
         bossAnim.SetBool("chargestart", false);
         TempHP = BossHealth;
         BossVunerable = false;
@@ -168,6 +183,7 @@ public class Boss : MonoBehaviour
     bool aoe;
     void Attack2()
     {
+        YellowVFX.Stop();
         TempHP = BossHealth;
         BossVunerable = false;
         if(Vector3.Distance(Attack2Pos.position, this.transform.position)<3)
@@ -193,8 +209,13 @@ public class Boss : MonoBehaviour
 
     void AOEattack()
     {
+        //YellowVFX.Stop();
         BossMat.material = Red;
         KeytarMat.material = Red;
+        foreach (Renderer color in AudioCubes)
+        {
+            color.material.SetColor("_EmissionColor", Color.red);
+        }
         Debug.Log("spin");
         transform.Rotate(0, 50 * Time.deltaTime, 0);
         foreach (ParticleSystem Fire in Flames)
@@ -207,7 +228,7 @@ public class Boss : MonoBehaviour
             col.SetActive(true);
         }
         bossAnim.SetBool("attack_2", true);
-        coroutine = AttackCooldown(10.0f);
+        coroutine = AttackCooldown(2.0f);
         StartCoroutine(coroutine);
     }
 
@@ -230,6 +251,7 @@ public class Boss : MonoBehaviour
         }
         bossAnim.SetTrigger("vun");
         bossAnim.ResetTrigger("hit");
+        YellowVFX.Play();
         b_BossState = BossState.VUNERABLE;
 
     }
@@ -238,13 +260,20 @@ public class Boss : MonoBehaviour
     {
         
         StopAllCoroutines();
+       
         BossVunerable = true;
         bossAnim.ResetTrigger("attack1");
         bossAnim.ResetTrigger("attack2charge");
         BossMat.material = Yellow;
         KeytarMat.material = Yellow;
+        foreach (Renderer color in AudioCubes)
+        {
+            color.material.SetColor("_EmissionColor", Color.yellow);
+        }
         if (BossHealth < TempHP)
         {
+            YellowVFX.Stop();
+            BossVunerable = false;
             HPsquares[BossHealth].SetActive(false);
             bossAnim.SetTrigger("hit");
             agent.speed = 10;
@@ -258,6 +287,8 @@ public class Boss : MonoBehaviour
     {
         bossAnim.ResetTrigger("hit");
         bossAnim.SetTrigger("vun");
+        YellowVFX.Play();
+
         b_BossState = BossState.VUNERABLE;
     }
 
@@ -293,8 +324,13 @@ public class Boss : MonoBehaviour
 
     void Invunerable()
     {
+        YellowVFX.Stop();
         BossMat.material = Green;
         KeytarMat.material = Green;
+        foreach (Renderer color in AudioCubes)
+        {
+            color.material.SetColor("_EmissionColor", Color.green);
+        }
         BossVunerable = false;
         if (Vector3.Distance(InvunerablePos.position, this.transform.position) > 3)
         {
@@ -339,6 +375,11 @@ public class Boss : MonoBehaviour
 
     void Dead()
     {
+        foreach (ParticleSystem fire in ThrusterEffects)
+        {
+            fire.Stop();
+        }
+        YellowVFX.Stop();
         bossAnim.SetBool("dead", true);
     }
        
