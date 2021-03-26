@@ -45,6 +45,10 @@ public class Boss : MonoBehaviour
     public GameObject Enemy;
     private Renderer MaterialColour;
     public Color AttackColour, VunerableColour,ChargeColour;
+
+
+    public GameObject FadeOut;
+    public List<GameObject> UIobjs;
     // Start is called before the first frame update
     void Start()
     {
@@ -384,5 +388,15 @@ public class Boss : MonoBehaviour
         YellowVFX.Stop();
         bossAnim.SetBool("dead", true);
     }
+
+    public void FadeOutAnim()
+    {
+        this.transform.GetComponent<Boss>().enabled = false;
+        foreach (GameObject item in UIobjs)
+        {
+            item.SetActive(false);
+        }
+       FadeOut.SetActive(true);
+    }    
        
 }
