@@ -38,6 +38,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Shooting
     m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: AnimAmmo
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5883491988067776559}
   m_Solo: 0
@@ -185,6 +188,12 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: reload
     m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: AnimAmmo
+    m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0

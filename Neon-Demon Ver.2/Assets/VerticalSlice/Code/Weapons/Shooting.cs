@@ -24,7 +24,7 @@ public class Shooting : MonoBehaviour
     public GameObject gunsway;
 
 
-
+    public TMP_Text AmmoText;
     [Header("SFX")]
     public AudioSource FIRESFX;
 
@@ -61,6 +61,8 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
+        AmmoText.text = "" + Ammo;
+        Ads_anim.SetInteger("AnimAmmo", Ammo); 
         //AmmoCount.text = "" + Ammo;
         /*
         if (menuScript.gamePaused)
@@ -120,7 +122,7 @@ public class Shooting : MonoBehaviour
             // Ads_anim.enabled = true;
             // Ads_anim.SetBool("Reload", true);
             Ads_anim.SetTrigger("reload");
-            Ammo = ReloadAmmo;
+            //Ammo = ReloadAmmo;
           //  StartCoroutine(WaitForReload());
         }
       
@@ -1053,6 +1055,10 @@ public class Shooting : MonoBehaviour
         StartCoroutine(wait());
     }
 
+    public void ReloadBullets()
+    {
+        Ammo = ReloadAmmo;
+    }
     public IEnumerator WaitForReload()
     {
         yield return new WaitForSeconds(2);
@@ -1099,7 +1105,7 @@ public class Shooting : MonoBehaviour
         // Ads_anim.enabled = true;
         //Ads_anim.SetBool("Reload", true);
         Ads_anim.SetTrigger("reload");
-        StartCoroutine(WaitForReload());
+        //StartCoroutine(WaitForReload());
         }
 
         public void OnADSInput()
