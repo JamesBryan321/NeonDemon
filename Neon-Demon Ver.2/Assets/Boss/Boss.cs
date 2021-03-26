@@ -36,7 +36,7 @@ public class Boss : MonoBehaviour
 
     public List<Renderer> AudioCubes;
     public List<ParticleSystem> ThrusterEffects;
-    public ParticleSystem ChargeVFX;
+    public ParticleSystem ChargeVFX,ChargeVFX2;
     public ParticleSystem YellowVFX;
     public Material Green, Yellow, Red;
     public SkinnedMeshRenderer BossMat;
@@ -138,6 +138,7 @@ public class Boss : MonoBehaviour
     {
         LastPlayerRef.position = Player.transform.position;
         ChargeVFX.Play();
+        ChargeVFX2.Play();
         transform.LookAt(Player.transform);
         //bossAnim.SetBool("chargestart", true);
         yield return new WaitForSeconds(ChargeTime);
@@ -159,6 +160,7 @@ public class Boss : MonoBehaviour
     void Attack1()
     {
         ChargeVFX.Stop();
+        ChargeVFX2.Stop();
         bossAnim.SetBool("chargestart", false);
         TempHP = BossHealth;
         BossVunerable = false;
