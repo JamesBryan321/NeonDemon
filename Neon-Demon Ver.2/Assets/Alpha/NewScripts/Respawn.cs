@@ -55,14 +55,14 @@ public class Respawn : MonoBehaviour
     public void RespawnPlayer()
     {
         //Fade.SetTrigger("_fade");
-        Rumble();
+        //Rumble();
         Player.transform.position = SoftRespawns[SoftRespawnCount-1].position;
     }
 
     public void HardRespawnPlayer()
     {
         Rumble();
-        Player.transform.position = HardRespawns[HardRespawnCount - 1].position;
+        //Player.transform.position = HardRespawns[HardRespawnCount - 1].position;
     }
 
 

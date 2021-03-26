@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossAttack : MonoBehaviour
 {
@@ -16,7 +17,10 @@ public class BossAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Player.GetComponent<PlayerHP>().PlayerHealth<= 0)
+        {
+            SceneManager.LoadScene("Boss");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
