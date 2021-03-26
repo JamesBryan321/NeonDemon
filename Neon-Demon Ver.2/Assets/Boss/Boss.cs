@@ -223,7 +223,7 @@ public class Boss : MonoBehaviour
             color.material.SetColor("_EmissionColor", Color.red);
         }
         Debug.Log("spin");
-        transform.Rotate(0, 50 * Time.deltaTime, 0);
+        transform.Rotate(0, 30 * Time.deltaTime, 0);
         foreach (ParticleSystem Fire in Flames)
         {
             Fire.Play();
@@ -234,7 +234,7 @@ public class Boss : MonoBehaviour
             col.SetActive(true);
         }
         bossAnim.SetBool("attack_2", true);
-        coroutine = AttackCooldown(2.0f);
+        coroutine = AttackCooldown(10.0f);
         StartCoroutine(coroutine);
     }
 

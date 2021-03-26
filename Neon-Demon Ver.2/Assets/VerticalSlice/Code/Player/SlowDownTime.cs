@@ -22,11 +22,11 @@ public class SlowDownTime : MonoBehaviour
     public GameObject[] CP_asset;
     public GameObject[] Hell_asset;
     public bool realityNormal;
-    public GameObject HellVolume;
-    public Animator Vignette;
+    //public GameObject HellVolume;
+    //public Animator Vignette;
 
 
-
+    public Animator Glasses_Anim;
     void Start()
     {
         Meter.GetComponent<Image>().fillAmount = MeterAmount;
@@ -35,8 +35,8 @@ public class SlowDownTime : MonoBehaviour
 
     public void OnRealityInput()
     {
-        TimeStop = TimeStop * -1;
         WaitForChange();
+        TimeStop = TimeStop * -1;
     }
 
 
@@ -110,21 +110,24 @@ public class SlowDownTime : MonoBehaviour
 
     private void WaitForChange()
     {
-       // yield return new WaitForSeconds(0.01f);
+        //yield return new WaitForSeconds(0.01f);
 
         if (realityNormal == true)
         {
-            changeToHell();
+            Debug.Log("Swap Swap Swap");
+            Glasses_Anim.SetBool("Swap", true);
+            //changeToHell();
             realityNormal = false;
         }
         else if (realityNormal == false)
         {
+            Glasses_Anim.SetBool("Swap", false);
             changeToNormal1();
             realityNormal = true;
         }
 
     }
-    private void changeToHell()
+    public void changeToHell()
     {
 
        // HellVolume.SetActive(true);
