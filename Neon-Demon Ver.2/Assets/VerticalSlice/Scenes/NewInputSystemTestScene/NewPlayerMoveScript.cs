@@ -46,6 +46,7 @@ public class NewPlayerMoveScript : MonoBehaviour
     public float jumpHeight = 2.0f;
     
     public GameObject playerCamera;
+    public Animator shotgun;
 
     public bool disablePlayerMovement;
     public bool setPlayerRotation;
@@ -82,12 +83,17 @@ public class NewPlayerMoveScript : MonoBehaviour
         //isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);
         if (isGrounded)
         {
+            shotgun.ResetTrigger("In Air");
             isJumping = false;
+            shotgun.SetTrigger("Idle");
         }
 
         if (!isGrounded)
         {
             isJumping = true;
+            shotgun.ResetTrigger("Idle");
+            shotgun.SetTrigger("In Air");
+            
         }
      
 
