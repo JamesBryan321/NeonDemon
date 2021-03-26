@@ -410,8 +410,9 @@ public class Shooting : MonoBehaviour
                     settings.FreezeDecalDisappearance = true;
 
                     shotgunHitPoint.transform.GetComponent<Headshot>().BoomHeadshot();
+                shotgunHitPoint.transform.GetComponent<TakeDamage>().Thrusterdamage();
 
-                    foreach (Collider hit1 in colliders)
+                foreach (Collider hit1 in colliders)
                     {
                         Rigidbody rib = hit1.GetComponent<Rigidbody>();
                         if (rib != null)
@@ -557,8 +558,8 @@ public class Shooting : MonoBehaviour
                     settings.FreezeDecalDisappearance = true;
 
                     shotgunHitPoint2.transform.GetComponent<Headshot>().BoomHeadshot();
-
-                    foreach (Collider hit1 in colliders)
+                shotgunHitPoint2.transform.GetComponent<TakeDamage>().Thrusterdamage();
+                foreach (Collider hit1 in colliders)
                     {
                         Rigidbody rib = hit1.GetComponent<Rigidbody>();
                         if (rib != null)
@@ -704,8 +705,9 @@ public class Shooting : MonoBehaviour
                     settings.FreezeDecalDisappearance = true;
 
                     shotgunHitPoint3.transform.GetComponent<Headshot>().BoomHeadshot();
+                shotgunHitPoint3.transform.GetComponent<TakeDamage>().Thrusterdamage();
 
-                    foreach (Collider hit1 in colliders)
+                foreach (Collider hit1 in colliders)
                     {
                         Rigidbody rib = hit1.GetComponent<Rigidbody>();
                         if (rib != null)
@@ -851,8 +853,8 @@ public class Shooting : MonoBehaviour
                     settings.FreezeDecalDisappearance = true;
 
                     shotgunHitPoint4.transform.GetComponent<Headshot>().BoomHeadshot();
-
-                    foreach (Collider hit1 in colliders)
+                shotgunHitPoint4.transform.GetComponent<TakeDamage>().Thrusterdamage();
+                foreach (Collider hit1 in colliders)
                     {
                         Rigidbody rib = hit1.GetComponent<Rigidbody>();
                         if (rib != null)
@@ -998,8 +1000,9 @@ public class Shooting : MonoBehaviour
                     settings.FreezeDecalDisappearance = true;
 
                     shotgunHitPoint5.transform.GetComponent<Headshot>().BoomHeadshot();
+                shotgunHitPoint5.transform.GetComponent<TakeDamage>().Thrusterdamage();
 
-                    foreach (Collider hit1 in colliders)
+                foreach (Collider hit1 in colliders)
                     {
                         Rigidbody rib = hit1.GetComponent<Rigidbody>();
                         if (rib != null)
