@@ -298,11 +298,23 @@ public class Boss : MonoBehaviour
         b_BossState = BossState.VUNERABLE;
     }
 
+    public GameObject BossSprite1,BossSprite2, BossSprite3;
+
     public void hittransistion()
     {
         BossVunerable = false;
-        if (BossHealth == 4 || BossHealth == 2)
+        if (BossHealth == 4 )
         {
+            BossSprite1.SetActive(false);
+            BossSprite2.SetActive(true);
+            agent.speed = 20;
+            EnemiesSpawn = true;
+            b_BossState = BossState.INVUNERABLE;
+        }
+        else if(BossHealth == 2)
+        {
+            BossSprite2.SetActive(false);
+            BossSprite3.SetActive(true);
             agent.speed = 20;
             EnemiesSpawn = true;
             b_BossState = BossState.INVUNERABLE;
