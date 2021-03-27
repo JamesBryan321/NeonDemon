@@ -10,20 +10,34 @@ public class BraceletManager : MonoBehaviour
     public GameObject goToNC;
     public GameObject goToNC1;
 
+
+    public GameObject braceletImage1;
+    public GameObject braceletImage2;
+
+
     // Start is called before the first frame update
     void Start()
     {
         goToNC.SetActive(false);
         goToNC1.SetActive(false);
+        braceletImage1.SetActive(false);
+        braceletImage2.SetActive(false);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if(keyCount ==1 )
+        {
+            braceletImage1.SetActive(true);
+        }
         if (keyCount == 2)
         {
             goToNC.SetActive(true);
+            braceletImage2.SetActive(true);
+
         }
     }
     private void OnTriggerEnter(Collider other)
