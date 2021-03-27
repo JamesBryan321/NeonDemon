@@ -22,6 +22,7 @@ public class StartCinematic : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Cinematic2.SetActive(true);
+            Destroy(gameObject);
         }
     }
 }
