@@ -5,6 +5,8 @@ using UnityEngine;
 public class PickUps : MonoBehaviour
 {
     public GameObject Revolver;
+    public GameObject RevolverRet;
+
     public Animator Gun_Anim;
 
     public AudioSource groovyGunPickup;
@@ -25,6 +27,8 @@ public class PickUps : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Revolver.SetActive(true);
+            RevolverRet.SetActive(true);
+
             groovyGunPickup.Play();
             Gun_Anim.SetTrigger("Pickup");
             Destroy(gameObject);
