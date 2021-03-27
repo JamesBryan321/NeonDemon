@@ -48,7 +48,7 @@ public class SlowDownTime : MonoBehaviour
             {
                 if (Meter.GetComponent<Image>().fillAmount > 0 && TimeStop < 0)
                 {
-                    Meter.GetComponent<Image>().fillAmount -= 0.005f;
+                    Meter.GetComponent<Image>().fillAmount -= 0.0025f;
                     Time.timeScale = 0.5f;
                     PlayerRef.moveSpeed = 30f;
                 }

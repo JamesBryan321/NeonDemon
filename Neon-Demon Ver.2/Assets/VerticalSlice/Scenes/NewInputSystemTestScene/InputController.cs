@@ -61,6 +61,7 @@ public class InputController : MonoBehaviour
 
     public Gamepad gamePad;
 
+
     private void Awake()
     {
         controls = new Controls();
