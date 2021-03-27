@@ -10,7 +10,7 @@ public class PlayerHP : MonoBehaviour
     public float PlayerHealth = 1;
     public List<GameObject> DamageObjects;
     public Respawn spawnref;
-    public int keyCount = 0; 
+   
     void Start()
     {
         //HPUI.GetComponent<Image>().fillAmount = PlayerHealth;
@@ -53,22 +53,11 @@ public class PlayerHP : MonoBehaviour
             spawnref.HardRespawnPlayer();
             PlayerHealth = 1;
         }
-        if(keyCount >= 2)
-        {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene("MainMenu");
-        }
+     
         
     }
 
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Key"))
-        {
-            keyCount++;
-            Destroy(other.gameObject);
-        }
-    }
+
 }
