@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class Boss : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class Boss : MonoBehaviour
 
     public GameObject FadeOut;
     public List<GameObject> UIobjs;
+    public GameObject quitToMenuButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -409,6 +411,8 @@ public class Boss : MonoBehaviour
             item.SetActive(false);
         }
        FadeOut.SetActive(true);
+       EventSystem.current.SetSelectedGameObject(null);
+       EventSystem.current.SetSelectedGameObject(quitToMenuButton);
     }    
        
 }
