@@ -31,27 +31,28 @@ public class MortarProjectile : MonoBehaviour
     public AudioSource HitbackRocketSFX;
 
 
-    public Vector3[] Followpositions = new Vector3[80];
+    public Vector3[] Followpositions = new Vector3[20];
     // Start is called before the first frame update
     void Start()
     {
         //LineRef = GameObject.Find("MortarEnemy").GetComponent<MortarEnemy>();
-        transform.position =Followpositions[CurrentWaypointID];
+        transform.position = Followpositions[CurrentWaypointID];
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(Followpositions[CurrentWaypointID]);
+        
         //transform.position = LineRef.positions[CurrentWaypointID];
         //Debug.Log(CurrentWaypointID);
-        if (CurrentWaypointID < 79)
+        if (CurrentWaypointID < 19)
         {
+            transform.LookAt(Followpositions[CurrentWaypointID]);
             Debug.Log("TEst");
             //transform.position = Followpositions[CurrentWaypointID];
             Seek();
-            if (Vector3.Distance(Followpositions[CurrentWaypointID], this.transform.position) < 1 && shot == false)
+            if (Vector3.Distance(Followpositions[CurrentWaypointID], this.transform.position) < 3 && shot == false)
             {
                 CurrentWaypointID = (CurrentWaypointID + 1);//% LineRef.positions.Length+1;
             }
@@ -59,8 +60,9 @@ public class MortarProjectile : MonoBehaviour
             {
                 CurrentWaypointID = 0;
             }
+         
         }
-        else if (CurrentWaypointID >= 79)
+        else if (CurrentWaypointID >= 19)
         {
             GameObject Bomb = Instantiate(Explosion, this.transform);
             Bomb.transform.parent = null;
@@ -83,6 +85,7 @@ public class MortarProjectile : MonoBehaviour
         transform.position += velocity * Time.deltaTime;
         transform.forward = velocity.normalized;
     }
+    
    public void reverse()
     {
         CurrentWaypointID = (CurrentWaypointID - 1);
@@ -99,6 +102,7 @@ public class MortarProjectile : MonoBehaviour
         shot = true;
         HitbackRocketSFX.Play();
     }
+    
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Mortar") && shot == true)

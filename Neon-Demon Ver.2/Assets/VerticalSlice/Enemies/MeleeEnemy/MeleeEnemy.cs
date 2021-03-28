@@ -43,7 +43,8 @@ public class MeleeEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(z_MeleeState)
+        //Player = GameObject.Find("Player");
+        switch (z_MeleeState)
         {
             case MeleeState.IDLE:
                 Idle();
