@@ -47,7 +47,9 @@ public class Boss : MonoBehaviour
     private Renderer MaterialColour;
     public Color AttackColour, VunerableColour,ChargeColour;
 
-
+    public GameObject painsfx;
+    public GameObject flamesfx;
+    public AudioSource FlameThrowerSFX, ChargeSFX, SwingSFX;
     public GameObject FadeOut;
     public List<GameObject> UIobjs;
     public GameObject quitToMenuButton;
@@ -159,6 +161,7 @@ public class Boss : MonoBehaviour
     public void Attack1AnimState()
     {
         //bossAnim.SetBool("chargestart", false);
+        ChargeSFX.Play();
         b_BossState = BossState.ATTACK1;
 
     }
@@ -199,6 +202,8 @@ public class Boss : MonoBehaviour
             bossAnim.SetTrigger("attack2charge");
             if(aoe == true)
             {
+                //FlameThrowerSFX.Play();
+                flamesfx.SetActive(true);
                 AOEattack();
             }
           
@@ -226,6 +231,7 @@ public class Boss : MonoBehaviour
         }
         Debug.Log("spin");
         transform.Rotate(0, 30 * Time.deltaTime, 0);
+       
         foreach (ParticleSystem Fire in Flames)
         {
             Fire.Play();
@@ -247,7 +253,8 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         aoe = false;
         bossAnim.SetBool("attack_2", false);
-
+        //FlameThrowerSFX.Stop();
+        flamesfx.SetActive(false);
         foreach (ParticleSystem Fire in Flames)
         {
             Fire.Stop();
@@ -281,6 +288,7 @@ public class Boss : MonoBehaviour
         if (BossHealth < TempHP)
         {
             YellowVFX.Stop();
+            painsfx.SetActive(true);
             BossVunerable = false;
             HPsquares[BossHealth].SetActive(false);
             bossAnim.SetTrigger("hit");
@@ -291,6 +299,15 @@ public class Boss : MonoBehaviour
        
     }
 
+    public void hitsfx()
+    {
+        painsfx.SetActive(false);
+    }
+
+    public void PlaySwing()
+    {
+        SwingSFX.Play();
+    }
     public void GoToVUN()
     {
         bossAnim.ResetTrigger("hit");
