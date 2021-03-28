@@ -62,7 +62,7 @@ public class Respawn : MonoBehaviour
     public void HardRespawnPlayer()
     {
         Rumble();
-        //Player.transform.position = HardRespawns[HardRespawnCount - 1].position;
+        Player.transform.position = HardRespawns[HardRespawnCount - 1].position;
     }
 
 
