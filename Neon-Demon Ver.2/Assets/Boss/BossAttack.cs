@@ -28,6 +28,7 @@ public class BossAttack : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Player.GetComponent<PlayerHP>().PlayerHealth -= 0.25f;
+            Player.GetComponent<PlayerHP>().PlayRandomHit();
         }
     }
 }
