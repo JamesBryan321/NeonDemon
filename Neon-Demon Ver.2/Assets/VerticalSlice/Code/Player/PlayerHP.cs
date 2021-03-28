@@ -10,6 +10,10 @@ public class PlayerHP : MonoBehaviour
     public float PlayerHealth = 1;
     public List<GameObject> DamageObjects;
     public Respawn spawnref;
+    
+    public AudioSource hit0, hit1, hit2, hit3, die0, die1;
+
+    public AudioSource[] hitSFX;
    
     void Start()
     {
@@ -50,11 +54,29 @@ public class PlayerHP : MonoBehaviour
         if(PlayerHealth <= 0)
         {
             //Application.LoadLevel(Application.loadedLevel);
+            PlayRandomDie();
             spawnref.HardRespawnPlayer();
             PlayerHealth = 1;
         }
      
         
+    }
+
+    public void PlayRandomHit()
+    {
+        //Debug.Log("Ouch");
+        if (hitSFX[0].isPlaying || hitSFX[1].isPlaying || hitSFX[2].isPlaying || hitSFX[3].isPlaying)
+        {
+            return;
+        }
+        //Debug.Log("Ouchie");
+        int clipToPlay = Random.Range(0, 3);
+        hitSFX[clipToPlay].Play();
+    }
+
+    public void PlayRandomDie()
+    {
+        die0.Play();
     }
 
 

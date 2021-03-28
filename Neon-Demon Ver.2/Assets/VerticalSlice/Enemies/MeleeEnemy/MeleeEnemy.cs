@@ -140,6 +140,7 @@ public class MeleeEnemy : MonoBehaviour
     public void Damage()
     {
         Player.GetComponent<PlayerHP>().PlayerHealth -= EnemyDamage;
+        Player.GetComponent<PlayerHP>().PlayRandomHit();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -160,6 +161,7 @@ public class MeleeEnemy : MonoBehaviour
     {
         warningeffect.SetActive(true);
         yield return new WaitForSeconds(1f);
+        Damage();
         warningeffect.SetActive(false);
 
     }
