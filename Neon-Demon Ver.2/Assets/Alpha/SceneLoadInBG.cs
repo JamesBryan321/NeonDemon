@@ -50,4 +50,9 @@ public class SceneLoadInBG : MonoBehaviour
         }
         */
     }
+
+    public void tut()
+    {
+        SceneManager.LoadScene("NewTutorial");
+    }
 }

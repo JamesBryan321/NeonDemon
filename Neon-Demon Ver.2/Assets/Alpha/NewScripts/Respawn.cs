@@ -28,6 +28,12 @@ public class Respawn : MonoBehaviour
     #region Trigger
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("tutorial1"))
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("MainLevel");
+        }
+
         if(other.CompareTag("SoftRespawn"))
         {
             Transform CurrentRespawn = other.gameObject.transform;
@@ -49,6 +55,7 @@ public class Respawn : MonoBehaviour
         {
             RespawnPlayer();
         }
+
     }
 
     #endregion
@@ -77,11 +84,6 @@ public class Respawn : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         inputScript.gamePad.SetMotorSpeeds(0, 0);
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("bottle"))
-        {
-            SceneManager.LoadScene("MainLevel");
-        }
-    }
+
+
 }
