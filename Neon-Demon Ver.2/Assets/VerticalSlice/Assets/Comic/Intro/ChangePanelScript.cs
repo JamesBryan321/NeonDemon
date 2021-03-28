@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangePanelScript : MonoBehaviour
 {
-    public int PanelMin = 1, PanelMax = 8;
+    public int PanelMin = 1, PanelMax = 9;
     public int PanelNo;
 
     [SerializeField] public SceneChange sceneScript;
@@ -110,6 +110,10 @@ public class ChangePanelScript : MonoBehaviour
             Panel8.SetActive(false);
         }
 
+        if(PanelNo == 9)
+        {
+            sceneScript.LoadTutorial();
+        }
 
     }
 
