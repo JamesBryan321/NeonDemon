@@ -10,7 +10,7 @@ public class MainMenuCamera : MonoBehaviour
     private Transform Temp;
     int CurrentCamera;
     
-    public GameObject mainMenuFirstButton, settingsFirstButton, creditsFirstButton;
+    public GameObject mainMenuFirstButton, settingsFirstButton, creditsFirstButton, settingsFirstB;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +53,13 @@ public class MainMenuCamera : MonoBehaviour
         CurrentCamera = 2;
         SelectCreditsMenu();
     }
+    public void Move3()
+    {
+        Debug.Log("Click");
+        Temp = this.transform;
+        CurrentCamera = 3;
+        SelectGameSettingsMenu();
+    }
 
     public void Twitter()
     {
@@ -75,5 +82,11 @@ public class MainMenuCamera : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(creditsFirstButton);
+    }
+
+    public void SelectGameSettingsMenu()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(settingsFirstB);
     }
 }
