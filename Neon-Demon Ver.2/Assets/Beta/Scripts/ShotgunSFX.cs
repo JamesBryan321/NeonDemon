@@ -8,6 +8,8 @@ public class ShotgunSFX : MonoBehaviour
     public AudioSource Click;
     public AudioSource ReloadSFX;
     public AudioSource Click2;
+    public AudioSource BarrelLoad;
+
     public AudioSource power;
 
     public GameObject Cartridge;
@@ -27,6 +29,10 @@ public class ShotgunSFX : MonoBehaviour
     public void ShotgunClick()
     {
         Click.Play();
+    }
+    public void BarrelClick()
+    {
+        BarrelLoad.Play();
     }
     public void ShotgunClick2()
     {
