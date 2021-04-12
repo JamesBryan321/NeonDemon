@@ -34,6 +34,8 @@ public class Shooting : MonoBehaviour
     public ParticleSystem Muzzleflash;
     public GameObject impactEffect;
     public List<GameObject> BloodFX;
+
+    public List<GameObject> BossBlood;
     public Light DirLight;
     //public ParticleSystem shotgun;
 
@@ -198,7 +200,8 @@ public class Shooting : MonoBehaviour
             {
 
                 hit.transform.GetComponent<BossHealth>().Damage();
-            
+           
+
             }
             if (hit.transform.CompareTag("Thruster"))
             {
@@ -285,6 +288,11 @@ public class Shooting : MonoBehaviour
                     hit.transform.GetComponent<Boss>().BossHealth -= 1;
                   
                     hit.transform.GetComponent<Boss>().BossVunerable = false;
+                    float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BossBlood.Count);
+                    var instance = (Instantiate(BossBlood[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
                 }
             }
         }
