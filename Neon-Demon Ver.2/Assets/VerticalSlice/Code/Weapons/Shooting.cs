@@ -46,6 +46,7 @@ public class Shooting : MonoBehaviour
     public InputController inputScript;
     public Animator Reticle;
 
+    public GameObject player;
     //private IEnumerator WaitForReload;
     public float bulletSpread, bulletXOffset, bulletYOffset;
     public GameObject bulletMarker;
@@ -153,6 +154,7 @@ public class Shooting : MonoBehaviour
         bulletXOffset = Random.Range(-bulletSpread, bulletSpread);
         bulletYOffset = Random.Range(-bulletSpread, bulletSpread);
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5F + bulletXOffset, 0.5F + bulletYOffset, 0));
+        player.GetComponent<CamShaker>().SmallershakeIt();
         RaycastHit hit;
         Ads_anim.SetBool("Shoot", true);
         Reticle.SetTrigger("Shoot");
@@ -309,6 +311,7 @@ public class Shooting : MonoBehaviour
         RaycastHit shotgunHitPoint3;
         RaycastHit shotgunHitPoint4;
         RaycastHit shotgunHitPoint5;
+        player.GetComponent<CamShaker>().shakeIt();
 
         //RaycastHit[] hit;
         Ads_anim.SetBool("Shoot", true);
