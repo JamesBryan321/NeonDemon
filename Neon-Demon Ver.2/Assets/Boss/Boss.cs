@@ -128,6 +128,7 @@ public class Boss : MonoBehaviour
 
     void Charge()
     {
+       
         YellowVFX.Stop();
         BossVunerable = false;
         TempHP = BossHealth;
@@ -194,10 +195,16 @@ public class Boss : MonoBehaviour
     bool aoe;
     void Attack2()
     {
+        agent.speed = 20;
+        BossMat.material = Green;
+        KeytarMat.material = Green;
+        YellowVFX.Stop();
+        bossAnim.ResetTrigger("attack1");
+        
         YellowVFX.Stop();
         TempHP = BossHealth;
         BossVunerable = false;
-        if(Vector3.Distance(Attack2Pos.position, this.transform.position)<3)
+        if(Vector3.Distance(Attack2Pos.position, this.transform.position)<2)
         {
             bossAnim.SetTrigger("attack2charge");
             if(aoe == true)
@@ -345,7 +352,15 @@ public class Boss : MonoBehaviour
         }
         else
         {
-            b_BossState = BossState.CHARGE;
+            int random = Random.Range(0, 2);
+            if(random == 0)
+            {
+                b_BossState = BossState.CHARGE;
+            }
+            else
+            {
+                b_BossState = BossState.ATTACK2;
+            }
 
         }
     }
@@ -353,7 +368,15 @@ public class Boss : MonoBehaviour
     public void chargeaftervun()
     {
         BossVunerable = false;
-        b_BossState = BossState.CHARGE;
+        int random = Random.Range(0, 2);
+        if (random == 0)
+        {
+            b_BossState = BossState.CHARGE;
+        }
+        else
+        {
+            b_BossState = BossState.ATTACK2;
+        }
 
     }
 
@@ -407,7 +430,19 @@ public class Boss : MonoBehaviour
     {
         yield return new WaitForSeconds(invuncdr);
         bossAnim.SetBool("invun", false);
-        b_BossState = BossState.ATTACK2;
+        int random = Random.Range(0, 2);
+        if (random == 0)
+        {
+            b_BossState = BossState.CHARGE;
+            StopAllCoroutines();
+            yield break;
+        }
+        else
+        {
+            b_BossState = BossState.ATTACK2;
+            StopAllCoroutines();
+            yield break;
+        }
     }
 
     void Dead()
