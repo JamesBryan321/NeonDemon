@@ -142,6 +142,7 @@ public class MeleeEnemy : MonoBehaviour
     {
         Player.GetComponent<PlayerHP>().PlayerHealth -= EnemyDamage;
         Player.GetComponent<PlayerHP>().PlayRandomHit();
+        Player.GetComponent<CamShaker>().SmallershakeIt();
     }
 
     private void OnTriggerEnter(Collider other)

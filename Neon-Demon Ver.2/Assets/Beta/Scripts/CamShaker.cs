@@ -13,10 +13,14 @@ public class CamShaker : MonoBehaviour
     {
         StartCoroutine(camerashake.Shake(.2f, .6f));
     }
+    public void ShotgunshakeIt()
+    {
+        StartCoroutine(camerashake.Shake(.06f, .8f));
+    }
 
     public void SmallershakeIt()
     {
-        StartCoroutine(camerashake.Shake(.05f, .15f));
+        StartCoroutine(camerashake.Shake(.03f, .15f));
     }
 
 

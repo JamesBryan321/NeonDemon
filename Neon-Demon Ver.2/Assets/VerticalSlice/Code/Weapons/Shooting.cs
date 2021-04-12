@@ -208,8 +208,9 @@ public class Shooting : MonoBehaviour
                 var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
                 var settings = instance.GetComponent<BFX_BloodSettings>();
                 settings.FreezeDecalDisappearance = true;
-                
-               // settings.LightIntensityMultiplier = DirLight.intensity;
+        player.GetComponent<CamShaker>().SmallershakeIt();
+
+                // settings.LightIntensityMultiplier = DirLight.intensity;
                 StartCoroutine(wait());
                 Debug.Log("hit thruster, BOOOM");
 
@@ -311,7 +312,7 @@ public class Shooting : MonoBehaviour
         RaycastHit shotgunHitPoint3;
         RaycastHit shotgunHitPoint4;
         RaycastHit shotgunHitPoint5;
-        player.GetComponent<CamShaker>().shakeIt();
+        player.GetComponent<CamShaker>().ShotgunshakeIt();
 
         //RaycastHit[] hit;
         Ads_anim.SetBool("Shoot", true);
