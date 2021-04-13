@@ -3,7 +3,18 @@ guid: 6ba89cb96b94e5c4c9aa97d0964936f8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sensitivitySlider: {instanceID: 0}
+  - musicVolumeSlider: {instanceID: 0}
+  - soundFXVolumeSlider: {instanceID: 0}
+  - dialogueVolumeSlider: {instanceID: 0}
+  - masterMixer: {fileID: 24300002, guid: 33feb080200b1724bb618d2a3221cb88, type: 2}
+  - musicMixer: {fileID: 6485553903408893601, guid: 33feb080200b1724bb618d2a3221cb88,
+      type: 2}
+  - soundFXMixer: {fileID: -3414861205061503760, guid: 33feb080200b1724bb618d2a3221cb88,
+      type: 2}
+  - dialogueMixer: {fileID: -790169794998046853, guid: 33feb080200b1724bb618d2a3221cb88,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
