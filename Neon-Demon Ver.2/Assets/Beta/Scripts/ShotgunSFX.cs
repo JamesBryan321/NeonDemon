@@ -9,6 +9,7 @@ public class ShotgunSFX : MonoBehaviour
     public AudioSource ReloadSFX;
     public AudioSource Click2;
     public AudioSource BarrelLoad;
+    public Shooting GunRef;
 
     public AudioSource power;
 
@@ -51,5 +52,9 @@ public class ShotgunSFX : MonoBehaviour
     public void SpawnCartridge()
     {
         //Instantiate(Cartridge, SpawnCartridgePos);
+    }
+    public void ReloadBullets()
+    {
+        GunRef.Ammo = GunRef.ReloadAmmo;
     }
 }

@@ -32,6 +32,10 @@ public class NewPlayerMoveScript : MonoBehaviour
     private float vertical;
     public Vector2 velocity;
 
+
+    [Header("Animations")]
+    public Animator shotgun;
+
    
 
  
@@ -46,7 +50,7 @@ public class NewPlayerMoveScript : MonoBehaviour
     public float jumpHeight = 2.0f;
     
     public GameObject playerCamera;
-    public Animator shotgun;
+    public Animator shotgunAnim;
 
     public bool disablePlayerMovement;
     public bool setPlayerRotation;
@@ -95,7 +99,8 @@ public class NewPlayerMoveScript : MonoBehaviour
             shotgun.SetTrigger("In Air");
             
         }
-     
+      
+
 
         xMovement = new Vector2(horizontal * transform.right.x, 
             horizontal * transform.right.z);
@@ -106,12 +111,34 @@ public class NewPlayerMoveScript : MonoBehaviour
         velocity = (xMovement + zMovement).normalized * moveSpeed;
             playerRigidbody.velocity = new Vector3(velocity.x, playerRigidbody.velocity.y, velocity.y);
 
+
+        /*if (velocity != null)
+        {
+            shotgun.ResetTrigger("Idle");
+            shotgun.SetTrigger("Run");
+        }
+
+
+
+
+        else if (velocity == new Vector2(0,0))
+        {
+            shotgun.ResetTrigger("Run");
+            shotgun.SetTrigger("Idle");
+        }*/
+        if (velocity == new Vector2(0, 0))
+        {
+            shotgun.ResetTrigger("Run");
+            shotgun.SetTrigger("Idle");
+        }
+
     }
 
     public void OnMoveInput(float horizontal, float vertical)
     {
         this.vertical = vertical;
         this.horizontal = horizontal;
+
         //Debug.Log($"Player Controller: Left Stick Input: {vertical}, {horizontal}");
     }
 
