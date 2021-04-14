@@ -20,7 +20,7 @@ public class FogTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            RenderSettings.fogDensity = 0.02f;
+            RenderSettings.fogDensity = 0.002f;
         }
     }
 }
