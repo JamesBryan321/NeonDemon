@@ -6,6 +6,10 @@ public class NewDash : MonoBehaviour
 {
     private Rigidbody playerRigidbody;
     [SerializeField] private GameObject SpeedLineOBJ;
+    [SerializeField] private ParticleSystem DashEffect;
+
+
+
     [Header("Dash Values")]
     [SerializeField] private float dashForce;
     [SerializeField] private float dashForceGround;
@@ -25,7 +29,7 @@ public class NewDash : MonoBehaviour
     void Start()
     {
 
-       
+        DashEffect.GetComponent<ParticleSystem>();
             playerRigidbody = GetComponent<Rigidbody>();
         
     }
@@ -52,6 +56,7 @@ public class NewDash : MonoBehaviour
         //DashCDR.fillAmount = jumpTime;
         playerRigidbody.velocity = Vector3.zero;
         SpeedLineOBJ.SetActive(false);
+       
     }
 
 
@@ -61,6 +66,7 @@ public class NewDash : MonoBehaviour
         {
             Rumble();
             StartCoroutine(DashTest());
+            DashEffect.Play();
         }
     }
     
