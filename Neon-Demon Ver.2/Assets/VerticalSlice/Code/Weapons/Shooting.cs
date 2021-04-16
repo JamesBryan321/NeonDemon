@@ -392,7 +392,7 @@ public class Shooting : MonoBehaviour
 
                     // settings.LightIntensityMultiplier = DirLight.intensity;
                     StartCoroutine(wait());
-                    Debug.Log("hit thruster, BOOOM");
+                    //Debug.Log("hit thruster, BOOOM");
 
 
                     //hit.transform.GetComponent<EnemyTornApart>().TurnEnemyOn();
@@ -437,7 +437,7 @@ public class Shooting : MonoBehaviour
                     }
 
 
-                    Debug.Log("Boom epic headshot!!!!!!");
+                    //Debug.Log("Boom epic headshot!!!!!!");
                 }
 
                 if (shotgunHitPoint.transform.CompareTag("bottle"))
@@ -835,7 +835,7 @@ public class Shooting : MonoBehaviour
 
                     // settings.LightIntensityMultiplier = DirLight.intensity;
                     StartCoroutine(wait());
-                    Debug.Log("hit thruster, BOOOM");
+                    //Debug.Log("hit thruster, BOOOM");
 
 
                     //hit.transform.GetComponent<EnemyTornApart>().TurnEnemyOn();
@@ -879,7 +879,7 @@ public class Shooting : MonoBehaviour
                     }
 
 
-                    Debug.Log("Boom epic headshot!!!!!!");
+                    //Debug.Log("Boom epic headshot!!!!!!");
                 }
 
                 if (shotgunHitPoint4.transform.CompareTag("bottle"))
