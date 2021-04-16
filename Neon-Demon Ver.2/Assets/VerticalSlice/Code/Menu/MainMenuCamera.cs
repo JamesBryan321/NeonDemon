@@ -8,7 +8,7 @@ public class MainMenuCamera : MonoBehaviour
     public List<Transform> CameraPositions;
 
     private Transform Temp;
-    int CurrentCamera;
+   public int CurrentCamera;
     
     public GameObject mainMenuFirstButton, settingsFirstButton, creditsFirstButton, settingsFirstB;
     // Start is called before the first frame update
@@ -88,5 +88,14 @@ public class MainMenuCamera : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(settingsFirstB);
+    }
+    public void camerachangeUp()
+    {
+        CurrentCamera = CurrentCamera + 1;
+    }
+    public void camerachangeDown()
+    {
+        CurrentCamera = CurrentCamera - 1;
+
     }
 }
