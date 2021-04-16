@@ -15,7 +15,7 @@ public class FirstMortarAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.enabled == true)
+        if (this.gameObject.activeInHierarchy == true)
         {
             enemyNavObstacle.SetActive(false);
         }
