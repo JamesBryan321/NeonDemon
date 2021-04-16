@@ -16,13 +16,13 @@ public class SettingsValues : MonoBehaviour
     public Slider dialogueVolumeSlider;
     
     public AudioMixer masterMixer;
-    public AudioMixer musicMixer;
-    public AudioMixer soundFXMixer;
-    public AudioMixer dialogueMixer;
+    public AudioMixerGroup musicMixer;
+    public AudioMixerGroup soundFXMixer;
+    public AudioMixerGroup dialogueMixer;
     
     void Start()
     {
-        sensitivity = sensitivitySlider.value * 20;
+        //sensitivity = sensitivitySlider.value * 20;
     }
 
     // Update is called once per frame
@@ -35,6 +35,17 @@ public class SettingsValues : MonoBehaviour
     {
         PlayerPrefs.SetFloat("aimSensitivity", sensitivity);
     }
+
+    public void SaveVolumeData()
+    {
+        PlayerPrefs.SetFloat("masterVolume", masterVolumeSlider.value * 5);
+        PlayerPrefs.SetFloat("musicVolume", musicVolumeSlider.value * 5);
+        PlayerPrefs.SetFloat("soundFXVolume", soundFXVolumeSlider.value * 5);
+        PlayerPrefs.SetFloat("dialogueVolume", dialogueVolumeSlider.value * 5);
+        //Debug.Log("Master Volume:" + masterVolumeSlider.value);
+        Debug.Log("Master Volume:" + masterVolumeSlider.value  * 5 + " Music Volume:" + musicVolumeSlider.value  * 5
+                            + " SoundFX Volume:" + soundFXVolumeSlider.value  * 5 + " Dialogue Volume:" + dialogueVolumeSlider.value  * 5);
+    }
     
     public void ChangeSensitivity()
     {
@@ -42,23 +53,28 @@ public class SettingsValues : MonoBehaviour
         SaveSensitivityData();
     }
 
-    public void ChangeMasterVolume()
+    public void ChangeVolume()
     {
-        masterMixer.SetFloat("MasterVolume", masterVolumeSlider.value);
+        masterMixer.SetFloat("MasterVolume", masterVolumeSlider.value * 5);
+        musicMixer.audioMixer.SetFloat("MusicVolume", musicVolumeSlider.value * 5);
+        soundFXMixer.audioMixer.SetFloat("SoundFXVolume", soundFXVolumeSlider.value * 5);
+        dialogueMixer.audioMixer.SetFloat("DialogueVolume", dialogueVolumeSlider.value * 5);
+        SaveVolumeData();
     }
     
     public void ChangeMusicVolume()
     {
-        musicMixer.SetFloat("MusicVolume", musicVolumeSlider.value);
+        musicMixer.audioMixer.SetFloat("MusicVolume", musicVolumeSlider.value * 5);
+        
     }
     
     public void ChangeSoundFXVolume()
     {
-        soundFXMixer.SetFloat("SoundFXVolume", soundFXVolumeSlider.value);
+        soundFXMixer.audioMixer.SetFloat("SoundFXVolume", soundFXVolumeSlider.value * 5);
     }
     
     public void ChangeDialogueVolume()
     {
-        dialogueMixer.SetFloat("DialogueVolume", dialogueVolumeSlider.value);
+        dialogueMixer.audioMixer.SetFloat("DialogueVolume", dialogueVolumeSlider.value * 5);
     }
 }

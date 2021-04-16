@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class MeleeEnemy : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class MeleeEnemy : MonoBehaviour
     public GameObject warningeffect;
     public GameObject key;
 
+    public int chanceToSpawnPickup;
+    public GameObject healthPickupPrefab;
+    
     public GameObject Thruster;
 
     public float extraRotationSpeed;
@@ -34,6 +38,7 @@ public class MeleeEnemy : MonoBehaviour
     void Start()
     {
         Player = GameObject.Find("Player");
+        chanceToSpawnPickup = Random.Range(0, 5);
         z_MeleeState = MeleeState.CHASE;
         z_navMeshAgent = GetComponent<NavMeshAgent>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -67,7 +72,13 @@ public class MeleeEnemy : MonoBehaviour
         }
 
         if(EnemyHealth <= 0)
-        { 
+        {
+            if (chanceToSpawnPickup == 1)
+            {
+                Debug.Log("Instantiating HP Pickup");
+                Instantiate(healthPickupPrefab, this.transform);
+            }
+            
             Thruster.SetActive(false);
             z_navMeshAgent.enabled = false;
             Dead = true;

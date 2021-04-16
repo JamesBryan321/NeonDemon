@@ -10,11 +10,15 @@ public class MainMenuCamera : MonoBehaviour
     private Transform Temp;
     int CurrentCamera;
     
-    public GameObject mainMenuFirstButton, settingsFirstButton, creditsFirstButton, settingsFirstB;
+    public GameObject mainMenuFirstButton, settingsFirstButton, creditsFirstButton, 
+                        settingsFirstB, audioSettingsPanel, audioSettingsFirstButton, openAudioSettingsButton,
+                        sensitivityPanel, sensitivityFirstButton, openSensitivitySettingsButton;
     // Start is called before the first frame update
     void Start()
     {
         Temp = this.transform;
+        audioSettingsPanel.SetActive(false);
+        sensitivityPanel.SetActive(false);
       
         //Cursor.visible = true;
         //Cursor.lockState = CursorLockMode.None;
@@ -88,5 +92,33 @@ public class MainMenuCamera : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(settingsFirstB);
+    }
+
+    public void EditAudioSettings()
+    {
+        audioSettingsPanel.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(audioSettingsFirstButton);
+    }
+
+    public void EditSensitivitySettings()
+    {
+        sensitivityPanel.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(sensitivityFirstButton);
+    }
+
+    public void CloseAudioSettings()
+    {
+        audioSettingsPanel.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(openAudioSettingsButton);
+    }
+    
+    public void CloseSensitivitySettings()
+    {
+        sensitivityPanel.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(openSensitivitySettingsButton);
     }
 }

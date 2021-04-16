@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,11 @@ public class testHealthPickup : MonoBehaviour
     void Start()
     {
         
+    }
+
+    private void Awake()
+    {
+        HealthRef = GameObject.FindWithTag("Player").GetComponent<PlayerHP>();
     }
 
     // Update is called once per frame
@@ -34,7 +40,7 @@ public class testHealthPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player") && HealthRef.PlayerHealth < 1f)
         {
             //checktime = true;
             StartCoroutine(Wait());
