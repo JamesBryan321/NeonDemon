@@ -8,17 +8,13 @@ public class MainMenuCamera : MonoBehaviour
     public List<Transform> CameraPositions;
 
     private Transform Temp;
-    int CurrentCamera;
+   public int CurrentCamera;
     
-    public GameObject mainMenuFirstButton, settingsFirstButton, creditsFirstButton, 
-                        settingsFirstB, audioSettingsPanel, audioSettingsFirstButton, openAudioSettingsButton,
-                        sensitivityPanel, sensitivityFirstButton, openSensitivitySettingsButton;
+    public GameObject mainMenuFirstButton, settingsFirstButton, creditsFirstButton, settingsFirstB;
     // Start is called before the first frame update
     void Start()
     {
         Temp = this.transform;
-        audioSettingsPanel.SetActive(false);
-        sensitivityPanel.SetActive(false);
       
         //Cursor.visible = true;
         //Cursor.lockState = CursorLockMode.None;
@@ -93,32 +89,13 @@ public class MainMenuCamera : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(settingsFirstB);
     }
-
-    public void EditAudioSettings()
+    public void camerachangeUp()
     {
-        audioSettingsPanel.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(audioSettingsFirstButton);
+        CurrentCamera = CurrentCamera + 1;
     }
+    public void camerachangeDown()
+    {
+        CurrentCamera = CurrentCamera - 1;
 
-    public void EditSensitivitySettings()
-    {
-        sensitivityPanel.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(sensitivityFirstButton);
-    }
-
-    public void CloseAudioSettings()
-    {
-        audioSettingsPanel.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(openAudioSettingsButton);
-    }
-    
-    public void CloseSensitivitySettings()
-    {
-        sensitivityPanel.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(openSensitivitySettingsButton);
     }
 }
