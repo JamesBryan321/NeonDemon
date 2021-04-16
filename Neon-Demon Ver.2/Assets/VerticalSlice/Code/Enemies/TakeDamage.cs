@@ -7,6 +7,12 @@ public class TakeDamage : MonoBehaviour
     public MeleeEnemy EnemyRef;
     public AudioSource Pain;
     public GameObject key;
+
+    void Start()
+    {
+        EnemyRef = gameObject.GetComponentInParent<MeleeEnemy>();
+    }
+    
     void Update()
     {
         if (EnemyRef.EnemyHealth <=0)

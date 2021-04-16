@@ -49,7 +49,7 @@ public class MortarProjectile : MonoBehaviour
         if (CurrentWaypointID < 19)
         {
             transform.LookAt(Followpositions[CurrentWaypointID]);
-            Debug.Log("TEst");
+            //Debug.Log("TEst");
             //transform.position = Followpositions[CurrentWaypointID];
             Seek();
             if (Vector3.Distance(Followpositions[CurrentWaypointID], this.transform.position) < 3 && shot == false)
@@ -115,7 +115,7 @@ public class MortarProjectile : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player hit with mortar.");
+            //Debug.Log("Player hit with mortar.");
             collision.gameObject.GetComponent<PlayerHP>().PlayerHealth -= mortarDamage;
             collision.gameObject.GetComponent<PlayerHP>().PlayRandomHit();
             GameObject Bomb = Instantiate(Explosion, this.transform);

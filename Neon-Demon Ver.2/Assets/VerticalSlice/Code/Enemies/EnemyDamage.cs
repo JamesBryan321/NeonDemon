@@ -17,9 +17,10 @@ public class EnemyDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Enemy = GetComponentInParent<MeleeEnemy>();
         CheckReality = 1;
         Player = GameObject.Find("Player");
-        Enemy.GetComponent<MeleeEnemy>().z_navMeshAgent.enabled = true;
+        Enemy.z_navMeshAgent.enabled = true;
         AttackZone.enabled = false;
     }
 
