@@ -11,6 +11,8 @@ public class MainMenuCamera : MonoBehaviour
    public int CurrentCamera;
     
     public GameObject mainMenuFirstButton, settingsFirstButton, creditsFirstButton, settingsFirstB;
+    public GameObject sensitivityPanel, audioPanel, audioFirstButton, sensitivityFirstButton;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -97,5 +99,33 @@ public class MainMenuCamera : MonoBehaviour
     {
         CurrentCamera = CurrentCamera - 1;
 
+    }
+
+    public void EditAudioSettings()
+    {
+        audioPanel.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(audioFirstButton);
+    }
+
+    public void EditSensitivitySettings()
+    {
+        sensitivityPanel.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(sensitivityFirstButton);
+    }
+
+    public void CloseAudioSettings()
+    {
+        audioPanel.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(settingsFirstB);
+    }
+
+    public void CloseSensitivitySettings()
+    {
+        sensitivityPanel.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(sensitivityFirstButton);
     }
 }

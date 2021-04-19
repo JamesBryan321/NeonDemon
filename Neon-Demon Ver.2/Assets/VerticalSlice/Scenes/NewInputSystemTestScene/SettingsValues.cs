@@ -19,16 +19,34 @@ public class SettingsValues : MonoBehaviour
     public AudioMixerGroup musicMixer;
     public AudioMixerGroup soundFXMixer;
     public AudioMixerGroup dialogueMixer;
+
+    public float currentVolume, currentMusicVol, currentFXVol, currentDialogueVol, currentSensitivity;
+    
+    
     
     void Start()
     {
-        //sensitivity = sensitivitySlider.value * 20;
+        GetSettingsInfo();
+        masterVolumeSlider.value = currentVolume / 5;
+        musicVolumeSlider.value = currentMusicVol / 5;
+        soundFXVolumeSlider.value = currentFXVol / 5;
+        dialogueVolumeSlider.value = currentDialogueVol / 5;
+        sensitivitySlider.value = currentSensitivity;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void GetSettingsInfo()
+    {
+        currentVolume = PlayerPrefs.GetFloat("masterVolume");
+        currentMusicVol = PlayerPrefs.GetFloat("musicVolume");
+        currentFXVol = PlayerPrefs.GetFloat("soundFXVolume");
+        currentDialogueVol = PlayerPrefs.GetFloat("dialogueVolume");
+        currentSensitivity = PlayerPrefs.GetFloat("aimSensitivity");
     }
 
     public void SaveSensitivityData()
