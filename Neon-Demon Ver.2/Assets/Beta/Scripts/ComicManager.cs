@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ComicManager : MonoBehaviour
 {
     public MainMenuCamera cam;
+    public GameObject timeline0;
 
     public GameObject timeline1;
     public GameObject timeline2;
@@ -27,7 +28,11 @@ public class ComicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cam.CurrentCamera == 2)
+        if(cam.CurrentCamera == 1)
+        {
+            timeline0.SetActive(true);
+        }
+        if (cam.CurrentCamera == 2)
         {
             timeline1.SetActive(true);
         }
