@@ -51,7 +51,7 @@ public class SettingsValues : MonoBehaviour
 
     public void SaveSensitivityData()
     {
-        PlayerPrefs.SetFloat("aimSensitivity", sensitivity);
+        PlayerPrefs.SetFloat("aimSensitivity", currentSensitivity);
     }
 
     public void SaveVolumeData()
@@ -67,7 +67,7 @@ public class SettingsValues : MonoBehaviour
     
     public void ChangeSensitivity()
     {
-        sensitivity = sensitivitySlider.value * 20;
+        currentSensitivity = sensitivitySlider.value * 20;
         SaveSensitivityData();
     }
 

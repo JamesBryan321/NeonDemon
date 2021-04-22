@@ -126,6 +126,6 @@ public class MainMenuCamera : MonoBehaviour
     {
         sensitivityPanel.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(sensitivityFirstButton);
+        EventSystem.current.SetSelectedGameObject(settingsFirstB);
     }
 }
