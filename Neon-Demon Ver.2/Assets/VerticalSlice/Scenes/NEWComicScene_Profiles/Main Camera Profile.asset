@@ -17,13 +17,65 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   refractionTex:
-    overrideState: 0
-    value: {fileID: 0}
+    overrideState: 1
+    value: {fileID: 2800000, guid: fee7146afb5c73a43a6e46d0cd84d7d7, type: 3}
     defaultState: 1
   convertNormalMap:
     overrideState: 0
     value: 0
   amount:
+    overrideState: 1
+    value: 0
+--- !u!114 &-5754423125345939544
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ca37f13bb89c144a71832585b7a6ac, type: 3}
+  m_Name: EdgeDetection
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  debug:
+    overrideState: 1
+    value: 1
+  mode:
+    overrideState: 1
+    value: 0
+  invertFadeDistance:
+    overrideState: 0
+    value: 0
+  fadeDistance:
+    overrideState: 0
+    value: 1000
+  sensitivityDepth:
+    overrideState: 1
+    value: 1
+  sensitivityNormals:
+    overrideState: 1
+    value: 1
+  lumThreshold:
+    overrideState: 0
+    value: 0.01
+  edgeColor:
+    overrideState: 1
+    value: {r: 0, g: 0, b: 0, a: 1}
+  edgeExp:
+    overrideState: 0
+    value: 1
+  edgeSize:
+    overrideState: 1
+    value: 2
+  edgeOpacity:
+    overrideState: 1
+    value: 1
+  sobelThin:
     overrideState: 0
     value: 0
 --- !u!114 &-4420940251222491926
@@ -69,7 +121,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.18
+    value: 1.57
   threshold:
     overrideState: 0
     value: 1
@@ -115,6 +167,43 @@ MonoBehaviour:
   - {fileID: -6566135077482756718}
   - {fileID: 5081903898105166945}
   - {fileID: -4420940251222491926}
+  - {fileID: 3772422936354069471}
+  - {fileID: -5754423125345939544}
+--- !u!114 &3772422936354069471
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3797b844bf119c94c83b110e6cf4997a, type: 3}
+  m_Name: Sketch
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  strokeTex:
+    overrideState: 1
+    value: {fileID: 2800000, guid: bbf4171791fa53f47a0f4feb96e25b95, type: 3}
+    defaultState: 1
+  projectionMode:
+    overrideState: 1
+    value: 0
+  blendMode:
+    overrideState: 1
+    value: 0
+  intensity:
+    overrideState: 1
+    value: 1
+  brightness:
+    overrideState: 1
+    value: {x: 0, y: 0.9999999}
+  tiling:
+    overrideState: 1
+    value: 1
 --- !u!114 &5081903898105166945
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -133,7 +222,7 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 2.97
+    value: 2.55
   aperture:
     overrideState: 1
     value: 5.6
