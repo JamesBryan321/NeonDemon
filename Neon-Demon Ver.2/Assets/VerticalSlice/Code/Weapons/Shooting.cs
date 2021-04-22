@@ -280,6 +280,11 @@ public class Shooting : MonoBehaviour
                 hit.transform.GetComponent<MortarReference>().DestroyRobot();
                
             }
+            if(hit.transform.CompareTag("EnemyTutorial"))
+            {
+                Debug.Log("gogogogogogogogog");
+                hit.transform.GetComponent<RagDoll>().TurnOnRagdoll();
+            }
 
             if(hit.transform.CompareTag("Boss"))
             {
