@@ -31,7 +31,7 @@ public class SettingsValues : MonoBehaviour
         musicVolumeSlider.value = currentMusicVol / 5;
         soundFXVolumeSlider.value = currentFXVol / 5;
         dialogueVolumeSlider.value = currentDialogueVol / 5;
-        sensitivitySlider.value = currentSensitivity;
+        sensitivitySlider.value = currentSensitivity / 20;
     }
 
     // Update is called once per frame

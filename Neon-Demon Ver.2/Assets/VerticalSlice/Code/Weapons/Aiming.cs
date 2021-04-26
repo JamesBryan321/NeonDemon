@@ -31,18 +31,22 @@ public class Aiming : MonoBehaviour
         {
             //sensitivity = controllerSensitivity;
             sensitivity = PlayerPrefs.GetFloat("aimSensitivity");
+            /*
             sensitivitySlider.value = controllerSensitivity / 20;
             sensitivitySlider.maxValue = 20;
             sensitivitySlider.minValue = 1;
+            */
         }
 
         if (useKeyboard)
         {
             //sensitivity = mouseSensitivity;
             sensitivity = PlayerPrefs.GetFloat("aimSensitivity");
+            /*
             sensitivitySlider.value = mouseSensitivity / 20;
             sensitivitySlider.maxValue = 0.5f;
             sensitivitySlider.minValue = .05f;
+            */
         }
         //Debug.Log("Camera sensitivity is set to: " + sensitivity);
     }
