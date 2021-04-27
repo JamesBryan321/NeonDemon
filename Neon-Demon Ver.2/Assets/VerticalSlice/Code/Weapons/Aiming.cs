@@ -76,7 +76,15 @@ public class Aiming : MonoBehaviour
 
     public void ChangeSensitivity()
     {
-        sensitivity = settingsValueScript.currentSensitivity;
+        if (useController)
+        {
+            sensitivity = settingsValueScript.currentSensitivity;
+        }
+
+        if (useKeyboard)
+        {
+            sensitivity = settingsValueScript.currentSensitivity / 4;
+        }
     }
     
     
