@@ -12,7 +12,7 @@ public class SlowDownTime : MonoBehaviour
     private int TimeStop = 1;
     public PauseMenuScript PauseTest;
     public NewPlayerMoveScript PlayerRef;
-
+    public Animator RealitySwapAnim;
     /// <summary>
     /// Everything for the reality change 
     /// </summary>
@@ -26,17 +26,20 @@ public class SlowDownTime : MonoBehaviour
     //public Animator Vignette;
 
 
-    public Animator Glasses_Anim;
     void Start()
     {
+
         Meter.GetComponent<Image>().fillAmount = MeterAmount;
        // realityNormal = false;
     }
 
     public void OnRealityInput()
     {
+        TimeStop *= -1;
+        RealitySwapAnim.ResetTrigger("swap2");
+        RealitySwapAnim.ResetTrigger("swap1");
         WaitForChange();
-        TimeStop = TimeStop * -1;
+
     }
 
 
@@ -111,19 +114,21 @@ public class SlowDownTime : MonoBehaviour
     private void WaitForChange()
     {
         //yield return new WaitForSeconds(0.01f);
-
+        
         if (realityNormal == true)
         {
             Debug.Log("Swap Swap Swap");
-            Glasses_Anim.SetBool("Swap", true);
-            //changeToHell();
-            realityNormal = false;
+            //Glasses_Anim.SetBool("Swap", true);
+            //realityNormal = false;
+            changeToHell();
+            RealitySwapAnim.SetTrigger("swap1");
         }
         else if (realityNormal == false)
         {
-            Glasses_Anim.SetBool("Swap", false);
+           // Glasses_Anim.SetBool("Swap", false);
+            //realityNormal = true;
             changeToNormal1();
-            realityNormal = true;
+            RealitySwapAnim.SetTrigger("swap2");
         }
 
     }
