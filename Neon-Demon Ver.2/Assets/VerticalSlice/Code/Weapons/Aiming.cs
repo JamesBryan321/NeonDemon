@@ -22,6 +22,8 @@ public class Aiming : MonoBehaviour
     public bool useController, useKeyboard;
     public bool lockPlayerRotation;
 
+    public SettingsValues settingsValueScript;
+
     //public SettingsValues settingsScript;
     
     void Start()
@@ -30,7 +32,7 @@ public class Aiming : MonoBehaviour
         if (useController)
         {
             //sensitivity = controllerSensitivity;
-            sensitivity = PlayerPrefs.GetFloat("aimSensitivity");
+            sensitivity = settingsValueScript.currentSensitivity;
             /*
             sensitivitySlider.value = controllerSensitivity / 20;
             sensitivitySlider.maxValue = 20;
@@ -41,7 +43,7 @@ public class Aiming : MonoBehaviour
         if (useKeyboard)
         {
             //sensitivity = mouseSensitivity;
-            sensitivity = PlayerPrefs.GetFloat("aimSensitivity");
+            sensitivity = settingsValueScript.currentSensitivity;
             /*
             sensitivitySlider.value = mouseSensitivity / 20;
             sensitivitySlider.maxValue = 0.5f;
@@ -74,7 +76,7 @@ public class Aiming : MonoBehaviour
 
     public void ChangeSensitivity()
     {
-        sensitivity = sensitivitySlider.value * 20;
+        sensitivity = settingsValueScript.currentSensitivity;
     }
     
     
