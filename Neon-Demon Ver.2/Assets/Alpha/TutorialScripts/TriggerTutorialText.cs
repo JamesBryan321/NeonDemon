@@ -12,7 +12,7 @@ public class TriggerTutorialText : MonoBehaviour
 
         this.gameObject.SetActive(true);
     }
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -20,15 +20,23 @@ public class TriggerTutorialText : MonoBehaviour
             BelialText.SetActive(true);
         }
     }
-
+    */
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             BelialText.SetActive(false);
 
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
         }
 
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            BelialText.SetActive(true);
+        }
     }
 }
