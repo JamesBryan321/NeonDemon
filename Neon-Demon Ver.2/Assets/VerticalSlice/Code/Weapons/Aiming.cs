@@ -83,7 +83,7 @@ public class Aiming : MonoBehaviour
 
         if (useKeyboard)
         {
-            sensitivity = settingsValueScript.currentSensitivity / 4;
+            sensitivity = settingsValueScript.currentSensitivity / 20;
         }
     }
     
