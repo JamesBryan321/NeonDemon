@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Respawn : MonoBehaviour
 {
     public GameObject Player;
-    //public Animator Fade;
+    public Animator Gate;
 
 
     [SerializeField]
@@ -40,6 +40,7 @@ public class Respawn : MonoBehaviour
             SoftRespawns.Add(CurrentRespawn);
             SoftRespawnCount++;
             other.gameObject.SetActive(false);
+        
         }
 
         if(other.CompareTag("HardRespawn"))
@@ -48,6 +49,8 @@ public class Respawn : MonoBehaviour
             HardRespawns.Add(CurrentRespawn);
             HardRespawnCount++;
             other.gameObject.SetActive(false);
+           
+
         }
 
 
@@ -64,12 +67,14 @@ public class Respawn : MonoBehaviour
         //Fade.SetTrigger("_fade");
         //Rumble();
         Player.transform.position = SoftRespawns[SoftRespawnCount-1].position;
+
     }
 
     public void HardRespawnPlayer()
     {
         Rumble();
         Player.transform.position = HardRespawns[HardRespawnCount - 1].position;
+        Gate.SetTrigger("die");
     }
 
 
