@@ -22,16 +22,9 @@ public class Combatencounterhandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (var enemy in enemies)
+       if(enemies[0].GetComponent<MeleeEnemy>().enabled == false && enemies[3].GetComponent<MeleeEnemy>().enabled == false && enemies[2].GetComponent<MeleeEnemy>().enabled == false && enemies[4].GetComponent<MeleeEnemy>().enabled == false)
         {
-            var movescript = enemy.GetComponent<MeleeEnemy>();
-
-            if(movescript == false)
-            {
-
-                off();
-            }
-
+            off();
         }
     }
 
