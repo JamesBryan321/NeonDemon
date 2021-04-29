@@ -35,8 +35,7 @@ public class NewPlayerMoveScript : MonoBehaviour
 
     [Header("Animations")]
     public Animator shotgun;
-
-   
+    public Animator revolver;
 
  
 
@@ -51,6 +50,7 @@ public class NewPlayerMoveScript : MonoBehaviour
     
     public GameObject playerCamera;
     public Animator shotgunAnim;
+    public Animator RevolverAnim;
 
     public bool disablePlayerMovement;
     public bool setPlayerRotation;
@@ -88,16 +88,22 @@ public class NewPlayerMoveScript : MonoBehaviour
         if (isGrounded)
         {
             shotgun.ResetTrigger("In Air");
+            revolver.ResetTrigger("In Air");
             isJumping = false;
-            shotgun.SetTrigger("Idle");
+            shotgun.ResetTrigger("In Air");
+            revolver.ResetTrigger("In Air");
         }
 
         if (!isGrounded)
         {
             isJumping = true;
             shotgun.ResetTrigger("Idle");
+            shotgun.ResetTrigger("Run");
             shotgun.SetTrigger("In Air");
-            
+
+            revolver.ResetTrigger("Idle");
+            revolver.ResetTrigger("Run");
+            revolver.SetTrigger("In Air");
         }
       
 
@@ -111,11 +117,14 @@ public class NewPlayerMoveScript : MonoBehaviour
         velocity = (xMovement + zMovement).normalized * moveSpeed;
             playerRigidbody.velocity = new Vector3(velocity.x, playerRigidbody.velocity.y, velocity.y);
 
-
-        /*if (velocity != null)
+        ///*
+        if (velocity != null)
         {
             shotgun.ResetTrigger("Idle");
             shotgun.SetTrigger("Run");
+
+            revolver.ResetTrigger("Idle");
+            revolver.SetTrigger("Run");
         }
 
 
@@ -125,11 +134,19 @@ public class NewPlayerMoveScript : MonoBehaviour
         {
             shotgun.ResetTrigger("Run");
             shotgun.SetTrigger("Idle");
-        }*/
+
+            revolver.ResetTrigger("Run");
+            revolver.SetTrigger("Idle");
+        }
+        //*/
+
         if (velocity == new Vector2(0, 0))
         {
             shotgun.ResetTrigger("Run");
             shotgun.SetTrigger("Idle");
+
+            revolver.ResetTrigger("Run");
+            revolver.SetTrigger("Idle");
         }
 
     }
