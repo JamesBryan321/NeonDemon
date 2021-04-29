@@ -104,6 +104,7 @@ public class MainMenuCamera : MonoBehaviour
     public void EditAudioSettings()
     {
         audioPanel.SetActive(true);
+        sensitivityPanel.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(audioFirstButton);
     }
@@ -111,6 +112,7 @@ public class MainMenuCamera : MonoBehaviour
     public void EditSensitivitySettings()
     {
         sensitivityPanel.SetActive(true);
+        audioPanel.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(sensitivityFirstButton);
     }
