@@ -124,9 +124,12 @@ public class Shooting : MonoBehaviour
         {
             // Ads_anim.enabled = true;
             // Ads_anim.SetBool("Reload", true);
-           // Ads_anim.SetTrigger("reload");
+            // Ads_anim.SetTrigger("reload");
             //Ammo = ReloadAmmo;
-          //  StartCoroutine(WaitForReload());
+            //  StartCoroutine(WaitForReload());
+
+            Ads_anim.ResetTrigger("Idle");
+            Ads_anim.SetTrigger("reload");
         }
       
 
@@ -1074,6 +1077,7 @@ public class Shooting : MonoBehaviour
 
     public void ReloadBullets()
     {
+        Ads_anim.ResetTrigger("reload");
         Ammo = ReloadAmmo;
     }
     public IEnumerator WaitForReload()
@@ -1121,6 +1125,7 @@ public class Shooting : MonoBehaviour
         //StartCoroutine(WaitForReload());
         // Ads_anim.enabled = true;
         //Ads_anim.SetBool("Reload", true);
+        Ammo = 0;
         Ads_anim.ResetTrigger("Idle");
         Ads_anim.SetTrigger("reload");
         //StartCoroutine(WaitForReload());
