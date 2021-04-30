@@ -25,13 +25,15 @@ public class NewDash : MonoBehaviour
 
     public InputController inputScript;
 
+    public Animator RevolverAnim;
+    
+
     // Start is called before the first frame update
     void Start()
     {
-
         DashEffect.GetComponent<ParticleSystem>();
-            playerRigidbody = GetComponent<Rigidbody>();
-        
+        playerRigidbody = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -49,6 +51,7 @@ public class NewDash : MonoBehaviour
     private IEnumerator DashForward()
     {
         SpeedLineOBJ.SetActive(true);
+
         playerRigidbody.AddForce(transform.forward * dashForce, ForceMode.VelocityChange);
 
         yield return new WaitForSeconds(dashDuration);
@@ -56,7 +59,9 @@ public class NewDash : MonoBehaviour
         //DashCDR.fillAmount = jumpTime;
         playerRigidbody.velocity = Vector3.zero;
         SpeedLineOBJ.SetActive(false);
-       
+                
+        RevolverAnim.SetTrigger("Dash");
+
     }
 
 
@@ -64,6 +69,8 @@ public class NewDash : MonoBehaviour
     {
         if (jumpTime > jumpRate)
         {
+            RevolverAnim.SetTrigger("Dash");
+
             Rumble();
             StartCoroutine(DashTest());
             DashEffect.Play();

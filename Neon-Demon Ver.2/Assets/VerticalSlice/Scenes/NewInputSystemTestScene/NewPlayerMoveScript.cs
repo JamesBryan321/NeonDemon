@@ -91,7 +91,7 @@ public class NewPlayerMoveScript : MonoBehaviour
             revolver.ResetTrigger("In Air");
             isJumping = false;
             shotgun.ResetTrigger("In Air");
-            revolver.ResetTrigger("In Air");
+            revolver.SetTrigger("OnGround");
         }
 
         if (!isGrounded)
@@ -103,7 +103,10 @@ public class NewPlayerMoveScript : MonoBehaviour
 
             revolver.ResetTrigger("Idle");
             revolver.ResetTrigger("Run");
-            revolver.SetTrigger("In Air");
+            revolver.ResetTrigger("OnGround");
+
+            revolver.ResetTrigger("Jump");
+            revolver.ResetTrigger("DoubleJump");
         }
       
 
@@ -174,12 +177,18 @@ public class NewPlayerMoveScript : MonoBehaviour
             isJumping = true;
             secondJumpAvailable = true;
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+
+            revolver.ResetTrigger("Run");
+            revolver.SetTrigger("Jump");
         }
         else if (secondJumpAvailable)
         {
             playerRigidbody.velocity = Vector3.zero;
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             secondJumpAvailable = false;
+
+            revolver.ResetTrigger("Run");
+            revolver.SetTrigger("DoubleJump");
         }
 
     }
