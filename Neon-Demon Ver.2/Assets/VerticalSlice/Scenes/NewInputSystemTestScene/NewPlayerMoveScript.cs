@@ -104,9 +104,6 @@ public class NewPlayerMoveScript : MonoBehaviour
             revolver.ResetTrigger("Idle");
             revolver.ResetTrigger("Run");
             revolver.ResetTrigger("OnGround");
-
-            revolver.ResetTrigger("Jump");
-            revolver.ResetTrigger("DoubleJump");
         }
       
 
