@@ -79,6 +79,11 @@ public class NewDash : MonoBehaviour
 
         if(this.GetComponent<NewPlayerMoveScript>().groundCheck == true)
         {
+            if (playerMoveScript.velocity.x <= 0.05 && playerMoveScript.velocity.y <= 0.05)
+            {
+                playerRigidbody.AddForce(transform.forward * 15 * dashForceGround, ForceMode.VelocityChange);
+                Debug.Log("Forward Dash");
+            }
             playerRigidbody.AddForce(new Vector3(playerMoveScript.velocity.x, 0, playerMoveScript.velocity.y) * dashForceGround, ForceMode.VelocityChange);
         }
         if (this.GetComponent<NewPlayerMoveScript>().groundCheck == false)
