@@ -44,7 +44,7 @@ public class SceneLoading : MonoBehaviour
     
     public void LoadLevel3()
     {
-        SceneManager.LoadScene("BossLevel");
+        SceneManager.LoadScene("Boss");
     }
 
     public void QuitGame()
