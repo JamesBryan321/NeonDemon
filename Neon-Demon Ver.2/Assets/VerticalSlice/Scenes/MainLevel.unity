@@ -10248,8 +10248,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5e62e5996a4dbde4faf25412b867c6dd, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 21a3599ae91623744bd7f5f3578d7357, type: 3}
+  m_Color: {r: 0.9339623, g: 0.4537647, b: 0.86365837, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -24443,7 +24443,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5e62e5996a4dbde4faf25412b867c6dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 21a3599ae91623744bd7f5f3578d7357, type: 3}
   m_Color: {r: 0.6886792, g: 0.10720008, b: 0.10720008, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -35631,7 +35631,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-196978
+  m_Name: pb_Mesh-38536
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -35902,6 +35902,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39a666067dce04c4aae67e8c71f80833, type: 3}
+--- !u!1 &481341659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481341661}
+  - component: {fileID: 481341660}
+  m_Layer: 0
+  m_Name: NightclubAdDone 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &481341660
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481341659}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 21a3599ae91623744bd7f5f3578d7357, type: 3}
+  m_Color: {r: 0.6037736, g: 0.56674975, b: 0.56674975, a: 0.31764707}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 19.426846, y: 44.059998}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &481341661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481341659}
+  m_LocalRotation: {x: -0, y: 0.7285715, z: -0, w: 0.68496984}
+  m_LocalPosition: {x: 381.83, y: 26.5, z: 899.72}
+  m_LocalScale: {x: 0.77, y: 0.77, z: 0.77}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 93.534004, z: 0}
 --- !u!1 &482193496
 GameObject:
   m_ObjectHideFlags: 0
@@ -41361,8 +41442,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5e62e5996a4dbde4faf25412b867c6dd, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 21a3599ae91623744bd7f5f3578d7357, type: 3}
+  m_Color: {r: 0.26415092, g: 0.24795298, b: 0.24795298, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -42071,7 +42152,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh218104
+  m_Name: pb_Mesh16880
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -126166,6 +126247,16 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 5330834812154169258}
+    - target: {fileID: 1360910490812027916, guid: e0d1255ce5f7b6e41ab8de33528ddff6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 244.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360910490812027916, guid: e0d1255ce5f7b6e41ab8de33528ddff6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.72
+      objectReference: {fileID: 0}
     - target: {fileID: 1360910490815052407, guid: e0d1255ce5f7b6e41ab8de33528ddff6,
         type: 3}
       propertyPath: Player
