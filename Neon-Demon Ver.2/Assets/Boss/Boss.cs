@@ -54,7 +54,7 @@ public class Boss : MonoBehaviour
     public List<GameObject> UIobjs;
     public GameObject quitToMenuButton;
 
-
+    public GameObject AttackFire1, AttackFire2;
     public List<Transform> FireWaypoints;
     // Start is called before the first frame update
     void Start()
@@ -65,7 +65,8 @@ public class Boss : MonoBehaviour
         BossVunerable = false;
         KeytarMat.material = Green;
         BossMat.material = Green;
-
+        AttackFire1.SetActive(false);
+        AttackFire2.SetActive(false);
         foreach (Renderer color in AudioCubes)
         {
             color.material.SetColor("_EmissionColor", Color.green);
@@ -146,6 +147,8 @@ public class Boss : MonoBehaviour
         {
             color.material.SetColor("_EmissionColor", Color.red);
         }
+        AttackFire1.SetActive(true);
+        AttackFire2.SetActive(true);
         Chargecoroutine = AttackCharge(0.2f);
         //bossAnim.SetTrigger("attack1");
         StartCoroutine(Chargecoroutine);
@@ -239,6 +242,8 @@ public class Boss : MonoBehaviour
         {
             color.material.SetColor("_EmissionColor", Color.red);
         }
+        AttackFire1.SetActive(true);
+        AttackFire2.SetActive(true);
         Debug.Log("spin");
         transform.Rotate(0, 30 * Time.deltaTime, 0);
 
@@ -288,6 +293,8 @@ public class Boss : MonoBehaviour
 
     }
 
+
+
     void Vunerable()
     {
         
@@ -302,6 +309,8 @@ public class Boss : MonoBehaviour
         {
             color.material.SetColor("_EmissionColor", Color.yellow);
         }
+        AttackFire1.SetActive(false);
+        AttackFire2.SetActive(false);
         if (BossHealth < TempHP)
         {
             YellowVFX.Stop();
@@ -373,6 +382,8 @@ public class Boss : MonoBehaviour
             }
 
         }
+        AttackFire1.SetActive(false);
+        AttackFire2.SetActive(false);
     }
 
     public void chargeaftervun()
@@ -401,6 +412,8 @@ public class Boss : MonoBehaviour
         {
             color.material.SetColor("_EmissionColor", Color.green);
         }
+        AttackFire1.SetActive(false);
+        AttackFire2.SetActive(false);
         BossVunerable = false;
         if (Vector3.Distance(InvunerablePos.position, this.transform.position) > 3)
         {
