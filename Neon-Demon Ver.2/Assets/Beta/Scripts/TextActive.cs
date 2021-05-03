@@ -13,6 +13,10 @@ public class TextActive : MonoBehaviour
     {
         if(inputref.useController == true)
         {
+            foreach (GameObject text in KeyboardText)
+            {
+                text.SetActive(false);
+            }
             foreach (GameObject text in ControllerText)
             {
                 text.SetActive(true);
@@ -20,6 +24,10 @@ public class TextActive : MonoBehaviour
         }
         else if(inputref.useKeyboard == true)
         {
+            foreach (GameObject text in ControllerText)
+            {
+                text.SetActive(false);
+            }
             foreach (GameObject text in KeyboardText)
             {
                 text.SetActive(true);
