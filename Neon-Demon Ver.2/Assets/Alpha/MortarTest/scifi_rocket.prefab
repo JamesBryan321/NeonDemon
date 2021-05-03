@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3349744779125736967}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.062751, y: -0.10439, z: 0.14481}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.57812, y: 0.57812, z: 0.57812}
   m_Children:
   - {fileID: 6144153716891834049}
@@ -115,7 +115,9 @@ MonoBehaviour:
   CurrentWaypointID: 0
   speed: 50
   LineRef: {fileID: 0}
-  Explosion: {fileID: 8247698257913367099, guid: 9b144845df002124080cbf206fc8fd5e,
+  Explosion: {fileID: 8247698257913367099, guid: 59676701d4e519247b52d79693e42c43,
+    type: 3}
+  BiggerBoom: {fileID: 8247698257913367099, guid: 59676701d4e519247b52d79693e42c43,
     type: 3}
   Mass: 1
   MaxVelocity: 30
@@ -437,7 +439,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6.37
+  m_Radius: 14.32
   m_Center: {x: 0, y: 2.2749877e-14, z: 1.6008806}
 --- !u!82 &7988813691417329142
 AudioSource:

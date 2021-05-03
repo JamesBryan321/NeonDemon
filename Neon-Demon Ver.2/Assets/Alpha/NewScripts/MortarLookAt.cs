@@ -21,4 +21,9 @@ public class MortarLookAt : MonoBehaviour
 
         transform.LookAt(playerPosition);
     }
+
+    public void die()
+    {
+        this.enabled = false;
+    }
 }

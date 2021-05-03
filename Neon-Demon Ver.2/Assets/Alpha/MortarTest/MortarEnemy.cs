@@ -16,6 +16,8 @@ public class MortarEnemy : MonoBehaviour
     public float detection = 70;
     public float Firerate;
     public float nextFire = 0f;
+
+    public Animator mortaranim;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,14 +50,26 @@ public class MortarEnemy : MonoBehaviour
             if (Time.time > nextFire)
             {
                 nextFire = Time.time + Firerate;
-                GameObject mortar = Instantiate(Mortar, firepoint);
-                mortar.GetComponent<MortarProjectile>().Followpositions = positions;
-                point1.position = new Vector3((point0.position.x + point2.position.x) / 2, ((point0.position.y + point2.position.y) / 2) + CurveHeight, ((point0.position.z + point2.position.z) / 2));
-                point2.position = Player.transform.position;
-                Instantiate(AimLocation, point2);
+                mortaranim.SetTrigger("FireMissile");
+        
             }
         }
 
+    }
+
+    public void die()
+    {
+        mortaranim.SetBool("IsDead", true);
+        this.enabled = false;
+    }
+
+    public void AnimFireMortar()
+    {
+        GameObject mortar = Instantiate(Mortar, firepoint);
+        mortar.GetComponent<MortarProjectile>().Followpositions = positions;
+        point1.position = new Vector3((point0.position.x + point2.position.x) / 2, ((point0.position.y + point2.position.y) / 2) + CurveHeight, ((point0.position.z + point2.position.z) / 2));
+        point2.position = Player.transform.position;
+        Instantiate(AimLocation, point2);
     }
 
     private void DrawLinearCurve()

@@ -12,7 +12,7 @@ public class MortarProjectile : MonoBehaviour
     Vector3 current_position;
     public GameObject LineRef;
     public GameObject Explosion;
-
+    public GameObject BiggerBoom;
     public float Mass = 15;
     public float MaxVelocity = 6;
     public float MaxForce = 20;
@@ -68,6 +68,13 @@ public class MortarProjectile : MonoBehaviour
             Bomb.transform.parent = null;
             Destroy(gameObject);
         }
+      /*  if(shot == true && Vector3.Distance(Followpositions[CurrentWaypointID], this.transform.position) < 3)
+        {
+            GameObject Bomb = Instantiate(Explosion, this.transform);
+            Bomb.transform.parent = null;
+            
+            Destroy(gameObject);
+        }*/
       
     }
 
@@ -107,8 +114,9 @@ public class MortarProjectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Mortar") && shot == true)
         {
-            collision.gameObject.GetComponent<MortarReference>().DestroyRobot();
-            GameObject Bomb = Instantiate(Explosion, this.transform);
+            collision.gameObject.GetComponent<MortarEnemy>().die();
+            collision.gameObject.GetComponent<MortarLookAt>().die();
+            GameObject Bomb = Instantiate(BiggerBoom, this.transform);
             Bomb.transform.parent = null;
             Destroy(gameObject);
         }
