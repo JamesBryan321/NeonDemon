@@ -103110,6 +103110,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1356724625}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1608249372 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7791268074056202006, guid: cc17f67e2980e474f9278deecee68d4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1003499267253248873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1617570826 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4199233137920699298, guid: 97d5204f114ae6d4b84166fed451e552,
@@ -125843,6 +125849,11 @@ PrefabInstance:
       propertyPath: Hell_asset.Array.data[16]
       value: 
       objectReference: {fileID: 1913127781}
+    - target: {fileID: 4906613797320042319, guid: cc17f67e2980e474f9278deecee68d4e,
+        type: 3}
+      propertyPath: RealitySwapAnim
+      value: 
+      objectReference: {fileID: 1608249372}
     - target: {fileID: 5520826059558738995, guid: cc17f67e2980e474f9278deecee68d4e,
         type: 3}
       propertyPath: m_IsActive
@@ -125862,6 +125873,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.000128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836358314666362636, guid: cc17f67e2980e474f9278deecee68d4e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6040793246141739645, guid: cc17f67e2980e474f9278deecee68d4e,
         type: 3}
