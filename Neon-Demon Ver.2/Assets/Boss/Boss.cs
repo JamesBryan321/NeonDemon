@@ -53,6 +53,9 @@ public class Boss : MonoBehaviour
     public GameObject FadeOut;
     public List<GameObject> UIobjs;
     public GameObject quitToMenuButton;
+
+
+    public List<Transform> FireWaypoints;
     // Start is called before the first frame update
     void Start()
     {
@@ -104,7 +107,12 @@ public class Boss : MonoBehaviour
 
         }
 
-
+        if (aoe == true)
+        {
+            //FlameThrowerSFX.Play();
+            flamesfx.SetActive(true);
+            AOEattack();
+        }
     }
 
     public void Timelineend()
@@ -207,12 +215,7 @@ public class Boss : MonoBehaviour
         if(Vector3.Distance(Attack2Pos.position, this.transform.position)<2)
         {
             bossAnim.SetTrigger("attack2charge");
-            if(aoe == true)
-            {
-                //FlameThrowerSFX.Play();
-                flamesfx.SetActive(true);
-                AOEattack();
-            }
+        
           
         }
         else
@@ -226,7 +229,7 @@ public class Boss : MonoBehaviour
         //AOEattack();
         aoe = true;
     }
-
+    private int currentwaypoint;
     void AOEattack()
     {
         //YellowVFX.Stop();
@@ -238,7 +241,14 @@ public class Boss : MonoBehaviour
         }
         Debug.Log("spin");
         transform.Rotate(0, 30 * Time.deltaTime, 0);
-       
+
+        b_navMeshAgent.SetDestination(FireWaypoints[currentwaypoint].position);
+
+        if(Vector3.Distance(FireWaypoints[currentwaypoint].position, this.transform.position)<2)
+        {
+            currentwaypoint = (currentwaypoint + 1) % FireWaypoints.Count;
+        }
+
         foreach (ParticleSystem Fire in Flames)
         {
             Fire.Play();

@@ -121,7 +121,7 @@ public class NewPlayerMoveScript : MonoBehaviour
         if (velocity != null)
         {
             shotgun.ResetTrigger("Idle");
-            shotgun.ResetTrigger("Land");
+           // shotgun.ResetTrigger("Land");
             shotgun.SetTrigger("Run");
 
             revolver.ResetTrigger("Idle");
