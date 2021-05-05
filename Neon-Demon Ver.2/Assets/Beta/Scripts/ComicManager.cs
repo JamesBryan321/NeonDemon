@@ -58,6 +58,7 @@ public class ComicManager : MonoBehaviour
         }
         if (cam.CurrentCamera >=9)
         {
+            PlayerPrefs.SetInt("comicProgress", 1);
             SceneManager.LoadScene("NewTutorial");
         }
     }

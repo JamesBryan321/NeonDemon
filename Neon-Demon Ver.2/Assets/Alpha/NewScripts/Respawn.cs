@@ -31,6 +31,7 @@ public class Respawn : MonoBehaviour
         if (other.CompareTag("tutorial1"))
         {
             Time.timeScale = 1f;
+            PlayerPrefs.SetInt("tutorialComplete", 1);
             SceneManager.LoadScene("MainLevel");
         }
 
