@@ -87,11 +87,14 @@ public class NewPlayerMoveScript : MonoBehaviour
         //isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);
         if (isGrounded)
         {
-            shotgun.ResetTrigger("In Air");
+          
             revolver.ResetTrigger("In Air");
             isJumping = false;
-            shotgun.SetTrigger("Land");
+        
             revolver.SetTrigger("OnGround");
+
+            shotgun.SetTrigger("OnGround");
+            shotgun.ResetTrigger("In Air");
         }
 
         if (!isGrounded)
@@ -99,7 +102,7 @@ public class NewPlayerMoveScript : MonoBehaviour
             isJumping = true;
             shotgun.ResetTrigger("Idle");
             shotgun.ResetTrigger("Run");
-            shotgun.SetTrigger("In Air");
+            shotgun.ResetTrigger("OnGround");
 
             revolver.ResetTrigger("Idle");
             revolver.ResetTrigger("Run");
@@ -120,12 +123,12 @@ public class NewPlayerMoveScript : MonoBehaviour
         ///*
         if (velocity != null)
         {
-            shotgun.ResetTrigger("Idle");
-           // shotgun.ResetTrigger("Land");
-            shotgun.SetTrigger("Run");
+        
 
             revolver.ResetTrigger("Idle");
             revolver.SetTrigger("Run");
+            shotgun.ResetTrigger("Idle");
+            shotgun.SetTrigger("Run");
         }
 
 
@@ -133,9 +136,9 @@ public class NewPlayerMoveScript : MonoBehaviour
 
         else if (velocity == new Vector2(0,0))
         {
+
             shotgun.ResetTrigger("Run");
             shotgun.SetTrigger("Idle");
-
             revolver.ResetTrigger("Run");
             revolver.SetTrigger("Idle");
         }
@@ -178,8 +181,10 @@ public class NewPlayerMoveScript : MonoBehaviour
 
             revolver.ResetTrigger("Run");
             revolver.SetTrigger("Jump");
+            shotgun.ResetTrigger("Run");
+            shotgun.SetTrigger("Jump");
             //shotgun.ResetTrigger("Idle");
-          //  shotgun.SetTrigger("Jump");
+            //  shotgun.SetTrigger("Jump");
 
         }
         else if (secondJumpAvailable)
@@ -190,8 +195,10 @@ public class NewPlayerMoveScript : MonoBehaviour
 
             revolver.ResetTrigger("Run");
             revolver.SetTrigger("DoubleJump");
-           // shotgun.ResetTrigger("Idle");
-           // shotgun.SetTrigger("Jump");
+            shotgun.ResetTrigger("Run");
+            shotgun.SetTrigger("DoubleJump");
+            // shotgun.ResetTrigger("Idle");
+            // shotgun.SetTrigger("Jump");
         }
 
     }
