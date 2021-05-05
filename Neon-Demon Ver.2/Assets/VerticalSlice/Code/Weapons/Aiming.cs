@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Aiming : MonoBehaviour
 {
     public Transform playerBody;
-    [SerializeField] private float sensitivity = 100f;
+    [SerializeField] private float sensitivity;
     public float xRot = 0f;
     public float yRot = 0f;
 
@@ -43,7 +43,7 @@ public class Aiming : MonoBehaviour
         if (useKeyboard)
         {
             //sensitivity = mouseSensitivity;
-            sensitivity = settingsValueScript.currentSensitivity;
+            sensitivity = settingsValueScript.currentSensitivity / 20;
             /*
             sensitivitySlider.value = mouseSensitivity / 20;
             sensitivitySlider.maxValue = 0.5f;
