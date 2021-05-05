@@ -6,8 +6,20 @@ public class GameProgressTracker : MonoBehaviour
 {
     public bool comicComplete, tutorialComplete, mainLevelComplete, bossComplete;
 
+    public GameObject tutorialButton, mainLevelButton, bossLevelButton;
+
+    public bool allLevelsUnlocked;
+
     void Start()
     {
+        if (allLevelsUnlocked)
+        {
+            PlayerPrefs.SetInt("comicProgress", 1);
+            PlayerPrefs.SetInt("tutorialProgress", 1);
+            PlayerPrefs.SetInt("mainLevelProgress", 1);
+            PlayerPrefs.SetInt("bossProgress", 1);
+        }
+        
         if (PlayerPrefs.GetInt("comicProgress") == 1)
         {
             comicComplete = true;
@@ -32,21 +44,45 @@ public class GameProgressTracker : MonoBehaviour
 
     void Update()
     {
-        /*if (PlayerPrefs.GetInt("comicProgress") == 1)
+        if (!comicComplete)
         {
-            comicComplete = true;
+            tutorialButton.SetActive(false);
+            PlayerPrefs.SetInt("comicProgress", 0);
         }
-        if (PlayerPrefs.GetInt("tutorialProgress") == 1)
+
+        if (!tutorialComplete)
         {
-            tutorialComplete = true;
+            mainLevelButton.SetActive(false);
+            PlayerPrefs.SetInt("tutorialProgress", 0);
         }
-        if (PlayerPrefs.GetInt("mainLevelProgress") == 1)
+
+        if (!mainLevelComplete)
         {
-            mainLevelComplete = true;
+            bossLevelButton.SetActive(false);
+            PlayerPrefs.SetInt("mainLevelProgress", 0);
         }
-        if (PlayerPrefs.GetInt("bossProgress") == 1)
+        
+        if (comicComplete)
         {
-            bossComplete = true;
-        }*/
+            tutorialButton.SetActive(true);
+        }
+
+        if (tutorialComplete)
+        {
+            mainLevelButton.SetActive(true);
+        }
+
+        if (mainLevelComplete)
+        {
+            bossLevelButton.SetActive(true);
+        }
+    }
+
+    public void ClearLevelProgress()
+    {
+        PlayerPrefs.SetInt("comicProgress", 0);
+        PlayerPrefs.SetInt("tutorialProgress", 0);
+        PlayerPrefs.SetInt("mainLevelProgress", 0);
+        PlayerPrefs.SetInt("bossProgress", 0);
     }
 }
