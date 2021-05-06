@@ -18,7 +18,7 @@ public class ShotgunAmmoCounter : MonoBehaviour
     {
         
         Shooting shotgunScript = ShotgunManager.GetComponent<Shooting>();
-        ShotgunAmmo = shotgunScript.Ammo;
+        ShotgunAmmo = shotgunScript.SAmmo;
 
         ZeroText.SetActive(false);
         OneText.SetActive(false);
@@ -70,7 +70,7 @@ public class ShotgunAmmoCounter : MonoBehaviour
     void Update()
     {
         Shooting shotgunScript = ShotgunManager.GetComponent<Shooting>();
-        ShotgunAmmo = shotgunScript.Ammo;
+        ShotgunAmmo = shotgunScript.SAmmo;
 
         AmmoCounter();
     }

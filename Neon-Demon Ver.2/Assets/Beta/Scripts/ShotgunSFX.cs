@@ -53,8 +53,8 @@ public class ShotgunSFX : MonoBehaviour
     {
         //Instantiate(Cartridge, SpawnCartridgePos);
     }
-    public void ReloadBullets()
+    public void ReloadShells()
     {
-        GunRef.Ammo = GunRef.ReloadAmmo;
+        GunRef.SAmmo = GunRef.SReloadAmmo;
     }
 }

@@ -10,7 +10,8 @@ public class WeaponSwapping : MonoBehaviour
 
     public GameObject ReticleRevolver;
     public GameObject ShotgunReticle;
-
+    public Animator REVOLVERANIM;
+    public Animator SHOTGUNANIM;
 
 
     // Start is called before the first frame update
@@ -22,6 +23,9 @@ public class WeaponSwapping : MonoBehaviour
     public void WeaponSwitchInput()
     {
         int previousSlecetedWeapon = selectedWeapon;
+
+        REVOLVERANIM.ResetTrigger("reload");
+        SHOTGUNANIM.ResetTrigger("reload");
 
         if (selectedWeapon >= transform.childCount - 1)
         {
