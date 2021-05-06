@@ -8,6 +8,8 @@ public class GameProgressTracker : MonoBehaviour
 
     public GameObject tutorialButton, mainLevelButton, bossLevelButton;
 
+    public GameObject backButton0, backButton1, backButton2, backButton3;
+
     public bool allLevelsUnlocked;
 
     void Start()
@@ -39,6 +41,8 @@ public class GameProgressTracker : MonoBehaviour
         {
             bossComplete = true;
         }
+        
+        
     }
 
 
@@ -75,6 +79,42 @@ public class GameProgressTracker : MonoBehaviour
         if (mainLevelComplete)
         {
             bossLevelButton.SetActive(true);
+        }
+
+        if (tutorialButton.activeInHierarchy == false && mainLevelButton.activeInHierarchy == false 
+                                                      && bossLevelButton.activeInHierarchy == false)
+        {
+            backButton0.SetActive(true);
+            backButton1.SetActive(false);
+            backButton2.SetActive(false);
+            backButton3.SetActive(false);
+        }
+        
+        if (tutorialButton.activeInHierarchy == true && mainLevelButton.activeInHierarchy == false 
+                                                      && bossLevelButton.activeInHierarchy == false)
+        {
+            backButton0.SetActive(false);
+            backButton1.SetActive(true);
+            backButton2.SetActive(false);
+            backButton3.SetActive(false);
+        }
+        
+        if (tutorialButton.activeInHierarchy == true && mainLevelButton.activeInHierarchy == true 
+                                                     && bossLevelButton.activeInHierarchy == false)
+        {
+            backButton0.SetActive(false);
+            backButton1.SetActive(false);
+            backButton2.SetActive(true);
+            backButton3.SetActive(false);
+        }
+        
+        if (tutorialButton.activeInHierarchy == true && mainLevelButton.activeInHierarchy == true 
+                                                     && bossLevelButton.activeInHierarchy == true)
+        {
+            backButton0.SetActive(false);
+            backButton1.SetActive(false);
+            backButton2.SetActive(false);
+            backButton3.SetActive(true);
         }
     }
 
