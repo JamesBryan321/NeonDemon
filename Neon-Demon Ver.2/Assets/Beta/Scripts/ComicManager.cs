@@ -31,30 +31,58 @@ public class ComicManager : MonoBehaviour
         if(cam.CurrentCamera == 1)
         {
             timeline0.SetActive(true);
+            timeline1.SetActive(false);
+
         }
         if (cam.CurrentCamera == 2)
         {
+            timeline0.SetActive(false);
+
             timeline1.SetActive(true);
+            timeline2.SetActive(false);
+
         }
         if (cam.CurrentCamera == 3)
         {
+            timeline1.SetActive(false);
+
             timeline2.SetActive(true);
+            timeline3.SetActive(false);
+
+
         }
         if (cam.CurrentCamera == 4)
         {
+            timeline2.SetActive(false);
+
             timeline3.SetActive(true);
+            timeline4.SetActive(false);
+
         }
         if (cam.CurrentCamera == 5)
         {
+            timeline3.SetActive(false);
+
             timeline4.SetActive(true);
+            timeline5.SetActive(false);
+
         }
         if (cam.CurrentCamera == 6)
         {
+            timeline4.SetActive(false);
+
             timeline5.SetActive(true);
+            timeline6.SetActive(false);
+
+
         }
         if (cam.CurrentCamera == 7)
         {
+            timeline5.SetActive(false);
+
             timeline6.SetActive(true);
+
+
         }
         if (cam.CurrentCamera >=9)
         {
