@@ -68,7 +68,7 @@ public class Shooting : MonoBehaviour
     {
         if (shotgun)
         {
-            AmmoText.text = "" + SAmmo;
+           AmmoText.text = "" + SAmmo;
             Ads_anim.SetInteger("AnimAmmo", SAmmo);
         }
         else if (!shotgun)
