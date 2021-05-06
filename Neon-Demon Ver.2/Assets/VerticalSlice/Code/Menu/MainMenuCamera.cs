@@ -17,6 +17,7 @@ public class MainMenuCamera : MonoBehaviour
     void Start()
     {
         Temp = this.transform;
+        SelectMainMenu();
       
         //Cursor.visible = true;
         //Cursor.lockState = CursorLockMode.None;
