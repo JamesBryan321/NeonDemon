@@ -35,9 +35,12 @@ public class MeleeEnemy : MonoBehaviour
     public AudioSource DeathSFX;
     UnityEngine.AI.NavMeshAgent agent;
 
+    private SlowDownTime slowDownScript;
+
     void Start()
     {
         Player = GameObject.Find("Player");
+        slowDownScript = Player.GetComponentInChildren<SlowDownTime>();
         chanceToSpawnPickup = Random.Range(0, 5);
         z_MeleeState = MeleeState.CHASE;
         z_navMeshAgent = GetComponent<NavMeshAgent>();
@@ -73,7 +76,7 @@ public class MeleeEnemy : MonoBehaviour
 
         if(EnemyHealth <= 0)
         {
-            if (chanceToSpawnPickup == 1)
+            if (chanceToSpawnPickup == 1 && slowDownScript.realityNormal == false)
             {
                 Debug.Log("Instantiating HP Pickup");
                 Instantiate(healthPickupPrefab, this.transform);
