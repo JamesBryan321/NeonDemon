@@ -75,6 +75,8 @@ public class Respawn : MonoBehaviour
     {
         Rumble();
         Player.transform.position = HardRespawns[HardRespawnCount - 1].position;
+        Gate.ResetTrigger("Gate");
+
         Gate.SetTrigger("die");
     }
 
