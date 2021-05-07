@@ -63,7 +63,7 @@ public class ShotgunSFX : MonoBehaviour
 
     public void ResetBullets()
     {
-        //ShotAnim.ResetTrigger("Shooting");
+        ShotAnim.ResetTrigger("Shooting");
         //ShotAnim.ResetTrigger("Run");
         GunRef.SAmmo = 0;
     }
