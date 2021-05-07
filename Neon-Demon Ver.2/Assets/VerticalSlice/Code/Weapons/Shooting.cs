@@ -58,6 +58,8 @@ public class Shooting : MonoBehaviour
     private RaycastHit[] shotgunHitPoint;
     private Ray[] shotgunRay;
 
+
+    public bool blood;
     void Start()
     {
         //Ads_anim = GetComponent<Animator>();
@@ -202,22 +204,28 @@ public class Shooting : MonoBehaviour
             StartCoroutine(wait());
             if (hit.transform.CompareTag("Enemy"))
             {
-                float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 //  settings.LightIntensityMultiplier = DirLight.intensity;
                 hit.transform.GetComponent<TakeDamage>().Damage(damage);
                 StartCoroutine(wait());
             }
             if (hit.transform.CompareTag("BigEnemy"))
             {
-                float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 //  settings.LightIntensityMultiplier = DirLight.intensity;
                 hit.transform.GetComponent<TakeDamage>().bigGuyDamage(damage);
                 StartCoroutine(wait());
@@ -238,11 +246,14 @@ public class Shooting : MonoBehaviour
             if (hit.transform.CompareTag("Thruster"))
             {
                 Collider[] colliders = Physics.OverlapSphere(hit.transform.position, 5f);
-                float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 player.GetComponent<CamShaker>().SmallershakeIt();
 
                 // settings.LightIntensityMultiplier = DirLight.intensity;
@@ -271,12 +282,14 @@ public class Shooting : MonoBehaviour
             if (hit.transform.CompareTag("Head"))
             {
                 Collider[] colliders = Physics.OverlapSphere(hit.transform.position, 5f);
-                float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 hit.transform.GetComponent<Headshot>().BoomHeadshot();
                 hit.transform.GetComponent<TakeDamage>().Thrusterdamage();
 
@@ -325,11 +338,15 @@ public class Shooting : MonoBehaviour
                     hit.transform.GetComponent<Boss>().BossHealth -= 1;
 
                     hit.transform.GetComponent<Boss>().BossVunerable = false;
-                    float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
-                    int randomblood = Random.Range(0, BossBlood.Count);
-                    var instance = (Instantiate(BossBlood[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
-                    var settings = instance.GetComponent<BFX_BloodSettings>();
-                    settings.FreezeDecalDisappearance = true;
+
+                    if (blood == false)
+                    {
+                        float angle = Mathf.Atan2(hit.normal.x, hit.normal.z) * Mathf.Rad2Deg + 180;
+                        int randomblood = Random.Range(0, BossBlood.Count);
+                        var instance = (Instantiate(BossBlood[randomblood], hit.point, Quaternion.Euler(0, angle + 90, 0)));
+                        var settings = instance.GetComponent<BFX_BloodSettings>();
+                        settings.FreezeDecalDisappearance = true;
+                    }
                 }
             }
         }
@@ -382,28 +399,20 @@ public class Shooting : MonoBehaviour
             StartCoroutine(wait());
             if (shotgunHitPoint.transform.CompareTag("Enemy"))
             {
-                float angle = Mathf.Atan2(shotgunHitPoint.normal.x, shotgunHitPoint.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint.normal.x, shotgunHitPoint.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 //  settings.LightIntensityMultiplier = DirLight.intensity;
                 shotgunHitPoint.transform.GetComponent<TakeDamage>().Damage(damage);
                 StartCoroutine(wait());
             }
 
-            if (shotgunHitPoint.transform.CompareTag("BigEnemy"))
-            {
-                float angle = Mathf.Atan2(shotgunHitPoint.normal.x, shotgunHitPoint.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-                //  settings.LightIntensityMultiplier = DirLight.intensity;
-                shotgunHitPoint.transform.GetComponent<TakeDamage>().bigGuyDamage(damage);
-                StartCoroutine(wait());
-            }
-
+          
             if (shotgunHitPoint.transform.CompareTag("Rocket"))
             {
 
@@ -421,12 +430,14 @@ public class Shooting : MonoBehaviour
             if (shotgunHitPoint.transform.CompareTag("Thruster"))
             {
                 Collider[] colliders = Physics.OverlapSphere(shotgunHitPoint.transform.position, 5f);
-                float angle = Mathf.Atan2(shotgunHitPoint.normal.x, shotgunHitPoint.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint.normal.x, shotgunHitPoint.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 // settings.LightIntensityMultiplier = DirLight.intensity;
                 StartCoroutine(wait());
                 //Debug.Log("hit thruster, BOOOM");
@@ -454,12 +465,14 @@ public class Shooting : MonoBehaviour
             if (shotgunHitPoint.transform.CompareTag("Head"))
             {
                 Collider[] colliders = Physics.OverlapSphere(shotgunHitPoint.transform.position, 5f);
-                float angle = Mathf.Atan2(shotgunHitPoint.normal.x, shotgunHitPoint.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint.normal.x, shotgunHitPoint.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 shotgunHitPoint.transform.GetComponent<Headshot>().BoomHeadshot();
                 shotgunHitPoint.transform.GetComponent<TakeDamage>().Thrusterdamage();
 
@@ -530,11 +543,14 @@ public class Shooting : MonoBehaviour
             StartCoroutine(wait());
             if (shotgunHitPoint2.transform.CompareTag("Enemy"))
             {
-                float angle = Mathf.Atan2(shotgunHitPoint2.normal.x, shotgunHitPoint2.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint2.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint2.normal.x, shotgunHitPoint2.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint2.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 //  settings.LightIntensityMultiplier = DirLight.intensity;
                 shotgunHitPoint2.transform.GetComponent<TakeDamage>().Damage(damage);
                 StartCoroutine(wait());
@@ -542,11 +558,14 @@ public class Shooting : MonoBehaviour
 
             if (shotgunHitPoint2.transform.CompareTag("BigEnemy"))
             {
-                float angle = Mathf.Atan2(shotgunHitPoint2.normal.x, shotgunHitPoint2.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint2.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint2.normal.x, shotgunHitPoint2.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint2.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 //  settings.LightIntensityMultiplier = DirLight.intensity;
                 shotgunHitPoint2.transform.GetComponent<TakeDamage>().bigGuyDamage(damage);
                 StartCoroutine(wait());
@@ -569,12 +588,14 @@ public class Shooting : MonoBehaviour
             if (shotgunHitPoint2.transform.CompareTag("Thruster"))
             {
                 Collider[] colliders = Physics.OverlapSphere(shotgunHitPoint2.transform.position, 5f);
-                float angle = Mathf.Atan2(shotgunHitPoint2.normal.x, shotgunHitPoint2.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint2.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint2.normal.x, shotgunHitPoint2.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint2.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 // settings.LightIntensityMultiplier = DirLight.intensity;
                 StartCoroutine(wait());
                 Debug.Log("hit thruster, BOOOM");
@@ -602,12 +623,14 @@ public class Shooting : MonoBehaviour
             if (shotgunHitPoint2.transform.CompareTag("Head"))
             {
                 Collider[] colliders = Physics.OverlapSphere(shotgunHitPoint2.transform.position, 5f);
-                float angle = Mathf.Atan2(shotgunHitPoint2.normal.x, shotgunHitPoint2.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint2.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint2.normal.x, shotgunHitPoint2.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint2.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 shotgunHitPoint2.transform.GetComponent<Headshot>().BoomHeadshot();
                 shotgunHitPoint2.transform.GetComponent<TakeDamage>().Thrusterdamage();
                 foreach (Collider hit1 in colliders)
@@ -677,27 +700,20 @@ public class Shooting : MonoBehaviour
             StartCoroutine(wait());
             if (shotgunHitPoint3.transform.CompareTag("Enemy"))
             {
-                float angle = Mathf.Atan2(shotgunHitPoint3.normal.x, shotgunHitPoint3.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint3.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint3.normal.x, shotgunHitPoint3.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint3.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 //  settings.LightIntensityMultiplier = DirLight.intensity;
                 shotgunHitPoint3.transform.GetComponent<TakeDamage>().Damage(damage);
                 StartCoroutine(wait());
             }
 
-            if (shotgunHitPoint3.transform.CompareTag("BigEnemy"))
-            {
-                float angle = Mathf.Atan2(shotgunHitPoint3.normal.x, shotgunHitPoint3.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint3.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-                //  settings.LightIntensityMultiplier = DirLight.intensity;
-                shotgunHitPoint3.transform.GetComponent<TakeDamage>().bigGuyDamage(damage);
-                StartCoroutine(wait());
-            }
+       
 
             if (shotgunHitPoint3.transform.CompareTag("Rocket"))
             {
@@ -716,12 +732,14 @@ public class Shooting : MonoBehaviour
             if (shotgunHitPoint3.transform.CompareTag("Thruster"))
             {
                 Collider[] colliders = Physics.OverlapSphere(shotgunHitPoint3.transform.position, 5f);
-                float angle = Mathf.Atan2(shotgunHitPoint3.normal.x, shotgunHitPoint3.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint3.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint3.normal.x, shotgunHitPoint3.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint3.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 // settings.LightIntensityMultiplier = DirLight.intensity;
                 StartCoroutine(wait());
                 Debug.Log("hit thruster, BOOOM");
@@ -749,12 +767,14 @@ public class Shooting : MonoBehaviour
             if (shotgunHitPoint3.transform.CompareTag("Head"))
             {
                 Collider[] colliders = Physics.OverlapSphere(shotgunHitPoint3.transform.position, 5f);
-                float angle = Mathf.Atan2(shotgunHitPoint3.normal.x, shotgunHitPoint3.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint3.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint3.normal.x, shotgunHitPoint3.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint3.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 shotgunHitPoint3.transform.GetComponent<Headshot>().BoomHeadshot();
                 shotgunHitPoint3.transform.GetComponent<TakeDamage>().Thrusterdamage();
 
@@ -825,27 +845,20 @@ public class Shooting : MonoBehaviour
             StartCoroutine(wait());
             if (shotgunHitPoint4.transform.CompareTag("Enemy"))
             {
-                float angle = Mathf.Atan2(shotgunHitPoint4.normal.x, shotgunHitPoint4.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint4.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint4.normal.x, shotgunHitPoint4.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint4.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 //  settings.LightIntensityMultiplier = DirLight.intensity;
                 shotgunHitPoint4.transform.GetComponent<TakeDamage>().Damage(damage);
                 StartCoroutine(wait());
             }
 
-            if (shotgunHitPoint4.transform.CompareTag("BigEnemy"))
-            {
-                float angle = Mathf.Atan2(shotgunHitPoint4.normal.x, shotgunHitPoint4.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint4.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-                //  settings.LightIntensityMultiplier = DirLight.intensity;
-                shotgunHitPoint4.transform.GetComponent<TakeDamage>().bigGuyDamage(damage);
-                StartCoroutine(wait());
-            }
+     
 
             if (shotgunHitPoint4.transform.CompareTag("Rocket"))
             {
@@ -864,11 +877,14 @@ public class Shooting : MonoBehaviour
             if (shotgunHitPoint4.transform.CompareTag("Thruster"))
             {
                 Collider[] colliders = Physics.OverlapSphere(shotgunHitPoint4.transform.position, 5f);
-                float angle = Mathf.Atan2(shotgunHitPoint4.normal.x, shotgunHitPoint4.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint4.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint4.normal.x, shotgunHitPoint4.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint4.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
 
                 // settings.LightIntensityMultiplier = DirLight.intensity;
                 StartCoroutine(wait());
@@ -897,12 +913,14 @@ public class Shooting : MonoBehaviour
             if (shotgunHitPoint4.transform.CompareTag("Head"))
             {
                 Collider[] colliders = Physics.OverlapSphere(shotgunHitPoint4.transform.position, 5f);
-                float angle = Mathf.Atan2(shotgunHitPoint4.normal.x, shotgunHitPoint4.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint4.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint4.normal.x, shotgunHitPoint4.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint4.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 shotgunHitPoint4.transform.GetComponent<Headshot>().BoomHeadshot();
                 shotgunHitPoint4.transform.GetComponent<TakeDamage>().Thrusterdamage();
                 foreach (Collider hit1 in colliders)
@@ -972,11 +990,14 @@ public class Shooting : MonoBehaviour
             StartCoroutine(wait());
             if (shotgunHitPoint5.transform.CompareTag("Enemy"))
             {
-                float angle = Mathf.Atan2(shotgunHitPoint5.normal.x, shotgunHitPoint5.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint5.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint5.normal.x, shotgunHitPoint5.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint5.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 //  settings.LightIntensityMultiplier = DirLight.intensity;
                 shotgunHitPoint5.transform.GetComponent<TakeDamage>().Damage(damage);
                 StartCoroutine(wait());
@@ -984,11 +1005,14 @@ public class Shooting : MonoBehaviour
 
             if (shotgunHitPoint5.transform.CompareTag("BigEnemy"))
             {
-                float angle = Mathf.Atan2(shotgunHitPoint5.normal.x, shotgunHitPoint5.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint5.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint5.normal.x, shotgunHitPoint5.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint5.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 //  settings.LightIntensityMultiplier = DirLight.intensity;
                 shotgunHitPoint5.transform.GetComponent<TakeDamage>().bigGuyDamage(damage);
                 StartCoroutine(wait());
@@ -1011,12 +1035,14 @@ public class Shooting : MonoBehaviour
             if (shotgunHitPoint5.transform.CompareTag("Thruster"))
             {
                 Collider[] colliders = Physics.OverlapSphere(shotgunHitPoint5.transform.position, 5f);
-                float angle = Mathf.Atan2(shotgunHitPoint5.normal.x, shotgunHitPoint5.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint5.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint5.normal.x, shotgunHitPoint5.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint5.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 // settings.LightIntensityMultiplier = DirLight.intensity;
                 StartCoroutine(wait());
                 Debug.Log("hit thruster, BOOOM");
@@ -1044,12 +1070,14 @@ public class Shooting : MonoBehaviour
             if (shotgunHitPoint5.transform.CompareTag("Head"))
             {
                 Collider[] colliders = Physics.OverlapSphere(shotgunHitPoint5.transform.position, 5f);
-                float angle = Mathf.Atan2(shotgunHitPoint5.normal.x, shotgunHitPoint5.normal.z) * Mathf.Rad2Deg + 180;
-                int randomblood = Random.Range(0, BloodFX.Count);
-                var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint5.point, Quaternion.Euler(0, angle + 90, 0)));
-                var settings = instance.GetComponent<BFX_BloodSettings>();
-                settings.FreezeDecalDisappearance = true;
-
+                if (blood == false)
+                {
+                    float angle = Mathf.Atan2(shotgunHitPoint5.normal.x, shotgunHitPoint5.normal.z) * Mathf.Rad2Deg + 180;
+                    int randomblood = Random.Range(0, BloodFX.Count);
+                    var instance = (Instantiate(BloodFX[randomblood], shotgunHitPoint5.point, Quaternion.Euler(0, angle + 90, 0)));
+                    var settings = instance.GetComponent<BFX_BloodSettings>();
+                    settings.FreezeDecalDisappearance = true;
+                }
                 shotgunHitPoint5.transform.GetComponent<Headshot>().BoomHeadshot();
                 shotgunHitPoint5.transform.GetComponent<TakeDamage>().Thrusterdamage();
 
