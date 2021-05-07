@@ -11,6 +11,8 @@ public class RevolverSFX : MonoBehaviour
     public Shooting GunRef;
     public GameObject Cartridge;
     public Transform SpawnCartridgePos;
+
+    public Animator RevAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,12 @@ public class RevolverSFX : MonoBehaviour
 
     public void ReloadBullets()
     {
+        RevAnim.ResetTrigger("reload");
         GunRef.Ammo = GunRef.ReloadAmmo;
+    }
+
+    public void ResetBullets()
+    {
+        GunRef.Ammo = 0;
     }
 }

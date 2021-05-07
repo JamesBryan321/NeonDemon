@@ -23792,6 +23792,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.028571429
+    functionName: ResetBullets
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.9714286
     functionName: ShotgunClick
     data: 
@@ -23815,13 +23822,6 @@ AnimationClip:
     messageOptions: 0
   - time: 4.571429
     functionName: BarrelClick
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 4.8
-    functionName: ReloadBullets
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

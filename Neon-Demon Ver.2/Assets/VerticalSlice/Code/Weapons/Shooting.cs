@@ -1110,11 +1110,12 @@ public class Shooting : MonoBehaviour
         Ads_anim.ResetTrigger("Sreload");
         if (shotgun)
         {
-            Ammo = ReloadAmmo;
+            SAmmo = SReloadAmmo;
         }
         else if (!shotgun)
         {
-            SAmmo = SReloadAmmo;
+            Ammo = ReloadAmmo;
+           
         }
 
     }
@@ -1180,18 +1181,19 @@ public class Shooting : MonoBehaviour
     
     }
 
+        
 
         public void OnReloadInput()
         {
         if (shotgun)
         {
-            SAmmo = 0;
+            //SAmmo = 0;
             Ads_anim.ResetTrigger("Idle");
             Ads_anim.SetTrigger("Sreload");
         }
         else if (!shotgun)
         {
-            Ammo = 0;
+            //Ammo = 0;
             Ads_anim.ResetTrigger("Idle");
             Ads_anim.SetTrigger("reload");
         }

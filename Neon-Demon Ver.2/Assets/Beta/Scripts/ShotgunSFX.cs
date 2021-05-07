@@ -15,6 +15,7 @@ public class ShotgunSFX : MonoBehaviour
 
     public GameObject Cartridge;
     public Transform SpawnCartridgePos;
+    public Animator ShotAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +56,16 @@ public class ShotgunSFX : MonoBehaviour
     }
     public void ReloadShells()
     {
+
+        ShotAnim.ResetTrigger("Sreload");
         GunRef.SAmmo = GunRef.SReloadAmmo;
     }
+
+    public void ResetBullets()
+    {
+        ShotAnim.ResetTrigger("Shooting");
+        //ShotAnim.ResetTrigger("Run");
+        GunRef.SAmmo = 0;
+    }
+
 }
