@@ -220,31 +220,31 @@ AnimatorStateMachine:
     m_Position: {x: 110, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5883491988067776559}
-    m_Position: {x: 440, y: 230, z: 0}
+    m_Position: {x: 580, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7849798474912202929}
     m_Position: {x: -210, y: 430, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8162814191567364131}
-    m_Position: {x: 450, y: 410, z: 0}
+    m_Position: {x: 530, y: -150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5927970775229640159}
-    m_Position: {x: 220, y: 180, z: 0}
+    m_Position: {x: 110, y: -150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2362944261490322889}
-    m_Position: {x: 720, y: 340, z: 0}
+    m_Position: {x: 580, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3582376440012318817}
-    m_Position: {x: 260, y: 490, z: 0}
+    m_Position: {x: 250, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1084198651629726694}
-    m_Position: {x: 100, y: 580, z: 0}
+    m_Position: {x: -40, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6942846102560690011}
     m_Position: {x: -70, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1713997243308296976}
-    m_Position: {x: 330, y: 580, z: 0}
+    m_Position: {x: 250, y: 30, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -6011620828218012848}
@@ -253,7 +253,7 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 730, y: 180, z: 0}
+  m_AnyStatePosition: {x: 600, y: -40, z: 0}
   m_EntryPosition: {x: -120, y: 150, z: 0}
   m_ExitPosition: {x: -120, y: 100, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -638,9 +638,6 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: reload
-    m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: AnimAmmo
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8162814191567364131}
