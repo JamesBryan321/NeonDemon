@@ -58,7 +58,7 @@ public class Shooting : MonoBehaviour
     private RaycastHit[] shotgunHitPoint;
     private Ray[] shotgunRay;
 
-
+    public LayerMask EnemyLayer;
     public bool blood;
     void Start()
     {
@@ -195,7 +195,7 @@ public class Shooting : MonoBehaviour
         Ads_anim.SetBool("Shoot", true);
         Reticle.SetTrigger("Shoot");
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity,EnemyLayer))
         {
             //Instantiate(bulletMarker, hit.point, Quaternion.LookRotation(hit.normal));
             GameObject impactEffectGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(Vector3.forward, Vector3.up)) as GameObject;
