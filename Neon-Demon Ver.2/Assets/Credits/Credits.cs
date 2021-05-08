@@ -15,9 +15,12 @@ public class Credits : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(loadmenu == true)
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
+      
+    }
+
+
+    public void changeScene()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
