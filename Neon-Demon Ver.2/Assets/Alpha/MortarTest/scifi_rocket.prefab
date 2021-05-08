@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5158815748432920172}
   - component: {fileID: 7858835587918060325}
   - component: {fileID: 7988813691417329142}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: scifi_rocket
   m_TagString: Rocket
   m_Icon: {fileID: 0}
@@ -544,10 +544,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1740631334328775700}
     m_Modifications:
+    - target: {fileID: 5132849905223692734, guid: 7996c8a9fa4a3fc45977cde112a2921e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132849905223707552, guid: 7996c8a9fa4a3fc45977cde112a2921e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 5132849905223720608, guid: 7996c8a9fa4a3fc45977cde112a2921e,
         type: 3}
       propertyPath: m_Name
       value: YellowJetFlame2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132849905223720608, guid: 7996c8a9fa4a3fc45977cde112a2921e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5132849905223972658, guid: 7996c8a9fa4a3fc45977cde112a2921e,
         type: 3}
