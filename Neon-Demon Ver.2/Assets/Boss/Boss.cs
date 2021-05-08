@@ -354,6 +354,8 @@ public class Boss : MonoBehaviour
             BossSprite2.SetActive(true);
             agent.speed = 20;
             EnemiesSpawn = true;
+            Instantiate(HPpickup, HPspawnpos);
+
             b_BossState = BossState.INVUNERABLE;
         }
         else if(BossHealth == 2)
@@ -362,6 +364,8 @@ public class Boss : MonoBehaviour
             BossSprite3.SetActive(true);
             agent.speed = 20;
             EnemiesSpawn = true;
+            Instantiate(HPpickup, HPspawnpos);
+
             b_BossState = BossState.INVUNERABLE;
         }
         else if(BossHealth <= 0)
@@ -417,7 +421,6 @@ public class Boss : MonoBehaviour
         AttackFire1.SetActive(false);
         AttackFire2.SetActive(false);
         BossVunerable = false;
-        Instantiate(HPpickup, HPspawnpos);
         if (Vector3.Distance(InvunerablePos.position, this.transform.position) > 3)
         {
             b_navMeshAgent.SetDestination(InvunerablePos.position);
