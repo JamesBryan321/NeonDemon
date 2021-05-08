@@ -403,6 +403,8 @@ public class Boss : MonoBehaviour
 
     public bool EnemiesSpawn;
 
+    public Transform HPspawnpos;
+    public GameObject HPpickup;
     void Invunerable()
     {
         YellowVFX.Stop();
@@ -415,6 +417,7 @@ public class Boss : MonoBehaviour
         AttackFire1.SetActive(false);
         AttackFire2.SetActive(false);
         BossVunerable = false;
+        Instantiate(HPpickup, HPspawnpos);
         if (Vector3.Distance(InvunerablePos.position, this.transform.position) > 3)
         {
             b_navMeshAgent.SetDestination(InvunerablePos.position);
