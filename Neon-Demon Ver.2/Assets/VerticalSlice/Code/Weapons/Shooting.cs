@@ -1222,7 +1222,9 @@ public class Shooting : MonoBehaviour
         else if (!shotgun)
         {
             //Ammo = 0;
-            Ads_anim.ResetTrigger("Idle");
+            Ads_anim.ResetTrigger("Run");
+
+            Ads_anim.SetTrigger("Idle");
             Ads_anim.SetTrigger("reload");
         }
         //StartCoroutine(WaitForReload());
