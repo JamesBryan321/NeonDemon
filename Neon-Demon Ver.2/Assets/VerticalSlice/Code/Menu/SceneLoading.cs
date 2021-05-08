@@ -47,6 +47,11 @@ public class SceneLoading : MonoBehaviour
         SceneManager.LoadScene("Boss");
     }
 
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
