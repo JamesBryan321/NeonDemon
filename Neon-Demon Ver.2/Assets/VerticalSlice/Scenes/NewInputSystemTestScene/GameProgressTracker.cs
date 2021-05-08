@@ -42,12 +42,72 @@ public class GameProgressTracker : MonoBehaviour
             bossComplete = true;
         }
         
+        if (PlayerPrefs.GetInt("comicProgress") == 0)
+        {
+            comicComplete = false;
+        }
+
+        if (PlayerPrefs.GetInt("tutorialProgress") == 0)
+        {
+            tutorialComplete = false;
+        }
+
+        if (PlayerPrefs.GetInt("mainLevelProgress") == 0)
+        {
+            mainLevelComplete = false;
+        }
+
+        if (PlayerPrefs.GetInt("bossProgress") == 0)
+        {
+            bossComplete = false;
+        }
+        
         
     }
 
 
     void Update()
     {
+        if (PlayerPrefs.GetInt("comicProgress") == 1)
+        {
+            comicComplete = true;
+        }
+
+        if (PlayerPrefs.GetInt("tutorialProgress") == 1)
+        {
+            tutorialComplete = true;
+        }
+
+        if (PlayerPrefs.GetInt("mainLevelProgress") == 1)
+        {
+            mainLevelComplete = true;
+        }
+
+        if (PlayerPrefs.GetInt("bossProgress") == 1)
+        {
+            bossComplete = true;
+        }
+        
+        if (PlayerPrefs.GetInt("comicProgress") == 0)
+        {
+            comicComplete = false;
+        }
+
+        if (PlayerPrefs.GetInt("tutorialProgress") == 0)
+        {
+            tutorialComplete = false;
+        }
+
+        if (PlayerPrefs.GetInt("mainLevelProgress") == 0)
+        {
+            mainLevelComplete = false;
+        }
+
+        if (PlayerPrefs.GetInt("bossProgress") == 0)
+        {
+            bossComplete = false;
+        }
+        
         if (!comicComplete)
         {
             tutorialButton.SetActive(false);
