@@ -355,7 +355,7 @@ public class Boss : MonoBehaviour
             agent.speed = 20;
             EnemiesSpawn = true;
             Instantiate(HPpickup, HPspawnpos);
-
+            Instantiate(Realitypickup, RealitySwapPos);
             b_BossState = BossState.INVUNERABLE;
         }
         else if(BossHealth == 2)
@@ -365,7 +365,7 @@ public class Boss : MonoBehaviour
             agent.speed = 20;
             EnemiesSpawn = true;
             Instantiate(HPpickup, HPspawnpos);
-
+            Instantiate(Realitypickup, RealitySwapPos);
             b_BossState = BossState.INVUNERABLE;
         }
         else if(BossHealth <= 0)
@@ -409,6 +409,9 @@ public class Boss : MonoBehaviour
 
     public Transform HPspawnpos;
     public GameObject HPpickup;
+
+    public Transform RealitySwapPos;
+    public GameObject Realitypickup;
     void Invunerable()
     {
         YellowVFX.Stop();
