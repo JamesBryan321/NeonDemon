@@ -44,9 +44,13 @@ public class testHealthPickup : MonoBehaviour
         {
             //checktime = true;
             StartCoroutine(Wait());
-            HealthRef.PlayerHealth += 1f;
+            
+            HealthRef.PlayerHealth += 0.3f;
             gameObject.SetActive(false);
-
+            if(HealthRef.PlayerHealth > 1)
+            {
+                HealthRef.PlayerHealth = 1;
+            }
         }
     }
 
