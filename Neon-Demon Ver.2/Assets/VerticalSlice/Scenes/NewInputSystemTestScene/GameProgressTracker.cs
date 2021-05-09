@@ -185,4 +185,12 @@ public class GameProgressTracker : MonoBehaviour
         PlayerPrefs.SetInt("mainLevelProgress", 0);
         PlayerPrefs.SetInt("bossProgress", 0);
     }
+    
+    public void UnlockAllLevels()
+        {
+            PlayerPrefs.SetInt("comicProgress", 1);
+            PlayerPrefs.SetInt("tutorialProgress", 1);
+            PlayerPrefs.SetInt("mainLevelProgress", 1);
+            PlayerPrefs.SetInt("bossProgress", 1);
+        }
 }
