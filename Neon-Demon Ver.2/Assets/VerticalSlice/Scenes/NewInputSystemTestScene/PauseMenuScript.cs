@@ -70,6 +70,12 @@ public class PauseMenuScript : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void Credits()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Credits");
+    }
+
     public void SetBossLevelComplete()
     {
         PlayerPrefs.SetInt("bossLevelComplete", 1);
