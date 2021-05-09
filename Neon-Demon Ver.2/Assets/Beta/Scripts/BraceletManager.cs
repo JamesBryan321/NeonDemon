@@ -8,7 +8,7 @@ public class BraceletManager : MonoBehaviour
 {
     public int keyCount = 0;
     public GameObject goToNC;
-    public GameObject goToNC1;
+   // public GameObject goToNC1;
 
 
     public GameObject braceletImage1;
@@ -19,7 +19,7 @@ public class BraceletManager : MonoBehaviour
     void Start()
     {
         goToNC.SetActive(false);
-        goToNC1.SetActive(false);
+        //goToNC1.SetActive(false);
         braceletImage1.SetActive(false);
         braceletImage2.SetActive(false);
 
@@ -54,14 +54,14 @@ public class BraceletManager : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Nightclub") && keyCount <= 2)
         {
-            goToNC1.SetActive(true);
+         //   goToNC1.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Nightclub") && keyCount <= 2)
         {
-            goToNC1.SetActive(false);
+          //  goToNC1.SetActive(false);
         }
     }
 
